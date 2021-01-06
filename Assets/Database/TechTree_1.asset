@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f6298490f76f4d4e82de2b554a90f14, type: 3}
+  m_Name: TechTree_1
+  m_EditorClassIdentifier: 
+  techTrees:
+  - name: Colony
+    technologies:
+    - name: 03_r_name_021
+      description: 03_r_desc_021
+      icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+      cost: 1200
+      neededTech: 030000000800000010000000
+      identity: 21
+    - name: 03_r_name_022
+      description: 03_r_desc_022
+      icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+      cost: 2500
+      neededTech: 15000000140000000a000000
+      identity: 22
+    identifier: 0
+  - name: Housing
+    technologies:
+    - name: 03_r_name_000
+      description: 03_r_desc_000
+      icon: {fileID: 21300000, guid: d53b2db81a249704eb16704f3258be2b, type: 3}
+      cost: 70
+      neededTech: 
+      identity: 0
+    - name: 03_r_name_001
+      description: 03_r_desc_001
+      icon: {fileID: 21300000, guid: 0efdb229cd372934f80760d539ca80e6, type: 3}
+      cost: 50
+      neededTech: 00000000
+      identity: 1
+    - name: 03_r_name_002
+      description: 03_r_desc_002
+      icon: {fileID: 21300000, guid: d53b2db81a249704eb16704f3258be2b, type: 3}
+      cost: 150
+      neededTech: 01000000
+      identity: 2
+    - name: 03_r_name_003
+      description: 03_r_desc_003
+      icon: {fileID: 21300000, guid: 0efdb229cd372934f80760d539ca80e6, type: 3}
+      cost: 200
+      neededTech: 02000000
+      identity: 3
+    identifier: 1
+  - name: Ressources
+    technologies:
+    - name: 03_r_name_011
+      description: 03_r_desc_011
+      icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+      cost: 120
+      neededTech: 00000000
+      identity: 11
+    - name: 03_r_name_012
+      description: 03_r_desc_012
+      icon: {fileID: 21300000, guid: a09c45e946820784ca62a8f243dbb9df, type: 3}
+      cost: 250
+      neededTech: 0b000000
+      identity: 12
+    - name: 03_r_name_013
+      description: 03_r_desc_013
+      icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+      cost: 350
+      neededTech: 0b000000
+      identity: 13
+    - name: 03_r_name_014
+      description: 03_r_desc_014
+      icon: {fileID: 21300000, guid: 1b0e06c7bec995b4db077d30b703f015, type: 3}
+      cost: 500
+      neededTech: 0d000000
+      identity: 14
+    - name: 03_r_name_015
+      description: 03_r_desc_015
+      icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+      cost: 750
+      neededTech: 0d000000
+      identity: 15
+    - name: 03_r_name_016
+      description: 03_r_desc_016
+      icon: {fileID: 21300000, guid: 1b0e06c7bec995b4db077d30b703f015, type: 3}
+      cost: 1000
+      neededTech: 0f000000
+      identity: 16
+    identifier: 2
+  - name: Defenses
+    technologies:
+    - name: 03_r_name_017
+      description: 03_r_desc_017
+      icon: {fileID: 21300000, guid: 7aae33687e7b57747a4300ac7458892e, type: 3}
+      cost: 100
+      neededTech: 01000000
+      identity: 17
+    - name: 03_r_name_018
+      description: 03_r_desc_018
+      icon: {fileID: 21300000, guid: 834e070da7ff91e41b387c2daf3a511e, type: 3}
+      cost: 150
+      neededTech: 11000000
+      identity: 18
+    - name: 03_r_name_019
+      description: 03_r_desc_019
+      icon: {fileID: 21300000, guid: 99b23e9a7813d1f4abffe1f4fa1b663f, type: 3}
+      cost: 300
+      neededTech: 12000000
+      identity: 19
+    - name: 03_r_name_020
+      description: 03_r_desc_020
+      icon: {fileID: 21300000, guid: f0894e05365668a45931164049594c00, type: 3}
+      cost: 750
+      neededTech: 13000000
+      identity: 20
+    identifier: 3
+  - name: Power
+    technologies:
+    - name: 03_r_name_004
+      description: 03_r_desc_004
+      icon: {fileID: 21300000, guid: 19c5f5857eead434b934b478f1c6e80d, type: 3}
+      cost: 50
+      neededTech: 
+      identity: 4
+    - name: 03_r_name_005
+      description: 03_r_desc_005
+      icon: {fileID: 21300000, guid: 3c952c52f1163394fb1187b74a424920, type: 3}
+      cost: 75
+      neededTech: 04000000
+      identity: 5
+    - name: 03_r_name_006
+      description: 03_r_desc_006
+      icon: {fileID: 21300000, guid: 17a157d932670fe479b94e862812f058, type: 3}
+      cost: 150
+      neededTech: 0400000001000000
+      identity: 6
+    - name: 03_r_name_007
+      description: 03_r_desc_007
+      icon: {fileID: 21300000, guid: 3c952c52f1163394fb1187b74a424920, type: 3}
+      cost: 200
+      neededTech: 06000000
+      identity: 7
+    - name: 03_r_name_008
+      description: 03_r_desc_008
+      icon: {fileID: 21300000, guid: ec1647a2a2bf0c247b0741166e4b6329, type: 3}
+      cost: 400
+      neededTech: 06000000
+      identity: 8
+    - name: 03_r_name_009
+      description: 03_r_desc_009
+      icon: {fileID: 21300000, guid: 633d3f6e92d270a41bfca4c2e6e39721, type: 3}
+      cost: 500
+      neededTech: 0800000003000000
+      identity: 9
+    - name: 03_r_name_010
+      description: 03_r_desc_010
+      icon: {fileID: 21300000, guid: 3c952c52f1163394fb1187b74a424920, type: 3}
+      cost: 750
+      neededTech: 09000000
+      identity: 10
+    identifier: 4

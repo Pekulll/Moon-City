@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Preview
+  - BuildingDrone
+  - weatherCloud
+  - SpawnCloud
+  - Fire
+  - PlayerBuilding
+  - Enemy
+  - LoadButton
+  - DiplomatieButton
+  - Backgrounds
+  - Destroyable
+  - ResearchBtn
+  - GroupBtn
+  - Color/Icon
+  - Color/Text
+  - Color/Background
+  - Color/Forground
+  - Color/Important
+  - Color/VeryImportant
+  - Color/Background (inversed)
+  - Color/Forground (inversed)
+  - Color/Icon (inversed)
+  - Color/Background (transparent)
+  - Color/Foreground (transparent)
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - MapMarker
+  - Terrain
+  - Preview
+  - SelectionIgnore
+  - Marker
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716e9478dd878344cafd267eb7a51ea3, type: 3}
+  m_Name: '[006] Farm (L)'
+  m_EditorClassIdentifier: 
+  identity: 6
+  icon: {fileID: 21300000, guid: 681ff68292035d94ab97d0c24be6f4dc, type: 3}
+  name: 03_b_name_006
+  description: 03_b_desc_006
+  techsNeeded: 02000000
+  maxHealth: 35
+  maxShield: 0
+  maxEnergy: 1
+  weakness: 3
+  colonist: 8
+  energy: -15
+  money: 100
+  regolith: 30
+  bioPlastique: 25
+  food: 0
+  profit: -11
+  maxColonist: 0
+  rigolyteOutput: 0
+  bioPlastiqueOutput: 0
+  foodOutput: 32
+  research: 0
+  energyStorage: 0
+  rigolyteStock: 0
+  bioPlasticStock: 0
+  foodStock: 0
+  preview: {fileID: 4949955285147925362, guid: 17a50fd0e1645874f9fdf4f0d57df487, type: 3}
+  building: {fileID: 6678926645117677019, guid: 57a6a60a91c2674449686e8153a0e6c5,
+    type: 3}
+  heightLimit: {x: -0.1, y: 0.5}
+  maxProgress: 55
+  experience: 8
+  needSpecificCollision: 0
+  tagToCollide: 0
+  needNearBuilding: 0
+  distance: 10
+  nearBuildingID: 0
+  canLink: 1
+  canBeLink: 1
+  canBePause: 1
+  canControlSector: 0

@@ -1,0 +1,172 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c40b873de23cf64d98704ae2a20e389, type: 3}
+  m_Name: UnitsIdentity
+  m_EditorClassIdentifier: 
+  units:
+  - name: Flea
+    unitIcon: {fileID: 21300000, guid: 80e46e807f59ade44b86c8e0f45f3c94, type: 3}
+    time: 4
+    identity: 0
+    maxLevel: 0
+    levelDamage: []
+    levelHealth: []
+    place: 1
+    money: 20
+    food: 10
+    moneyOut: 0
+    foodOut: 0
+    model: {fileID: 0}
+  - name: Gravity soldier
+    unitIcon: {fileID: 21300000, guid: b5979b44cccc3114db1e2c09666158ba, type: 3}
+    time: 6
+    identity: 1
+    maxLevel: 5
+    levelDamage:
+    - 0.35
+    - 0.45
+    - 0.6
+    - 0.8
+    levelHealth:
+    - 6
+    - 7
+    - 8
+    - 10
+    place: 1
+    money: 55
+    food: 5
+    moneyOut: 0
+    foodOut: 0
+    model: {fileID: 5122189303447391781, guid: 947e1db6774dc74419ae6b89c383d833, type: 3}
+  - name: Boomer
+    unitIcon: {fileID: 21300000, guid: 84a147fcb431e0e4f96044b55de70a42, type: 3}
+    time: 9
+    identity: 2
+    maxLevel: 5
+    levelDamage:
+    - 8.5
+    - 9.5
+    - 11
+    - 13
+    levelHealth:
+    - 9
+    - 11
+    - 12
+    - 15
+    place: 2
+    money: 100
+    food: 10
+    moneyOut: 0
+    foodOut: 0
+    model: {fileID: 0}
+  - name: Jumper
+    unitIcon: {fileID: 21300000, guid: e1c32a8cddfc7a04d886c3871de4952d, type: 3}
+    time: 11
+    identity: 3
+    maxLevel: 5
+    levelDamage:
+    - 1.1
+    - 1.25
+    - 1.5
+    - 1.85
+    levelHealth:
+    - 17
+    - 19
+    - 20
+    - 22
+    place: 3
+    money: 75
+    food: 13
+    moneyOut: 0
+    foodOut: 0
+    model: {fileID: 3777325088253688296, guid: 9e91efc64f3bd7349a1e6db79c0c3bf6, type: 3}
+  - name: Bouncy Tank
+    unitIcon: {fileID: 21300000, guid: acb2eed4ff475f640abbafc7dc92e9b2, type: 3}
+    time: 20
+    identity: 4
+    maxLevel: 5
+    levelDamage:
+    - 9
+    - 11
+    - 13
+    - 15
+    levelHealth:
+    - 11
+    - 13
+    - 15
+    - 20
+    place: 5
+    money: 205
+    food: 20
+    moneyOut: 0
+    foodOut: 0
+    model: {fileID: 6721308729000295378, guid: 51196c5c6ddda2d45b725579cceac905, type: 3}
+  - name: Rockopter
+    unitIcon: {fileID: 21300000, guid: 6716799131aa6564491bf1df9ab95940, type: 3}
+    time: 30
+    identity: 5
+    maxLevel: 5
+    levelDamage:
+    - 17.5
+    - 18.5
+    - 20
+    - 22
+    levelHealth:
+    - 17
+    - 19
+    - 21
+    - 23
+    place: 5
+    money: 275
+    food: 25
+    moneyOut: 0
+    foodOut: 0
+    model: {fileID: 2758171114131853870, guid: 7ffdcf4ca7402be4bbb1182dec3d89a0, type: 3}
+  - name: Constructor (M)
+    unitIcon: {fileID: 21300000, guid: 4e8d68ca0c25e684a94161c4f961bd5d, type: 3}
+    time: 2
+    identity: 6
+    maxLevel: 1
+    levelDamage: []
+    levelHealth: []
+    place: 1
+    money: 10
+    food: 5
+    moneyOut: 0
+    foodOut: 0
+    model: {fileID: 5716131100120540674, guid: 45048c4de6774c24cab6191bb79b99e2, type: 3}
+  - name: Security agent
+    unitIcon: {fileID: 21300000, guid: 4e8d68ca0c25e684a94161c4f961bd5d, type: 3}
+    time: 4
+    identity: 7
+    maxLevel: 1
+    levelDamage: []
+    levelHealth: []
+    place: 1
+    money: 10
+    food: 5
+    moneyOut: 0
+    foodOut: 0
+    model: {fileID: 2798050815775072506, guid: a33138356d6ec2048b3b4cd08d9f1bb2, type: 3}
+  - name: Medic
+    unitIcon: {fileID: 21300000, guid: 4e8d68ca0c25e684a94161c4f961bd5d, type: 3}
+    time: 7
+    identity: 8
+    maxLevel: 1
+    levelDamage: []
+    levelHealth: []
+    place: 1
+    money: 10
+    food: 5
+    moneyOut: 0
+    foodOut: 0
+    model: {fileID: 1364169556297707632, guid: 6a4e295732f65c44cb979bc58f0327d0, type: 3}

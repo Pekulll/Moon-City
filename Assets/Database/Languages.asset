@@ -1,0 +1,1221 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de27d512aba613e4cba5b10eacae27c5, type: 3}
+  m_Name: Languages
+  m_EditorClassIdentifier: 
+  langs:
+  - langName: fr-FR
+    sentences:
+    - baseSentence: ===== Main menu and other menu =====
+      sentence: ===== Main menu =====
+    - baseSentence: '**** 00/02loading ****'
+      sentence: '**** 00/02loading ****'
+    - baseSentence: Loading...
+      sentence: Chargement...
+    - baseSentence: Understood!
+      sentence: Compris !
+    - baseSentence: Thanks for playing!
+      sentence: Merci de jouer !
+    - baseSentence: Don't forget that is a <color=#FFA700>pre-alpha version</color>.
+        So many bugs can interupt your gameplay. To improve the game, don't forget
+        to send us your feedbacks, and your suggestions, via our social networks.
+      sentence: "N'oubliez pas qu'il s'agit d'<color=#FFA700>une version pr\xE9-alpha</color>.
+        Des bugs peuvent interrompre votre exp\xE9rience. Pour am\xE9liorer le jeu,
+        n'oubliez pas de nous faire vos retours et vos suggestions, via nos r\xE9seaux
+        sociaux."
+    - baseSentence: '**** 01main ****'
+      sentence: '**** 01main ****'
+    - baseSentence: '<b>Sandbox</b> :: Do everythings you want, with unlimited ressources.'
+      sentence: "<b>Bac \xE0 sable</b> :: Faites ce que vous voulez avec des ressources
+        illimit\xE9es."
+    - baseSentence: '<b>Conquest</b> :: Manage your colony and destroy, or buy, the
+        others.'
+      sentence: "<b>Conqu\xEAte</b> :: G\xE9rez votre colonie et d\xE9truisez, ou
+        achetez, les autres."
+    - baseSentence: '<b>Defend</b> :: Build your colony and protect it until the
+        last wave.'
+      sentence: "<b>D\xE9fense</b> :: Construisez votre colonie et survivez \xE0
+        l'envahisseur."
+    - baseSentence: '<b>Defend & conquest</b> :: Build your colony, protect it until
+        the last wave, and attack others.'
+      sentence: "<b>D\xE9fense et conqu\xEAte</b> :: Le m\xE9lange des modes Conqu\xEAte
+        et D\xE9fense."
+    - baseSentence: '<b>Co-op</b> :: Same as the conquest mod, but with your friend.'
+      sentence: "<b>Co-op</b> :: Comme le mode Conqu\xEAte, mais en coop\xE9ration
+        avec vos amis."
+    - baseSentence: '<b>Armagedon</b> :: Same as the conquest mod, but with other
+        players. <size=17>(max: 00 player)</size>'
+      sentence: "<b>Armagedon</b> :: Comme le mode Conqu\xEAte mais avec d'autres
+        joueurs. <size=17>(max: 00 joueur)</size>"
+    - baseSentence: All the modes displayed in red are under development.
+      sentence: "Tout les modes affich\xE9s en rouge sont en cours de d\xE9veloppement."
+    - baseSentence: Delete all game's saved and configurations.
+      sentence: "Supprimer toutes les donn\xE9es du jeu (sauvegarde(s) et configuration)"
+    - baseSentence: 'Key set at '
+      sentence: "Touche mise \xE0 "
+    - baseSentence: default
+      sentence: "d\xE9faut"
+    - baseSentence: 'Key to bind:'
+      sentence: "Touche \xE0 d\xE9finir :"
+    - baseSentence: Wait
+      sentence: Attendez
+    - baseSentence: second
+      sentence: seconde
+    - baseSentence: seconds
+      sentence: secondes
+    - baseSentence: Press a key...
+      sentence: Appuyez sur une touche...
+    - baseSentence: NONE
+      sentence: VIDE
+    - baseSentence: Rotate left
+      sentence: "Rotation \xE0 gauche"
+    - baseSentence: Rotate right
+      sentence: "Rotation \xE0 droite"
+    - baseSentence: Rotate preview
+      sentence: "Rotation d'une pr\xE9visualisation"
+    - baseSentence: Choose your game style!
+      sentence: Choisissez votre style de jeu !
+    - baseSentence: 'More ressources
+
+        More subventions
+
+        -0% of ressources
+        on destroy
+
+        Attack rate 40%'
+      sentence: 'Plus de ressources
+
+        Plus de subventions
+
+        -0% de
+        ressources lors de la destruction
+
+        Taux d''attaques : 40%'
+    - baseSentence: 'Classic ressources
+
+        Classic subventions
+
+        -50%
+        of ressources on destroy
+
+        Attack rate 65%'
+      sentence: 'Ressources classiques
+
+        Subventions normales
+
+        -50%
+        de ressources lors de la destruction
+
+        Taux d''attaques : 65%'
+    - baseSentence: 'Less ressources
+
+        Less subventions
+
+        -100% of
+        ressources on destroy
+
+        Attack rate 90%'
+      sentence: 'Moins de ressources
+
+        Moins de subventions
+
+        -100%
+        de ressources lors de la destruction
+
+        Taux d''attaques : 90%'
+    - baseSentence: Choose your own game difficulty. Make your Moon's rules better
+        than us !
+      sentence: "Choissisez votre propre difficult\xE9. Faite les r\xE8gles de la
+        Lune mieux que nous !"
+    - baseSentence: 'Lot of ressources
+
+        Lot of subventions
+
+        -0% of
+        ressources on destroy'
+      sentence: 'Trop de ressources
+
+        Trop de subventions
+
+        -0% de
+        ressources lors de la destruction'
+    - baseSentence: 'Classic ressources
+
+        Classic subventions
+
+        -50%
+        of ressources on destroy'
+      sentence: 'Ressources classiques
+
+        Subventions classiques
+
+        -50%
+        de ressources lors de la destruction'
+    - baseSentence: 'Defensive quantity of ressources
+
+        A little of subventions
+
+        -100%
+        of ressources on destroy'
+      sentence: "Quantit\xE9 d\xE9fensive de ressources\nUn peu de subventions\n-100%
+        de ressources lors de la destruction"
+    - baseSentence: 'No ressources
+
+        Classic subventions
+
+        -125% of
+        ressources on destroy'
+      sentence: 'Aucune ressource
+
+        Taux de subventions classique
+
+        -125%
+        de ressources lors de la destruction'
+    - baseSentence: Attack rate (probability of a new attack each 10 hours)
+      sentence: "Taux d'attaques (probabilit\xE9 d'une nouvelle attaque toutes les
+        10 heures)"
+    - baseSentence: Number of colony(ies) on the Moon (you exclude) [NOT IMPLEMENTED]
+      sentence: Nombre de colonie(s) sur la Lune (vous exclu(e)) [INDISPONIBLE]
+    - baseSentence: Done
+      sentence: "Termin\xE9"
+    - baseSentence: High
+      sentence: "Elev\xE9"
+    - baseSentence: Very high
+      sentence: "Tr\xE8s \xE9lev\xE9"
+    - baseSentence: Standard
+      sentence: Standard
+    - baseSentence: Defensive
+      sentence: "D\xE9fensif"
+    - baseSentence: Low
+      sentence: Bas
+    - baseSentence: Very low
+      sentence: "Tr\xE8s bas"
+    - baseSentence: New colony
+      sentence: Nouvelle colonie
+    - baseSentence: Load a colony
+      sentence: Charger une colonie
+    - baseSentence: Moon network
+      sentence: "R\xE9seau lunaire"
+    - baseSentence: Settings
+      sentence: "Param\xE8tres"
+    - baseSentence: Quit to desktop
+      sentence: Quitter vers le bureau
+    - baseSentence: Move forward
+      sentence: Avancer
+    - baseSentence: Move backward
+      sentence: Reculer
+    - baseSentence: Strafe left
+      sentence: "Aller \xE0 gauche"
+    - baseSentence: Strafe right
+      sentence: "Aller \xE0 droite"
+    - baseSentence: None
+      sentence: Aucun(e)
+    - baseSentence: Video
+      sentence: "Vid\xE9o"
+    - baseSentence: Music & sound
+      sentence: Son & musique
+    - baseSentence: SOON... Sorry!
+      sentence: "C'est pour bient\xF4t, d\xE9sol\xE9..."
+    - baseSentence: Hotkeys
+      sentence: Raccourcis
+    - baseSentence: Some settings can needs a game restart.
+      sentence: "Certaines options peuvent n\xE9c\xE9ssiter un red\xE9mmarage du
+        jeu."
+    - baseSentence: This is... the Moon Network !
+      sentence: "C'est... le r\xE9seau lunaire !"
+    - baseSentence: Go to your colony on the Moon
+      sentence: Aller sur l'une de vos colonies lunaires
+    - baseSentence: The colony's name is the name used to save your game.
+      sentence: "Le nom de votre colonie est celui utilis\xE9 pour sauvegarder votre
+        progession."
+    - baseSentence: New colony on the Moon
+      sentence: Nouvelle colonie lunaire
+    - baseSentence: Easy
+      sentence: Facile
+    - baseSentence: Normal
+      sentence: Normal
+    - baseSentence: Hard
+      sentence: Difficile
+    - baseSentence: Custom
+      sentence: "Personnalis\xE9"
+    - baseSentence: Enter the colony name... (max 20 caracters)
+      sentence: "Entrer le nom de votre colonie... (max 20 caract\xE8res)"
+    - baseSentence: Start this new colony
+      sentence: Commencer avec cette colonie
+    - baseSentence: Graphics quality
+      sentence: "Qualit\xE9 graphique"
+    - baseSentence: Language
+      sentence: Langue
+    - baseSentence: Gameplay
+      sentence: "Jouabilit\xE9"
+    - baseSentence: This colony name is invalid! (too short)
+      sentence: Ce nom de colonie est invalide ! (trop court)
+    - baseSentence: This colony name is invalid! (too long)
+      sentence: Ce nom de colonie est invalide ! (trop longt)
+    - baseSentence: Are you sure you want to take out this colony? This action <b>cannot
+        be undone</b>.
+      sentence: "Etes-vous s\xFBr de vouloir supprimer cette colonie ? Cette action
+        <b>ne pourra pas \xEAtre annuler.</b>"
+    - baseSentence: Your colony was indeed removed from the lunar surface.
+      sentence: "Votre colonie a bien \xE9t\xE9 supprimer de la surface lunaire."
+    - baseSentence: Yes
+      sentence: Oui
+    - baseSentence: No
+      sentence: Non
+    - baseSentence: OK
+      sentence: OK
+    - baseSentence: Next
+      sentence: Suivant
+    - baseSentence: OK! Let's go.
+      sentence: Ok ! C'est parti.
+    - baseSentence: worker(s)
+      sentence: "employ\xE9(s)"
+    - baseSentence: tech(s)
+      sentence: tech(s)
+    - baseSentence: Manual
+      sentence: Manuel
+    - baseSentence: Automatic
+      sentence: Automatique
+    - baseSentence: 'Ressource amount:'
+      sentence: "Quantit\xE9 de ressources :"
+    - baseSentence: 'Seed:'
+      sentence: 'Graine :'
+    - baseSentence: Randomize
+      sentence: "Al\xE9atoire"
+    - baseSentence: Run in background
+      sentence: "Fonctionne en arri\xE8re plan"
+    - baseSentence: '**** 03game ****'
+      sentence: '**** 03game ****'
+    - baseSentence: Close
+      sentence: Fermer
+    - baseSentence: Disable
+      sentence: "D\xE9sactiver"
+    - baseSentence: Resume
+      sentence: Reprendre
+    - baseSentence: Save
+      sentence: Sauvegarder
+    - baseSentence: Quit to main menu
+      sentence: Aller au menu principal
+    - baseSentence: Current hours
+      sentence: Heure actuelle
+    - baseSentence: Sol survived
+      sentence: "Sol(s) surv\xE9cu(s)"
+    - baseSentence: sol(s) survived
+      sentence: "sol(s) surv\xE9cu(s)"
+    - baseSentence: Workers / Colonists
+      sentence: Travailleurs / Colons
+    - baseSentence: Energy
+      sentence: Energie
+    - baseSentence: <i>Available</i>
+      sentence: <i>Disponible</i>
+    - baseSentence: Money <i>+ Profit</i> ($)
+      sentence: Argent <i>+ Profits</i> ($)
+    - baseSentence: Regolith
+      sentence: "R\xE9golithe"
+    - baseSentence: Bioplastic
+      sentence: Bioplastique
+    - baseSentence: Food
+      sentence: Nourriture
+    - baseSentence: Pause
+      sentence: Pause
+    - baseSentence: Build
+      sentence: Construction
+    - baseSentence: Diplomacy
+      sentence: Diplomatie
+    - baseSentence: Close info.
+      sentence: Fermer info.
+    - baseSentence: Repair
+      sentence: "R\xE9parer"
+    - baseSentence: Cancel
+      sentence: Annuler
+    - baseSentence: Destroy
+      sentence: "D\xE9truire"
+    - baseSentence: Square
+      sentence: "Carr\xE9"
+    - baseSentence: Triangle
+      sentence: Triangle
+    - baseSentence: Ligne
+      sentence: Ligne
+    - baseSentence: Search and destroy
+      sentence: "Chercher et d\xE9truire"
+    - baseSentence: Passif
+      sentence: Passif
+    - baseSentence: Defensif
+      sentence: "D\xE9fensif"
+    - baseSentence: Settlement
+      sentence: Colonie
+    - baseSentence: Power
+      sentence: Energie
+    - baseSentence: Production
+      sentence: Production
+    - baseSentence: Survival
+      sentence: Survie
+    - baseSentence: Military
+      sentence: Militaire
+    - baseSentence: Decorations
+      sentence: "D\xE9corations"
+    - baseSentence: Money
+      sentence: Argent
+    - baseSentence: Workers / Settlers
+      sentence: Travailleurs / Colons
+    - baseSentence: <i>Cost (care/profit)</i>
+      sentence: "<i>Co\xFBt (rendement)</i>"
+    - baseSentence: <i>Cost</i>
+      sentence: "<i>Co\xFBt</i>"
+    - baseSentence: <i>Cost / Gain</i>
+      sentence: "<i>Co\xFBt / Gain</i>"
+    - baseSentence: Cost
+      sentence: "Co\xFBt"
+    - baseSentence: Sol
+      sentence: Sol
+    - baseSentence: Research
+      sentence: Recherche
+    - baseSentence: Unit
+      sentence: "Unit\xE9"
+    - baseSentence: General
+      sentence: "G\xE9n\xE9ral"
+    - baseSentence: Military
+      sentence: Militaire
+    - baseSentence: Back
+      sentence: Retour
+    - baseSentence: Level
+      sentence: Niveau
+    - baseSentence: Kill
+      sentence: Meurtre
+    - baseSentence: Damage per second
+      sentence: "D\xE9g\xE2ts par seconde"
+    - baseSentence: Discover a new general technology.
+      sentence: "D\xE9couvrir une nouvelle technologie majeure."
+    - baseSentence: Discover a new military technology.
+      sentence: "D\xE9couvrir une nouvelle technologie militaire."
+    - baseSentence: Discover a new unit technology.
+      sentence: "D\xE9couvrir une nouvelle technique de formation de troupe."
+    - baseSentence: You need to discover the technology!
+      sentence: "Vous devez d\xE9couvrir la technologie !"
+    - baseSentence: Unlocked
+      sentence: "D\xE9couverte"
+    - baseSentence: In progress
+      sentence: En cours
+    - baseSentence: Available
+      sentence: Disponible
+    - baseSentence: Unavailable
+      sentence: Indisponible
+    - baseSentence: Action impossible!
+      sentence: Action impossible !
+    - baseSentence: 'You need to discover another technology to do this: '
+      sentence: "Vous devez d\xE9couvir une autre technologie pour faire \xE7a :"
+    - baseSentence: Queue full!
+      sentence: Queue pleine !
+    - baseSentence: You can't queued technology research anymore.
+      sentence: Vous ne pouvez plus ajouter de recherches technologiques en plus.
+    - baseSentence: <i>Nothing in queue</i>
+      sentence: <i>Queue vide</i>
+    - baseSentence: Reputation
+      sentence: "R\xE9putation"
+    - baseSentence: 'Act:'
+      sentence: 'Action :'
+    - baseSentence: 'Trading:'
+      sentence: 'Commerce :'
+    - baseSentence: Flatter
+      sentence: Flatter
+    - baseSentence: Trade
+      sentence: Commerce
+    - baseSentence: Peace
+      sentence: Paix
+    - baseSentence: Link
+      sentence: Lier
+    - baseSentence: Them
+      sentence: Eux
+    - baseSentence: You
+      sentence: Vous
+    - baseSentence: Time
+      sentence: Vitesse
+    - baseSentence: Linked
+      sentence: "Li\xE9"
+    - baseSentence: Empty
+      sentence: Vide
+    - baseSentence: Health
+      sentence: "Sant\xE9"
+    - baseSentence: Shield
+      sentence: Bouclier
+    - baseSentence: Battery
+      sentence: Batterie
+    - baseSentence: Choose Research
+      sentence: Choisir Une Recherche
+    - baseSentence: Open Technology Tree
+      sentence: Ouvrir l'Arbre de Technologies
+    - baseSentence: Game Menu
+      sentence: Menu Pause
+    - baseSentence: Per hour
+      sentence: Par heure
+    - baseSentence: Rocket
+      sentence: "Fus\xE9e"
+    - baseSentence: '**** Quest ****'
+      sentence: '**************'
+    - baseSentence: Quest Details
+      sentence: "Details De Qu\xEAte"
+    - baseSentence: Quest Description
+      sentence: "Description De La Qu\xEAte"
+    - baseSentence: 'Name:'
+      sentence: 'Nom :'
+    - baseSentence: 'Type:'
+      sentence: 'Type :'
+    - baseSentence: 'Progress:'
+      sentence: "Progr\xE8s :"
+    - baseSentence: Every colony needs survival building. Build an apartment and
+        a farm, via the build menu.
+      sentence: "Toutes les colonies ont besoin de b\xE2timents de survies. Construisez
+        un appartement et une ferme, via le menu de construction."
+    - baseSentence: It is important to be self-sufficient. Build an excavator and
+        a biofactory, via the construction menu.
+      sentence: "Il est important d'\xEAtre auto-suffisant. Construisez un excavateur
+        et une usine biologique, via le menu de construction."
+    - baseSentence: It's time to cure your sick settlers. Recruit a medic from a
+        military factory.
+      sentence: "Il est temps de soigner vos colons malades. Recrutez un m\xE9dic
+        dans une usine militaire."
+    - baseSentence: Let your medic treat your settlers. He should take care of it
+        himself.
+      sentence: "Laissez votre m\xE9dic soignez vos colons. Il devrait s'en charger
+        tout seul."
+    - baseSentence: It's time to prepare our colony for a possible enemy attack.
+        Recruit gravitational soldiers in a barracks.
+      sentence: "Il est temps de se pr\xE9parer \xE0 une \xE9ventuelle attaque ennemie. 
+        Recrutez des soldats gravitationnels dans une caserne."
+    - baseSentence: We're being invaded! Defend our colony by eliminating all enemy
+        units. They're coming from the east!
+      sentence: "Nous sommes envahis ! D\xE9fendez notre colonie en \xE9liminant
+        toutes les unit\xE9s ennemies. Elles arrivent de l'Est !"
+    - baseSentence: Following this attack, some of your settlers no longer trust
+        you, they may revolt. Recruit security agent in a police station to be ready!
+      sentence: "Suite \xE0 cette attaque, certains de vos colons ne vous font plus
+        confiance, ils risquent de se r\xE9volter. Recrutez des agents de s\xE9curit\xE9
+        dans un commissariat pour \xEAtre pr\xEAt !"
+    - baseSentence: The time has come to restore order to the entire colony. Your
+        security agents will have to watch this revolt without harm.
+      sentence: "Le moment est venu de faire r\xE9gner l'ordre de nouveau dans toute
+        la colonie. Vos agents de s\xE9curit\xE9 devront matter cette r\xE9volte
+        sans aucun mal."
+    - baseSentence: We're being invaded! Repel this enemy invasion.
+      sentence: Nous sommes envahis ! Repoussez cette invasion ennemie.
+    - baseSentence: ====== General ======
+      sentence: ====== General ======
+    - baseSentence: '**** Description ****'
+      sentence: '*** Description ***'
+    - baseSentence: The "town hall" of your colony.
+      sentence: Le centre vital de votre colonie.
+    - baseSentence: A small habitation which improve the maximum number of colonist
+        that you can accomodate.
+      sentence: Une petite habitation qui vous permet d'accueillir plus de colons.
+    - baseSentence: A classic habitation which improve the maximum number of colonist
+        that you can accomodate.
+      sentence: Une habitation modeste qui vous permet d'accueillir plus de colons.
+    - baseSentence: A large habitation which improve the maximum number of colonist
+        that you can accomodate.
+      sentence: Une habitation de luxe qui vous permet d'accueillir plus de colons.
+    - baseSentence: A small farm that allows your settlers to survive on the Moon.
+      sentence: "Une petite ferme qui permet \xE0 vos colons d'\xEAtre nourrit."
+    - baseSentence: A classic farm that allows your settlers to survive on the Moon.
+      sentence: Une ferme modeste qui alimente vos colons en nourriture.
+    - baseSentence: A huge farm that allows your settlers to survive on the Moon.
+      sentence: "Une ferme immense qui permet \xE0 vos colons d'assouvir leurs besoins
+        en nourriture."
+    - baseSentence: A training camp for your most bellicose settlers.
+      sentence: "Un camp d'entra\xEEnement pour vos colons les plus agu\xE9rris."
+    - baseSentence: A military factory that allows you to build any type of combat
+        vehicle.
+      sentence: "Une usine militaire qui vous permet de fabriquer de nombreux v\xE9hicules
+        d'assaut."
+    - baseSentence: An open-pit mine that harvests regolith day and night.
+      sentence: "Une mine \xE0 ciel ouvert, qui r\xE9colte du r\xE9golithe jour et
+        nuit."
+    - baseSentence: An large open-pit mine that harvests regolith day and night.
+      sentence: "Une grande mine \xE0 c\u28E3iel ouvert, qui r\xE9colte du r\xE9golithe
+        jour et nuit."
+    - baseSentence: A building in direct contact with Earth's merchants, which allows
+        you to buy and sell resources.
+      sentence: "Un b\xE2timent en contact direct avec le march\xE9 terrestre, qui
+        permet de vendre et acheter des ressources."
+    - baseSentence: A small group of high-performance solar panels that allows you
+        to have energy continuously thanks to a small battery.
+      sentence: "Un petit groupe de panneaux solaires qui produit de l'\xE9nergie
+        en continue, gr\xE2ce \xE0 la pr\xE9sence d'un petit accumulateur."
+    - baseSentence: A group of high-performance solar panels that allows you to have
+        energy continuously thanks to a battery.
+      sentence: "Un groupe de panneaux solaires qui produit de l'\xE9nergie en continue,
+        gr\xE2ce \u28ECa pr\xE9sence d'un accumulateur."
+    - baseSentence: A large group of high-performance solar panels that allows you
+        to have energy continuously thanks to a large battery.
+      sentence: "Un grand groupe de panneaux solaires qui produit de l'\xE9nergie
+        en continue, gr\xE2ce \uF8E0pr\xE9sence d'un grand accumulateur."
+    - baseSentence: A sentry turret that allows you to defend your colony in case
+        of enemy attacks.
+      sentence: "Une tourelle de d\xE9fense qui vous permet de vous d\xE9fendre contre
+        les envahisseurs."
+    - baseSentence: A civil factory that produces bioplastic from organic matter.
+      sentence: "Une usine civile qui produit du bioplastique \xE0 partir de mati\xE8re
+        organique."
+    - baseSentence: A reactor to product electricity everytime.
+      sentence: "Un r\xE9acteur pour produire continuellement de l'\xE9nergie."
+    - baseSentence: A small warehouse to accumulate some additional resources.
+      sentence: "Un petit entrep\xF4t pour stocker des ressources additionelles."
+    - baseSentence: A warehouse to accumulate additional resources.
+      sentence: "Un entrep\xF4t pour stocker des ressources additionelles."
+    - baseSentence: A large warehouse to accumulate a quantity of additional resources.
+      sentence: "Un grand entrep\xF4t pour stocker des ressources additionelles."
+    - baseSentence: A big wall to stop the invaders.
+      sentence: "Un mur immense, construit pour arr\xEAter les envahisseurs les plus
+        redoutables."
+    - baseSentence: A big building in direct contact with Earth's merchants, which
+        allows you to buy and sell resources.
+      sentence: "Un grand b\xE2timent en contact direct avec les march\xE9s terriens,
+        qui vous permet d'acheter et de vendre des ressources."
+    - baseSentence: A building in direct contact with Earth's merchants, which allows
+        you to buy and sell resources.
+      sentence: "Un b\xE2timent en contact direct avec les march\xE9s terriens, qui
+        vous permet d'acheter et de vendre des ressources."
+    - baseSentence: A pub panel that display ads.
+      sentence: Un panneau publicitaire qui affiche des pubs.
+    - baseSentence: A floor lamp to illuminate your settlement.
+      sentence: Un lampadaire pour illuminer votre colonie.
+    - baseSentence: A small launch pad for rocket.
+      sentence: "Un petit pas de tir pour fus\xE9e."
+    - baseSentence: A launch pad for rocket.
+      sentence: "Un pas de tir pour fus\xE9e."
+    - baseSentence: A big launch pad for rocket.
+      sentence: "Un grand pas de tir pour fus\xE9e."
+    - baseSentence: A highly defended district with guards and turrets.
+      sentence: "Un quartier hautement d\xE9fendu avec des guardes et des tourelles."
+    - baseSentence: A tower used by guardians to prevent invasion.
+      sentence: "Une tour utilis\xE9e par des guardes pour emp\xEAcher une invasion."
+    - baseSentence: Building to be used for law enforcement.
+      sentence: "Un b\xE2timent qui sert \xE0 faire respecter les lois."
+    - baseSentence: Allows for the care of sick settlers.
+      sentence: Permet de soigner vos colons malades.
+    - baseSentence: A small laboratory, ideal for small-scale experiments.
+      sentence: "Un petit laboratoire, id\xE9al pour faire des exp\xE9riences \xE0
+        petite \xE9chelle."
+    - baseSentence: A laboratory, ideal for medium-scale experiments.
+      sentence: "Un laboratoire, id\xE9al pour faire des exp\xE9riences \xE0 \xE9chelle
+        moyenne."
+    - baseSentence: A great laboratory, ideal for big-scale experiments.
+      sentence: "Un grand laboratoire, id\xE9al pour faire des exp\xE9riences \xE0
+        grande \xE9chelle."
+    - baseSentence: A basic accumulator for coping with a power outage.
+      sentence: Un accumulateur basique pour face aux coupures de courant.
+    - baseSentence: An accumulator for coping with a power outage.
+      sentence: Un accumulateur pour face aux coupures de courant.
+    - baseSentence: A large accumulator for coping with a power outage.
+      sentence: Un grand accumulateur pour face aux coupures de courant.
+    - baseSentence: A wonder to affirm its superiority in all fields.
+      sentence: "Merveille permettant d'affirmer sa sup\xE9riorit\xE9 dans tous les
+        domaines."
+    - baseSentence: '**** Building name ****'
+      sentence: '*** Building name ***'
+    - baseSentence: Colony home
+      sentence: Centre de colonie
+    - baseSentence: Appart (S)
+      sentence: Appart (S)
+    - baseSentence: Appart (M)
+      sentence: Appart (M)
+    - baseSentence: Appart (L)
+      sentence: Appart (L)
+    - baseSentence: Farm (S)
+      sentence: Ferme (S)
+    - baseSentence: Farm (M)
+      sentence: Ferme (M)
+    - baseSentence: Farm (L)
+      sentence: Ferme (L)
+    - baseSentence: Nuclear reactor (L)
+      sentence: "R\xE9acteur nucl\xE9aire (L)"
+    - baseSentence: Nuclear reactor (XL)
+      sentence: "R\xE9acteur nucl\xE9aire (XL)"
+    - baseSentence: Warehouse (S)
+      sentence: "Entrep\xF4t (S)"
+    - baseSentence: Warehouse (M)
+      sentence: "Entrep\xF4t (M)"
+    - baseSentence: Warehouse (L)
+      sentence: "Entrep\xF4t (L)"
+    - baseSentence: Barracks
+      sentence: Casernes
+    - baseSentence: Military factory
+      sentence: Usine militaire
+    - baseSentence: Excavator (M)
+      sentence: Excavateur (M)
+    - baseSentence: Excavator (L)
+      sentence: Excavateur (L)
+    - baseSentence: Trading Center (M)
+      sentence: "March\xE9 (M)"
+    - baseSentence: Trading Center (L)
+      sentence: "March\xE9 (L)"
+    - baseSentence: Solar panel (S)
+      sentence: Panneau solaire (S)
+    - baseSentence: Solar panel (M)
+      sentence: Panneau solaire (M)
+    - baseSentence: Solar panel (L)
+      sentence: Panneau solaire (L)
+    - baseSentence: Sentry turret
+      sentence: "Tourelle de d\xE9fense"
+    - baseSentence: Biofactory
+      sentence: Usine biologique
+    - baseSentence: Pub panel (1)
+      sentence: Panneau publicitaire (1)
+    - baseSentence: Pub panel (2)
+      sentence: Panneau publicitaire (2)
+    - baseSentence: Pub panel (3)
+      sentence: Panneau publicitaire (3)
+    - baseSentence: Floor lamp (1)
+      sentence: Lampadaire (1)
+    - baseSentence: Floor lamp (2)
+      sentence: Lampadaire (2)
+    - baseSentence: Floor lamp (3)
+      sentence: Lampadaire (3)
+    - baseSentence: Wall
+      sentence: Mur
+    - baseSentence: Basic turret
+      sentence: Tourelle basique
+    - baseSentence: Trading center (M)
+      sentence: "Centre d'\xE9change (M)"
+    - baseSentence: Trading center (L)
+      sentence: "Centre d'\xE9change (L)"
+    - baseSentence: Launch pad (S)
+      sentence: Pas de tir (S)
+    - baseSentence: Launch pad (M)
+      sentence: Pas de tir (M)
+    - baseSentence: Launch pad (L)
+      sentence: Pas de tir (L)
+    - baseSentence: High-security district
+      sentence: "Quartier haute securit\xE9"
+    - baseSentence: Guard tower
+      sentence: Tour de garde
+    - baseSentence: Hospital
+      sentence: "H\xF4pital"
+    - baseSentence: Police station
+      sentence: Commisariat
+    - baseSentence: Lab (S)
+      sentence: Laboratoire (S)
+    - baseSentence: Lab (M)
+      sentence: Laboratoire (M)
+    - baseSentence: Lab (L)
+      sentence: Laboratoire (L)
+    - baseSentence: Accumulator (S)
+      sentence: Accumulateur (S)
+    - baseSentence: Accumulator (M)
+      sentence: Accumulateur (M)
+    - baseSentence: Accumulator (L)
+      sentence: Accumulateur (L)
+    - baseSentence: Hand of Power
+      sentence: Main du Pouvoir
+    - baseSentence: '**** Unit name ****'
+      sentence: '*** Unit name ***'
+    - baseSentence: Gravity soldier
+      sentence: Soldat gravitationnel
+    - baseSentence: Boomer
+      sentence: Boomer
+    - baseSentence: Jumper
+      sentence: "Blind\xE9"
+    - baseSentence: Bouncy tank
+      sentence: Tank rebondissant
+    - baseSentence: Rockopter
+      sentence: Rockopter
+    - baseSentence: Constructor (M)
+      sentence: Constructeur (M)
+    - baseSentence: Security agent
+      sentence: "Agent de s\xE9curit\xE9"
+    - baseSentence: Medic
+      sentence: "M\xE9dic"
+    - baseSentence: '**** Sectors ****'
+      sentence: '**** Sectors ****'
+    - baseSentence: Sectors
+      sentence: Secteurs
+    - baseSentence: Owned Sectors
+      sentence: "Secteurs Poss\xE9d\xE9s"
+    - baseSentence: Local positions
+      sentence: Positions locales
+    - baseSentence: Building number
+      sentence: "Nbr. b\xE2timents"
+    - baseSentence: Go to sector
+      sentence: Y aller
+    - baseSentence: '**** Others ****'
+      sentence: '*** Others ***'
+    - baseSentence: Moon's changelogs
+      sentence: Changements lunaires
+    - baseSentence: What's happening in version 0.0.25.0 ?
+      sentence: Que se passe-t-il en version 0.0.25.0 ?
+    - baseSentence: Victory
+      sentence: Victoire
+    - baseSentence: Defeat
+      sentence: "D\xE9faite"
+    - baseSentence: Statistics
+      sentence: Statistiques
+    - baseSentence: Here is your game's statistics.
+      sentence: Voici vos statistiques de jeu.
+    - baseSentence: 'Impossible to build here: Another building is already here.'
+      sentence: "Impossible de construire ici : un b\xE2timent y est d\xE9j\xE0."
+    - baseSentence: 'Impossible to build here: The land is too steep.'
+      sentence: 'Impossible de construire ici : terrain trop pentu.'
+    - baseSentence: 'Impossible to build here: Congested area.'
+      sentence: "Impossible de construire ici : zone encombr\xE9e."
+    - baseSentence: 'Impossible to build here: Not enough ressources.'
+      sentence: 'Impossible de construire ici : pas assez de ressources.'
+    - baseSentence: 'Impossible to build here: Incorrect height.'
+      sentence: 'Impossible de construire ici : hauteur incorrecte.'
+    - baseSentence: 'Impossibile to build here: Sector not owned.'
+      sentence: 'Impossible de construire ici : secteur non acquis.'
+    - baseSentence: This is an ideal location!
+      sentence: "Voil\xE0 un emplacement id\xE9al !"
+    - baseSentence: 'Time until next wave:'
+      sentence: 'Temps avant la vague :'
+    - baseSentence: sol(s)
+      sentence: sol(s)
+    - baseSentence: hour(s)
+      sentence: heure(s)
+    - baseSentence: Unit group
+      sentence: "Groupe d'unit\xE9"
+    - baseSentence: Building group
+      sentence: "Groupe de b\xE2timents"
+    - baseSentence: Preview group
+      sentence: "Groupe de pr\xE9visualisations"
+    - baseSentence: Diplomatic Contact
+      sentence: Contact Diplomatique
+    - baseSentence: Trading Window
+      sentence: "Fen\xEAtre De Commerce"
+    - baseSentence: Declare War
+      sentence: "D\xE9clarer la Guerre"
+    - baseSentence: Declare Peace
+      sentence: "D\xE9clarer la Paix"
+    - baseSentence: Denounciate
+      sentence: "D\xE9noncer"
+    - baseSentence: Choose A Building
+      sentence: "Choisir Un B\xE2timent"
+    - baseSentence: Trade allows you to exchange the resources you have too many
+        with those you lack. It can be very useful to trade with an ally to avoid
+        shortages.
+      sentence: "Le commerce vous permet d'\xE9changer les ressources que vous avez
+        en trop avec celles qu'il vous manquent. Il peut s'av\xE9rer tr\xE8s utile
+        de commercer avec un allier pour \xE9viter les p\xE9nuries."
+    - baseSentence: Flattering an enemy colony is very useful to become friends with
+        it, and even, why not, to become allies.
+      sentence: "Flatter une colonie ennemie est tr\xE8s utile pour devenir ami avec
+        elle, et m\xEAme, pourquoi pas, devenir alli\xE9s."
+    - baseSentence: Establish a lasting peace with a friendly colony of your own.
+      sentence: "\xC9tablissez une paix durable avec une colonie amie \xE0 la votre."
+    - baseSentence: If a colony has done something you don't like, denounce it publicly
+        and show your opinion to the world, but it may not like it.
+      sentence: "Si une colonie a fait quelque chose qui ne vous pla\xEEt pas, d\xE9noncez
+        la publiquement et affichez votre opinion aux yeux du monde, mais \xE7a risque
+        de ne pas lui plaire."
+    - baseSentence: If a colony can't stand you, declare war on it and annihilate
+        it, so that it won't be able to rob you naked.
+      sentence: "Si une colonie vous insupporte, d\xE9clarez lui la guerre et an\xE9antissez-la,
+        comme \xE7a, elle ne pourra plus vous nuire !"
+    - baseSentence: ===== Event =====
+      sentence: ===== Event =====
+    - baseSentence: 'Choice(s) :'
+      sentence: 'Choix :'
+    - baseSentence: Yes, of course !
+      sentence: "Oui \xE9videmment !"
+    - baseSentence: No, I'm smart !
+      sentence: Non, pas la peine !
+    - baseSentence: General, lately I've been feeling like you've been... stressed.
+        A joke will do you the world of good. All right?
+      sentence: "G\xE9n\xE9ral, ces derniers temps je vous sens comme... stress\xE9.
+        Une blague vous ferai le plus grand bien. D'accord ?"
+    - baseSentence: Get back to work!
+      sentence: Retournez au travail !
+    - baseSentence: 'All right ! Let''s start.
+
+        "I was born in Paris.
+
+        -
+        Which part?
+
+        - All of me."'
+      sentence: "Bien ! C'est partit.\n\"Que dit une imprimante dans l'eau ?\n -
+        J'ai papier !\""
+    - baseSentence: Stupid...
+      sentence: Stupide...
+    - baseSentence: Hilarious xD
+      sentence: Hilarant xD
+    - baseSentence: 'You take such good care of us. But you, who takes care of you?
+        Here, a little gift.
+
+        <color=6D6D6D>+75$</color>'
+      sentence: 'Vous prenez tellement bien soin de nous. Mais vous, qui prends soin
+        de vous ? Tenez, un petit cadeau.
+
+        <color=6D6D6D>+75$</color>'
+    - baseSentence: Thank you so much.
+      sentence: Merci beaucoup.
+    - baseSentence: Settler
+      sentence: Colon
+    - baseSentence: ===== Notifs =====
+      sentence: ===== Notifs =====
+    - baseSentence: A colony is in failure !
+      sentence: Une colonie a fait faillite !
+    - baseSentence: ALERT. Invasion !
+      sentence: ALERTE. Nous sommes envahies !
+    - baseSentence: Your enemies have launched an attack against you !
+      sentence: "Vos ennemies ont lanc\xE9 une attaque contre vous !"
+    - baseSentence: New day survived.
+      sentence: "Nouveau jour surv\xE9cu."
+    - baseSentence: Good job. Continue !
+      sentence: Bon travail. Continuez !
+    - baseSentence: Welcome to your beautiful colony !
+      sentence: "Bienvenue \xE0 votre merveilleuse colonie !"
+    - baseSentence: A colony is in failure !
+      sentence: Une colonie a fait faillite !
+    - baseSentence: Skip over the icons for more details.
+      sentence: "Survolez les ic\xF4nes pour plus d'informations."
+    - baseSentence: This queue is full !
+      sentence: Cette queue est pleine !
+    - baseSentence: You can't make another unit in this factory for the moment.
+      sentence: "Vous devez attendre un instant pour faire d'autres unit\xE9s dans
+        cette usine."
+    - baseSentence: You don't have the ressources for this unit !
+      sentence: "Vous n'avez plus assez de ressources pour cette unit\xE9 !"
+    - baseSentence: You can't make another unit of this type...
+      sentence: "Vous ne pouvez plus fabriquer d'autres unit\xE9s de ce type..."
+    - baseSentence: Building completed !
+      sentence: "B\xE2timent construit !"
+    - baseSentence: New building.
+      sentence: "Nouveau b\xE2timent construit."
+    - baseSentence: Research completed !
+      sentence: "Recherche complet\xE9e !"
+    - baseSentence: A new technology has been discover.
+      sentence: "Une nouvelle technologie a \xE9t\xE9 d\xE9couverte."
+    - baseSentence: Unable to attack !
+      sentence: Impossible d'attaquer !
+    - baseSentence: You can't attack a colony if you're not at war with it.
+      sentence: "Vous ne pouvez pas attaquer une colonie tant que vous n'\xEAtes
+        pas en guerre avec elle."
+    - baseSentence: Energy failure !
+      sentence: Energie critique !
+    - baseSentence: Not enough energy to power production buildings.
+      sentence: "Pas assez d'\xE9nergie pour alimenter les b\xE2timents de production."
+    - baseSentence: Critical energy !
+      sentence: "Niveau d'\xE9nergie critique !"
+    - baseSentence: The energy level of your colony is critical.
+      sentence: "Le niveau d'\xE9nergie de votre colonie est critique."
+    - baseSentence: Unit level up!
+      sentence: "Rang augment\xE9 !"
+    - baseSentence: A unit has level up. Stats has been changed.
+      sentence: "Une unit\xE9 est pass\xE9e au rang suivant ! Ces caract\xE9ristiques
+        ont \xE9t\xE9 modif\xE9."
+    - baseSentence: Click to view the changelogs.
+      sentence: Cliquer pour voir les changements.
+    - baseSentence: Happy Christmas and happy new year!
+      sentence: "Joyeux No\xEBl et joyeux nouvel an !"
+    - baseSentence: The team wishes you a happy holiday season.
+      sentence: "L'\xE9quipe vous souhaite de joyeuses f\xEAtes."
+    - baseSentence: Warning! Low ressource.
+      sentence: Attention ! Ressource basse.
+    - baseSentence: Warning! Critical ressource.
+      sentence: Attention ! Ressource critique.
+    - baseSentence: Your colony needs food to survive.
+      sentence: Votre colonie a besoin de nourriture pour survivre.
+    - baseSentence: Your colony needs subventions to survive.
+      sentence: Votre colonie a besoin de subventions pour survivre.
+    - baseSentence: Your colony needs regolith to survive.
+      sentence: "Votre colonie a besoin de r\xE9golithe pour survivre."
+    - baseSentence: Your colony needs bioplastic to survive.
+      sentence: Votre colonie a besoin de bioplastique pour survivre.
+    - baseSentence: Diplomacy request
+      sentence: "Requ\xEAte diplomatique"
+    - baseSentence: Trade request
+      sentence: "Requ\xEAte marchande"
+    - baseSentence: Your diplomatie request has been declined!
+      sentence: "Votre requ\xEAte diplomatique a \xE9t\xE9 rejet\xE9e !"
+    - baseSentence: 'Your diplomatie request has been accepted! You''re now in alliance
+        with '
+      sentence: "Votre requ\xEAte diplomatique a \xE9t\xE9 accept\xE9e ! Vous \xEAtes
+        maintenant en alliance avec "
+    - baseSentence: ' is disappointed in you... You are now in war with them!'
+      sentence: " est d\xE9\xE7ue de vous... Vous \xEAtes dor\xE9navent en guerre
+        avec elle !"
+    - baseSentence: 'The colony '
+      sentence: 'La colonie '
+    - baseSentence: ' has been destroyed by itself.'
+      sentence: " a \xE9t\xE9 d\xE9truite par elle-m\xEAme."
+    - baseSentence: ' has been destroyed by another colony.'
+      sentence: " a \xE9t\xE9 d\xE9truite par une autre colonie."
+    - baseSentence: ' had accepted your trade!'
+      sentence: " a accept\xE9 votre march\xE9 !"
+    - baseSentence: Unit in danger!
+      sentence: "Unit\xE9 en danger !"
+    - baseSentence: 'Your '
+      sentence: 'Votre '
+    - baseSentence: ' is going to die.'
+      sentence: " va bient\xF4t mourir."
+    - baseSentence: Unit die!
+      sentence: "Unit\xE9 morte !"
+    - baseSentence: ' is die.'
+      sentence: ' est mort(e).'
+    - baseSentence: Building under attack!
+      sentence: "B\xE2timent attaqu\xE9 !"
+    - baseSentence: ' is going to be destroy.'
+      sentence: " va bient\xF4t \xEAtre d\xE9truit."
+    - baseSentence: Building destroyed!
+      sentence: "B\xE2timent d\xE9truit !"
+    - baseSentence: ' has been destroyed.'
+      sentence: " a \xE9t\xE9 d\xE9truit."
+    - baseSentence: Ongoing riot!
+      sentence: Emeutes en cours !
+    - baseSentence: One of your buildings is experiencing riots.
+      sentence: "L'un de vos b\xE2timents subit des \xE9meutes."
+    - baseSentence: Riot control.
+      sentence: "Emeutes ma\xEFtris\xE9es"
+    - baseSentence: Your security guards have contained the rebellion.
+      sentence: "Vos agents de s\xE9curit\xE9 on mis fin aux \xE9meutes."
+    - baseSentence: Ongoing epidemy!
+      sentence: "Epid\xE9mie en cours !"
+    - baseSentence: One of your buildings is infected.
+      sentence: "L'un de vos b\xE2timents est infect\xE9."
+    - baseSentence: Epidemy controled.
+      sentence: "Epid\xE9mie contr\xF4l\xE9e."
+    - baseSentence: Your medics have eradicated the epidemy.
+      sentence: "Vos m\xE9decins ont \xE9radiqu\xE9 l'\xE9pid\xE9mie."
+    - baseSentence: Flattery
+      sentence: Flatterie
+    - baseSentence: You flattered one of your competitors.
+      sentence: "Vous avez flatt\xE9 l'un de vos concurrents."
+    - baseSentence: Your flattery didn't work.
+      sentence: "Vos flatteries n'ont pas fonctionn\xE9."
+    - baseSentence: This competitor isn't naive, he saw right through you.
+      sentence: "Ce concurrent n'est pas na\xEFf, il a vu clair dans votre jeu."
+    - baseSentence: Denunciation
+      sentence: "D\xE9nonciation"
+    - baseSentence: You ratted out one of your competitors.
+      sentence: "Vous avez critiqu\xE9 l'un de vos concurrents."
+    - baseSentence: Quest completed!
+      sentence: "Qu\xEAte compl\xE9t\xE9e !"
+    - baseSentence: You have completed a quest. The rewards have been added.
+      sentence: "Vous avez compl\xE9t\xE9e une qu\xEAte. Les r\xE9compenses ont \xE9t\xE9
+        ajout\xE9."
+    - baseSentence: ===== Command =====
+      sentence: ===== Command =====
+    - baseSentence: Command executed
+      sentence: "Commande ex\xE9cut\xE9e"
+    - baseSentence: Command helper
+      sentence: Assistant de commande
+    - baseSentence: Type /debug to view debug.
+      sentence: Taper /debug pour voir le debug.
+    - baseSentence: Type /event create -c\\-s\\-r <index> to create an event.
+      sentence: "Taper /event create -c\\\\-s\\\\-r <index> pour cr\xE9er un event."
+    - baseSentence: Type /help <index> to get help.
+      sentence: Taper /help <index> pour avoir de l'aide.
+    - baseSentence: Type /killall to kill every colonies.
+      sentence: "Taper /killall pour \xE9liminer toute les colonies."
+    - baseSentence: Type /loot to get ressources.
+      sentence: Taper /loot pour avoir des ressources.
+    - baseSentence: Type /notif <index> to create a notification.
+      sentence: "Taper /notif <index> pour cr\xE9er une notification."
+    - baseSentence: Type /summon -b\\-p\\-u <identity> to spawn an entity.
+      sentence: "Taper /summon -b\\\\-p\\\\-u <identity> pour cr\xE9er une entit\xE9."
+    - baseSentence: Type /time <speed> to change the time.
+      sentence: "Taper /time <speed> pour changer le d\xE9filement du temps."
+    - baseSentence: Type /wave <index> to spawn an enemy wave.
+      sentence: "Taper /wave <index> pour cr\xE9er une vague ennemie."
+    - baseSentence: ===== Others =====
+      sentence: ===== Others =====
+    - baseSentence: "<b>Thanks for playing!</b>\n<size=20>Don't forget that is a
+        pre-alpha version. \nSo many bugs can interupt your gameplay.</size>\n<color=#DA0209><size=17>Pre-alpha
+        v0.0.24.1</size></color>    <size=17>Build 080</size>"
+      sentence: "<b>Merci de jouer !</b>\n<size=20>N'oubliez pas que vous \xEAtes
+        en version pr\xE9-alpha. \nPar cons\xE9quent, des bugs peuvent interrompre
+        votre gameplay.</size>\n<color=#DA0209><size=17>Pr\xE9-alpha v0.0.24.1</size></color>   
+        <size=17>Build 080</size>"
+    - baseSentence: This game will crash at day 2. It's a normal thing. If your game
+        don't crash (crash = fps < 10), please send an email at oziregames@gmail.com
+        with your pc's configuration. Thanks.
+      sentence: "Le jeu va se stopper au sol 2. Tout a \xE9t\xE9 pr\xE9vu, c'est
+        donc normal. Si votre jeu ne s'arr\xEAte pas (et que vos FPS sont sup\xE9rieur
+        \xE0 10), merci d'envoyer un email \xE0 oziregames@gmail.com avec la configuration
+        de votre PC. Merci."
+    - baseSentence: LOADING
+      sentence: CHARGEMENT
+    - baseSentence: Progression
+      sentence: Progression
+    - baseSentence: "Multiplayer \nready"
+      sentence: "Pr\xEAt pour\nle multijoueur"
+    - baseSentence: 'Multiplayer
+
+        integration'
+      sentence: "Int\xE9gration du\nmultijoueur"
+    - baseSentence: 'Multiplayer
+
+        testing'
+      sentence: 'Test du
+
+        multijoueur'
+    - baseSentence: 'Multiplayer
+
+        server'
+      sentence: 'Serveur
+
+        multijoueur'
+    - baseSentence: 'Multiplayer
+
+        server test'
+      sentence: 'Test du serveur
+
+        multijoueur'
+    - baseSentence: /!\        Not implemented feature        /!\
+      sentence: "/!\\        El\xE9ment non impl\xE9ment\xE9        /!\\"
+    - baseSentence: Enter command...
+      sentence: Entrer une commande...
+    - baseSentence: Game paused
+      sentence: Jeu en pause
+    - baseSentence: Save done!
+      sentence: "Sauvegarde termin\xE9e !"
+    - baseSentence: ===== Language =====
+      sentence: ===== Language =====
+    - baseSentence: English
+      sentence: Anglais
+    - baseSentence: French
+      sentence: "Fran\xE7ais"
+    - baseSentence: Spanish
+      sentence: Espagnol
+    - baseSentence: Deutsh
+      sentence: Allemand
+    - baseSentence: ===== Tuto =====
+      sentence: ==============
+    - baseSentence: '<b>Tutorial</b> :: Learn to play with a quick game.'
+      sentence: "<b>Didacticiel</b> :: Apprenez \xE0 jouer avec une partie rapide."
+    - baseSentence: This is the pause menu. You can pause the game and show this
+        menu by clicking on this button.
+      sentence: Le menu de pause. Tu peux mettre le jeu en pause et afficher ce menu
+        en cliquant sur ce bouton.
+    - baseSentence: This is the build menu. By clicking on this button, you can choose
+        a building category and build one, or many, building.
+      sentence: "Le menu de construction. En cliquant sur ce bouton, tu pourras choisir
+        une cat\xE9gorie de b\xE2timent et en construire un, ou plusieurs."
+    - baseSentence: This is the diplomacy bar. Every lunar colony is shown here.
+        It allows you to interact with other colony, such as trade, or negociate
+        pacts.
+      sentence: "La barre diplomatique. Chaque colonie lunar est affich\xE9e ici.
+        Cela vous permet d'interagir avec les autres colonies afin de commercer ou
+        de negocier des accords."
+    - baseSentence: This is the research menu. By clicking on this button, you can
+        search new technologies, which allow you to build other buildings or units
+        more efficient.
+      sentence: "Le menu de recherhces. En cliquant sur ce bouton, tu pourras recherher
+        de nouvelles technologies, qui te permettrons de d\xE9bloquer des b\xE2timents
+        ou des unit\xE9s."
+    - baseSentence: This is the sector menu. You can find every sectors that you
+        own here. You can also teleport the camera at the center of the selected
+        sector.
+      sentence: "Le menu des secteurs. Vous pouvez y trouver tous les secteurs poss\xE9d\xE9s
+        par votre colonie. Vous pouvez aussi t\xE9l\xE9porter la cam\xE9ra au dessus
+        du secteur choisi."
+    - baseSentence: This is the speed menu. You can slow or accelerate the game's
+        time. That can be usefull, when you need time to think.
+      sentence: "Le menu des vitesses. Tu peux ralentir ou acc\xE9l\xE9rer la vitesse
+        du jeu. Cela peut \xEAtre utile si tu a envie de r\xE9fl\xE9chir."
+    - baseSentence: The first number is the number of workers that count your colony.
+        The second one, is the number of colonists that you have in your colony.
+      sentence: "Le premier nombre repr\xE9sente le nombre de travailleurs de ta
+        colonie. Le second, est le nombre de colons que tu as dans ta colonie."
+    - baseSentence: This is the amount of energy that you have accumulate in your
+        colony's power grid. You have also the extra power of your colony.
+      sentence: "Cela repr\xE9sente la quantit\xE9 d'\xE9nergie que tu as en stock
+        dans ton r\xE9seau \xE9lectrique. Tu as aussi le surplus de production ici."
+    - baseSentence: This is the amount of money that you have, and the profit of
+        your colony each hour (in million).
+      sentence: "C'est l'argent que poss\xE8de ta colonie, et ses profits chaque
+        heure (en million)."
+    - baseSentence: This is the clock. You can find the sol (14 earth day), and the
+        hour here.
+      sentence: L'horloge. Tu peux y trouver le sol actuel (14 jours terrestre) et
+        l'heure.
+    - baseSentence: This button show the notification history. It can be very usefull
+        if you have missed a notification.
+      sentence: "Ce bouton affiche l'historique de notifications. Il peut s'av\xE9rer
+        utile si tu loupes des notifications."
+    - baseSentence: 'The first number is the amount of regolith in the warehouse
+        of your colony. The second one, is the capacity of your warehouse in this
+        ressource. And the last one, is your profit per hour.
+
+        (amount /
+        storage capacity + profit)
+
+        Regolith is very usefull to build some
+        buildings on the Moon.'
+      sentence: "Le premier nombre repr\xE9sente la quantit\xE9 de r\xE9golithe dans
+        tes r\xE9serves. Le second, repr\xE9sente ta capacit\xE9 de stockage. Et
+        le dernier, repr\xE9sente ton profit / heure.\n(quantit\xE9 / capacit\xE9
+        de stockage + profits)\nLe regolithe est tr\xE8s utile pour construire des
+        b\xE2timents."
+    - baseSentence: 'Same as regolith''s interface but it''s bioplastic.
+
+        (amount
+        / storage capacity + profit)
+
+        Bioplastic is a vegetal and ecological
+        plastic. It is very useful for making transparent surfaces.'
+      sentence: "Comme pour l'interface du regolithe, mais pour le bioplastique.\n(quantit\xE9
+        / capacit\xE9 de stockage + profits)\nLe bioplastique est un plastique v\xE9g\xE9tal
+        et \xE9cologique. Il est tr\xE8s utile pour fabriquer des surfaces transparentes.\n"
+    - baseSentence: 'Same as the previous two, but for food.
+
+        (amount / storage
+        capacity + profit)
+
+        No need to say what the food is for.'
+      sentence: "Pareils que pour les deux pr\xE9c\xE9dents, mais pour la nourriture.\n(quantit\xE9
+        / capacit\xE9 de stockage + profits)\nPas besoin de dire \xE0 quoi sert la
+        nourriture."
+    - baseSentence: Little indicator for the research point generated per hour. They
+        are very useful to discover new technologies.
+      sentence: "Petit indicateur des points de recherches g\xE9n\xE9r\xE9s par heure.
+        Ils sont tr\xE8s utiles pour d\xE9couvrir de nouvelles technologies."
+    - baseSentence: The count down for the next wave is here.
+      sentence: "Le compte \xE0 rebours de la prochaine vague est ici."
+    - baseSentence: 'You will have here all the information about the selected entity:
+        its life, its shield, its energy, as well as some of its properties. It is
+        also here that you will be able to manufacture units when you select factories.
+        You will also be able to perform certain actions from here.'
+      sentence: "Vous aurez ici toutes les informations sur l\u2019entit\xE9 s\xE9lectionn\xE9e
+        : sa vie, son bouclier, son \xE9nergie, ainsi que certaines de ses propri\xE9t\xE9s.
+        C'est aussi ici que vous pourrez fabriqu\xE9 des unit\xE9s lorsque vous s\xE9lectionnez
+        des usines. Vous pourrez \xE9galement effectuer certaines actions \xE0 partir
+        d'ici."
+    - baseSentence: Well, now that you know the interface a little better, it's time
+        to put it into practice. Don't worry, just complete all the quests that are
+        offered to you and you'll be done!
+      sentence: "Bien, maintenant que tu ma\xEEtrise mieux l'interface, on passe
+        aux choses s\xE9rieuses. Mais ne t'inqui\xE8te pas, il te suffit de suivre
+        les qu\xEAtes qui te serront propos\xE9es."
+    - baseSentence: Let's go!
+      sentence: C'est partit !
+    - baseSentence: This is where the tutorial ends, you now know how to manage a
+        lunar colony. Don't worry, the more you play, the easier it will be.
+      sentence: "C'est ici que le didacticiel prend fin. Tu sais maintenant comment
+        g\xE9rer une colonie lunaire. L'exp\xE9rience viendra en jouant !"
+    - baseSentence: Essential buildings
+      sentence: "B\xE2timents essentiels"
+    - baseSentence: Self-sufficient
+      sentence: Auto-suffisant
+    - baseSentence: Anticipation (I)
+      sentence: Anticipation (I)
+    - baseSentence: Sick colony
+      sentence: Colonie malade
+    - baseSentence: Anticipation (II)
+      sentence: Anticipation (II)
+    - baseSentence: Revolted settlers
+      sentence: "Colons r\xE9volt\xE9s"
+    - baseSentence: Prepare your defenses
+      sentence: "Pr\xE9parez vos d\xE9fenses"
+    - baseSentence: Invasion
+      sentence: Invasion
+    - baseSentence: Skip the tutorial
+      sentence: Passer le tutoriel

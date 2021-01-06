@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716e9478dd878344cafd267eb7a51ea3, type: 3}
+  m_Name: '[001] Appart (S)'
+  m_EditorClassIdentifier: 
+  identity: 1
+  icon: {fileID: 21300000, guid: 0efdb229cd372934f80760d539ca80e6, type: 3}
+  name: 03_b_name_001
+  description: 03_b_desc_001
+  techsNeeded: 
+  maxHealth: 20
+  maxShield: 0
+  maxEnergy: 1
+  weakness: 3
+  colonist: 0
+  energy: -2
+  money: 25
+  regolith: 12
+  bioPlastique: 5
+  food: 5
+  profit: 10
+  maxColonist: 7
+  rigolyteOutput: 0
+  bioPlastiqueOutput: 0
+  foodOutput: -2
+  research: 0
+  energyStorage: 0
+  rigolyteStock: 0
+  bioPlasticStock: 0
+  foodStock: 0
+  preview: {fileID: 430275250520317494, guid: b17c5f7253303ba40a26fc79b3ee2f9d, type: 3}
+  building: {fileID: 6647157831636990553, guid: 2388b7a383d55e84dab338ff6bb85859,
+    type: 3}
+  heightLimit: {x: -0.1, y: 0.5}
+  maxProgress: 15
+  experience: 2
+  needSpecificCollision: 0
+  tagToCollide: 0
+  needNearBuilding: 0
+  distance: 10
+  nearBuildingID: 0
+  canLink: 1
+  canBeLink: 1
+  canBePause: 0
+  canControlSector: 0

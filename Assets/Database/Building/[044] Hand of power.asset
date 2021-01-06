@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716e9478dd878344cafd267eb7a51ea3, type: 3}
+  m_Name: '[044] Hand of power'
+  m_EditorClassIdentifier: 
+  identity: 44
+  icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+  name: 03_b_name_044
+  description: 03_b_desc_044
+  techsNeeded: 10000000
+  maxHealth: 300
+  maxShield: 500
+  maxEnergy: 1
+  weakness: 3
+  colonist: 0
+  energy: -15
+  money: 50000
+  regolith: 1250
+  bioPlastique: 1025
+  food: 0
+  profit: -100
+  maxColonist: 0
+  rigolyteOutput: -5
+  bioPlastiqueOutput: 0
+  foodOutput: 0
+  research: 0
+  energyStorage: 0
+  rigolyteStock: 0
+  bioPlasticStock: 0
+  foodStock: 0
+  preview: {fileID: 0}
+  building: {fileID: 0}
+  heightLimit: {x: -0.1, y: 0.5}
+  maxProgress: 1500
+  experience: 250
+  needSpecificCollision: 0
+  tagToCollide: 0
+  needNearBuilding: 0
+  distance: 10
+  nearBuildingID: 0
+  canLink: 0
+  canBeLink: 0
+  canBePause: 0
+  canControlSector: 1

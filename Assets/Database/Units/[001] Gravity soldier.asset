@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f04aca38e4fef51409b8529ed09f695d, type: 3}
+  m_Name: '[001] Gravity soldier'
+  m_EditorClassIdentifier: 
+  identity: 1
+  unitIcon: {fileID: 21300000, guid: b5979b44cccc3114db1e2c09666158ba, type: 3}
+  name: 03_u_name_001
+  speed: 3
+  model: {fileID: 5122189303447391781, guid: 947e1db6774dc74419ae6b89c383d833, type: 3}
+  unitType: 3
+  health: 5
+  shield: 0
+  energy: 0
+  range: 10
+  cooldown: 0.5
+  damage: 0.2
+  damageType: 2
+  baseAgressivity: 1
+  maxLevel: 5
+  levelDamage:
+  - 0.35
+  - 0.45
+  - 0.6
+  - 0.8
+  levelHealth:
+  - 6
+  - 7
+  - 8
+  - 10
+  time: 6
+  place: 1
+  money: 55
+  food: 5
+  moneyOut: 0
+  foodOut: 0

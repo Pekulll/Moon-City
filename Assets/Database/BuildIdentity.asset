@@ -1,0 +1,1460 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ccbb56fd6f1d74a97f2aff4649fdd2, type: 3}
+  m_Name: BuildIdentity
+  m_EditorClassIdentifier: 
+  builds:
+  - name: Colony home
+    description: The "town hall" of your colony.
+    techsNeeded: 
+    heightLimit: {x: 0, y: 0}
+    identity: 0
+    icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+    colonist: 0
+    energy: 10
+    money: 0
+    rigolyte: 0
+    bioPlastique: 0
+    food: 0
+    profit: 100
+    maxColonist: 20
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 5
+    energyStorage: 100
+    rigolyteStock: 200
+    bioPlasticStock: 100
+    foodStock: 100
+    canLink: 0
+    canBeLink: 1
+    canBePause: 0
+    canControlSector: 1
+    maxProgress: 0
+    experience: 50
+    preview: {fileID: 1638080757850162366, guid: 62f3541c4361b734b955f04d4ae7da1e,
+      type: 3}
+    building: {fileID: 3452400781485201116, guid: c0ae778444c79604eba76773b61cab66,
+      type: 3}
+  - name: Appart (S)
+    description: A small habitation which improve the maximum number of colonist
+      that you can accomodate.
+    techsNeeded: 
+    heightLimit: {x: 0, y: 0.5}
+    identity: 1
+    icon: {fileID: 21300000, guid: 0efdb229cd372934f80760d539ca80e6, type: 3}
+    colonist: 0
+    energy: -2
+    money: 25
+    rigolyte: 12
+    bioPlastique: 5
+    food: 5
+    profit: 10
+    maxColonist: 7
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: -2
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 0
+    canControlSector: 0
+    maxProgress: 15
+    experience: 2
+    preview: {fileID: 430275250520317494, guid: b17c5f7253303ba40a26fc79b3ee2f9d,
+      type: 3}
+    building: {fileID: 6647157831636990553, guid: 2388b7a383d55e84dab338ff6bb85859,
+      type: 3}
+  - name: Appart (M)
+    description: A classic habitation which improve the maximum number of colonist
+      that you can accomodate.
+    techsNeeded: 01000000
+    heightLimit: {x: 0, y: 0.5}
+    identity: 2
+    icon: {fileID: 21300000, guid: 0efdb229cd372934f80760d539ca80e6, type: 3}
+    colonist: 0
+    energy: -4
+    money: 55
+    rigolyte: 27
+    bioPlastique: 15
+    food: 11
+    profit: 25
+    maxColonist: 14
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: -5
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 0
+    canControlSector: 0
+    maxProgress: 25
+    experience: 4
+    preview: {fileID: 8390770839799534376, guid: 8c0734d2b188ec249a474c72d975070f,
+      type: 3}
+    building: {fileID: 7628737202508356837, guid: eeef5244031715b41ad9db09a2eb1700,
+      type: 3}
+  - name: Appart (L)
+    description: A large habitation which improve the maximum number of colonist
+      that you can accomodate.
+    techsNeeded: 03000000
+    heightLimit: {x: 0, y: 0.5}
+    identity: 3
+    icon: {fileID: 21300000, guid: 0efdb229cd372934f80760d539ca80e6, type: 3}
+    colonist: 0
+    energy: -6
+    money: 85
+    rigolyte: 35
+    bioPlastique: 21
+    food: 17
+    profit: 40
+    maxColonist: 22
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: -11
+    research: 5
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 0
+    canControlSector: 0
+    maxProgress: 40
+    experience: 8
+    preview: {fileID: 220957684410015830, guid: a4ac464c8dbe00848a48183fc3d5a686,
+      type: 3}
+    building: {fileID: 8833904440315315792, guid: 6c738e13542fb4641847c845e8779d4b,
+      type: 3}
+  - name: Farm (S)
+    description: A small farm that allows your settlers to survive on the Moon.
+    techsNeeded: 
+    heightLimit: {x: 0, y: 0.5}
+    identity: 4
+    icon: {fileID: 21300000, guid: 681ff68292035d94ab97d0c24be6f4dc, type: 3}
+    colonist: 2
+    energy: -5
+    money: 20
+    rigolyte: 9
+    bioPlastique: 5
+    food: 0
+    profit: -5
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 7
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 20
+    experience: 2
+    preview: {fileID: 2864669060364908326, guid: 34018074ba6dcca4d9d3b4d36f1d83c6,
+      type: 3}
+    building: {fileID: 2643030817920244984, guid: 1cf9e5d0a96a03246a80130701bbec88,
+      type: 3}
+  - name: Farm (M)
+    description: A classic farm that allows your settlers to survive on the Moon.
+    techsNeeded: 00000000
+    heightLimit: {x: 0, y: 0.5}
+    identity: 5
+    icon: {fileID: 21300000, guid: 681ff68292035d94ab97d0c24be6f4dc, type: 3}
+    colonist: 4
+    energy: -8
+    money: 50
+    rigolyte: 15
+    bioPlastique: 13
+    food: 0
+    profit: -8
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 14
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 30
+    experience: 4
+    preview: {fileID: 4691662715180396232, guid: a31a088c3be2404479e16dad100e97de,
+      type: 3}
+    building: {fileID: 2739893863313095914, guid: 5911e88917d4cc64d9a18f3232940c94,
+      type: 3}
+  - name: Farm (L)
+    description: A huge farm that allows your settlers to survive on the Moon.
+    techsNeeded: 02000000
+    heightLimit: {x: 0, y: 0.5}
+    identity: 6
+    icon: {fileID: 21300000, guid: 681ff68292035d94ab97d0c24be6f4dc, type: 3}
+    colonist: 8
+    energy: -15
+    money: 100
+    rigolyte: 30
+    bioPlastique: 25
+    food: 0
+    profit: -11
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 32
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 55
+    experience: 8
+    preview: {fileID: 4949955285147925362, guid: 17a50fd0e1645874f9fdf4f0d57df487,
+      type: 3}
+    building: {fileID: 6678926645117677019, guid: 57a6a60a91c2674449686e8153a0e6c5,
+      type: 3}
+  - name: Barracks
+    description: A training camp for your most bellicose settlers.
+    techsNeeded: 
+    heightLimit: {x: 0, y: 0.5}
+    identity: 7
+    icon: {fileID: 21300000, guid: 22602f55a2d235b4e8103bb8406b1f2f, type: 3}
+    colonist: 4
+    energy: -6
+    money: 50
+    rigolyte: 15
+    bioPlastique: 10
+    food: 0
+    profit: -13
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 25
+    experience: 5
+    preview: {fileID: 6212427026902281398, guid: ddcbb480c1523c742b2f2c17b9a3637a,
+      type: 3}
+    building: {fileID: 7407339379516461442, guid: 61db5036fa6cd3f45a3b71b68a388342,
+      type: 3}
+  - name: Military factory
+    description: A military factory that allows you to build any type of combat vehicle.
+    techsNeeded: 
+    heightLimit: {x: 0, y: 0.5}
+    identity: 8
+    icon: {fileID: 21300000, guid: 6716799131aa6564491bf1df9ab95940, type: 3}
+    colonist: 5
+    energy: -12
+    money: 75
+    rigolyte: 25
+    bioPlastique: 20
+    food: 0
+    profit: -24
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 35
+    experience: 10
+    preview: {fileID: 6322666738836125398, guid: a86d2304c08522c419af636a2fdc1607,
+      type: 3}
+    building: {fileID: 327914642795429754, guid: a1f5bce97e156314b8e30dc8612572ec,
+      type: 3}
+  - name: Excavator (M)
+    description: An open-pit mine that harvests regolith day and night.
+    techsNeeded: 
+    heightLimit: {x: 0, y: 0.5}
+    identity: 9
+    icon: {fileID: 21300000, guid: a09c45e946820784ca62a8f243dbb9df, type: 3}
+    colonist: 3
+    energy: -9
+    money: 70
+    rigolyte: 0
+    bioPlastique: 10
+    food: 0
+    profit: -8
+    maxColonist: 0
+    rigolyteOutput: 9
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 20
+    experience: 4
+    preview: {fileID: 4119310029533870295, guid: 5922c9423cf0fa346818c987dfe933e1,
+      type: 3}
+    building: {fileID: 8132949959504099433, guid: fb8856590b84b7b4387e051ebfc8be4d,
+      type: 3}
+  - name: Excavator (L)
+    description: An large open-pit mine that harvests regolith day and night.
+    techsNeeded: 0c000000
+    heightLimit: {x: 0, y: 0.5}
+    identity: 10
+    icon: {fileID: 21300000, guid: a09c45e946820784ca62a8f243dbb9df, type: 3}
+    colonist: 5
+    energy: -16
+    money: 121
+    rigolyte: 0
+    bioPlastique: 22
+    food: 0
+    profit: -13
+    maxColonist: 0
+    rigolyteOutput: 22
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 30
+    experience: 8
+    preview: {fileID: 3592153174375432909, guid: 027d6cd382e6cc743b8c98b2ff2c00b6,
+      type: 3}
+    building: {fileID: 5542585378157357407, guid: fc62c0ea6e34a934ebc23f035b3014af,
+      type: 3}
+  - name: Trading center (M)
+    description: A building in direct contact with Earth's merchants, which allows
+      you to buy and sell resources.
+    techsNeeded: 0e000000
+    heightLimit: {x: 0, y: 0.5}
+    identity: 11
+    icon: {fileID: 21300000, guid: 8a37f8090f94a544c9887de073a10de0, type: 3}
+    colonist: 3
+    energy: -7
+    money: 40
+    rigolyte: 20
+    bioPlastique: 5
+    food: 0
+    profit: 25
+    maxColonist: 0
+    rigolyteOutput: -2
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 40
+    experience: 4
+    preview: {fileID: 7586418837802492126, guid: c3dcb195543d28841be714488c4a8685,
+      type: 3}
+    building: {fileID: 6371585698410920490, guid: 290d7bcb83df56d42897062b23cb9435,
+      type: 3}
+  - name: Solar panel (S)
+    description: A small group of high-performance solar panels that allows you to
+      have energy continuously thanks to a small battery.
+    techsNeeded: 05000000
+    heightLimit: {x: 3, y: 5}
+    identity: 12
+    icon: {fileID: 21300000, guid: 3c952c52f1163394fb1187b74a424920, type: 3}
+    colonist: 0
+    energy: 5
+    money: 20
+    rigolyte: 5
+    bioPlastique: 7
+    food: 0
+    profit: -3
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: -1
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 0
+    canBeLink: 0
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 5
+    experience: 2
+    preview: {fileID: 1341245518770773597, guid: 6ff4d2980a250f84ba4e6396827cac6b,
+      type: 3}
+    building: {fileID: 2095095868910250842, guid: b68bca6828a95b146981189c05b06a0a,
+      type: 3}
+  - name: Solar panel (M)
+    description: A group of high-performance solar panels that allows you to have
+      energy continuously thanks to a battery.
+    techsNeeded: 07000000
+    heightLimit: {x: 3, y: 5}
+    identity: 13
+    icon: {fileID: 21300000, guid: 3c952c52f1163394fb1187b74a424920, type: 3}
+    colonist: 0
+    energy: 15
+    money: 43
+    rigolyte: 12
+    bioPlastique: 17
+    food: 0
+    profit: -8
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: -4
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 0
+    canBeLink: 0
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 15
+    experience: 4
+    preview: {fileID: 6295384607793532402, guid: 6cdd96ec9fc7c9345bea145728e8d7a9,
+      type: 3}
+    building: {fileID: 9144120651811187242, guid: 4b3c7f20cf3c4ba4c866ab0aecf8ead1,
+      type: 3}
+  - name: Solar panel (L)
+    description: A large group of high-performance solar panels that allows you to
+      have energy continuously thanks to a large battery.
+    techsNeeded: 0a000000
+    heightLimit: {x: 3, y: 5}
+    identity: 14
+    icon: {fileID: 21300000, guid: 3c952c52f1163394fb1187b74a424920, type: 3}
+    colonist: 0
+    energy: 30
+    money: 95
+    rigolyte: 25
+    bioPlastique: 37
+    food: 0
+    profit: -15
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: -5
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 0
+    canBeLink: 0
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 25
+    experience: 8
+    preview: {fileID: 7393621736000383850, guid: 5b1941b1b980eb745b1f2417f2405ac0,
+      type: 3}
+    building: {fileID: 3975341218527364705, guid: 00bdd2d1b08709849be229f6cee9e94b,
+      type: 3}
+  - name: Sentry turret
+    description: A sentry turret that allows you to defend your colony in case of
+      enemy attacks.
+    techsNeeded: 13000000
+    heightLimit: {x: -0.1, y: 5}
+    identity: 15
+    icon: {fileID: 21300000, guid: 9535c79244fa21248a916ab255a46696, type: 3}
+    colonist: 0
+    energy: -5
+    money: 150
+    rigolyte: 20
+    bioPlastique: 10
+    food: 0
+    profit: -3
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 0
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 25
+    experience: 10
+    preview: {fileID: 4630651076418739606, guid: 06360c5bdb44f564b8943b5cbcd6cf7d,
+      type: 3}
+    building: {fileID: 3980994832651506667, guid: 563330a741a73ed41903a3154faf7c94,
+      type: 3}
+  - name: Biofactory
+    description: A civil factory that produces bioplastic from organic matter.
+    techsNeeded: 
+    heightLimit: {x: 0, y: 0.5}
+    identity: 16
+    icon: {fileID: 21300000, guid: 3e53c60bea6d7f240a8cbc5ccb1f8bf8, type: 3}
+    colonist: 3
+    energy: -7
+    money: 50
+    rigolyte: 27
+    bioPlastique: 0
+    food: 0
+    profit: -11
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 7
+    foodOutput: -2
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 25
+    experience: 4
+    preview: {fileID: 324386027259663310, guid: 0ce1a74f99b7b2148aa4897b25a989ab,
+      type: 3}
+    building: {fileID: 1387273332859912524, guid: 9d846de1ec97a1749ad2c966de583e3d,
+      type: 3}
+  - name: Wall
+    description: A big wall to stop the invaders.
+    techsNeeded: 11000000
+    heightLimit: {x: 0, y: 5}
+    identity: 17
+    icon: {fileID: 21300000, guid: 7aae33687e7b57747a4300ac7458892e, type: 3}
+    colonist: 0
+    energy: 0
+    money: 50
+    rigolyte: 15
+    bioPlastique: 0
+    food: 0
+    profit: -1
+    maxColonist: 0
+    rigolyteOutput: -1
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 0
+    canBeLink: 0
+    canBePause: 0
+    canControlSector: 0
+    maxProgress: 7
+    experience: 1
+    preview: {fileID: 7380341910227908116, guid: 64a9c45bb93452a42890186a34dcbf15,
+      type: 3}
+    building: {fileID: 4876261488339784041, guid: c5b1d430f6970a84c9b05e36aeb8553a,
+      type: 3}
+  - name: Trading center (L)
+    description: A big building in direct contact with Earth's merchants, which allows
+      you to buy and sell resources.
+    techsNeeded: 10000000
+    heightLimit: {x: 0, y: 0.5}
+    identity: 18
+    icon: {fileID: 21300000, guid: 8a37f8090f94a544c9887de073a10de0, type: 3}
+    colonist: 5
+    energy: -10
+    money: 65
+    rigolyte: 35
+    bioPlastique: 12
+    food: 0
+    profit: 50
+    maxColonist: 0
+    rigolyteOutput: -5
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 65
+    experience: 8
+    preview: {fileID: 321025190304046336, guid: 63cfcdc664bca424f88e51922879dd31,
+      type: 3}
+    building: {fileID: 4407407403092471840, guid: a6b4d7eadd21fd94fafcb02d1488aef8,
+      type: 3}
+  - name: LaunchPad (S)
+    description: A small launch pad for rocket.
+    techsNeeded: 
+    heightLimit: {x: 0, y: 0.5}
+    identity: 19
+    icon: {fileID: 21300000, guid: 8a37f8090f94a544c9887de073a10de0, type: 3}
+    colonist: 0
+    energy: -2
+    money: 15
+    rigolyte: 15
+    bioPlastique: 2
+    food: 0
+    profit: 0
+    maxColonist: 0
+    rigolyteOutput: -1
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 15
+    experience: 2
+    preview: {fileID: 1867675155075953630, guid: ec92d0a6fbbf01b4688854c1563b63b8,
+      type: 3}
+    building: {fileID: 7980221970168973307, guid: 2442c815a01dd064ba316bf5a3cf262f,
+      type: 3}
+  - name: LaunchPad (M)
+    description: A launch pad for rocket.
+    techsNeeded: 
+    heightLimit: {x: 0, y: 0.5}
+    identity: 20
+    icon: {fileID: 21300000, guid: 8a37f8090f94a544c9887de073a10de0, type: 3}
+    colonist: 0
+    energy: -3
+    money: 20
+    rigolyte: 20
+    bioPlastique: 4
+    food: 0
+    profit: 0
+    maxColonist: 0
+    rigolyteOutput: -2
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 30
+    experience: 4
+    preview: {fileID: 6092133119949230525, guid: 8bac6e0134946464b9cf2278073cf49a,
+      type: 3}
+    building: {fileID: 2444760552937227055, guid: 131890042f226534d88492768d4f7aa0,
+      type: 3}
+  - name: LaunchPad (L)
+    description: A big launch pad for rocket.
+    techsNeeded: 
+    heightLimit: {x: 0, y: 0.5}
+    identity: 21
+    icon: {fileID: 21300000, guid: 8a37f8090f94a544c9887de073a10de0, type: 3}
+    colonist: 0
+    energy: -4
+    money: 30
+    rigolyte: 30
+    bioPlastique: 7
+    food: 0
+    profit: 0
+    maxColonist: 0
+    rigolyteOutput: -3
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 60
+    experience: 8
+    preview: {fileID: 2017428174372308784, guid: 40b895abf53f7a742bd832f44a623787,
+      type: 3}
+    building: {fileID: 6411389014345506797, guid: 709fe78725cf83745818e5b71979b62c,
+      type: 3}
+  - name: Pub panel (1)
+    description: A pub panel that display ads.
+    techsNeeded: 
+    heightLimit: {x: 0, y: 5}
+    identity: 22
+    icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+    colonist: 0
+    energy: 0
+    money: 10
+    rigolyte: 0
+    bioPlastique: 0
+    food: 0
+    profit: 0
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 0
+    canBeLink: 0
+    canBePause: 0
+    canControlSector: 0
+    maxProgress: 2
+    experience: 0
+    preview: {fileID: 2522504685274261639, guid: 49d6227c2069c794396d6f6f40774d34,
+      type: 3}
+    building: {fileID: 4265250758321406856, guid: e3c04cf2b02477741bf2a0f1fc3efde1,
+      type: 3}
+  - name: Pub panel (2)
+    description: A pub panel that display ads.
+    techsNeeded: 
+    heightLimit: {x: 0, y: 5}
+    identity: 23
+    icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+    colonist: 0
+    energy: 0
+    money: 10
+    rigolyte: 0
+    bioPlastique: 0
+    food: 0
+    profit: 0
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 0
+    canBeLink: 0
+    canBePause: 0
+    canControlSector: 0
+    maxProgress: 2
+    experience: 0
+    preview: {fileID: 6528848033903244416, guid: 82aee54a9170e9d4a92d2ef0f2485ae0,
+      type: 3}
+    building: {fileID: 5449018175165431805, guid: 2bfac047bd04f5f4ab5183ad210e15d1,
+      type: 3}
+  - name: Pub panel (3)
+    description: A pub panel that display ads.
+    techsNeeded: 
+    heightLimit: {x: 0, y: 5}
+    identity: 24
+    icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+    colonist: 0
+    energy: 0
+    money: 10
+    rigolyte: 0
+    bioPlastique: 0
+    food: 0
+    profit: 0
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 0
+    canBeLink: 0
+    canBePause: 0
+    canControlSector: 0
+    maxProgress: 2
+    experience: 0
+    preview: {fileID: 187190896985550221, guid: 2e1cd64626902614b821e1381cf6a5f8,
+      type: 3}
+    building: {fileID: 350776606631296450, guid: b51485b7fb3df854b9f096e79db1e65b,
+      type: 3}
+  - name: Floor lamp (1)
+    description: A floor lamp to illuminate your settlement.
+    techsNeeded: 
+    heightLimit: {x: 0, y: 5}
+    identity: 25
+    icon: {fileID: 21300000, guid: 1cd61927c89186b40a7367550c225e56, type: 3}
+    colonist: 0
+    energy: 0
+    money: 10
+    rigolyte: 0
+    bioPlastique: 0
+    food: 0
+    profit: 0
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 0
+    canBeLink: 0
+    canBePause: 0
+    canControlSector: 0
+    maxProgress: 2
+    experience: 0
+    preview: {fileID: 5212786439194485451, guid: fe723be8ede684644a8c6fdfe4c1ce67,
+      type: 3}
+    building: {fileID: 7219768221488162473, guid: da88448c7a9d435489bf0a59e5b68279,
+      type: 3}
+  - name: Floor lamp (2)
+    description: A floor lamp to illuminate your settlement.
+    techsNeeded: 
+    heightLimit: {x: 0, y: 5}
+    identity: 26
+    icon: {fileID: 21300000, guid: 1cd61927c89186b40a7367550c225e56, type: 3}
+    colonist: 0
+    energy: 0
+    money: 10
+    rigolyte: 0
+    bioPlastique: 0
+    food: 0
+    profit: 0
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 0
+    canBeLink: 0
+    canBePause: 0
+    canControlSector: 0
+    maxProgress: 2
+    experience: 0
+    preview: {fileID: 3196410649118261206, guid: f764095b7d11b3b4fa609be1f8ec364a,
+      type: 3}
+    building: {fileID: 2266108300917081027, guid: 802c6aa00c3d797449acf2ad2291776b,
+      type: 3}
+  - name: Floor lamp (3)
+    description: A floor lamp to illuminate your settlement.
+    techsNeeded: 
+    heightLimit: {x: 0, y: 5}
+    identity: 27
+    icon: {fileID: 21300000, guid: 1cd61927c89186b40a7367550c225e56, type: 3}
+    colonist: 0
+    energy: 0
+    money: 10
+    rigolyte: 0
+    bioPlastique: 0
+    food: 0
+    profit: 0
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 0
+    canBeLink: 0
+    canBePause: 0
+    canControlSector: 0
+    maxProgress: 2
+    experience: 0
+    preview: {fileID: 2707182458313905272, guid: 31d294a3ad797ff4db3e1e9a7eb457a9,
+      type: 3}
+    building: {fileID: 5991009097968548371, guid: 3d42b1829d2fde349aa5f3ff80c797c7,
+      type: 3}
+  - name: Nuclear reactor (L)
+    description: A reactor to product electricity everytime.
+    techsNeeded: 
+    heightLimit: {x: 0, y: 0.5}
+    identity: 28
+    icon: {fileID: 21300000, guid: ec1647a2a2bf0c247b0741166e4b6329, type: 3}
+    colonist: 4
+    energy: 20
+    money: 75
+    rigolyte: 42
+    bioPlastique: 10
+    food: 0
+    profit: -4
+    maxColonist: 0
+    rigolyteOutput: -2
+    bioPlastiqueOutput: -0.5
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 0
+    canControlSector: 0
+    maxProgress: 20
+    experience: 8
+    preview: {fileID: 110678589711660307, guid: 9abe382f0720c4e4bb70ed0d2a3b8a33,
+      type: 3}
+    building: {fileID: 2260283034980183021, guid: ed62f8c601ead2b4b9beb60793e6b968,
+      type: 3}
+  - name: Nuclear reactor (XL)
+    description: A reactor to product electricity everytime.
+    techsNeeded: 08000000
+    heightLimit: {x: 0, y: 0.5}
+    identity: 29
+    icon: {fileID: 21300000, guid: ec1647a2a2bf0c247b0741166e4b6329, type: 3}
+    colonist: 7
+    energy: 50
+    money: 125
+    rigolyte: 85
+    bioPlastique: 25
+    food: 0
+    profit: -7
+    maxColonist: 0
+    rigolyteOutput: -4
+    bioPlastiqueOutput: -1
+    foodOutput: 0
+    research: 0.5
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 0
+    canControlSector: 0
+    maxProgress: 45
+    experience: 16
+    preview: {fileID: 5819766472436067893, guid: 88694eb6a3dcccf4daad73497f75c012,
+      type: 3}
+    building: {fileID: 6804253251118559214, guid: e7001d35940d520499e842b3ac212681,
+      type: 3}
+  - name: Warehouse (S)
+    description: A small warehouse to accumulate some additional resources.
+    techsNeeded: 0b000000
+    heightLimit: {x: 0, y: 0.5}
+    identity: 30
+    icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+    colonist: 0
+    energy: -1
+    money: 50
+    rigolyte: 3
+    bioPlastique: 1
+    food: 0
+    profit: -1
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 30
+    bioPlasticStock: 15
+    foodStock: 15
+    canLink: 1
+    canBeLink: 1
+    canBePause: 0
+    canControlSector: 0
+    maxProgress: 5
+    experience: 2
+    preview: {fileID: 8032626407647360410, guid: dccaf219b82d508439a9bb29b84a1971,
+      type: 3}
+    building: {fileID: 3454535848235457431, guid: 3a83d0cefb1624647954d88bea87f345,
+      type: 3}
+  - name: Warehouse (M)
+    description: A warehouse to accumulate additional resources.
+    techsNeeded: 0d000000
+    heightLimit: {x: 0, y: 0.5}
+    identity: 31
+    icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+    colonist: 0
+    energy: -1
+    money: 75
+    rigolyte: 3
+    bioPlastique: 1
+    food: 0
+    profit: -1
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 65
+    bioPlasticStock: 35
+    foodStock: 35
+    canLink: 1
+    canBeLink: 1
+    canBePause: 0
+    canControlSector: 0
+    maxProgress: 6
+    experience: 4
+    preview: {fileID: 155548427498345841, guid: fd19ffcc31b35e242a9976c8df160e3c,
+      type: 3}
+    building: {fileID: 7687077836045253213, guid: 146d0d65cf025b24bb39ffb9bd2ea6ca,
+      type: 3}
+  - name: Warehouse (L)
+    description: A large warehouse to accumulate a quantity of additional resources.
+    techsNeeded: 0f000000
+    heightLimit: {x: 0, y: 0.5}
+    identity: 32
+    icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+    colonist: 0
+    energy: -1
+    money: 125
+    rigolyte: 3
+    bioPlastique: 1
+    food: 0
+    profit: -1
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 150
+    bioPlasticStock: 100
+    foodStock: 100
+    canLink: 1
+    canBeLink: 1
+    canBePause: 0
+    canControlSector: 0
+    maxProgress: 10
+    experience: 8
+    preview: {fileID: 903717814284226584, guid: f9526c9f3a7b3c644a052f5655f243ca,
+      type: 3}
+    building: {fileID: 992088246831060541, guid: 08fc2879a23a1724d8c734e806ecdd44,
+      type: 3}
+  - name: Guard tower
+    description: A tower used by guardians to prevent invasion.
+    techsNeeded: 120000000f270000
+    heightLimit: {x: -0.1, y: 0.5}
+    identity: 33
+    icon: {fileID: 21300000, guid: 834e070da7ff91e41b387c2daf3a511e, type: 3}
+    colonist: 2
+    energy: -1
+    money: 50
+    rigolyte: 12
+    bioPlastique: 7
+    food: 2
+    profit: -5
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 40
+    experience: 8
+    preview: {fileID: 5638898735214895896, guid: 10beb68c5a17db747b152ef6afbd5d66,
+      type: 3}
+    building: {fileID: 3324920884923318297, guid: 627cc7b6a00ea9243be0697b23280518,
+      type: 3}
+  - name: High-security district
+    description: A highly defended district with guards and turrets.
+    techsNeeded: 14000000
+    heightLimit: {x: -0.1, y: 0.5}
+    identity: 34
+    icon: {fileID: 21300000, guid: f0894e05365668a45931164049594c00, type: 3}
+    colonist: 7
+    energy: -10
+    money: 200
+    rigolyte: 65
+    bioPlastique: 45
+    food: 10
+    profit: -13
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 1
+    maxProgress: 115
+    experience: 44
+    preview: {fileID: 7984488768540469797, guid: d1dd617909abd3a4a997e59bb517a60c,
+      type: 3}
+    building: {fileID: 3176685264130153955, guid: 6961a53e23c15ad45827439f06f4d9f8,
+      type: 3}
+  - name: Police station
+    description: Building to be used for law enforcement.
+    techsNeeded: 
+    heightLimit: {x: -0.1, y: 0.5}
+    identity: 35
+    icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+    colonist: 5
+    energy: -7
+    money: 150
+    rigolyte: 40
+    bioPlastique: 25
+    food: 3
+    profit: -7
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 65
+    experience: 23
+    preview: {fileID: 7013260443071209155, guid: 370a6a733cc48db42a5707a1a2cbf33c,
+      type: 3}
+    building: {fileID: 4420290478410395266, guid: ccfda6df2bbacf04bbb58fbb8b3eee49,
+      type: 3}
+  - name: Hospital
+    description: Allows for the care of sick settlers.
+    techsNeeded: e7030000
+    heightLimit: {x: -0.1, y: 0.5}
+    identity: 36
+    icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+    colonist: 5
+    energy: -7
+    money: 125
+    rigolyte: 40
+    bioPlastique: 25
+    food: 3
+    profit: -6
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 2
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 70
+    experience: 20
+    preview: {fileID: 0}
+    building: {fileID: 0}
+  - name: Lab (S)
+    description: A small laboratory, ideal for small-scale experiments.
+    techsNeeded: 
+    heightLimit: {x: -0.1, y: 0.5}
+    identity: 37
+    icon: {fileID: 21300000, guid: 11f8dbf0c655cf44b8f1f00a5dc5687d, type: 3}
+    colonist: 2
+    energy: -3
+    money: 75
+    rigolyte: 7
+    bioPlastique: 3
+    food: 0
+    profit: -5
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 5
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 22
+    experience: 3
+    preview: {fileID: 5966939936856312796, guid: 7d23c8182c6d14d40887ca4346dac73b,
+      type: 3}
+    building: {fileID: 3846676695354542410, guid: fc6566f77f115714487b2f371ab0d1ec,
+      type: 3}
+  - name: Lab (M)
+    description: A laboratory, ideal for medium-scale experiments.
+    techsNeeded: 12000000
+    heightLimit: {x: -0.1, y: 0.5}
+    identity: 38
+    icon: {fileID: 21300000, guid: 11f8dbf0c655cf44b8f1f00a5dc5687d, type: 3}
+    colonist: 4
+    energy: -5
+    money: 150
+    rigolyte: 15
+    bioPlastique: 7
+    food: 0
+    profit: -15
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 14
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 45
+    experience: 5
+    preview: {fileID: 83764752493884803, guid: 055a1e61af68d4d49a669e4c267fb4e9, type: 3}
+    building: {fileID: 1719489364285556252, guid: b5038f4da8d45c74bb4c9026e8f935ce,
+      type: 3}
+  - name: Lab (L)
+    description: A great laboratory, ideal for big-scale experiments.
+    techsNeeded: 13000000
+    heightLimit: {x: -0.1, y: 0.5}
+    identity: 39
+    icon: {fileID: 21300000, guid: 11f8dbf0c655cf44b8f1f00a5dc5687d, type: 3}
+    colonist: 7
+    energy: -10
+    money: 350
+    rigolyte: 25
+    bioPlastique: 17
+    food: 0
+    profit: -30
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 26
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 1
+    canControlSector: 0
+    maxProgress: 70
+    experience: 7
+    preview: {fileID: 83087270914645318, guid: 444f3864610ffac4797c4b9298c4ccf4, type: 3}
+    building: {fileID: 2072196700063057266, guid: 45d932144184f334fb03e97430ddd10d,
+      type: 3}
+  - name: Accumulator (S)
+    description: A basic accumulator for coping with a power outage.
+    techsNeeded: 04000000
+    heightLimit: {x: -0.1, y: 0.5}
+    identity: 40
+    icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+    colonist: 0
+    energy: 0
+    money: 50
+    rigolyte: 10
+    bioPlastique: 13
+    food: 0
+    profit: -2
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 0
+    canControlSector: 0
+    maxProgress: 15
+    experience: 1
+    preview: {fileID: 7773268366633371338, guid: c66f7765efcd1f34794e8dcb3f96bfd5,
+      type: 3}
+    building: {fileID: 7286717765452093112, guid: eb3ad9702700039449748c105005601a,
+      type: 3}
+  - name: Accumulator (M)
+    description: An accumulator for coping with a power outage.
+    techsNeeded: 06000000
+    heightLimit: {x: -0.1, y: 0.5}
+    identity: 41
+    icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+    colonist: 0
+    energy: 0
+    money: 100
+    rigolyte: 22
+    bioPlastique: 30
+    food: 0
+    profit: -2
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 0
+    canControlSector: 0
+    maxProgress: 40
+    experience: 1
+    preview: {fileID: 1097118004015974748, guid: 75f83ec163e6642499bb7c6a2a786b6f,
+      type: 3}
+    building: {fileID: 507610176273673918, guid: 006df3f601111224a917163634355fb6,
+      type: 3}
+  - name: Accumulator (L)
+    description: A large accumulator for coping with a power outage.
+    techsNeeded: 09000000e7030000
+    heightLimit: {x: -0.1, y: 0.5}
+    identity: 42
+    icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+    colonist: 0
+    energy: 0
+    money: 200
+    rigolyte: 50
+    bioPlastique: 65
+    food: 0
+    profit: -3
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 0
+    canControlSector: 0
+    maxProgress: 60
+    experience: 2
+    preview: {fileID: 3805763095897076519, guid: 4547577d31ffb764d926b98459e7a7eb,
+      type: 3}
+    building: {fileID: 647976336041157936, guid: 1ca386bab4816d444924454f85549369,
+      type: 3}
+  - name: Spaceport
+    description: SPACEPORT
+    techsNeeded: 11000000
+    heightLimit: {x: -0.1, y: 0.5}
+    identity: 43
+    icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+    colonist: 12
+    energy: -25
+    money: 500
+    rigolyte: 150
+    bioPlastique: 125
+    food: 0
+    profit: -32
+    maxColonist: 0
+    rigolyteOutput: 0
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 1
+    canBeLink: 1
+    canBePause: 0
+    canControlSector: 0
+    maxProgress: 200
+    experience: 35
+    preview: {fileID: 6182898594083130286, guid: 52bcd55d755fb1a4e971433930f9ef12,
+      type: 3}
+    building: {fileID: 42044872312724799, guid: c3e588525d3b8b347bed994f18ce0731,
+      type: 3}
+  - name: Hand of Power
+    description: A wonder to affirm its superiority in all fields.
+    techsNeeded: 10000000
+    heightLimit: {x: -0.1, y: 0.5}
+    identity: 44
+    icon: {fileID: 21300000, guid: 783c5448376ee524eb35f4c2f5dde978, type: 3}
+    colonist: 0
+    energy: -15
+    money: 50000
+    rigolyte: 1250
+    bioPlastique: 1025
+    food: 0
+    profit: -100
+    maxColonist: 0
+    rigolyteOutput: -5
+    bioPlastiqueOutput: 0
+    foodOutput: 0
+    research: 0
+    energyStorage: 0
+    rigolyteStock: 0
+    bioPlasticStock: 0
+    foodStock: 0
+    canLink: 0
+    canBeLink: 0
+    canBePause: 0
+    canControlSector: 1
+    maxProgress: 1500
+    experience: 100
+    preview: {fileID: 3305367537455802960, guid: ff525429182677d49968e47f9dc7b57f,
+      type: 3}
+    building: {fileID: 5275583950468526273, guid: 517476dd82bbda445b02fbf92f148311,
+      type: 3}

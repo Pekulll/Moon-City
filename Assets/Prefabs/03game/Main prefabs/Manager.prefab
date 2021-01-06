@@ -1,0 +1,932 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1171960983210021245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1171960983210021246}
+  - component: {fileID: 1171960983210021247}
+  - component: {fileID: 1171960983210021242}
+  - component: {fileID: 1271564079}
+  - component: {fileID: 1271564080}
+  - component: {fileID: 1271564081}
+  - component: {fileID: 2280544551398110841}
+  - component: {fileID: 4715017641621545862}
+  - component: {fileID: 4594176708403545003}
+  - component: {fileID: 4714545871633165227}
+  - component: {fileID: 1817664644376457224}
+  - component: {fileID: 159337628262193032}
+  - component: {fileID: 477413077}
+  - component: {fileID: 1706547804}
+  - component: {fileID: 7337736802218917224}
+  - component: {fileID: 1706547805}
+  - component: {fileID: 5727818899937806729}
+  - component: {fileID: 1706547806}
+  - component: {fileID: 2632250931946159247}
+  - component: {fileID: 2475531628465412582}
+  - component: {fileID: 4432985379679229281}
+  - component: {fileID: 2255990068547325843}
+  - component: {fileID: 3851377817461460716}
+  - component: {fileID: 2600112611015483759}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1171960983210021246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1171960983210021247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb64a57f9c548ec449667eff17365785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  day: 0
+  seconds: 0
+  ponctualEvents: []
+  side: 0
+  colonyColor: {r: 1, g: 1, b: 1, a: 1}
+  canPaused: 1
+  isPaused: 0
+  canInteractWithUI: 1
+  versionCode: 0.0.28.0
+  saveName: TESTMODE
+  buildData:
+  - {fileID: 11400000, guid: 040c74d94e0415446a6cc535604d07d7, type: 2}
+  - {fileID: 11400000, guid: f6cff9d66e0569540899c22dc77f1a52, type: 2}
+  - {fileID: 11400000, guid: aab2502b496af8a41b7c9c93de34a709, type: 2}
+  - {fileID: 11400000, guid: 99bde1c4430ee264f8ef2020bc749934, type: 2}
+  - {fileID: 11400000, guid: bc30f8753c94e1c44afdd11f0a55884b, type: 2}
+  - {fileID: 11400000, guid: b3b4e0e78089f6d4fb309b99fc683f75, type: 2}
+  - {fileID: 11400000, guid: 9168120a8f5e83b46a100a53139b7df9, type: 2}
+  - {fileID: 11400000, guid: 7aba22c8486cb5940bec27c1d5d5ee39, type: 2}
+  - {fileID: 11400000, guid: 97c533da806e0d94897c2fd80b8ad2ae, type: 2}
+  - {fileID: 11400000, guid: 275885ecd2b96f249a7ffbb5b90e1339, type: 2}
+  - {fileID: 11400000, guid: 6e335dbe65b10de458d597f863e300b7, type: 2}
+  - {fileID: 11400000, guid: bb0cdfe44f3f4214ca68f35bbb814071, type: 2}
+  - {fileID: 11400000, guid: 465b94de83a8512428fbb758d580ae1b, type: 2}
+  - {fileID: 11400000, guid: c3056183570b49f4cb7ea148a490efdf, type: 2}
+  - {fileID: 11400000, guid: 07474a0fbe787c943a13b8c920527fb1, type: 2}
+  - {fileID: 11400000, guid: 5d7bd17baf49bb94881c1d4f59052a64, type: 2}
+  - {fileID: 11400000, guid: eb741c0aa93efb248bf09e02cb56590e, type: 2}
+  - {fileID: 11400000, guid: a8d87c93fb69ee84fb7910a7d79b5b77, type: 2}
+  - {fileID: 11400000, guid: 1c5dd5a60111bd644bb43ceca21d4dd2, type: 2}
+  - {fileID: 11400000, guid: 0ddaddf3be0d74341947587e3a4728e8, type: 2}
+  - {fileID: 11400000, guid: c4060255b2731cc4c97251333a63cccb, type: 2}
+  - {fileID: 11400000, guid: 7eddd19da76c8c344bcd290a77cc6289, type: 2}
+  - {fileID: 11400000, guid: 0246cf9c741288f43ae5e57edf0fb8b5, type: 2}
+  - {fileID: 11400000, guid: 13b799b2f6acb5e4eab012537e9149d2, type: 2}
+  - {fileID: 11400000, guid: 465fc29fe1978334a9462c6f93b25d95, type: 2}
+  - {fileID: 11400000, guid: c8a4fb47f140c24418eb6dc06095706b, type: 2}
+  - {fileID: 11400000, guid: b62050aa8b6f386429437e2fa723c886, type: 2}
+  - {fileID: 11400000, guid: 848ea7c7971783144987aceb018fb1cd, type: 2}
+  - {fileID: 11400000, guid: 8ff63cc96786668499d77a3f5b358ef1, type: 2}
+  - {fileID: 11400000, guid: 40bde192b8ad88f48a6227d7a789a50c, type: 2}
+  - {fileID: 11400000, guid: 4e02993a62607f44ab90ee95308d9714, type: 2}
+  - {fileID: 11400000, guid: 9d0a2d45ae6e24d4c840ccf435b74fe6, type: 2}
+  - {fileID: 11400000, guid: 54639ae88032f654d95d6de312ec0223, type: 2}
+  - {fileID: 11400000, guid: 01cd5f3073ed16e40bcb26017f09e5bc, type: 2}
+  - {fileID: 11400000, guid: afafe0210e2030041a52a6d01b796895, type: 2}
+  - {fileID: 11400000, guid: 7a51642a5e71e3b44bb511d3539cb7c2, type: 2}
+  - {fileID: 11400000, guid: fdc9329b69a69fc448e309637d282cc2, type: 2}
+  - {fileID: 11400000, guid: 56c9b4956566618458edabf1ebbdeabf, type: 2}
+  - {fileID: 11400000, guid: a7ac273b20677704384bdb9a6f4ab6cf, type: 2}
+  - {fileID: 11400000, guid: 664672c3d9ea0f44498f1b1c908e442e, type: 2}
+  - {fileID: 11400000, guid: 4cdc66a1d563d364da255d338fcf2ee4, type: 2}
+  - {fileID: 11400000, guid: e2c816211725f894dbf1a788830fd99c, type: 2}
+  - {fileID: 11400000, guid: a06d6451315d13a4886e3cdd7ca3c7af, type: 2}
+  - {fileID: 11400000, guid: defd614ec777a874a8b1950098251640, type: 2}
+  - {fileID: 11400000, guid: 64099d7fe257e0a43a966a095a949bcb, type: 2}
+  unitData:
+  - {fileID: 11400000, guid: 1b4947d4a79f82f42a3e945c479bb9c7, type: 2}
+  - {fileID: 11400000, guid: 6f64d85393c77304f81fea5b70cc522c, type: 2}
+  - {fileID: 11400000, guid: 130e1c265bb54704f958b81f4f4e5f60, type: 2}
+  - {fileID: 11400000, guid: cb89b090e130b66459824778f0dde045, type: 2}
+  - {fileID: 11400000, guid: 567083c81ca4fb64f95815c1ae483735, type: 2}
+  - {fileID: 11400000, guid: 161aaddb89f23d84da6c3abfdb56d1bc, type: 2}
+  - {fileID: 11400000, guid: a9e1645ee833dda45929095bd3e4aa3d, type: 2}
+  - {fileID: 11400000, guid: 20cc20f6a019814428f2af8fca4620bf, type: 2}
+  - {fileID: 11400000, guid: 4d639125ad9098f4e99ab1b4161e10f1, type: 2}
+  techData: {fileID: 11400000, guid: 641ea9f92651eb145b8878bd125afe45, type: 2}
+  isOverUI: 0
+  notificationHistory: 
+  seed: 0
+  colonyStats: {fileID: 0}
+  data:
+    versionCode: 
+    iteration: 0
+    manager:
+      day: 0
+      time: 0
+      history: 
+      resourceWarning: 0
+      side: 0
+    player:
+      position: []
+      rotation: []
+      playerColony:
+        colonyColor: []
+        colonyName: 
+        side: 0
+        colonist: 0
+        money: 0
+        energy: 0
+        regolith: 0
+        bioplastic: 0
+        food: 0
+        regolithSold: 0
+        bioplasticSold: 0
+        foodSold: 0
+        regolithBought: 0
+        bioplasticBought: 0
+        foodBought: 0
+    stockMarket:
+      regolithValue: 10
+      bioplasticValue: 15
+      foodValue: 25
+    diplomacy:
+      status: []
+    notification:
+      queue: []
+    research:
+      progress: 0
+      indentity: 0
+      techsUnlock: 
+      queue: 
+    wave:
+      currentWaveIndex: 0
+    configuration:
+      seed: 0
+      waveProbability: 0
+      destroyCost: 0
+      enemyNumber: 0
+    buildings: []
+    previews: []
+    units: []
+    buildQuest: []
+    killQuest: []
+  dateNextWave: {x: 0, y: 0}
+  resourceWarning: 0
+--- !u!114 &1171960983210021242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34efae6d147c5654ca920722a504f1a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allWithComponent: []
+--- !u!114 &1271564079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31df37c8cb4bf944d84ba6ff535b28fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1271564080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21322c4e0fa025948a0cb90ae11f4f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoTxt: {fileID: 0}
+  aInfoTxt: {fileID: 0}
+--- !u!114 &1271564081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e148115740bcf498038e4b00ab64b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventsData:
+  - name: ===== Classics =====
+    identity: -9999
+    type: Unshowable
+    dialogs: []
+  - name: Thanks for playing !
+    identity: 0
+    type: Classic
+    dialogs: []
+  - name: ===== Random =====
+    identity: -9999
+    type: Unshowable
+    dialogs: []
+  - name: A little joke ?
+    identity: 1001
+    type: Random
+    dialogs:
+    - locutor: Astronaute
+      text: General, lately I've been feeling like you've been... stressed. A joke
+        will do you the world of good. All right?
+      locutorIcon: {fileID: 21300000, guid: 80e46e807f59ade44b86c8e0f45f3c94, type: 3}
+      btns:
+      - btnName: Hum... O.K.
+        icon: {fileID: 21300000, guid: 6b1a5f85fb3e8a64f87afb75b12f6588, type: 3}
+        onExecute:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1271564081}
+              m_MethodName: NextDialogue
+              m_Mode: 3
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 1
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+      - btnName: Get back to work!
+        icon: {fileID: 21300000, guid: 5f778696b748e2b49bc3a4e78cd4941a, type: 3}
+        onExecute:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1271564081}
+              m_MethodName: EndEvent
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+    - locutor: Astronaute
+      text: 'All right ! Let''s start.
+
+        "I was born in Paris.
+
+        -
+        Which part?
+
+        - All of me."'
+      locutorIcon: {fileID: 21300000, guid: 80e46e807f59ade44b86c8e0f45f3c94, type: 3}
+      btns:
+      - btnName: Hilarious xD
+        icon: {fileID: 21300000, guid: 6b1a5f85fb3e8a64f87afb75b12f6588, type: 3}
+        onExecute:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1271564081}
+              m_MethodName: EndEvent
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 1
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+      - btnName: Stupid...
+        icon: {fileID: 21300000, guid: 5f778696b748e2b49bc3a4e78cd4941a, type: 3}
+        onExecute:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1271564081}
+              m_MethodName: EndEvent
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+  - name: A gift for you.
+    identity: 1002
+    type: Random
+    dialogs:
+    - locutor: Settler
+      text: 'You take such good care of us. But you, who takes care of you? Here,
+        a little gift.
+
+        <color=6D6D6D>+75$</color>'
+      locutorIcon: {fileID: 21300000, guid: 80e46e807f59ade44b86c8e0f45f3c94, type: 3}
+      btns:
+      - btnName: Thank you so much.
+        icon: {fileID: 21300000, guid: 6b1a5f85fb3e8a64f87afb75b12f6588, type: 3}
+        onExecute:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1271564081}
+              m_MethodName: EndEvent
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 1
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+            - m_Target: {fileID: 1171960983210021247}
+              m_MethodName: GiveRessources
+              m_Mode: 5
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 1
+                m_FloatArgument: 0
+                m_StringArgument: -m 75
+                m_BoolArgument: 0
+              m_CallState: 2
+  currentDialogIndex: 0
+  currentEventIdentity: 0
+  current:
+    name: 
+    identity: 0
+    type: Random
+    dialogs: []
+--- !u!114 &2280544551398110841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 317edae208a1b024d8fd3d9f87b2e6e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveArmies:
+  - name: First Lunar Coalition
+    difficultyIndex: 1
+    waveEvent:
+      name: 
+      identity: 0
+      type: Random
+      dialogs:
+      - locutor: First Lunar Coalition
+        text: We were tolerant in the beginning, but the more the soil passes and
+          the less we want to count you among the holders of lunar sol. Therefore,
+          it is in the name of peace that we attack you!
+        locutorIcon: {fileID: 21300000, guid: 68c28278a2fd12e469821d62146f9278, type: 3}
+        btns:
+        - btnName: Stupid
+          icon: {fileID: 21300000, guid: 9535c79244fa21248a916ab255a46696, type: 3}
+          onExecute:
+            m_PersistentCalls:
+              m_Calls: []
+    units:
+    - name: Gravity soldier
+      numberOfUnit: 12
+      identityOfUnit: 1
+    maxUnitPerLigne: 4
+    spacing: 2
+    interligneSpacing: 2
+    identity: 0
+  - name: Seond Lunar Coalition
+    difficultyIndex: 1
+    waveEvent:
+      name: 
+      identity: 0
+      type: Random
+      dialogs:
+      - locutor: First Lunar Coalition
+        text: We were tolerant in the beginning, but the more the soil passes and
+          the less we want to count you among the holders of lunar sol. Therefore,
+          it is in the name of peace that we attack you!
+        locutorIcon: {fileID: 21300000, guid: 68c28278a2fd12e469821d62146f9278, type: 3}
+        btns:
+        - btnName: Stupid
+          icon: {fileID: 21300000, guid: 9535c79244fa21248a916ab255a46696, type: 3}
+          onExecute:
+            m_PersistentCalls:
+              m_Calls: []
+    units:
+    - name: Gravity soldier
+      numberOfUnit: 16
+      identityOfUnit: 1
+    - name: Jumper
+      numberOfUnit: 4
+      identityOfUnit: 3
+    maxUnitPerLigne: 4
+    spacing: 13
+    interligneSpacing: 13
+    identity: 1
+  - name: Third Lunar Coalition
+    difficultyIndex: 2
+    waveEvent:
+      name: 
+      identity: 0
+      type: Random
+      dialogs:
+      - locutor: First Lunar Coalition
+        text: We were tolerant in the beginning, but the more the soil passes and
+          the less we want to count you among the holders of lunar sol. Therefore,
+          it is in the name of peace that we attack you!
+        locutorIcon: {fileID: 21300000, guid: 68c28278a2fd12e469821d62146f9278, type: 3}
+        btns:
+        - btnName: Stupid
+          icon: {fileID: 21300000, guid: 9535c79244fa21248a916ab255a46696, type: 3}
+          onExecute:
+            m_PersistentCalls:
+              m_Calls: []
+    units:
+    - name: Gravity soldier
+      numberOfUnit: 24
+      identityOfUnit: 1
+    - name: Jumper
+      numberOfUnit: 12
+      identityOfUnit: 3
+    - name: Bouncy tank
+      numberOfUnit: 4
+      identityOfUnit: 4
+    maxUnitPerLigne: 4
+    spacing: 13
+    interligneSpacing: 13
+    identity: 2
+  - name: First Stars' Coalition
+    difficultyIndex: 4
+    waveEvent:
+      name: 
+      identity: 0
+      type: Random
+      dialogs:
+      - locutor: First Lunar Coalition
+        text: We were tolerant in the beginning, but the more the soil passes and
+          the less we want to count you among the holders of lunar sol. Therefore,
+          it is in the name of peace that we attack you!
+        locutorIcon: {fileID: 21300000, guid: 68c28278a2fd12e469821d62146f9278, type: 3}
+        btns:
+        - btnName: Stupid
+          icon: {fileID: 21300000, guid: 9535c79244fa21248a916ab255a46696, type: 3}
+          onExecute:
+            m_PersistentCalls:
+              m_Calls: []
+    units:
+    - name: Gravity soldier
+      numberOfUnit: 27
+      identityOfUnit: 1
+    - name: Jumper
+      numberOfUnit: 18
+      identityOfUnit: 3
+    - name: Bouncy tank
+      numberOfUnit: 9
+      identityOfUnit: 4
+    - name: Rockopter
+      numberOfUnit: 9
+      identityOfUnit: 5
+    maxUnitPerLigne: 9
+    spacing: 15
+    interligneSpacing: 15
+    identity: 3
+  probablity: 0
+  waveParent: {fileID: 0}
+  spawns:
+  - {fileID: 0}
+  currentWaveIndex: 0
+--- !u!114 &4715017641621545862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3389aaf1cbbfb294fad23c01c34b381c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doubleClick: 0
+  dragOffset: 25
+  groupsUI:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  baseIcon: {fileID: 21300000, guid: 5f778696b748e2b49bc3a4e78cd4941a, type: 3}
+  groups: []
+  currentGroup:
+    objectsNumber: 0
+    groupType: 0
+    groupSide: 0
+    objectsInGroup: []
+--- !u!114 &4594176708403545003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3d1bff08055f284a87d0e5a0993fc6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textureRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshCollider: {fileID: 0}
+--- !u!114 &4714545871633165227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fbca85eaada3384d89086849dffbac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  realMapSize: {x: 400, y: 400}
+  editorPreviewLOD: 0
+  useFlatShading: 1
+  regions:
+  - name: Ice
+    height: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+  - name: IceBeach
+    height: 0.025
+    color: {r: 0.14150941, g: 0.13950692, b: 0.13950692, a: 1}
+  - name: Crateres
+    height: 0.1
+    color: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
+  - name: Land
+    height: 0.15
+    color: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
+  - name: HighLand1
+    height: 0.4
+    color: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  - name: HighLand2
+    height: 0.85
+    color: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
+  - name: EternalLightPick
+    height: 0.998
+    color: {r: 1, g: 0.957681, b: 0.740566, a: 1}
+  drawMode: 2
+  normalizeMode: 1
+  seed: 13
+  meshHeightMultiplier: 20
+  meshHeightCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.3
+      inSlope: -0.059128657
+      outSlope: -0.059128657
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.07999949
+    - serializedVersion: 3
+      time: 0.03
+      value: 0.3
+      inSlope: 0.0016622753
+      outSlope: 0.0016622753
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.4162747
+    - serializedVersion: 3
+      time: 0.30047083
+      value: 0.47359657
+      inSlope: 0.0015681613
+      outSlope: 0.0015681613
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.2733617
+      outWeight: 0.2402983
+    - serializedVersion: 3
+      time: 0.6297868
+      value: 0.47325706
+      inSlope: 0.039544225
+      outSlope: 0.039544225
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.5578999
+      outWeight: 0.47246483
+    - serializedVersion: 3
+      time: 0.85
+      value: 0.5
+      inSlope: -0.001035171
+      outSlope: -0.001035171
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.21222164
+      outWeight: 0.32209983
+    - serializedVersion: 3
+      time: 0.952217
+      value: 0.5975989
+      inSlope: 1.3851593
+      outSlope: 1.3851593
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.35287845
+      outWeight: 1
+    - serializedVersion: 3
+      time: 1.0109558
+      value: 0.63229215
+      inSlope: 0.0000018330798
+      outSlope: 0.0000018330798
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  noiseScale: 50
+  octaves: 3
+  persistance: 0.5
+  lacunarity: 3.5
+  offset: {x: 0, y: 0}
+  useFalloff: 0
+  autoUpdate: 1
+--- !u!114 &1817664644376457224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09b7f54744ab66439575e1712f6116b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTech: -1
+  progress: 0
+  techUnlock: 
+  techQueue: 
+  techPrefab: {fileID: 8187439140489598875, guid: 5425f2f8f414ed44eb60cc9958522349,
+    type: 3}
+--- !u!114 &159337628262193032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39f2fec8d584e5498d76c100705d95a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &477413077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221b5e2c27c677c48b024bb15b05a7aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commandIndicator: /
+--- !u!114 &1706547804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3105839f5ac5848907a5ec10bdb5fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_war: {fileID: 21300000, guid: 9535c79244fa21248a916ab255a46696, type: 3}
+  m_neutral: {fileID: 21300000, guid: e3113593c74ee8046bdd9dcd5d5437c2, type: 3}
+  m_ally: {fileID: 21300000, guid: dc4d42b83583b5340b5c938a08f111cc, type: 3}
+  m_diplomacyStates: []
+--- !u!114 &7337736802218917224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867d9725f945b264bb3c31f9a5343c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapMaterial: {fileID: 2100000, guid: 45b1b30ece5be564498dc622bc0ac33d, type: 2}
+  detailLevels:
+  - lod: 0
+    visibleDstThreshold: 1055
+  viewers:
+  - {fileID: 0}
+  chunkVisibleInViewDst: 0
+--- !u!114 &1706547805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 428efff7917ac1f40a84b22896f0e698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5727818899937806729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 301b7ba0c8386934580a67416d195665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circleLight: {fileID: 21300000, guid: d5bd33f7d8f94bb4081c63adb72a3972, type: 3}
+  circleHeavy: {fileID: 21300000, guid: e33addbc3f180da4aa77c1f3be6bef99, type: 3}
+  entityMarker: {fileID: 21300000, guid: 36cfdaa83c242f9419446c493c864593, type: 3}
+  riot: {fileID: 21300000, guid: ce62ab3a76aa8394e8e29a0a7c0b6253, type: 3}
+  epidemy: {fileID: 21300000, guid: 54c065094781332409310adb2cc5786e, type: 3}
+  pause: {fileID: 21300000, guid: 617c41b495859ea46b621eea98b7845e, type: 3}
+  baseIcon: {fileID: 21300000, guid: 5f778696b748e2b49bc3a4e78cd4941a, type: 3}
+  searchAndDestroy: {fileID: 21300000, guid: 51f1fba20e3f6df419dc36342c46a8d6, type: 3}
+  defend: {fileID: 21300000, guid: d4701dac2f7e6c14da165d41c6c21bf3, type: 3}
+  passif: {fileID: 21300000, guid: dc4d42b83583b5340b5c938a08f111cc, type: 3}
+  square: {fileID: 21300000, guid: 6006c5b74b541594093fdfebac5c4a54, type: 3}
+  triangle: {fileID: 21300000, guid: 64785ebe4ea02fe47a6020d403f1c0b9, type: 3}
+  line: {fileID: 21300000, guid: c4ac3dc03d51f1d4dae08ebb42e66137, type: 3}
+  money: {fileID: 21300000, guid: 1b0e06c7bec995b4db077d30b703f015, type: 3}
+  energy: {fileID: 21300000, guid: 60ce2b2ece7d9ce4fa065b936e27ec26, type: 3}
+  regolith: {fileID: 21300000, guid: a09c45e946820784ca62a8f243dbb9df, type: 3}
+  bioplastic: {fileID: 21300000, guid: 3e53c60bea6d7f240a8cbc5ccb1f8bf8, type: 3}
+  food: {fileID: 21300000, guid: d53b2db81a249704eb16704f3258be2b, type: 3}
+  health: {fileID: 21300000, guid: 54c065094781332409310adb2cc5786e, type: 3}
+  popup: {fileID: 5574161025214728208, guid: 09adde9f3a0d99f42929d183fc330917, type: 3}
+  tunelPrefab: {fileID: 6460627001160694129, guid: 34e968df59bc4d0448beea72cc93ba1b,
+    type: 3}
+  questPrefab: {fileID: -8319640950730830449, guid: 8806cac9a28ad4444947476f75569e8c,
+    type: 3}
+  previewSound: {fileID: 8300000, guid: c824b81535407574f99f9a2565395b14, type: 3}
+--- !u!114 &1706547806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2f8a83c5527fe4c8281e973173fedf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2632250931946159247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768cc124e56722e40bafae5c4724a2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingQuests: []
+  killingQuests: []
+  eventQuests: []
+--- !u!114 &2475531628465412582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f6955f4fa7c9d54d823dd3e6805b1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {r: 1, g: 1, b: 1, a: 1}
+  background: {r: 0.08627451, g: 0.08627451, b: 0.08627451, a: 1}
+  backgroundBorder: {r: 0.76470596, g: 0.76470596, b: 0.76470596, a: 1}
+  forground: {r: 0.18823531, g: 0.18823531, b: 0.18823531, a: 1}
+  text: {r: 1, g: 1, b: 1, a: 1}
+  textWarning: {r: 0.8000001, g: 0, b: 0, a: 1}
+  inversedIcon: {r: 0.2627451, g: 0.2627451, b: 0.2627451, a: 1}
+  inversedBackground: {r: 1, g: 1, b: 1, a: 1}
+  inversedBackgroundBorder: {r: 0, g: 0, b: 0, a: 0}
+  inversedForground: {r: 0.58431375, g: 0.58431375, b: 0.58431375, a: 1}
+  inversedText: {r: 0, g: 0, b: 0, a: 1}
+  backgroundTransparent: {r: 0, g: 0, b: 0, a: 0}
+  foregroundTransparent: {r: 0, g: 0, b: 0, a: 0}
+  available: {r: 1, g: 1, b: 1, a: 1}
+  inProgress: {r: 0, g: 0.5085707, b: 1, a: 1}
+  unavailable: {r: 0.78431374, g: 0, b: 0, a: 1}
+  finished: {r: 0, g: 0.6981132, b: 0.2397136, a: 1}
+  importantColor: {r: 0.745283, g: 0.48605415, b: 0, a: 1}
+  veryImportantColor: {r: 0.7843138, g: 0, b: 0, a: 1}
+--- !u!114 &4432985379679229281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5fde8e43888fa4a8a65cf266d71204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2255990068547325843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0495921a99dad348978cc40d7b785b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sectors: []
+  sectorItem: {fileID: 2413993016810063707, guid: 2a062816e785d35409a3b82e87ce4615,
+    type: 3}
+--- !u!114 &3851377817461460716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78135ecf2616f246a7419bc14cc207d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  validType: 
+--- !u!114 &2600112611015483759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8938b279dad3324b89ec7abeeaf8175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  market:
+    regolithValue: 0
+    bioplasticValue: 0
+    foodValue: 0
