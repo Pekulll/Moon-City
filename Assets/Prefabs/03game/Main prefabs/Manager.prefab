@@ -32,6 +32,7 @@ GameObject:
   - component: {fileID: 2255990068547325843}
   - component: {fileID: 3851377817461460716}
   - component: {fileID: 2600112611015483759}
+  - component: {fileID: 4648628857260772368}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -760,6 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867d9725f945b264bb3c31f9a5343c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hideChunkOnStartup: 0
   mapMaterial: {fileID: 2100000, guid: 45b1b30ece5be564498dc622bc0ac33d, type: 2}
   detailLevels:
   - lod: 0
@@ -930,3 +932,17 @@ MonoBehaviour:
     regolithValue: 0
     bioplasticValue: 0
     foodValue: 0
+--- !u!114 &4648628857260772368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5cbc1392a23b184cae0b406ed9189fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: {x: 5, y: 4}
+  border: 2

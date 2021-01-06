@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class EndlessTerrain : MonoBehaviour
 {
+    [SerializeField] private bool hideChunkOnStartup;
     [SerializeField] private Material mapMaterial;
     [SerializeField] private LODInfo[] detailLevels;
 
@@ -67,7 +68,7 @@ public class EndlessTerrain : MonoBehaviour
                 }
                 else
                 {
-                    terrainChunkDictonary.Add(viewedChunkCoord, new TerrainChunk(viewedChunkCoord, chunkSize, realMapSize, detailLevels, parent, mapMaterial));
+                    terrainChunkDictonary.Add(viewedChunkCoord, new TerrainChunk(viewedChunkCoord, chunkSize, realMapSize, detailLevels, parent, mapMaterial, hideChunkOnStartup));
                     //sectorManager.AddSector(viewedChunkCoord);
                 }
             }
@@ -101,7 +102,7 @@ public class EndlessTerrain : MonoBehaviour
         int mapSize;
         Vector2 realMapSize;
 
-        public TerrainChunk(Vector2 coord, int size, Vector2 realSize, LODInfo[] detailsLevels, Transform parent, Material material)
+        public TerrainChunk(Vector2 coord, int size, Vector2 realSize, LODInfo[] detailsLevels, Transform parent, Material material, bool hide)
         {
             this.detailsLevels = detailsLevels;
             mapSize = size;
@@ -123,7 +124,7 @@ public class EndlessTerrain : MonoBehaviour
             meshObject.transform.SetParent(parent);
             meshObject.transform.localScale = Vector3.one * scale;
 
-            SetVisible(false, false);
+            SetVisible(!hide, false, true);
 
             lodMeshes = new LODMesh[detailsLevels.Length];
 
@@ -199,10 +200,16 @@ public class EndlessTerrain : MonoBehaviour
             SetVisible(visible, false);
         }
 
-        public void SetVisible(bool visible, bool hideChunk)
+        public void SetVisible(bool visible, bool hideChunk, bool disableChunk = false)
         {
-            if (!hideChunk) return;
-            meshObject.SetActive(visible);
+            if (disableChunk)
+            {
+                meshRenderer.enabled = visible;
+            }
+            else if(hideChunk)
+            {
+                meshObject.SetActive(visible);
+            }
         }
 
         public bool IsVisible()
