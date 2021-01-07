@@ -6618,6 +6618,16 @@ PrefabInstance:
       propertyPath: viewers.Array.data[0]
       value: 
       objectReference: {fileID: 1440126634}
+    - target: {fileID: 7337736802218917224, guid: 2473d2736fc594a4aa3b3bae3ce88600,
+        type: 3}
+      propertyPath: detailLevels.Array.data[1].lod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337736802218917224, guid: 2473d2736fc594a4aa3b3bae3ce88600,
+        type: 3}
+      propertyPath: detailLevels.Array.data[1].visibleDstThreshold
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2473d2736fc594a4aa3b3bae3ce88600, type: 3}
 --- !u!114 &2060853094 stripped

@@ -761,13 +761,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867d9725f945b264bb3c31f9a5343c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideChunkOnStartup: 0
+  chunkCount: {x: 21, y: 21}
   mapMaterial: {fileID: 2100000, guid: 45b1b30ece5be564498dc622bc0ac33d, type: 2}
   detailLevels:
   - lod: 0
-    visibleDstThreshold: 1055
-  viewers:
-  - {fileID: 0}
+    visibleDstThreshold: 700
+  hideChunkOnStartup: 0
   chunkVisibleInViewDst: 0
 --- !u!114 &1706547805
 MonoBehaviour:

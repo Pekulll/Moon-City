@@ -173,8 +173,8 @@ public class Entity : MonoBehaviour
 
     #endregion
 
-    public void Destroy()
+    private void OnDestroy()
     {
-
+        manager.DeleteGameObjectOfTagList(gameObject);
     }
 }

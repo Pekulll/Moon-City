@@ -41,8 +41,8 @@ public class MapGenerator : MonoBehaviour
 
     private void Awake()
     {
-        falloffMap = FalloffGenerator.GenerateFalloffMap(mapChunkSize);
-        endlessTerrain = FindObjectOfType<EndlessTerrain>();
+        if (useFalloff) falloffMap = FalloffGenerator.GenerateFalloffMap(mapChunkSize);
+        endlessTerrain = GetComponent<EndlessTerrain>();
     }
 
     public int chunkSize()
@@ -85,7 +85,7 @@ public class MapGenerator : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.Log("  [INFO:MapGenerator] Can't generate terrain ! " + e);
+            Debug.Log("[INFO:MapGenerator] Can't generate terrain! " + e);
         }
     }
 

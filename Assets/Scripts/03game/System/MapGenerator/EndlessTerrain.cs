@@ -6,20 +6,21 @@ using UnityEngine.AI;
 
 public class EndlessTerrain : MonoBehaviour
 {
-    [SerializeField] private bool hideChunkOnStartup;
+    [Header("Map properties")]
+    [SerializeField] private Vector2 chunkCount;
     [SerializeField] private Material mapMaterial;
     [SerializeField] private LODInfo[] detailLevels;
 
+    [Header("Others")]
+    [SerializeField] private bool hideChunkOnStartup;
+
     public static float maxViewDst;
-    const float viewerMoveThresholdForChunkUpdate = 15f;
-    const float sqrViewerMoveThresholdForChunkUpdate = viewerMoveThresholdForChunkUpdate * viewerMoveThresholdForChunkUpdate;
     const float scale = 1f;
 
-    [SerializeField] private Transform[] viewers;
     private Transform parent;
+    public static Transform player;
 
     public static Vector2 viewerPosition;
-    public static Vector2 viewerPositionOld;
     private Vector2 realMapSize;
 
     private int chunkSize;
@@ -34,6 +35,7 @@ public class EndlessTerrain : MonoBehaviour
     private void Awake()
     {
         parent = GameObject.Find("MapChunk").transform;
+        player = GameObject.Find("Player").transform;
         mapGenerator = FindObjectOfType<MapGenerator>();
         sectorManager = GetComponent<SectorManager>();
 
@@ -48,19 +50,16 @@ public class EndlessTerrain : MonoBehaviour
     {
         foreach (TerrainChunk tc in terrainChunkVisibleLastUpdate)
         {
-            tc.SetVisible(false, false);
+            tc.SetVisible(true, true);
         }
 
         terrainChunkVisibleLastUpdate.Clear();
 
-        int currentChunkCoordX = Mathf.RoundToInt(viewerPosition.x / chunkSize);
-        int currentChunkCoordY = Mathf.RoundToInt(viewerPosition.y / chunkSize);
-
-        for (int yOffset = -chunkVisibleInViewDst; yOffset <= chunkVisibleInViewDst; yOffset++)
+        for (int y = (int)(-chunkCount.y / 2); y <= (int)(chunkCount.y / 2); y++)
         {
-            for (int xOffset = -chunkVisibleInViewDst; xOffset <= chunkVisibleInViewDst; xOffset++)
+            for (int x = (int)(-chunkCount.x / 2); x <= (int)(chunkCount.x / 2); x++)
             {
-                Vector2 viewedChunkCoord = new Vector2(currentChunkCoordX + xOffset, currentChunkCoordY + yOffset);
+                Vector2 viewedChunkCoord = new Vector2(x, y);
 
                 if (terrainChunkDictonary.ContainsKey(viewedChunkCoord))
                 {
@@ -68,8 +67,9 @@ public class EndlessTerrain : MonoBehaviour
                 }
                 else
                 {
-                    terrainChunkDictonary.Add(viewedChunkCoord, new TerrainChunk(viewedChunkCoord, chunkSize, realMapSize, detailLevels, parent, mapMaterial, hideChunkOnStartup));
-                    //sectorManager.AddSector(viewedChunkCoord);
+                    terrainChunkDictonary.Add(
+                        viewedChunkCoord,
+                        new TerrainChunk(viewedChunkCoord, chunkSize, realMapSize, detailLevels, parent, mapMaterial, hideChunkOnStartup));
                 }
             }
         }
@@ -112,7 +112,7 @@ public class EndlessTerrain : MonoBehaviour
             bounds = new Bounds(position, Vector2.one * size);
             Vector3 positionV3 = new Vector3(position.x, -9.6f, position.y);
 
-            meshObject = new GameObject("Terrain Chunk");
+            meshObject = new GameObject(coord.ToString());
             meshRenderer = meshObject.AddComponent<MeshRenderer>();
             meshFilter = meshObject.AddComponent<MeshFilter>();
             meshCollider = meshObject.AddComponent<MeshCollider>();
@@ -151,8 +151,9 @@ public class EndlessTerrain : MonoBehaviour
         {
             if (!mapDataReceived) return;
 
-            float viewerDistanceFromNearestEdge = Mathf.Sqrt(bounds.SqrDistance(viewerPosition));
+            float viewerDistanceFromNearestEdge = Mathf.Sqrt(bounds.SqrDistance(player.position));
             bool visible = viewerDistanceFromNearestEdge <= maxViewDst;
+            visible = true;
 
             if (visible)
             {
@@ -181,7 +182,8 @@ public class EndlessTerrain : MonoBehaviour
 
                         if((position.x + mapSize > realMapSize.x + mapSize || position.x - mapSize < -realMapSize.x - mapSize) || (position.y + mapSize > realMapSize.y + mapSize || position.y - mapSize < -realMapSize.y - mapSize))
                         {
-                            //Debug.Log("  [INFO:EndlessTerrain] Chunk's " + position + " physics disabled.");
+                            Destroy(meshCollider);
+                            //Debug.Log("[INFO:EndlessTerrain] Chunk's " + position + " physics disabled.");
                         }
                         else
                         {
