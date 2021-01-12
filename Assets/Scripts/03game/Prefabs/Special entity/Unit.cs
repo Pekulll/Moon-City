@@ -49,7 +49,7 @@ public class Unit : Entity
         manager = GameObject.Find("Manager").GetComponent<MoonManager>();
         entityType = EntityType.Unit;
 
-        FindMarker();
+        SuperInitialization();
         LoadStats(onSave);
         
         if(unitType == UnitType.Military)

@@ -3,13 +3,11 @@ using UnityEngine;
 
 public class PhysicalPointMotor : MonoBehaviour
 {
-    private MoonManager moonManager;
     private Vector3 center, size, realSize;
     private int spacing;
 
     public void Initialize(int spacing)
     {
-        moonManager = GameObject.Find("Manager").GetComponent<MoonManager>();
         this.spacing = spacing;
     }
 
@@ -25,7 +23,7 @@ public class PhysicalPointMotor : MonoBehaviour
 
         AdjustHeight();
 
-        return CheckCollision();
+        return !CheckCollision();
     }
 
     private void AdjustHeight()
@@ -37,10 +35,9 @@ public class PhysicalPointMotor : MonoBehaviour
 
     private bool CheckCollision()
     {
-        int mask = ~(1 << 9);
+        int mask = ~(1 << 10);
         bool collision = Physics.CheckBox(transform.position + center, realSize / 2, Quaternion.identity, mask);
 
-        //Debug.Log("[INFO:PhysicalPointMotor] In collision: " + collision);
         return collision;
     }
 

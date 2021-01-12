@@ -35,7 +35,7 @@ public class Preview : Entity
         colliders = new List<Collider>();
         entityType = EntityType.Preview;
 
-        FindMarker();
+        SuperInitialization();
         UpdateRenderer(incorrect);
         LoadStats();
         UpdateEditor();

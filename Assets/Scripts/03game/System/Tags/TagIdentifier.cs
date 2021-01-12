@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class TagIdentifier : MonoBehaviour {
-
-    //public List<string> tags = new List<string>();
+public class TagIdentifier : MonoBehaviour
+{
     public List<Tag> _tags = new List<Tag>();
 
     private void Awake()
@@ -13,4 +12,4 @@ public class TagIdentifier : MonoBehaviour {
 }
 
 [System.Serializable]
-public enum Tag { Untagged, Player, Preview, Building, Unit, Enemy, Turret, Saved, Deposit }
+public enum Tag { Untagged, Player, Preview, Building, Unit, Enemy, Turret, Saved, Deposit, Core }

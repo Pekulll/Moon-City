@@ -667,8 +667,6 @@ public class EnemyMotor : MonoBehaviour
                 Preview mtr = go.GetComponent<Preview>(); //On récupère le script instancié et non celui de la prefab (pMtr)
                 mtr.side = colonyStats.colony.side;
 
-                go.GetComponent<TagIdentifier>()._tags.Remove(Tag.Saved);
-
                 influenceRadius++;
                 previewNbr++;
                 return 10;

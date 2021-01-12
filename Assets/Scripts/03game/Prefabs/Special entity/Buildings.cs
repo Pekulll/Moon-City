@@ -37,7 +37,7 @@ public class Buildings : Entity
 
         haveOutput = false;
 
-        FindMarker();
+        SuperInitialization();
         LoadStats(onSave);
         
         UpdateEditor();

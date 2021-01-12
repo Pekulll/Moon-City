@@ -57,7 +57,7 @@
         { "key": "01_title_seed", "translation": "Graine:" },
         { "key": "01_btn_randomseed", "translation": "Aléatoire" },
         { "key": "01_title_rate", "translation": "Taux d'attaque (probabilité d'attaque toute les 10 heures)" },
-        { "key": "01_title_playernumber", "translation": "Nombre de colonie(s) sur la Lune (Vous exclu) [NOT IMPLEMENTED]" },
+        { "key": "01_title_playernumber", "translation": "Nombre d'ennemies [NOT IMPLEMENTED]" },
         
         { "key": "01_title_load", "translation": "Allez sur une colonie lunaire" },
         { "key": "01_title_savenameinfo", "translation": "Le nom de votre colonie est utilisé pour la sauvegarde." },

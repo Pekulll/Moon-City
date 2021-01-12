@@ -57,7 +57,7 @@
         { "key": "01_title_seed", "translation": "Seed:" },
         { "key": "01_btn_randomseed", "translation": "Randomize" },
         { "key": "01_title_rate", "translation": "Attack rate (probability of a new attack each 10 hours)" },
-        { "key": "01_title_playernumber", "translation": "Number of colony(ies) on the Moon (you exclude) [NOT IMPLEMENTED]" },
+        { "key": "01_title_playernumber", "translation": "Number of enemies [NOT IMPLEMENTED]" },
         
         { "key": "01_title_load", "translation": "Go to your colony on the Moon" },
         { "key": "01_title_savenameinfo", "translation": "The colony's name is used to save your progression." },

@@ -383,11 +383,11 @@ public class MoonManager : MonoBehaviour {
     }
 
     private void ActionEveryOneHourEnemy () {
-        GameObject[] gos = FindTag (Tag.Enemy);
+        GameObject[] gos = FindTags (new Tag[2] { Tag.Enemy, Tag.Core });
 
         foreach (GameObject cur in gos)
         {
-            cur.GetComponent<EnemyMotor> ().Output ();
+            cur.GetComponent<EnemyMotor>().Output();
         }
     }
 
@@ -828,25 +828,25 @@ public class MoonManager : MonoBehaviour {
 
     #region Tag method
 
-    public GameObject[] FindTag (Tag tag) {
-        return tagSystem.FindTag (tag);
+    public GameObject[] FindTag (Tag tag, List<GameObject> toStudy = null) {
+        return tagSystem.FindTag (tag, toStudy);
     }
 
-    public List<GameObject> FindTagList (Tag tag) {
-        return tagSystem.FindTagList (tag);
+    public List<GameObject> FindTagList (Tag tag, List<GameObject> toStudy = null) {
+        return tagSystem.FindTagList (tag, toStudy);
     }
 
-    public GameObject[] FindTags (Tag[] tags) {
-        return tagSystem.FindTags (tags);
+    public GameObject[] FindTags (Tag[] tags, List<GameObject> toStudy = null) {
+        return tagSystem.FindTags (tags, toStudy);
     }
 
-    public List<GameObject> FindTagsList (Tag[] tags) {
-        return tagSystem.FindTagsList (tags);
+    public List<GameObject> FindTagsList (Tag[] tags, List<GameObject> toStudy = null) {
+        return tagSystem.FindTagsList (tags, toStudy);
     }
 
-    public List<TagIdentifier> Find (Tag tag) {
-        return tagSystem.Find (tag);
-    }
+    /*public List<TagIdentifier> Find (Tag tag, List<GameObject> toStudy = null) {
+        return tagSystem.Find (tag, toStudy);
+    }*/
 
     public void DeleteGameObjectOfTagList (GameObject current) {
         tagSystem.allWithComponent.Remove (current);

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(TagIdentifier))]
 public class Entity : MonoBehaviour
 {
     [Header("Properties")]
@@ -37,6 +38,72 @@ public class Entity : MonoBehaviour
         }
         catch { }
     }
+
+    #region Super initialization
+
+    public void SuperInitialization()
+    {
+        FindMarker();
+        UpdateTag();
+    }
+
+    private void FindMarker()
+    {
+        if (transform.Find("Marker") != null)
+        {
+            marker = transform.Find("Marker").gameObject;
+
+            SpriteRenderer sprite = marker.GetComponent<SpriteRenderer>();
+
+            if (manager == null) manager = GameObject.Find("Manager").GetComponent<MoonManager>();
+
+            if (side == manager.side)
+            {
+                sprite.color = manager.colonyColor;
+            }
+            else
+            {
+                sprite.color = new Color(0.8f, 0, 0, 1);
+            }
+
+            /*if (isTurret)
+            {
+                range = transform.Find("Range").gameObject;
+                Light lgtr = range.GetComponent<Light>();
+                lgtr.renderMode = LightRenderMode.ForcePixel;
+            }*/
+
+            Marker(false);
+        }
+    }
+
+    public void Marker(bool enable)
+    {
+        if (marker == null) return;
+
+        marker.SetActive(enable);
+    }
+
+    private void UpdateTag()
+    {
+        if (side != manager.side)
+        {
+            TagIdentifier tagIdentifier = GetComponent<TagIdentifier>();
+
+            if (!tagIdentifier._tags.Contains(Tag.Enemy))
+            {
+                tagIdentifier._tags.Add(Tag.Enemy);
+            }
+
+            // remove this when the enemies should be saved
+            if (tagIdentifier._tags.Contains(Tag.Saved))
+            {
+                tagIdentifier._tags.Remove(Tag.Saved);
+            }
+        }
+    }
+
+    #endregion
 
     #region Damage / healing
 
@@ -102,47 +169,6 @@ public class Entity : MonoBehaviour
         }
 
         calledUnits = units;
-    }
-
-    #endregion
-
-    #region Marker
-
-    public void FindMarker()
-    {
-        if (transform.Find("Marker") != null)
-        {
-            marker = transform.Find("Marker").gameObject;
-
-            SpriteRenderer sprite = marker.GetComponent<SpriteRenderer>();
-
-            if (manager == null) manager = GameObject.Find("Manager").GetComponent<MoonManager>();
-
-            if (side == manager.side)
-            {
-                sprite.color = manager.colonyColor;
-            }
-            else
-            {
-                sprite.color = new Color(0.8f, 0, 0, 1);
-            }
-
-            /*if (isTurret)
-            {
-                range = transform.Find("Range").gameObject;
-                Light lgtr = range.GetComponent<Light>();
-                lgtr.renderMode = LightRenderMode.ForcePixel;
-            }*/
-
-            Marker(false);
-        }
-    }
-
-    public void Marker(bool enable)
-    {
-        if (marker == null) return;
-
-        marker.SetActive(enable);
     }
 
     #endregion

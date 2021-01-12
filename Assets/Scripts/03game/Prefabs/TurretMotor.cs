@@ -97,49 +97,20 @@ public class TurretMotor : MonoBehaviour
 
     private GameObject[] FindEnemy()
     {
-        List<TagIdentifier> temp = new List<TagIdentifier>();
-        temp.AddRange(manager.Find(Tag.Unit));
-        temp.AddRange(manager.Find(Tag.Building));
+        GameObject[] enemyEntities = manager.FindTag(Tag.Enemy);
         List<GameObject> gtemp = new List<GameObject>();
-        
-        foreach (TagIdentifier go in temp)
+
+        foreach(GameObject g in enemyEntities)
         {
-            Tag tg = go._tags[0];
+            Entity e = g.GetComponent<Entity>();
 
-            if (tg == Tag.Unit)
+            if(e.side != health.side && manager.GetWarStatut(health.side, e.side))
             {
-                int side = go.GetComponent<Unit>().side;
-
-                if (side != health.side)
-                {
-                    if (manager.GetWarStatut(health.side, side))
-                    {
-                        gtemp.Add(go.gameObject);
-                    }
-                }
-            }
-            else if (tg == Tag.Building)
-            {
-                int side = go.GetComponent<Buildings>().side;
-
-                if (side != health.side)
-                {
-                    if (manager.GetWarStatut(health.side, side))
-                    {
-                        gtemp.Add(go.gameObject);
-                    }
-                }
+                gtemp.Add(g);
             }
         }
 
-        GameObject[] gos = new GameObject[gtemp.Count];
-
-        for(int i = 0; i < gtemp.Count; i++)
-        {
-            gos[i] = gtemp[i];
-        }
-
-        return gos;
+        return gtemp.ToArray();
     }
 
     private void Update()

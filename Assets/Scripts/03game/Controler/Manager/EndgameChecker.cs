@@ -66,8 +66,7 @@ public class EndgameChecker : MonoBehaviour
 
     private bool EnemyColonyExists()
     {
-        EnemyMotor[] enemies = FindObjectsOfType<EnemyMotor>();
-        return enemies.Length != 0;
+        return manager.FindTags(new Tag[2] { Tag.Core, Tag.Enemy }).Length != 0;
     }
 
     #endregion
@@ -95,13 +94,13 @@ public class EndgameChecker : MonoBehaviour
 
     private bool PlayerColonyExists()
     {
-        GameObject[] buildings = manager.FindTag(Tag.Building);
+        GameObject[] buildings = manager.FindTag(Tag.Core);
 
         foreach(GameObject b in buildings)
         {
             Entity e = b.GetComponent<Entity>();
 
-            if(e.side == manager.side && e.id == 0)
+            if(e.side == manager.side)
             {
                 return true;
             }
