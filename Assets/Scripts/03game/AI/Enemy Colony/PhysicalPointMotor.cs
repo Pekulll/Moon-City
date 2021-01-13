@@ -35,7 +35,7 @@ public class PhysicalPointMotor : MonoBehaviour
 
     private bool CheckCollision()
     {
-        int mask = ~(1 << 10);
+        int mask = ~(1 << 9);
         bool collision = Physics.CheckBox(transform.position + center, realSize / 2, Quaternion.identity, mask);
 
         return collision;

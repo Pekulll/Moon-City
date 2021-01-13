@@ -13,7 +13,7 @@ public class EnemyMotor : MonoBehaviour
     public int maxPreviews = 2;
     [Range(0, 5)] [SerializeField] private int buildSpacing = 0;
     public float influenceRadius = 50f;
-    public StrategyType strategy = StrategyType.Defensif;
+    public StrategyType strategy = StrategyType.Defensive;
     [Header("Statistics")]
     [SerializeField] private int currentAction = 0;
     public int previewNbr;
@@ -81,9 +81,9 @@ public class EnemyMotor : MonoBehaviour
         physicalPoint = Instantiate(physicalPrefab) as GameObject;
         physicalPoint.name = "{Physical " + colonyStats.colony.side + "} Empty";
 
-        if (strategy == StrategyType.Passif) { scaleCritical = 6; }
-        else if (strategy == StrategyType.Defensif) { scaleCritical = 4; }
-        else if (strategy == StrategyType.Aggressif) { scaleCritical = 2; }
+        if (strategy == StrategyType.Passive) { scaleCritical = 6; }
+        else if (strategy == StrategyType.Defensive) { scaleCritical = 4; }
+        else if (strategy == StrategyType.Agressive) { scaleCritical = 2; }
 
         foreach(Technology t in techData.techs)
         {
@@ -262,7 +262,7 @@ public class EnemyMotor : MonoBehaviour
                 }
             }
         }
-        else if(strategy == StrategyType.Defensif)
+        else if(strategy == StrategyType.Defensive)
         {
             if(unitNbr * 4 + 7 < buildNbr + previewNbr)
             {
@@ -285,7 +285,7 @@ public class EnemyMotor : MonoBehaviour
                 }
             }
         }
-        else if(strategy == StrategyType.Aggressif)
+        else if(strategy == StrategyType.Agressive)
         {
             if(unitNbr * 2 + 3 < buildNbr + previewNbr)
             {
@@ -466,7 +466,7 @@ public class EnemyMotor : MonoBehaviour
                 }
             }
         }
-        else if(strategy == StrategyType.Defensif)
+        else if(strategy == StrategyType.Defensive)
         {
             int[] buildsId = new int[4] { 15, 17, 10, 9 };
 
@@ -508,7 +508,7 @@ public class EnemyMotor : MonoBehaviour
                 }
             }
         }
-        else if (strategy == StrategyType.Aggressif)
+        else if (strategy == StrategyType.Agressive)
         {
             int[] buildsId;
 

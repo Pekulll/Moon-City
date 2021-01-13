@@ -25,6 +25,8 @@ public class CameraMotor : MonoBehaviour
     private Vector3 dragStartPosition;
     private Vector3 currentDragPosition;
 
+    private float xRotation, yRotation;
+
     private void Start()
     {
         manager = FindObjectOfType<MoonManager>();
@@ -58,46 +60,65 @@ public class CameraMotor : MonoBehaviour
 
     private void MouseInput()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (!Input.GetKey(KeyCode.LeftControl))
         {
-            Plane plane = new Plane(Vector3.up, Vector3.zero);
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            float entry;
-
-            if(plane.Raycast(ray, out entry))
+            if (Input.GetMouseButtonDown(2))
             {
-                dragStartPosition = ray.GetPoint(entry);
+                Plane plane = new Plane(Vector3.up, Vector3.zero);
+
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                float entry;
+
+                if (plane.Raycast(ray, out entry))
+                {
+                    dragStartPosition = ray.GetPoint(entry);
+                }
+            }
+
+            if (Input.GetMouseButton(2))
+            {
+                Plane plane = new Plane(Vector3.up, Vector3.zero);
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Vector3 pos;
+
+                float entry;
+
+                if (plane.Raycast(ray, out entry))
+                {
+                    currentDragPosition = ray.GetPoint(entry);
+
+                    pos = transform.position + dragStartPosition - currentDragPosition;
+
+                    pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
+                    pos.y = Mathf.Clamp(pos.y, heightLimit.x, heightLimit.y);
+                    pos.z = Mathf.Clamp(pos.z, -panLimit.y, panLimit.y);
+
+                    transform.position = pos;
+                }
             }
         }
-
-        if (Input.GetMouseButton(1))
+        else if(Input.GetMouseButton(2))
         {
-            Plane plane = new Plane(Vector3.up, Vector3.zero);
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Vector3 pos;
+            Cursor.lockState = CursorLockMode.Locked;
 
-            float entry;
+            xRotation += -2f * Input.GetAxis("Mouse Y");
+            yRotation += 2f * Input.GetAxis("Mouse X");
 
-            if (plane.Raycast(ray, out entry))
-            {
-                currentDragPosition = ray.GetPoint(entry);
+            xRotation = Mathf.Clamp(xRotation, -45, 45);
+            yRotation %= 360;
 
-                pos = transform.position + dragStartPosition - currentDragPosition;
-
-                pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
-                pos.y = Mathf.Clamp(pos.y, heightLimit.x, heightLimit.y);
-                pos.z = Mathf.Clamp(pos.z, -panLimit.y, panLimit.y);
-
-                transform.position = pos;
-            }
+            transform.eulerAngles = new Vector3(xRotation, yRotation, 0);
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
     private void KeyboardInput()
     {
-        if (Input.GetMouseButton(1)) return;
+        if (Input.GetMouseButton(2) && !Input.GetKey(KeyCode.LeftControl)) return;
 
         Vector3 pos = transform.position;
         float speedFactor = (Time.timeScale != 0) ? Time.timeScale : 1;
@@ -123,6 +144,14 @@ public class CameraMotor : MonoBehaviour
 
         panSpeed = (int)pos.y;
         transform.position = pos;
+    }
+
+    public void ResetCamera()
+    {
+        xRotation = 0;
+        yRotation = 0;
+
+        transform.eulerAngles = new Vector3();
     }
 
     private void OnDrawGizmosSelected()

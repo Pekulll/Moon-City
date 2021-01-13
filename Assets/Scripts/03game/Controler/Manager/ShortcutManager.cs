@@ -4,16 +4,23 @@ using System;
 public class ShortcutManager : MonoBehaviour
 {
     private SpeedManager speedManager;
+    private GameObject wholeInterface;
+    private Transform player;
 
     private void Start()
     {
         speedManager = GetComponent<SpeedManager>();
+        wholeInterface = GameObject.Find("E_Interface");
+        player = GameObject.Find("Player").transform;
     }
 
     void Update()
     {
-        CheckForScreenshot();
-        GameSpeedShortcut();
+        CheckForScreenshot(); // F6
+        GameSpeedShortcut(); // Space, +, -
+        CheckForInterfaceHiding(); // F7
+        CheckForMouseHiding(); // F8
+        ResetCamera(); // r
     }
 
     private void CheckForScreenshot()
@@ -42,6 +49,30 @@ public class ShortcutManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Minus) || Input.GetKeyDown(KeyCode.KeypadMinus))
         {
             speedManager.DecreaseSpeed();
+        }
+    }
+
+    private void CheckForInterfaceHiding()
+    {
+        if (Input.GetKeyDown(KeyCode.F7))
+        {
+            wholeInterface.SetActive(!wholeInterface.activeSelf);
+        }
+    }
+
+    private void CheckForMouseHiding()
+    {
+        if (Input.GetKeyDown(KeyCode.F8))
+        {
+            Cursor.visible = !Cursor.visible;
+        }
+    }
+
+    private void ResetCamera()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            player.GetComponent<CameraMotor>().ResetCamera();
         }
     }
 }

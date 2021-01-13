@@ -14,16 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Sc\xE8nes/02loading.unity"
     guid: f8e2ea5e2447ab24193ec293e1a6aec3
-  - enabled: 0
-    path: "Assets/Sc\xE8nes/02tutoLoading.unity"
-    guid: 93115a8ff97f9cc48b1d194fd10d87e0
   - enabled: 1
     path: "Assets/Sc\xE8nes/03game.unity"
     guid: 0e78d888adb0e9648aea7f184aad0483
-  - enabled: 0
-    path: "Assets/Sc\xE8nes/03tuto.unity"
-    guid: 0676da88fe7b13b46ab1c3bc2e73b80d
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   m_configObjects: {}

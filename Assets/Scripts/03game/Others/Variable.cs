@@ -297,7 +297,4 @@ public enum DamageType { Physic, Energy, Impulsion, None }
 public enum UnitType { Worker, Medic, Security, Military }
 
 [System.Serializable]
-public enum StrategyType { Passif, Defensif, Aggressif }
-
-[System.Serializable]
 public enum EntityType { None, Unit, Building, Preview }
