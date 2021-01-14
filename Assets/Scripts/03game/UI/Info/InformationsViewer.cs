@@ -501,31 +501,31 @@ public class InformationsViewer : MonoBehaviour
 
     private void ShowUnitAvailable(FactoryMotor factory)
     {
-        if (factory.unitsAvailable.Length > 0)
+        if (factory.unitsAvailable.Count > 0)
         {
             factoryOne.sprite = manager.unitData[factory.unitsAvailable[0]].unitIcon;
             factoryOne.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.unitsAvailable[0]].name);
             factoryOne.transform.parent.gameObject.SetActive(true);
 
-            if (factory.unitsAvailable.Length > 1)
+            if (factory.unitsAvailable.Count > 1)
             {
                 factoryTwo.sprite = manager.unitData[factory.unitsAvailable[1]].unitIcon;
                 factoryTwo.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.unitsAvailable[1]].name);
                 factoryTwo.transform.parent.gameObject.SetActive(true);
 
-                if (factory.unitsAvailable.Length > 2)
+                if (factory.unitsAvailable.Count > 2)
                 {
                     factoryThree.sprite = manager.unitData[factory.unitsAvailable[2]].unitIcon;
                     factoryThree.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.unitsAvailable[2]].name);
                     factoryThree.transform.parent.gameObject.SetActive(true);
 
-                    if (factory.unitsAvailable.Length > 3)
+                    if (factory.unitsAvailable.Count > 3)
                     {
                         factoryFour.sprite = manager.unitData[factory.unitsAvailable[3]].unitIcon;
                         factoryFour.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.unitsAvailable[3]].name);
                         factoryFour.transform.parent.gameObject.SetActive(true);
 
-                        if (factory.unitsAvailable.Length > 4)
+                        if (factory.unitsAvailable.Count > 4)
                         {
                             factoryFive.sprite = manager.unitData[factory.unitsAvailable[4]].unitIcon;
                             factoryFive.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.unitsAvailable[4]].name);

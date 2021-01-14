@@ -29,6 +29,8 @@ public class Entity : MonoBehaviour
     private GameObject marker;
     private SpriteRenderer eventSprite;
 
+    private EnemyColony owner;
+
     private void Awake()
     {
         try
@@ -45,6 +47,7 @@ public class Entity : MonoBehaviour
     {
         FindMarker();
         UpdateTag();
+        ActualizeOwner();
     }
 
     private void FindMarker()
@@ -101,6 +104,31 @@ public class Entity : MonoBehaviour
                 tagIdentifier._tags.Remove(Tag.Saved);
             }
         }
+    }
+
+    private void ActualizeOwner()
+    {
+        if (side == manager.side) return;
+
+        owner = GetOwner();
+        owner.AddEntity(this);
+    }
+
+    private EnemyColony GetOwner()
+    {
+        GameObject[] enemies = manager.FindTags(new Tag[2] { Tag.Enemy, Tag.Core });
+
+        foreach (GameObject g in enemies)
+        {
+            EnemyColony e = g.GetComponent<EnemyColony>();
+
+            if (e.colony.side == side)
+            {
+                return e;
+            }
+        }
+
+        throw new System.Exception("Can't find the appropriate enemy for: " + side);
     }
 
     #endregion
@@ -201,6 +229,7 @@ public class Entity : MonoBehaviour
 
     private void OnDestroy()
     {
+        owner.RemoveEntity(this);
         manager.DeleteGameObjectOfTagList(gameObject);
     }
 }

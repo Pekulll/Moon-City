@@ -10,19 +10,19 @@ public class ColonyStats : MonoBehaviour
     public int energy;
     public int anticipatedEnergy;
 
-    [Header("Ressources")]
+    [Header("- Ressources")]
     public int money;
     public float regolith;
     public float bioPlastique;
     public float food;
 
-    [Header("Storage")]
+    [Header("- Storage")]
     public int energyStorage;
     public float regolithStock;
     public float bioPlasticStock;
     public float foodStock;
 
-    [Header("Profit")]
+    [Header("- Profit")]
     public int profit;
     public int energyOutput;
     public float regolithOutput;
@@ -30,26 +30,28 @@ public class ColonyStats : MonoBehaviour
     public float foodOutput;
     public float research;
 
-    [Header("Stats - Loss")]
+    [Header("- Loss")]
+    [Header("Statistics")]
     public int moneyLoss;
     public int energyLoss;
     public float regolithLoss;
     public float bioPlastiqueLoss;
     public float foodLoss;
 
-    [Header("Stats - Gain")]
+    [Header("- Gain")]
     public int moneyGain;
     public int energyGain;
     public float regolithGain;
     public float bioPlastiqueGain;
     public float foodGain;
 
-    [Header("Trade - Sold")]
+    [Header("- Sold")]
+    [Header("Trading")]
     public int regolithSold;
     public int bioplasticSold;
     public int foodSold;
 
-    [Header("Trade - Bought")]
+    [Header("- Bought")]
     public int regolithBought;
     public int bioplasticBought;
     public int foodBought;

@@ -5,10 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Buildings))]
 public class FactoryMotor : MonoBehaviour
 {
-    //public UnitsDatabase factoryBase;
     private MoonManager manager;
     public List<Units> queue = new List<Units>();
-    public int[] unitsAvailable;
+    public List<int> unitsAvailable;
 
     public float time = 0;
     public float maxTime = 0;
@@ -24,7 +23,7 @@ public class FactoryMotor : MonoBehaviour
 
     public void Init()
     {
-        if (unitsAvailable.Length == 0) Destroy(this);
+        if (unitsAvailable.Count == 0) Destroy(this);
 
         manager = GameObject.Find("Manager").GetComponent<MoonManager>();
         unitData = manager.unitData;

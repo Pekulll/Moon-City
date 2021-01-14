@@ -333,7 +333,7 @@ public class EnemyMotor : MonoBehaviour
         {
             foreach (FactoryMotor f in factories)
             {
-                for (int i = f.unitsAvailable.Length - 1; i > 0; i--)
+                for (int i = f.unitsAvailable.Count - 1; i > 0; i--)
                 {
                     int haveRessources = HaveEnoughRessource(unitData[f.unitsAvailable[i]]);
 
