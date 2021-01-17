@@ -158,11 +158,11 @@ public class CommandSystem : MonoBehaviour
 
             if(args[0] == "-c")
             {
-                EnemyMotor[] enemies = FindObjectsOfType<EnemyMotor>();
+                EnemyColony[] enemies = FindObjectsOfType<EnemyColony>();
 
-                foreach (EnemyMotor e in enemies)
+                foreach (EnemyColony e in enemies)
                 {
-                    e.EnemyFailure();
+                    e.Failure();
                 }
             }
             else if(args[0] == "-u")

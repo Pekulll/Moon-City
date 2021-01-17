@@ -56,7 +56,7 @@ public class TagSystem : MonoBehaviour {
                 }
             }
 
-            if (keep && gameObjectWithTag.Contains(tagId.gameObject))
+            if (keep && !gameObjectWithTag.Contains(tagId.gameObject))
             {
                 gameObjectWithTag.Add(tagId.gameObject);
             }
@@ -124,7 +124,7 @@ public class TagSystem : MonoBehaviour {
                 }
             }
 
-            if(keep && gameObjectWithTag.Contains(tagId.gameObject))
+            if(keep && !gameObjectWithTag.Contains(tagId.gameObject))
             {
                 gameObjectWithTag.Add(tagId.gameObject);
             }

@@ -116,11 +116,6 @@ public class FactoryMotor : MonoBehaviour
 
             go.GetComponent<Unit>().side = side;
 
-            if (isEnemyFactory)
-            {
-                go.AddComponent<EnemyUnit>();
-            }
-
             FindObjectOfType<QuestManager>().CheckForBuildQuest(cur.identity, side, EntityType.Unit);
         }
 

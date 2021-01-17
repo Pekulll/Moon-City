@@ -58,7 +58,7 @@ public class Unit : Entity
             targetedEntity = new EntityType[2] { EntityType.Building, EntityType.Preview };
         else if (unitType == UnitType.Medic)
             targetedEntity = new EntityType[1] { EntityType.Building };
-        else if (unitType == UnitType.Medic)
+        else if (unitType == UnitType.Security)
             targetedEntity = new EntityType[1] { EntityType.Building };
 
         ResetTarget();
@@ -132,7 +132,7 @@ public class Unit : Entity
             {
                 if (agressivity != 0)
                 {
-                    if (lastTargetsUpdate++ >= 1 / Time.deltaTime && !haveOrder)
+                    if (lastTargetsUpdate++ >= 1 / Time.deltaTime && !haveOrder && currentTarget == null)
                     {
                         lastTargetsUpdate = 0;
                         FindTargets();
@@ -171,7 +171,7 @@ public class Unit : Entity
     {
         if (!targets.Contains(caller)) return;
 
-        if (currentTarget == caller) RemoveTarget();
+        if (currentTarget == caller) RemoveTarget(caller);
         else targets.Remove(caller);
     }
 
@@ -194,8 +194,10 @@ public class Unit : Entity
                 {
                     if (searchAlly && e.side == side)
                     {
-                        if (e.entityType == EntityType.Preview && !e.GetComponent<Preview>().isEngaged) break;
-                        targets.Add(e);
+                        if (e.entityType == EntityType.Preview && e.GetComponent<Preview>().isEngaged)
+                        {
+                            targets.Add(e);
+                        }
                     }
                     else if (!searchAlly && e.side != side && manager.GetWarStatut(side, e.side))
                     {
@@ -224,13 +226,10 @@ public class Unit : Entity
         SetTarget(targets.IndexOf(entity));
     }
 
-    private void RemoveTarget()
+    private void RemoveTarget(Entity entity)
     {
-        if (targets.Count > currentTargetIndex);
-        {
-            targets.RemoveAt(currentTargetIndex);
-            ResetTarget();
-        }
+        ResetTarget();
+        targets.Remove(entity);
     }
 
     private void ResetTarget()
@@ -242,6 +241,7 @@ public class Unit : Entity
 
     private void SetTargetToNearestTarget(bool inRange = true)
     {
+        List<int> toRemove = new List<int>();
         float distance = Mathf.Infinity;
         Entity nearest = null;
 
@@ -257,10 +257,13 @@ public class Unit : Entity
             }
         }
 
+        foreach(int i in toRemove)
+        {
+            targets.RemoveAt(i);
+        }
+
         if (nearest != null && (distance <= range || !inRange))
             SetTarget(nearest);
-        /*else
-            Debug.Log("[INFO:Unit] No valid target found.");*/
     }
 
     #endregion
@@ -353,8 +356,14 @@ public class Unit : Entity
         if (unitType == UnitType.Military) isDestroyed = currentTarget.ApplyDamage(damageAmount, damageType);
         else if (unitType == UnitType.Worker)
         {
-            if (currentTarget.entityType == EntityType.Building) isDestroyed = currentTarget.ApplyHeal(damageAmount);
-            else if (currentTarget.entityType == EntityType.Preview) isDestroyed = currentTarget.GetComponent<Preview>().Progress(damageAmount);
+            if (currentTarget.entityType == EntityType.Building)
+            {
+                isDestroyed = currentTarget.ApplyHeal(damageAmount);
+            }
+            else if (currentTarget.entityType == EntityType.Preview)
+            {
+                isDestroyed = currentTarget.GetComponent<Preview>().Progress(damageAmount);
+            }
         }
         else Debug.Log("[INFO:Unit] Not implemented statement.");
 

@@ -40,7 +40,7 @@ public class EnemyColony : ColonyStats
     [SerializeField] private GameObject physicalPrefab;
 
     [HideInInspector] public List<int> techsUnlocked = new List<int>();
-    [HideInInspector] public Vector3 currentTech = new Vector3(-1, -1, -1);
+    public Vector3 currentTech = new Vector3(-1, -1, -1);
     [HideInInspector] public float techProgress;
 
     [HideInInspector] public string enemyName;
@@ -120,6 +120,8 @@ public class EnemyColony : ColonyStats
 
     private IEnumerator MainLoop()
     {
+        yield return delay;
+
         while (true)
         {
             if (disableEnemy)
@@ -138,21 +140,48 @@ public class EnemyColony : ColonyStats
 
     private bool DoSomething()
     {
-        if(unitNbr / buildNbr < currentProfile.unitRatio)
+        if (!ConstructToSurvive())
         {
-            return CreateUnit();
-        }
-        else if(defenseNbr / buildNbr < currentProfile.defenseRatio)
-        {
-            return Construct(new int[3] { 34, 15, 33 });
+            if (unitNbr / buildNbr < currentProfile.unitRatio)
+            {
+                Debug.Log("[INFO:EnemyColony] Creating unit...");
+                return CreateUnit();
+            }
+            else if ((defenseNbr + 1) / buildNbr < currentProfile.defenseRatio)
+            {
+                Debug.Log("[INFO:EnemyColony] Creating defense...");
+                return Construct(new int[3] { 34, 15, 33 });
+            }
+            else
+            {
+                Debug.Log("[INFO:EnemyColony] Creating building...");
+                return Construct(new int[1] { currentProfile.priority });
+            }
         }
         else
         {
-            return Construct(new int[1] { currentProfile.priority });
+            return true;
         }
     }
 
     #region Construction
+
+    public bool ConstructToSurvive()
+    {
+        List<int> resourceNeeded = ResourceNeeded();
+
+        if(resourceNeeded.Count != 0)
+        {
+            if (resourceNeeded.Contains(0)) return Construct(new int[3] { 3, 2, 1 }); // Money (appart)
+            if (resourceNeeded.Contains(1)) return Construct(new int[2] { 29, 28 }); // Energy (nuclear reactor)
+            if (resourceNeeded.Contains(2)) return Construct(new int[3] { 3, 2, 1 }); // Colonist (appart)
+            if (resourceNeeded.Contains(3)) return Construct(new int[2] { 10, 9 }); // Regolith (excavator)
+            if (resourceNeeded.Contains(4)) return Construct(new int[1] { 16 }); // Bioplastic (biofactory)
+            if (resourceNeeded.Contains(5)) return Construct(new int[3] { 6, 5, 4 }); // Food (farm)
+        }
+
+        return false;
+    }
 
     private bool Construct(int[] ids)
     {
@@ -168,7 +197,14 @@ public class EnemyColony : ColonyStats
 
                 if (resourceNeeded.Count == 0)
                 {
-                    return Construct(ids[i]);
+                    if (OwnTechs(buildData[ids[i]]))
+                    {
+                        return Construct(ids[i]);
+                    }
+                    else if(!Research(buildData[ids[i]]))
+                    {
+                        continue;
+                    }
                 }
                 else
                 {
@@ -182,6 +218,7 @@ public class EnemyColony : ColonyStats
             }
         }
 
+        Debug.Log("[WARN:EnemyColony] Can't find anything to build!");
         return false;
     }
 
@@ -204,6 +241,7 @@ public class EnemyColony : ColonyStats
                 previewNbr++;
 
                 RemoveRessources(0, current.money, current.regolith, current.bioPlastique, current.food);
+                Debug.Log("[INFO:EnemyColony] Building placed! (" + id + ")");
                 return true;
             }
             else
@@ -306,22 +344,6 @@ public class EnemyColony : ColonyStats
 
     #region Research
 
-    private bool Research()
-    {
-        if(currentTech == new Vector3(-1, -1, -1))
-        {
-            // Do the next research (by id order)
-            currentTech = GetTechById(techsUnlocked.Count);
-
-            if (currentTech == new Vector3(-1, -1, -1))
-                currentTech = new Vector3(-2, -2, -2);
-
-            return true;
-        }
-
-        return false;
-    }
-
     private Vector3 GetTechById(int id)
     {
         for(int i = 0; i < techData.techTrees.Count; i++)
@@ -336,19 +358,6 @@ public class EnemyColony : ColonyStats
         }
 
         return new Vector3(-1, -1, -1);
-    }
-
-    private bool OwnedTechs(int[] techs)
-    {
-        foreach(int id in techs)
-        {
-            if (!techsUnlocked.Contains(id))
-            {
-                return false;
-            }
-        }
-
-        return true;
     }
 
     public void Progress()
@@ -367,22 +376,90 @@ public class EnemyColony : ColonyStats
         }
     }
 
+    private bool OwnTechs(Building b)
+    {
+        foreach(int id in b.techsNeeded)
+        {
+            if (!techsUnlocked.Contains(id))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private bool Research(Building b)
+    {
+        foreach(int id in b.techsNeeded)
+        {
+            if (!techsUnlocked.Contains(id))
+            {
+                return Research(id);
+            }
+        }
+
+        return false;
+    }
+
+    private bool Research(int techID)
+    {
+        if (currentTech == new Vector3(-1, -1, -1))
+        {
+            currentTech = GetTechById(techID);
+            int[] neededTech = techData.techTrees[(int)currentTech.x].technologies[(int)currentTech.y].neededTech;
+
+            if (neededTech.Length != 0)
+            {
+                foreach(int id in neededTech)
+                {
+                    if (!techsUnlocked.Contains(id))
+                    {
+                        return Research(id);
+                    }
+                }
+            }
+
+            if (currentTech == new Vector3(-1, -1, -1))
+                currentTech = new Vector3(-2, -2, -2);
+
+            Debug.Log("[INFO:EnemyColony] Search: " + currentTech);
+            return true;
+        }
+
+        return false;
+    }
+
     #endregion
 
     #region Resources
 
     #region Checkers
 
+    private List<int> ResourceNeeded()
+    {
+        List<int> resourceNeeded = new List<int>();
+
+        if (maxColonist - (colonist + pre_colonist) <= 0) resourceNeeded.Add(0);
+        if (energyOutput + anticipatedEnergy <= 0) resourceNeeded.Add(1);
+        if (profit + pre_profit <= 0) resourceNeeded.Add(2);
+        if (regolithOutput + pre_regolith <= 0) resourceNeeded.Add(3);
+        if (bioPlastiqueOutput + pre_bioplastic <= 0) resourceNeeded.Add(4);
+        if (foodOutput + pre_food <= 0) resourceNeeded.Add(5);
+
+        return resourceNeeded;
+    }
+
     private List<int> ResourceNeeded(Building b)
     {
         List<int> resourceNeeded = new List<int>();
 
-        if (colonist + pre_colonist + b.colonist > maxColonist) resourceNeeded.Add(0);
-        if (energyOutput + anticipatedEnergy + b.energy < 0) resourceNeeded.Add(1);
-        if (profit + pre_profit < b.money) resourceNeeded.Add(2);
-        if (regolithOutput + pre_regolith < b.regolith) resourceNeeded.Add(3);
-        if (bioPlastiqueOutput + pre_bioplastic < b.bioPlastique) resourceNeeded.Add(4);
-        if (foodOutput + pre_food < b.food) resourceNeeded.Add(5);
+        if (colonist + pre_colonist + b.colonist > maxColonist && b.colonist > 0) resourceNeeded.Add(0);
+        if (energyOutput + anticipatedEnergy + b.energy < 0 && b.energy < 0) resourceNeeded.Add(1);
+        if (money < b.money && b.money > 0) resourceNeeded.Add(2);
+        if (regolith < b.regolith && b.regolith > 0) resourceNeeded.Add(3);
+        if (bioPlastique < b.bioPlastique && b.bioPlastique > 0) resourceNeeded.Add(4);
+        if (food < b.food && b.food > 0) resourceNeeded.Add(5);
 
         return resourceNeeded;
     }
@@ -391,9 +468,9 @@ public class EnemyColony : ColonyStats
     {
         List<int> resourceNeeded = new List<int>();
 
-        if (colonist + pre_colonist + u.place > maxColonist) resourceNeeded.Add(0);
-        if (profit + pre_profit < u.money) resourceNeeded.Add(2);
-        if (foodOutput + pre_food < u.food) resourceNeeded.Add(5);
+        if (colonist + pre_colonist + u.place > maxColonist && u.place > 0) resourceNeeded.Add(0);
+        if (profit + pre_profit < u.money && u.money > 0) resourceNeeded.Add(2);
+        if (foodOutput + pre_food < u.food && u.food > 0) resourceNeeded.Add(5);
 
         return resourceNeeded;
     }
@@ -504,6 +581,31 @@ public class EnemyColony : ColonyStats
 
     #endregion
 
+    public void Output()
+    {
+        energy += energyOutput;
+        energy = Mathf.Clamp(energy, 0, energyStorage);
+
+        if (energy > 0 || energyOutput > 0)
+        {
+            money += profit;
+            regolith += regolithOutput;
+            bioPlastique += bioPlastiqueOutput;
+            food += foodOutput;
+        }
+        else
+        {
+            money -= moneyLoss;
+            regolith -= regolithLoss;
+            bioPlastique -= bioPlastiqueLoss;
+            food -= foodLoss;
+        }
+
+        regolith = Mathf.Clamp(regolith, 0, regolithStock);
+        bioPlastique = Mathf.Clamp(bioPlastique, 0, bioPlasticStock);
+        food = Mathf.Clamp(food, 0, foodStock);
+    }
+
     #endregion
 
     #region Counters
@@ -534,8 +636,8 @@ public class EnemyColony : ColonyStats
         }
         else if (entity.entityType == EntityType.Preview)
         {
-            RemoveAnticipateRessources(buildData[entity.GetComponent<Preview>().id].energy);
             previewNbr--;
+            RemoveAnticipateRessources(buildData[entity.GetComponent<Preview>().id].energy);
         }
         else if (entity.entityType == EntityType.Unit)
         {
@@ -560,6 +662,11 @@ public class EnemyColony : ColonyStats
     }
 
     #endregion
+
+    public void Failure()
+    {
+
+    }
 }
 
 [System.Serializable]

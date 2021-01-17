@@ -137,7 +137,15 @@ public class Entity : MonoBehaviour
 
     public bool ApplyDamage(float amount, DamageType type)
     {
-        return false;
+        health -= (type == weakness) ? amount * 2 : amount;
+
+        if(health <= 0)
+        {
+            DisengageAll();
+            DestroyImmediate(gameObject);
+        }
+
+        return true;
     }
 
     public bool ApplyHeal(float amount)
@@ -199,6 +207,14 @@ public class Entity : MonoBehaviour
         calledUnits = units;
     }
 
+    public void DisengageAll()
+    {
+        foreach (Unit u in calledUnits)
+        {
+            u.Disengage(this);
+        }
+    }
+
     #endregion
 
     #region Sectors
@@ -229,7 +245,9 @@ public class Entity : MonoBehaviour
 
     private void OnDestroy()
     {
-        owner.RemoveEntity(this);
         manager.DeleteGameObjectOfTagList(gameObject);
+
+        if (owner != null)
+            owner.RemoveEntity(this);
     }
 }

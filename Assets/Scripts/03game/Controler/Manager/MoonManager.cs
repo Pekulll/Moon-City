@@ -387,7 +387,7 @@ public class MoonManager : MonoBehaviour {
 
         foreach (GameObject cur in gos)
         {
-            cur.GetComponent<EnemyMotor>().Output();
+            cur.GetComponent<EnemyColony>().Output();
         }
     }
 
@@ -849,7 +849,7 @@ public class MoonManager : MonoBehaviour {
     }*/
 
     public void DeleteGameObjectOfTagList (GameObject current) {
-        tagSystem.allWithComponent.Remove (current);
+        tagSystem.allWithComponent.Remove(current);
     }
 
     #endregion
@@ -1116,9 +1116,9 @@ public class MoonManager : MonoBehaviour {
         questManager.Init(killQuest, buildQuest);
     }
 
-    private void LoadEnemies (List<SaveEnemy> savedEnemies) {
+    /*private void LoadEnemies (List<SaveEnemy> savedEnemies) {
         return; //TODO: Save and load of the enemies
-    }
+    }*/
 
     #endregion
 

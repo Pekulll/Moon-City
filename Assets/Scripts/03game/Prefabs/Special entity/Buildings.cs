@@ -5,7 +5,6 @@ public class Buildings : Entity
 {
     [HideInInspector] public Building building;
 
-    private EnemyBuilding enemy = null;
     private RessourceData resources;
 
     private bool isInitialize;
@@ -20,7 +19,6 @@ public class Buildings : Entity
     {
         Initialize();
         VerifySectorControl();
-        InitializeEnemy();
     }
 
     public void Initialize(bool onSave = false)
@@ -36,9 +34,11 @@ public class Buildings : Entity
         isEnemy = side != manager.side;
 
         haveOutput = false;
+        entityType = EntityType.Building;
 
-        SuperInitialization();
         LoadStats(onSave);
+        AddOutput();
+        SuperInitialization();
         
         UpdateEditor();
     }
@@ -64,32 +64,6 @@ public class Buildings : Entity
         health = b.maxHealth;
         shield = b.maxShield;
         isEnable = true;
-    }
-
-    private void InitializeEnemy()
-    {
-        if (isEnemy)
-        {
-            if (GetComponent<EnemyBuilding>() == null)
-                enemy = gameObject.AddComponent<EnemyBuilding>();
-            else
-                enemy = GetComponent<EnemyBuilding>();
-
-            EnemyMotor[] enemies = FindObjectsOfType<EnemyMotor>();
-
-            foreach (EnemyMotor e in enemies)
-            {
-                if (e.GetComponent<ColonyStats>().colony.side == side)
-                {
-                    enemy.Init(e);
-                    return;
-                }
-            }
-        }
-        else
-        {
-            AddOutput();
-        }
     }
 
     private void VerifySectorControl()
@@ -143,7 +117,7 @@ public class Buildings : Entity
 
     #region Output
 
-    public void AddOutput()
+    private void AddOutput()
     {
         if (isEnable && !haveOutput)
         {
@@ -160,25 +134,9 @@ public class Buildings : Entity
                 manager.ManageStorage(
                     building.energyStorage, building.rigolyteStock, building.bioPlasticStock, building.foodStock
                 );
+
+                haveOutput = true;
             }
-            else
-            {
-                EnemyMotor mtr = enemy.mtr;
-
-                mtr.AddOutput(
-                    building.energy, building.profit,
-                    building.rigolyteOutput, building.bioPlastiqueOutput, building.foodOutput,
-                    building.research
-                );
-
-                mtr.AddSettlers(building.colonist, building.maxColonist);
-
-                mtr.ManageStorage(
-                    building.energyStorage, building.rigolyteStock, building.bioPlasticStock, building.foodStock
-                );
-            }
-
-            haveOutput = true;
         }
     }
 
@@ -200,21 +158,6 @@ public class Buildings : Entity
                     -building.energyStorage, -building.rigolyteStock, -building.bioPlasticStock, -building.foodStock
                 );
             }
-            else
-            {
-                EnemyMotor mtr = enemy.mtr;
-
-                mtr.RemoveRessources(
-                    building.energy, building.profit,
-                    building.rigolyteOutput, building.bioPlastiqueOutput, building.foodOutput
-                );
-
-                mtr.RemoveSettlers(building.colonist, building.maxColonist);
-
-                mtr.ManageStorage(
-                    -building.energyStorage, -building.rigolyteStock, -building.bioPlasticStock, -building.foodStock
-                );
-            }
         }
     }
 
@@ -230,10 +173,13 @@ public class Buildings : Entity
 
     private void RestoreCosts()
     {
-        float percentage = 0.5f;
+        if(side == manager.side)
+        {
+            float percentage = 0.5f;
 
-        manager.AddRessources(0, (int)(building.money * percentage), (int)(building.regolith * percentage), (int)(building.bioPlastique * percentage), (int)(building.food * percentage));
-        manager.RemoveSettlers(building.colonist, 0);
+            manager.AddRessources(0, (int)(building.money * percentage), (int)(building.regolith * percentage), (int)(building.bioPlastique * percentage), (int)(building.food * percentage));
+            manager.RemoveSettlers(building.colonist, 0);
+        }
     }
 
     #endregion

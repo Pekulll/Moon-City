@@ -35,9 +35,9 @@ public class Preview : Entity
         colliders = new List<Collider>();
         entityType = EntityType.Preview;
 
-        SuperInitialization();
         UpdateRenderer(incorrect);
         LoadStats();
+        SuperInitialization();
         UpdateEditor();
         CheckSave();
     }
@@ -244,7 +244,10 @@ public class Preview : Entity
 
     public bool Progress(float amount)
     {
-        bool isFinished = ApplyHeal(amount);
+        bool isFinished;
+
+        if (side != manager.side) isFinished = ApplyHeal(amount * 10);
+        else isFinished = ApplyHeal(amount);
         
         if (isFinished)
         {
@@ -256,7 +259,8 @@ public class Preview : Entity
             e.groupID = groupID;
             e.side = side;
 
-            Destroy(gameObject);
+            manager.HideWarnText();
+            DestroyImmediate(gameObject);
         }
 
         return isFinished;
@@ -279,9 +283,4 @@ public class Preview : Entity
     }
 
     #endregion
-
-    private void OnDestroy()
-    {
-        manager.HideWarnText();
-    }
 }

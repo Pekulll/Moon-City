@@ -34,11 +34,6 @@ public class TurretMotor : MonoBehaviour
         anim = GetComponent<Animator>();
 
         StartCoroutine(UpdateTarget());
-
-        if(health.side != manager.side)
-        {
-            gameObject.AddComponent<EnemyDefense>();
-        }
     }
 
     private IEnumerator UpdateTarget()

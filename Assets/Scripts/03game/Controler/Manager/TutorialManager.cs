@@ -190,7 +190,7 @@ public class TutorialManager : MonoBehaviour
             }
         }
 
-        N_SaveSystem.DeleteData("Tutorial");
+        SaveSystem.Delete("Tutorial.json");
         SceneManager.LoadScene("00loading");
     }
 
