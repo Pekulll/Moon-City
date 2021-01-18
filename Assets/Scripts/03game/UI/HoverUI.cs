@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class HoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -10,6 +11,11 @@ public class HoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private void Start()
     {
         manager = FindObjectOfType<MoonManager>();
+
+        if(GetComponent<Image>() != null)
+        {
+            GetComponent<Image>().raycastTarget = true;
+        }
     }
 
     public void OnPointerEnter(PointerEventData ped)
