@@ -74,7 +74,7 @@ MonoBehaviour:
   canPaused: 1
   isPaused: 0
   canInteractWithUI: 1
-  versionCode: 0.0.28.0
+  versionCode: 2021.1.0a
   saveName: TESTMODE
   buildData:
   - {fileID: 11400000, guid: 040c74d94e0415446a6cc535604d07d7, type: 2}
