@@ -770,7 +770,7 @@ public class MoonManager : MonoBehaviour {
         viewer.ShowGroup (group);
     }
 
-    public void UpdateStats (GameObject _current) {
+    public void UpdateStats (Entity _current) {
         viewer.UpdateSingle (_current);
     }
 
@@ -794,7 +794,7 @@ public class MoonManager : MonoBehaviour {
         viewer.HideInformation (cur: go);
     }
 
-    public void UpdateFactoryQueue (GameObject cur) {
+    public void UpdateFactoryQueue (Entity cur) {
         viewer.UpdateSingle (cur);
     }
 

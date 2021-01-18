@@ -44,31 +44,32 @@ public class GroupSystem : MonoBehaviour {
         DoubleClickUpdate();
         CheckForActionWhenSelected ();
 
-        UniqueSelectionUodate ();
+        UniqueSelectionUpdate ();
         MultipleSelectionUpdate ();
         GroupRegisterUpdate ();
     }
 
     #region Selection (unique and multiple)
 
-    private void UniqueSelectionUodate () {
+    private void UniqueSelectionUpdate () {
         if (selectedObject == null && !Input.GetKey (KeyCode.LeftShift) && !Input.GetKey (KeyCode.RightShift)) {
             if (Input.GetMouseButtonDown (0)) {
                 if (Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 1000)) {
                     if (hit.transform.GetComponent<TagIdentifier> () != null) {
+                        Entity e = hit.transform.GetComponent<Entity>();
                         doubleClick = 1f;
 
-                        if (hit.transform.GetComponent<Entity> () != null) {
-                            DeselectUnits ();
+                        if (e != null) {
+                            DeselectEntities ();
 
-                            selectedObject = hit.transform.GetComponent<Entity>();
+                            selectedObject = e;
                             selectedObject.Marker(true);
                             objectTypeInGroup = selectedObject.entityType;
 
                             IndividualStats (selectedObject, objectTypeInGroup);
                         }
                     } else {
-                        DeselectUnits ();
+                        DeselectEntities ();
                     }
                 }
             }
@@ -77,7 +78,7 @@ public class GroupSystem : MonoBehaviour {
             if (Input.GetMouseButtonDown (0) && (!Input.GetKey (KeyCode.LeftShift) && !Input.GetKey (KeyCode.RightShift))) {
                 if (Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 1000)) {
                     if (hit.transform.GetComponent<TagIdentifier> () != null) {
-                        DeselectUnits ();
+                        DeselectEntities ();
                         UnshowStats ();
 
                         if (doubleClick != 0 && selectedObject == hit.transform.gameObject) {
@@ -154,7 +155,7 @@ public class GroupSystem : MonoBehaviour {
                             doubleClick = 1f;
                         }
                     } else {
-                        DeselectUnits ();
+                        DeselectEntities ();
                         UnshowStats ();
                     }
                 }
@@ -189,7 +190,7 @@ public class GroupSystem : MonoBehaviour {
                         }
                         else
                         {
-                            DeselectUnits();
+                            DeselectEntities();
                             UnshowStats();
                         }
                     }
@@ -329,7 +330,7 @@ public class GroupSystem : MonoBehaviour {
 
         ///Debug.Log("  [INFO:GroupSystem] " + minPosition + " - " + maxPosition);
 
-        DeselectUnits ();
+        DeselectEntities ();
 
         List<Entity> unitsInArea = manager.GetUnitsInArea (minPosition, maxPosition);
 
@@ -582,7 +583,7 @@ public class GroupSystem : MonoBehaviour {
         currentGroup = null;
     }
 
-    public void DeselectUnits () {
+    public void DeselectEntities () {
         if (selectedObject != null) {
             selectedObject.Marker(false);
         }
@@ -605,7 +606,7 @@ public class GroupSystem : MonoBehaviour {
     private void SelectGroup (ObjectGroup group) {
         if (group == null) return;
 
-        DeselectUnits ();
+        DeselectEntities ();
 
         if (group.groupType == EntityType.Unit) {
             foreach (Unit u in group.objectsInGroup) {

@@ -84,7 +84,7 @@ public class FactoryMotor : MonoBehaviour
                     manager.AddSettlers(queue[i].place, 0);
                 }
 
-                manager.UpdateFactoryQueue(gameObject);
+                manager.UpdateFactoryQueue(GetComponent<Entity>());
 
                 if (i == 0) StartCoroutine(Fabric());
 
@@ -106,7 +106,7 @@ public class FactoryMotor : MonoBehaviour
         {
             yield return new WaitForSeconds(0.1f);
             time += 0.1f;
-            manager.UpdateFactoryQueue(gameObject);
+            manager.UpdateFactoryQueue(GetComponent<Entity>());
         }
 
         if(cur.model != null)
@@ -133,13 +133,13 @@ public class FactoryMotor : MonoBehaviour
             try { queue[i] = temp[i + 1]; } catch { queue[i] = new Units(); }
         }
 
-        manager.UpdateFactoryQueue(gameObject);
+        manager.UpdateFactoryQueue(GetComponent<Entity>());
 
         if (queue[0].name == "") return;
 
         maxTime = queue[0].time;
 
-        manager.UpdateFactoryQueue(gameObject);
+        manager.UpdateFactoryQueue(GetComponent<Entity>());
         StartCoroutine(Fabric());
     }
 

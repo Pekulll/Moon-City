@@ -78,6 +78,10 @@ public class Entity : MonoBehaviour
 
             Marker(false);
         }
+        else
+        {
+            Debug.LogError("[ERROR:Entity] Can't find marker!");
+        }
     }
 
     public void Marker(bool enable)

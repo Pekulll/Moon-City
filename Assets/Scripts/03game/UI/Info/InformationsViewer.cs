@@ -144,6 +144,22 @@ public class InformationsViewer : MonoBehaviour
 
     #endregion
 
+    private void Update()
+    {
+        if (selectedObject != null)
+        {
+            UpdateSingle(selectedObject);
+        }
+        else if (currentGroup != null)
+        {
+            UpdateGroup(currentGroup);
+        }
+        else
+        {
+            HideInformation(forced: true);
+        }
+    }
+
     #region Group's informations
 
     public void ShowGroup(ObjectGroup group)
@@ -418,7 +434,7 @@ public class InformationsViewer : MonoBehaviour
         UpdateInterface();
     }
 
-    public void UpdateSingle(GameObject selected)
+    public void UpdateSingle(Entity selected)
     {
         if (selected != selectedObject) return;
 

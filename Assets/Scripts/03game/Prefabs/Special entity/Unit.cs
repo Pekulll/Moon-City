@@ -98,15 +98,18 @@ public class Unit : Entity
             maxHealth = u.health;
         }
 
-        if (onSave) return;
+        if (!onSave)
+        {
+            health = maxHealth;
+            shield = maxShield;
+            energy = maxEnergy;
 
-        health = maxHealth;
-        shield = maxShield;
-        energy = maxEnergy;
+            agressivity = u.baseAgressivity;
 
-        agressivity = u.baseAgressivity;
+            level = 1;
+        }
 
-        level = 1;
+        maxExperience = Mathf.Pow(10, level);
     }
 
     private IEnumerator Alive()

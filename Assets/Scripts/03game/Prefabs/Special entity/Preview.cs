@@ -177,6 +177,8 @@ public class Preview : Entity
     {
         foreach (Renderer r in previewRenderer)
         {
+            if (r.gameObject.name == "Marker") continue;
+
             int count = r.materials.Length;
             Material[] mats = new Material[count];
 

@@ -10,21 +10,12 @@ public class DiplomacySystem : MonoBehaviour
 
     public DiplomacyState[] m_diplomacyStates;
 
-    private Text m_diploColonyName, m_themText, m_youText, m_reputationText;
+    private Text m_diploColonyName, m_reputationText;
 
-    private Button m_peaceBtn, m_warBtn, m_tradeBtn, m_tradingBtn;
+    private Button m_peaceBtn, m_warBtn;
     private Image m_diploSatut;
 
-    private int m_tradeValueThem, m_tradeValueYou;
-    private Text tradeTextThem, tradeTextYou;
-
-    private Slider[] m_themSld = new Slider[4];
-    private Slider[] m_youSld = new Slider[4];
-
-    private Text[] m_themValue = new Text[4];
-    private Text[] m_youValue = new Text[4];
-
-    private GameObject m_diploInfo, m_tradeUI;
+    private GameObject m_diploInfo;
 
     private MoonColony m_currentColony;
     private ColonyStats m_currentStats;
@@ -57,42 +48,14 @@ public class DiplomacySystem : MonoBehaviour
         m_manager = GameObject.Find("Manager").GetComponent<MoonManager>();
 
         m_diploInfo = GameObject.Find("BC_Diplomacy");
-        m_tradeUI = GameObject.Find("B_DiploTrade");
 
         m_diploColonyName = GameObject.Find("T_ColonyName").GetComponent<Text>();
         m_reputationText = GameObject.Find("T_Reputation").GetComponent<Text>();
-        m_themText = GameObject.Find("T_TradeThem").GetComponent<Text>();
-        m_youText = GameObject.Find("T_TradeYou").GetComponent<Text>();
 
         m_diploSatut = GameObject.Find("I_DiploStatut").GetComponent<Image>();
 
         m_peaceBtn = GameObject.Find("Btn_Peace").GetComponent<Button>();
         m_warBtn = GameObject.Find("Btn_War").GetComponent<Button>();
-        m_tradeBtn = GameObject.Find("Btn_Trade").GetComponent<Button>();
-        m_tradingBtn = GameObject.Find("Btn_Trading").GetComponent<Button>();
-
-        m_themSld[0] = GameObject.Find("Sld_ThemMoney").GetComponent<Slider>();
-        m_themSld[1] = GameObject.Find("Sld_ThemRigolyte").GetComponent<Slider>();
-        m_themSld[2] = GameObject.Find("Sld_ThemBioplastic").GetComponent<Slider>();
-        m_themSld[3] = GameObject.Find("Sld_ThemFood").GetComponent<Slider>();
-
-        m_youSld[0] = GameObject.Find("Sld_YouMoney").GetComponent<Slider>();
-        m_youSld[1] = GameObject.Find("Sld_YouRigolyte").GetComponent<Slider>();
-        m_youSld[2] = GameObject.Find("Sld_YouBioplastic").GetComponent<Slider>();
-        m_youSld[3] = GameObject.Find("Sld_YouFood").GetComponent<Slider>();
-
-        m_themValue[0] = GameObject.Find("T_ThemMoney").GetComponent<Text>();
-        m_themValue[1] = GameObject.Find("T_ThemRigolyte").GetComponent<Text>();
-        m_themValue[2] = GameObject.Find("T_ThemBioplastic").GetComponent<Text>();
-        m_themValue[3] = GameObject.Find("T_ThemFood").GetComponent<Text>();
-
-        m_youValue[0] = GameObject.Find("T_YouMoney").GetComponent<Text>();
-        m_youValue[1] = GameObject.Find("T_YouRigolyte").GetComponent<Text>();
-        m_youValue[2] = GameObject.Find("T_YouBioplastic").GetComponent<Text>();
-        m_youValue[3] = GameObject.Find("T_YouFood").GetComponent<Text>();
-
-        tradeTextThem = GameObject.Find("T_ValueThem").GetComponent<Text>();
-        tradeTextYou = GameObject.Find("T_ValueYou").GetComponent<Text>();
     }
 
     #endregion
@@ -102,7 +65,6 @@ public class DiplomacySystem : MonoBehaviour
     public void Btn_HideDiplomacy()
     {
         m_diploInfo.SetActive(false);
-        HideTrade();
         m_currentColony = null;
         m_currentStats = null;
     }
@@ -118,15 +80,12 @@ public class DiplomacySystem : MonoBehaviour
             m_diploInfo.SetActive(false);
             m_currentColony = null;
             m_currentStats = null;
-            m_tradeUI.SetActive(false);
             m_diploColonyName.text = "DIPLOMATIE_COLONY_NAME";
         }
         else
         {
             m_currentColony = current;
             m_currentStats = cur;
-            m_tradeValueThem = 0;
-            m_tradeValueYou = 0;
             m_diploColonyName.text = current.name;
 
             Vector2Int reputations = GetDiplomacyReputation(m_manager.side, m_currentColony.side);
@@ -135,28 +94,8 @@ public class DiplomacySystem : MonoBehaviour
             m_reputationText.transform.parent.gameObject.GetComponent<TooltipCaller>().title = m_manager.Traduce("Reputation");
 
             UpdateButton();
-            m_tradeUI.SetActive(false);
             m_diploInfo.SetActive(true);
         }
-    }
-
-    public void Btn_Trade()
-    {
-        m_currentStats.money += (int)m_youSld[0].value;
-        m_currentStats.regolith += m_youSld[1].value;
-        m_currentStats.bioPlastique += m_youSld[2].value;
-        m_currentStats.food += m_youSld[3].value;
-        m_manager.RemoveRessources(0, (int)m_youSld[0].value, m_youSld[1].value, m_youSld[2].value, m_youSld[3].value);
-
-        m_currentStats.money -= (int)m_themSld[0].value;
-        m_currentStats.regolith -= m_themSld[1].value;
-        m_currentStats.bioPlastique -= m_themSld[2].value;
-        m_currentStats.food -= m_themSld[3].value;
-        m_manager.AddRessources(0, (int)m_themSld[0].value, m_themSld[1].value, m_themSld[2].value, m_themSld[3].value);
-
-        ChangeDiplomacyReputation(m_manager.side, m_currentColony.side, 1, Mathf.Clamp(m_tradeValueYou - m_tradeValueThem, 1, 3));
-        m_manager.Notify("Trade request", m_currentColony.name + m_manager.Traduce(" had accepted your trade!"), m_neutral, new Color(0, .8f, 0, 1f), 3f);
-        UpdateSlider();
     }
 
     public void Btn_DeclareWar()
@@ -226,12 +165,9 @@ public class DiplomacySystem : MonoBehaviour
     {
         m_peaceBtn.interactable = true;
         m_warBtn.interactable = true;
-        m_tradingBtn.interactable = false;
 
         int diplo = GetDiplomacyState(m_manager.colonyStats.colony.side, m_currentColony.side);
-
-        if (diplo == 0) { m_peaceBtn.interactable = false; m_tradingBtn.interactable = true; }
-        else if (diplo == 2) { m_warBtn.interactable = false; HideTrade(); }
+        if (diplo == 2) { m_warBtn.interactable = false; }
 
         Vector2Int reputations = GetDiplomacyReputation(m_manager.side, m_currentColony.side);
         m_reputationText.text = (reputations.x + reputations.y).ToString();
@@ -262,99 +198,6 @@ public class DiplomacySystem : MonoBehaviour
         m_reputationText.text = (reputations.x + reputations.y).ToString();
         m_reputationText.transform.parent.gameObject.GetComponent<TooltipCaller>().info = m_manager.Traduce("Act:") + " " + reputations.x + "\n" + m_manager.Traduce("Trading:") + " " + reputations.y;
         m_reputationText.transform.parent.gameObject.GetComponent<TooltipCaller>().title = m_manager.Traduce("Reputation");
-    }
-
-    public void UpdateTradingValue()
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            m_themValue[i].text = m_themSld[i].value.ToString();
-            m_youValue[i].text = m_youSld[i].value.ToString();
-        }
-
-        m_tradeValueThem = (int)(m_themSld[0].value + m_themSld[1].value * 2 + (int)(m_themSld[2].value * 2.5f) + m_themSld[3].value * 2);
-        m_tradeValueYou = (int)(m_youSld[0].value + m_youSld[1].value * 2 + (int)(m_youSld[2].value * 2.5f) + m_youSld[3].value * 2);
-
-        tradeTextYou.text = m_tradeValueYou.ToString();
-        tradeTextThem.text = m_tradeValueThem.ToString();
-
-        if (m_tradeValueYou == m_tradeValueThem && m_tradeValueYou == 0)
-        {
-            m_tradeBtn.interactable = false;
-            m_themText.color = Color.red;
-            m_youText.color = Color.green;
-        }
-        else if (m_tradeValueYou >= m_tradeValueThem)
-        {
-            m_tradeBtn.interactable = true;
-            m_youText.color = Color.green;
-            m_themText.color = Color.green;
-        }
-        else
-        {
-            m_tradeBtn.interactable = false;
-            m_themText.color = Color.red;
-        }
-    }
-
-    public void OpenTrading()
-    {
-        if (m_currentStats == null) return;
-
-        if (m_tradeUI.activeSelf)
-        {
-            HideTrade();
-        }
-        else
-        {
-            m_tradeBtn.interactable = false;
-
-            UpdateSlider();
-            UpdateTradingValue();
-
-            m_tradeUI.SetActive(true);
-        }
-
-    }
-
-    private void UpdateSlider()
-    {
-        m_themSld[0].maxValue = m_currentStats.money - 100;
-        m_themSld[1].maxValue = m_currentStats.regolith - 10;
-        m_themSld[2].maxValue = m_currentStats.bioPlastique - 10;
-        m_themSld[3].maxValue = m_currentStats.food - 15;
-
-        m_youSld[0].maxValue = m_manager.colonyStats.money - 100;
-        m_youSld[1].maxValue = m_manager.colonyStats.regolith - 10;
-        m_youSld[2].maxValue = m_manager.colonyStats.bioPlastique - 10;
-        m_youSld[3].maxValue = m_manager.colonyStats.food - 15;
-
-        for (int i = 0; i < 4; i++)
-        {
-            if (m_themSld[i].maxValue < 0)
-            {
-                m_themSld[i].maxValue = 0;
-            }
-            if (m_youSld[i].maxValue < 0)
-            {
-                m_youSld[i].maxValue = 0;
-            }
-        }
-    }
-
-    public void HideTrade()
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            m_themSld[i].value = m_themSld[i].minValue;
-            m_youSld[i].value = m_youSld[i].minValue;
-        }
-
-        m_youText.color = Color.green;
-        m_themText.color = Color.red;
-
-        m_tradeBtn.interactable = false;
-        m_tradeUI.SetActive(false);
     }
 
     #endregion
