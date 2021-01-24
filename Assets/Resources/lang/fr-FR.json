@@ -443,6 +443,15 @@
         { "key": "03_notif_building_activation_noworker", "translation": "Pas assez de colons pour faire ça !" },
         { "key": "03_notif_building_activation_noenergy", "translation": "Pas assez d'énergie pour faire ça !" },
 
-        { "key": "03_notif_unit_levelup", "translation": "Votre {0} a augmenté(e) de niveau !" }
+        { "key": "03_notif_unit_levelup", "translation": "Votre {0} a augmenté(e) de niveau !" },
+
+        { "key": "03_fb_title", "translation": "Feedback" },
+        { "key": "03_fb_category", "translation": "Catégorie" },
+        { "key": "03_fb_category_general", "translation": "Général" },
+        { "key": "03_fb_category_suggestion", "translation": "Suggestion de fontionnalité" },
+        { "key": "03_fb_category_bug", "translation": "Bug / Issue" },
+        { "key": "03_fb_submit", "translation": "Envoyer" },
+        { "key": "03_fb_sended", "translation": "Votre feedback a été envoyé avec succès. Merci infiniment pour votre participation !" },
+        { "key": "03_fb_quit", "translation": "Fermer" }
     ]
 }

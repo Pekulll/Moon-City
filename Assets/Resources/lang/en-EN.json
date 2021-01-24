@@ -442,6 +442,15 @@
         { "key": "03_notif_building_activation_noworker", "translation": "Not enough worker to do that!" },
         { "key": "03_notif_building_activation_noenergy", "translation": "Not enough energy to do that!" },
 
-        { "key": "03_notif_unit_levelup", "translation": "Your {0} has level up!" }
+        { "key": "03_notif_unit_levelup", "translation": "Your {0} has level up!" },
+
+        { "key": "03_fb_title", "translation": "Feedback" },
+        { "key": "03_fb_category", "translation": "Category" },
+        { "key": "03_fb_category_general", "translation": "General" },
+        { "key": "03_fb_category_suggestion", "translation": "Feature suggestion" },
+        { "key": "03_fb_category_bug", "translation": "Bug/Issue" },
+        { "key": "03_fb_submit", "translation": "Submit" },
+        { "key": "03_fb_sended", "translation": "Your feedback has been send successfuly. Thank you so much for that!" },
+        { "key": "03_fb_quit", "translation": "Close" }
     ]
 }
