@@ -411,7 +411,7 @@ public class Unit : Entity
                 maxExperience = 10 ^ level;
 
                 Debug.Log("[INFO:Unit] Unit has level up!");
-                manager.Notify(10);
+                manager.Notify(string.Format(manager.Traduce("03_notif_unit_levelup"), entityName), priority: 1);
             }
             else
             {

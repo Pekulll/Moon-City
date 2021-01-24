@@ -115,7 +115,7 @@ public class QuestManager : MonoBehaviour
                     if (buildingQuests[i].callback != "")
                         manager.SendCommand(buildingQuests[i].callback);
 
-                    manager.Notify(20);
+                    manager.Notify(string.Format(manager.Traduce("03_notif_questcomplete"), buildingQuests[i].questName));
                     Debug.Log("[INFO:QuestManager] Quest (building) completed!");
                 }
             }
@@ -169,7 +169,7 @@ public class QuestManager : MonoBehaviour
                     if (eventQuests[i].callback != "")
                         manager.SendCommand(eventQuests[i].callback);
 
-                    manager.Notify(20);
+                    manager.Notify(string.Format(manager.Traduce("03_notif_questcomplete"), eventQuests[i].questName));
                     Debug.Log("[INFO:QuestManager] Quest (building) completed!");
                 }
             }
@@ -223,7 +223,7 @@ public class QuestManager : MonoBehaviour
                     if (killingQuests[i].callback != "")
                         manager.SendCommand(killingQuests[i].callback);
 
-                    manager.Notify(20);
+                    manager.Notify(string.Format(manager.Traduce("03_notif_questcomplete"), killingQuests[i].questName));
                     Debug.Log("[INFO:QuestManager] Quest (killing) completed!");
                 }
             }

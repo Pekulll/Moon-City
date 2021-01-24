@@ -102,7 +102,7 @@ public class DiplomacySystem : MonoBehaviour
     {
         ChangeDiplomacyState(m_manager.side, m_currentColony.side, 2);
         ChangeDiplomacyReputation(m_manager.side, m_currentColony.side, 0, -50);
-        m_manager.Notify("Diplomacy request", m_currentColony.name + m_manager.Traduce(" is disappointed in you... You are now in war with them!"), m_war, new Color(.8f, 0, 0, 1f), 5f);
+        m_manager.Notify(string.Format(m_manager.Traduce("03_notif_war"), m_currentColony.name), priority: 3);
         UpdateInterface();
     }
 
@@ -117,12 +117,12 @@ public class DiplomacySystem : MonoBehaviour
         {
             ChangeDiplomacyState(m_manager.side, m_currentColony.side, 0);
             ChangeDiplomacyReputation(m_manager.side, m_currentColony.side, 0, 50);
-            m_manager.Notify("Diplomacy request", m_manager.Traduce("Your diplomatie request has been accepted! You're now in alliance with ") + m_currentColony.name + "!", m_ally, new Color(0, .8f, 0, 1f), 5f);
+            m_manager.Notify(string.Format(m_manager.Traduce("03_notif_peace"), m_currentColony.name), priority: 1);
         }
         else
         {
             ChangeDiplomacyReputation(m_manager.side, m_currentColony.side, 0, UnityEngine.Random.Range(-3, -1));
-            m_manager.Notify("Diplomacy request", "Your diplomatie request has been declined!", m_ally, new Color(.8f, 0, 0, 1f), 5f);
+            m_manager.Notify(m_manager.Traduce("03_notif_declined"));
         }
 
         UpdateInterface();
@@ -132,7 +132,7 @@ public class DiplomacySystem : MonoBehaviour
     {
         int change = UnityEngine.Random.Range(1, 4);
         ChangeDiplomacyReputation(m_manager.side, m_currentColony.side, 0, -change);
-        m_manager.Notify("Denunciation", m_manager.Traduce("You ratted out one of your competitors.") + " (-" + change + ")", m_ally, new Color(.8f, 0f, 0, 1f), 4f);
+        m_manager.Notify(string.Format(m_manager.Traduce("03_notif_denounce"), change), priority: 2);
     }
 
     public void Btn_Flatter()
@@ -145,19 +145,18 @@ public class DiplomacySystem : MonoBehaviour
             {
                 int change = Random.Range(0, 4);
                 ChangeDiplomacyReputation(m_manager.side, m_currentColony.side, 0, change);
-                m_manager.Notify("Flattery", m_manager.Traduce("You flattered one of your competitors.") + " (+" + change + ")", m_ally, new Color(0f, 0.8f, 0, 1f), 4f);
+                m_manager.Notify(string.Format(m_manager.Traduce("03_notif_flatter_success"), change), priority: 1);
             }
             else
             {
                 int change = Random.Range(0, 4);
                 ChangeDiplomacyReputation(m_manager.side, m_currentColony.side, 0, -change);
-                m_manager.Notify("Flattery", m_manager.Traduce("This competitor isn't naive, he saw right through you.") + " (-" + change + ")", m_ally, new Color(0.8f, 0f, 0, 1f), 4f);
+                m_manager.Notify(string.Format(m_manager.Traduce("03_notif_flatter_fail"), change), priority: 2);
             }
-            
         }
         else
         {
-            m_manager.Notify("Flattery", m_manager.Traduce("Your flattery didn't work.") + " (+0)", m_ally, new Color(.8f, 0f, 0, 1f), 4f);
+            m_manager.Notify(string.Format(m_manager.Traduce("03_notif_flatter_fail")));
         }
     }
 

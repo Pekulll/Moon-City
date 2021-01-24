@@ -145,7 +145,8 @@ public class ResearchSystem : MonoBehaviour
 
             try { UpdateButton(); } catch { }
 
-            manager.Notify(6);
+            manager.Notify(string.Format(manager.Traduce("03_notif_research_complete"),
+                "--"), priority: 1);
 
             if(techQueue.Count > 0)
             {
@@ -191,7 +192,7 @@ public class ResearchSystem : MonoBehaviour
     {
         if(techQueue.Count >= maxTechQueued)
         {
-            manager.Notify(19);
+            manager.Notify(manager.Traduce("03_notif_research_queuefull"));
             return false;
         }
         else

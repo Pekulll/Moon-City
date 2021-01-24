@@ -84,8 +84,14 @@ public class Buildings : Entity
         {
             List<int> ints = manager.HaveRessources(id);
 
-            if (ints.Contains(0)) { manager.Notify(21); }
-            else if (ints.Contains(1)) { manager.Notify(22); }
+            if (ints.Contains(0))
+            {
+                manager.Notify(manager.Traduce("03_notif_building_activation_noworker"), priority: 2);
+            }
+            else if (ints.Contains(1))
+            {
+                manager.Notify(manager.Traduce("03_notif_building_activation_noenergy"), priority: 2);
+            }
             else
             {
                 isEnable = true;

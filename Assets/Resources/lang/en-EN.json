@@ -401,6 +401,47 @@
 
         { "key": "03_ui_info_bgroup", "translation": "Building group" },
         { "key": "03_ui_info_pgroup", "translation": "Preview group" },
-        { "key": "03_ui_info_ugroup", "translation": "Unit group" }
+        { "key": "03_ui_info_ugroup", "translation": "Unit group" },
+
+        { "key": "03_notif_peace", "translation": "Greatings! Your are now ally with {0}!" },
+        { "key": "03_notif_war", "translation": "Alert! You are now in war with {0}." },
+        { "key": "03_notif_declined", "translation": "Your diplomatie request has been declined!" },
+        { "key": "03_notif_flatter_success", "translation": "You flattered one of your competitors. (+{0})" },
+        { "key": "03_notif_flatter_fail", "translation": "This competitor isn't naive, he saw right through you. (-{0})" },
+        { "key": "03_notif_flatter_null", "translation": "Your flattery didn't work. (+0)" },
+        { "key": "03_notif_denounce", "translation": "You ratted out one of your competitors. (-{0})" },
+        { "key": "03_notif_needwar", "translation": "You need to be in war with this colony!" },
+
+        { "key": "03_notif_energy_low", "translation": "Warning! Low energy." },
+        { "key": "03_notif_energy_critic", "translation": "Alert! Critical energy." },
+        { "key": "03_notif_food_low", "translation": "Warning! Low food." },
+        { "key": "03_notif_food_critic", "translation": "Alert! Critical food." },
+        { "key": "03_notif_money_low", "translation": "Warning! Low founds." },
+        { "key": "03_notif_money_critic", "translation": "Alert! Critical founds." },
+        { "key": "03_notif_regolith_loaw", "translation": "Warning! Low regolith." },
+        { "key": "03_notif_regolith_critic", "translation": "Alert! Critical regolith." },
+        { "key": "03_notif_bioplastic_low", "translation": "Warning! Low bioplastic." },
+        { "key": "03_notif_bioplastic_critic", "translation": "Alert! Critical bioplastic." },
+
+        { "key": "03_notif_questcomplete", "translation": "New quest completed: {0}!" },
+        { "key": "03_notif_daysurvived", "translation": "New day survived" },
+        { "key": "03_notif_error", "translation": "An error occured! {0}" },
+        { "key": "03_notif_wave", "translation": "Alert! Enemy wave incoming!" },
+        { "key": "03_notif_commandexecuted", "translation": "Command executed: {0}." },
+        
+        { "key": "03_notif_sector_alreadyown", "translation": "You can't control this sector yet! Another colony already owns this sector." },
+        { "key": "03_notif_sector_lost", "translation": "You lost a sector because your control building has been destroyed." },
+        
+        { "key": "03_notif_research_complete", "translation": "Research completed: {0}!" },
+        { "key": "03_notif_research_queuefull", "translation": "Research queue is full. Can't queue another technology!" },
+        { "key": "03_notif_research_techneeded", "translation": "Another technology is needed to do that: {0}!" },
+        
+        { "key": "03_notif_factory_queuefull", "translation": "The queue is full!" },
+        { "key": "03_notif_factory_noresources", "translation": "You don't have enough resources!" },
+
+        { "key": "03_notif_building_activation_noworker", "translation": "Not enough worker to do that!" },
+        { "key": "03_notif_building_activation_noenergy", "translation": "Not enough energy to do that!" },
+
+        { "key": "03_notif_unit_levelup", "translation": "Your {0} has level up!" }
     ]
 }

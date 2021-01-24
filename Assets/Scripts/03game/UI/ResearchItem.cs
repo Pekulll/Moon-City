@@ -96,7 +96,8 @@ public class ResearchItem : MonoBehaviour
         }
         else
         {
-            manager.Notify("Action impossible!", manager.Traduce("You need to discover another technology to do this: ") + manager.Traduce(manager.techData.GetTech(neededTech).name), null, new Color(1, .655f, 0, 1), 3.5f);
+            manager.Notify(string.Format(manager.Traduce("03_notif_research_techneeded"),
+                manager.Traduce(manager.techData.GetTech(neededTech).name)), priority: 2);
         }
     }
 }

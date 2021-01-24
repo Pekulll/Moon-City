@@ -69,7 +69,6 @@ public class CommandSystem : MonoBehaviour
 
                     Debug.Log("  <color=#0000E6>[INFO:Command] Classic event successfully create.</color>");
                     if (!showLog) return;
-                    manager.Notify("Command executed", baseCommand, null, new Color(0, .78f, 0, 1), 4f);
                 }
                 else if (command.StartsWith("-s"))
                 {
@@ -80,14 +79,12 @@ public class CommandSystem : MonoBehaviour
 
                     Debug.Log("  <color=#0000E6>[INFO:Command] Super event successfully create.</color>");
                     if (!showLog) return;
-                    manager.Notify("Command executed", baseCommand, null, new Color(0, .78f, 0, 1), 4f);
                 }
                 else if (command.StartsWith("-r"))
                 {
                     manager.RandomEvent();
                     Debug.Log("  <color=#0000E6>[INFO:Command] Random event successfully create.</color>");
                     if (!showLog) return;
-                    manager.Notify("Command executed", baseCommand, null, new Color(0, .78f, 0, 1), 4f);
                 }
             }
         }
@@ -105,7 +102,6 @@ public class CommandSystem : MonoBehaviour
                 GameObject go = Instantiate(manager.unitData[int.Parse(args[0])].model, new Vector3(int.Parse(args[1]), int.Parse(args[2]), int.Parse(args[3])), Quaternion.identity);
                 Debug.Log("  <color=#0000E6>[INFO:Command] " + manager.unitData[int.Parse(args[0])].name + " successfully create.</color>");
                 if (!showLog) return;
-                manager.Notify("Command executed", baseCommand, null, new Color(0, .78f, 0, 1), 4f);
             }
             else if (command.StartsWith("-b"))
             {
@@ -117,7 +113,6 @@ public class CommandSystem : MonoBehaviour
                 GameObject go = Instantiate(manager.buildData[int.Parse(args[0])].building, new Vector3(int.Parse(args[1]), int.Parse(args[2]), int.Parse(args[3])), Quaternion.identity);
                 Debug.Log("  <color=#0000E6>[INFO:Command] " + manager.buildData[int.Parse(args[0])].name + " successfully create.</color>");
                 if (!showLog) return;
-                manager.Notify("Command executed", baseCommand, null, new Color(0, .78f, 0, 1), 4f);
             }
             else if (command.StartsWith("-p"))
             {
@@ -129,14 +124,12 @@ public class CommandSystem : MonoBehaviour
                 GameObject go = Instantiate(manager.buildData[int.Parse(args[0])].preview, new Vector3(int.Parse(args[1]), int.Parse(args[2]), int.Parse(args[3])), Quaternion.identity);
                 Debug.Log("  <color=#0000E6>[INFO:Command] [P]" + manager.buildData[int.Parse(args[0])].name + " successfully create.</color>");
                 if (!showLog) return;
-                manager.Notify("Command executed", baseCommand, null, new Color(0, .78f, 0, 1), 4f);
             }
         }
         else if (command.StartsWith("debug"))
         {
             manager.DebugInfo();
             if (!showLog) return;
-            manager.Notify("Command executed", baseCommand, null, new Color(0, .78f, 0, 1), 4f);
         }
         else if (command.StartsWith("wave"))
         {
@@ -147,7 +140,6 @@ public class CommandSystem : MonoBehaviour
 
             manager.SpawnWave(int.Parse(args[0]), true);
             if (!showLog) return;
-            manager.Notify("Command executed", baseCommand, null, new Color(0, .78f, 0, 1), 4f);
         }
         else if (command.StartsWith("killall"))
         {
@@ -180,7 +172,6 @@ public class CommandSystem : MonoBehaviour
             }
 
             if (!showLog) return;
-            manager.Notify("Command executed", baseCommand, null, new Color(0, .78f, 0, 1), 4f);
         }
         else if (command.StartsWith("loot"))
         {
@@ -189,18 +180,6 @@ public class CommandSystem : MonoBehaviour
             manager.ManageStorage(99999, 99999, 99999, 99999);
 
             if (!showLog) return;
-            manager.Notify("Command executed", baseCommand, null, new Color(0, .78f, 0, 1), 4f);
-        }
-        else if (command.StartsWith("notif"))
-        {
-            command = command.Remove(0, 6);
-            string[] args = command.Split(' ');
-
-            if (args.Length < 1) return;
-
-            manager.Notify(int.Parse(args[0]));
-            if (!showLog) return;
-            manager.Notify("Command executed", baseCommand, null, new Color(0, .78f, 0, 1), 4f);
         }
         else if (command.StartsWith("time"))
         {
@@ -211,45 +190,14 @@ public class CommandSystem : MonoBehaviour
 
             Time.timeScale = float.Parse(args[0]);
             if (!showLog) return;
-            manager.Notify("Command executed", baseCommand, null, new Color(0, .78f, 0, 1), 4f);
         }
         else if (command.StartsWith("help"))
         {
-            command = command.Remove(0, 5);
-            string[] args = command.Split(' ');
-
-            if (args.Length < 1) return;
-
-            int index = 0;
-
-            try { index = int.Parse(args[0]); }
-            catch { }
-
-            if (index == 0)
-            {
-                if (!showLog) return;
-                manager.Notify(manager.Traduce("Command helper") + " (0)", manager.Traduce("Type /debug to view debug.") + "\n" + manager.Traduce("Type /event create -c\\-s\\-r <index> to create an event."), null, new Color(0, .78f, 0, 1), 4f);
-            }
-            else if (index == 1)
-            {
-                if (!showLog) return;
-                manager.Notify(manager.Traduce("Command helper") + " (1)", manager.Traduce("Type /help <index> to get help.") + "\n" + manager.Traduce("Type /killall to kill every colonies."), null, new Color(0, .78f, 0, 1), 4f);
-            }
-            else if (index == 2)
-            {
-                if (!showLog) return;
-                manager.Notify(manager.Traduce("Command helper") + " (2)", manager.Traduce("Type /loot to get ressources.") + "\n" + manager.Traduce("Type /notif <index> to create a notification."), null, new Color(0, .78f, 0, 1), 4f);
-            }
-            else if (index == 3)
-            {
-                if (!showLog) return;
-                manager.Notify(manager.Traduce("Command helper") + " (3)", manager.Traduce("Type /summon -b\\-p\\-u <identity> to spawn an entity.") + "\n" + manager.Traduce("Type /time <speed> to change the time."), null, new Color(0, .78f, 0, 1), 4f);
-            }
-            else if (index == 4)
-            {
-                if (!showLog) return;
-                manager.Notify(manager.Traduce("Command helper") + " (4)", manager.Traduce("Type /wave <index> to spawn an enemy wave."), null, new Color(0, .78f, 0, 1), 4f);
-            }
+            manager.Notify("Command helper\nType /event create -c\\-s\\-r <index> to create an event.");
+            manager.Notify("Type /help <index> to get help.\nType /killall to kill every colonies.");
+            manager.Notify("Type /loot to get ressources.\nType /notif <index> to create a notification.");
+            manager.Notify("Type /summon -b\\-p\\-u <identity> to spawn an entity.\nType /time <speed> to change the time.");
+            manager.Notify("Type /debug to view debug.\nType /wave <index> to spawn an enemy wave.");
         }
         else if (command.StartsWith("diplomacy"))
         {
@@ -268,7 +216,6 @@ public class CommandSystem : MonoBehaviour
             }
 
             if (!showLog) return;
-            manager.Notify("Command executed", baseCommand, null, new Color(0, .78f, 0, 1), 4f);
         }
         else if (command.StartsWith("teleport"))
         {
@@ -314,6 +261,10 @@ public class CommandSystem : MonoBehaviour
             {
                 endgameChecker.DeclareDefeat(EndgameType.Cheat);
             }
+        }
+        else
+        {
+            return;
         }
         /*else if (command.StartsWith("quest"))
         {
@@ -476,5 +427,7 @@ public class CommandSystem : MonoBehaviour
                 quest.NewKillQuest(new KillQuest(questName, entityType, objCount, new QuestReward[0], callback));
             }
         }*/
+
+        manager.Notify(string.Format(manager.Traduce("03_notif_commandexecuted"), baseCommand));
     }
 }

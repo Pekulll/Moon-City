@@ -122,7 +122,7 @@ public class MoonManager : MonoBehaviour {
 
         //Main assignements
         colonyStats = GameObject.Find ("Player").GetComponent<ColonyStats> ();
-        notif = GameObject.Find ("NotificationArea").GetComponent<NotificationSystem> ();
+        notif = GameObject.Find ("E_Notification").GetComponent<NotificationSystem> ();
         tagSystem = GetComponent<TagSystem> ();
         eventSystem = GetComponent<EventSystem> ();
         waveSystem = GetComponent<WaveSystem> ();
@@ -332,8 +332,8 @@ public class MoonManager : MonoBehaviour {
 
         ApplyAllDamageOnBuilding ();
 
+        Notify (Traduce("03_notif_daysurvived"));
         Debug.Log ("[INFO:MoonManager] New day survived !");
-        Notify (0);
     }
 
     #region Action every x hours
@@ -419,7 +419,7 @@ public class MoonManager : MonoBehaviour {
             colonyStats.food += colonyStats.foodOutput;
 
             if (colonyStats.energy <= 10) {
-                Notify(9);
+                Notify(Traduce("03_notif_energy_low"), priority: 2);
             }
         }
         else
@@ -429,7 +429,7 @@ public class MoonManager : MonoBehaviour {
             colonyStats.bioPlastique -= colonyStats.bioPlastiqueLoss;
             colonyStats.food -= colonyStats.foodLoss;
 
-            Notify(8);
+            Notify(Traduce("03_notif_energy_critic"), priority: 3);
         }
 
         colonyStats.regolith = Mathf.Clamp(colonyStats.regolith, 0, colonyStats.regolithStock);
@@ -445,27 +445,27 @@ public class MoonManager : MonoBehaviour {
 
     private void CheckRessourcesAmount () {
         if (colonyStats.food < -10) {
-            Notify (15);
+            Notify(Traduce("03_notif_food_critic"), priority: 3);
         } else if (colonyStats.food <= 5) {
-            Notify (11);
+            Notify(Traduce("03_notif_food_low"), priority: 2);
         }
 
         if (colonyStats.money < -200) {
-            Notify (16);
+            Notify(Traduce("03_notif_money_critic"), priority: 3);
         } else if (colonyStats.money <= 50) {
-            Notify (12);
+            Notify(Traduce("03_notif_money_low"), priority: 2);
         }
 
         if (colonyStats.regolith < -20) {
-            Notify (17);
+            Notify(Traduce("03_notif_regolith_critic"), priority: 3);
         } else if (colonyStats.regolith <= 5) {
-            Notify (13);
+            Notify(Traduce("03_notif_regolith_low"), priority: 2);
         }
 
         if (colonyStats.bioPlastique < -20) {
-            Notify (18);
+            Notify(Traduce("03_notif_bioplastic_critic"), priority: 3);
         } else if (colonyStats.bioPlastique <= 5) {
-            Notify (14);
+            Notify(Traduce("03_notif_bioplastic_low"), priority: 2);
         }
     }
 
@@ -496,22 +496,22 @@ public class MoonManager : MonoBehaviour {
         int criticalRessources = 0;
 
         if (colonyStats.food == 0 && colonyStats.foodOutput <= 0) {
-            Notify (15);
+            Notify(Traduce("03_notif_food_critic"), priority: 2);
             criticalRessources++;
         }
 
         if (colonyStats.money == 0 && colonyStats.profit <= 0) {
-            Notify (16);
+            Notify(Traduce("03_notif_money_critic"), priority: 2);
             criticalRessources++;
         }
 
         if (colonyStats.regolith == 0 && colonyStats.regolithOutput <= 0) {
-            Notify (17);
+            Notify(Traduce("03_notif_regolith_critic"), priority: 2);
             criticalRessources++;
         }
 
         if (colonyStats.bioPlastique == 0 && colonyStats.bioPlastiqueOutput <= 0) {
-            Notify (18);
+            Notify(Traduce("03_notif_bioplastic_critic"), priority: 2);
             criticalRessources++;
         }
 
@@ -577,8 +577,7 @@ public class MoonManager : MonoBehaviour {
         float _bioPlastique = b.bioPlastique;
         float _food = b.food;
 
-        List<int> ints = HaveRessources(_colonist, _energy, _money, _regolith, _bioPlastique, _food);
-        return ints;
+        return HaveRessources(_colonist, _energy, _money, _regolith, _bioPlastique, _food);
     }
 
     #region Add / remove output
@@ -723,13 +722,9 @@ public class MoonManager : MonoBehaviour {
 
     #region Notification
 
-    public void Notify (int index) {
-        notif.Poke (index);
-    }
-
-    public void Notify (string _title, string _description, Sprite _icon, Color _color, float _duration, string cmd = "") {
-        notif.NewNotification (_title, _description, _icon, _color, _duration, cmd);
-        AddToHistory ("<b>" + Traduce (_title) + "</b>;" + Traduce (_description) + ";");
+    public void Notify (string notification, float duration = 4f, int priority = 0, string cmd = "") {
+        notif.Notify(notification, duration, priority, cmd);
+        AddToHistory (Traduce(notification) + ";");
     }
 
     public void AddToHistory (string notification) {
@@ -916,29 +911,18 @@ public class MoonManager : MonoBehaviour {
             try { LoadNotification(savedNotif); } catch (Exception e) { Debug.Log ("<color=#CD7F00>[WARN:MoonManager] Can't load notifications!</color> " + e.Message); }
         }
 
-        try { waveSystem.UpdateDateNextWave(); } catch (Exception e) { Debug.Log ("<color=#CD7F00>[WARN:MoonManager] Date of the next wave can't be calculated!</color> " + e.Message); Notify ("Error", e.ToString (), null, new Color (1, 0, 1, 1), 20); }
+        try { waveSystem.UpdateDateNextWave(); }
+        catch (Exception e)
+        {
+            Debug.Log ("<color=#CD7F00>[WARN:MoonManager] Date of the next wave can't be calculated!</color> " + e.Message);
+            Notify (string.Format(Traduce("03_notif_error"), e.ToString()), duration: 10f, priority: 3);
+        }
 
         LoadEntities(savedUnits, savedBuildings, savedPreviews);
     }
 
     private void LoadNotification (SavedNotificationQueue savedNotif) {
-        notif.Init ();
-        SavedNotificationQueue queue = data.notification;
-
-        foreach (SavedNotification n in queue.queue) {
-            Notification current = new Notification ();
-
-            current.title = n.title;
-            current.description = n.description;
-            current.command = n.command;
-            current.duration = n.duration;
-            //! current.icon
-            current.color = new Color (n.color[0], n.color[1], n.color[2], n.color[3]);
-
-            notif.queue.Add (current);
-        }
-
-        notif.StartSequence ();
+        
     }
 
     private void LoadResearch (SavedResearch savedResearch) {

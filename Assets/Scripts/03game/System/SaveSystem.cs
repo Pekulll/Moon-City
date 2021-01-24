@@ -273,11 +273,6 @@ public class SavedNotificationQueue
     public SavedNotificationQueue(NotificationSystem motor)
     {
         queue = new List<SavedNotification>();
-
-        foreach (Notification n in motor.queue)
-        {
-            queue.Add(new SavedNotification(n));
-        }
     }
 }
 

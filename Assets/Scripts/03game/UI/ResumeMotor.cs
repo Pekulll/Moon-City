@@ -36,7 +36,7 @@ public class ResumeMotor : MonoBehaviour
         }
         catch (Exception e)
         {
-            manager.Notify("Error", e.ToString(), null, new Color(1, 0, 1, 1), 20);
+            manager.Notify(string.Format(manager.Traduce("03_notif_error"), e.ToString()), priority: 3);
         }
     }
 

@@ -1203,13 +1203,13 @@ public class InformationsViewer : MonoBehaviour
             }
             else if (motor.side != target.GetComponent<Unit>().side)
             {
-                manager.Notify(7);
+                manager.Notify(manager.Traduce("03_notif_needwar"), priority: 2);
             }
         }
         catch
         {
             Debug.LogError("  [StatsViewer] GetWarStatut : " + motor.side + " / " + target.GetComponent<Unit>().side);
-            manager.Notify(7);
+            manager.Notify(manager.Traduce("03_notif_needwar"), priority: 2);
         }
     }
 
@@ -1223,13 +1223,13 @@ public class InformationsViewer : MonoBehaviour
             }
             else if (motor.side != target.GetComponent<Buildings>().side)
             {
-                manager.Notify(7);
+                manager.Notify(manager.Traduce("03_notif_needwar"), priority: 2);
             }
         }
         catch
         {
             Debug.LogError("  [StatsViewer] GetWarStatut : " + motor.side + " / " + target.GetComponent<Buildings>().side);
-            manager.Notify(7);
+            manager.Notify(manager.Traduce("03_notif_needwar"), priority: 2);
         }
     }
 

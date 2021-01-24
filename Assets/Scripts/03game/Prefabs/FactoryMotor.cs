@@ -40,7 +40,7 @@ public class FactoryMotor : MonoBehaviour
     {
         if (queue[4].name != "")
         {
-            manager.Notify(3);
+            manager.Notify(manager.Traduce("03_notif_factory_queuefull"));
             return;
         }
 
@@ -58,7 +58,7 @@ public class FactoryMotor : MonoBehaviour
             }
             else
             {
-                manager.Notify(4);
+                manager.Notify(manager.Traduce("03_notif_factory_noresources"));
                 return;
             }
         }
@@ -92,7 +92,7 @@ public class FactoryMotor : MonoBehaviour
             }
         }
 
-        manager.Notify(3);
+        manager.Notify(manager.Traduce("03_notif_factory_queuefull"));
     }
 
     private IEnumerator Fabric()

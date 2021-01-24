@@ -155,14 +155,8 @@ public class SectorManager : MonoBehaviour
         }
         else if(sectors[current].m_side != side)
         {
-            manager.Notify(
-                "You can't control this sector!",
-                "Another colony already owns this sector.",
-                null,
-                colorManager.importantColor,
-                5,
-                "/tp " + sectors[current].m_position * mapGenerator.chunkSize()
-           );
+            manager.Notify(manager.Traduce("03_notif_sector_alreadyown"), priority: 2,
+                   cmd: "/tp " + sectors[current].m_position * mapGenerator.chunkSize());
 
            Debug.Log("[INFO:SectorManager] Side " + side + " can't take control of sector " + sectors[current].m_name);
         }
@@ -179,14 +173,8 @@ public class SectorManager : MonoBehaviour
             sectors[current].m_side = -1; // -1 is neutral player
             sectors[current].AbandonSector(side);
 
-            manager.Notify(
-                "You lost a sector!",
-                "Your control building has been destroyed.",
-                null,
-                colorManager.veryImportantColor,
-                5,
-                "/tp " + sectors[current].m_position * mapGenerator.chunkSize()
-           );
+            manager.Notify(manager.Traduce("03_notif_sector_lost"), priority: 3,
+                   cmd: "/tp " + sectors[current].m_position * mapGenerator.chunkSize());
         }
     }
 
