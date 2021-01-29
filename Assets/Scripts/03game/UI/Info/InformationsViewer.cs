@@ -497,7 +497,7 @@ public class InformationsViewer : MonoBehaviour
         }
         else
         {
-            FactoryMotor factory = selectedObject.GetComponent<FactoryMotor>();
+            TrainingArea factory = selectedObject.GetComponent<TrainingArea>();
 
             if (factory != null)
             {
@@ -515,36 +515,36 @@ public class InformationsViewer : MonoBehaviour
         }
     }
 
-    private void ShowUnitAvailable(FactoryMotor factory)
+    private void ShowUnitAvailable(TrainingArea factory)
     {
-        if (factory.unitsAvailable.Count > 0)
+        if (factory.unitID.Count > 0)
         {
-            factoryOne.sprite = manager.unitData[factory.unitsAvailable[0]].unitIcon;
-            factoryOne.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.unitsAvailable[0]].name);
+            factoryOne.sprite = manager.unitData[factory.unitID[0]].unitIcon;
+            factoryOne.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.unitID[0]].name);
             factoryOne.transform.parent.gameObject.SetActive(true);
 
-            if (factory.unitsAvailable.Count > 1)
+            if (factory.unitID.Count > 1)
             {
-                factoryTwo.sprite = manager.unitData[factory.unitsAvailable[1]].unitIcon;
-                factoryTwo.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.unitsAvailable[1]].name);
+                factoryTwo.sprite = manager.unitData[factory.unitID[1]].unitIcon;
+                factoryTwo.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.unitID[1]].name);
                 factoryTwo.transform.parent.gameObject.SetActive(true);
 
-                if (factory.unitsAvailable.Count > 2)
+                if (factory.unitID.Count > 2)
                 {
-                    factoryThree.sprite = manager.unitData[factory.unitsAvailable[2]].unitIcon;
-                    factoryThree.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.unitsAvailable[2]].name);
+                    factoryThree.sprite = manager.unitData[factory.unitID[2]].unitIcon;
+                    factoryThree.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.unitID[2]].name);
                     factoryThree.transform.parent.gameObject.SetActive(true);
 
-                    if (factory.unitsAvailable.Count > 3)
+                    if (factory.unitID.Count > 3)
                     {
-                        factoryFour.sprite = manager.unitData[factory.unitsAvailable[3]].unitIcon;
-                        factoryFour.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.unitsAvailable[3]].name);
+                        factoryFour.sprite = manager.unitData[factory.unitID[3]].unitIcon;
+                        factoryFour.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.unitID[3]].name);
                         factoryFour.transform.parent.gameObject.SetActive(true);
 
-                        if (factory.unitsAvailable.Count > 4)
+                        if (factory.unitID.Count > 4)
                         {
-                            factoryFive.sprite = manager.unitData[factory.unitsAvailable[4]].unitIcon;
-                            factoryFive.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.unitsAvailable[4]].name);
+                            factoryFive.sprite = manager.unitData[factory.unitID[4]].unitIcon;
+                            factoryFive.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.unitID[4]].name);
                             factoryFive.transform.parent.gameObject.SetActive(true);
                         }
                     }
@@ -553,40 +553,40 @@ public class InformationsViewer : MonoBehaviour
         }
     }
 
-    private void UpdateQueue(GameObject current, FactoryMotor factory)
+    private void UpdateQueue(GameObject current, TrainingArea factory)
     {
         if (current != selectedObject) return;
 
-        List<Units> queue = factory.queue;
+        List<int> queue = factory.queue;
 
         ResetQueue();
 
-        if (queue[0].name != "")
+        if (factory.queue.Count == 1)
         {
-            queueOne.sprite = queue[0].unitIcon;
-            queueOne.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(queue[0].name);
+            queueOne.sprite = manager.unitData[queue[0]].unitIcon;
+            queueOne.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[queue[0]].name);
 
-            queueAdvencement.text = ((int)(factory.time / factory.maxTime * 100)).ToString("00") + "%";
+            queueAdvencement.text = ((int)(factory.currentTrainingTime / manager.unitData[queue[0]].time * 100)).ToString("00") + "%";
 
-            if (queue[1].name != "")
+            if (factory.queue.Count == 2)
             {
-                queueTwo.sprite = queue[1].unitIcon;
-                queueTwo.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(queue[1].name);
+                queueTwo.sprite = manager.unitData[queue[1]].unitIcon;
+                queueTwo.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[queue[1]].name);
 
-                if (queue[2].name != "")
+                if (factory.queue.Count == 3)
                 {
-                    queueThree.sprite = queue[2].unitIcon;
-                    queueThree.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(queue[2].name);
+                    queueThree.sprite = manager.unitData[queue[2]].unitIcon;
+                    queueThree.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[queue[2]].name);
 
-                    if (queue[3].name != "")
+                    if (factory.queue.Count == 4)
                     {
-                        queueFour.sprite = queue[2].unitIcon;
-                        queueFour.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(queue[3].name);
+                        queueFour.sprite = manager.unitData[queue[3]].unitIcon;
+                        queueFour.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[queue[3]].name);
 
-                        if (queue[4].name != "")
+                        if (factory.queue.Count == 5)
                         {
-                            queueFive.sprite = queue[2].unitIcon;
-                            queueFive.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(queue[4].name);
+                            queueFive.sprite = manager.unitData[queue[4]].unitIcon;
+                            queueFive.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[queue[4]].name);
                         }
                     }
                 }
@@ -645,7 +645,7 @@ public class InformationsViewer : MonoBehaviour
 
     public void OnOverCost(int index)
     {
-        Units u = manager.unitData[selectedObject.GetComponent<FactoryMotor>().unitsAvailable[index]];
+        Units u = manager.unitData[selectedObject.GetComponent<TrainingArea>().unitID[index]];
 
         colons.text = u.place.ToString();
         money.text = u.money + " (" + u.moneyOut + ")";
@@ -1114,7 +1114,7 @@ public class InformationsViewer : MonoBehaviour
 
     public void Btn_Factory(int index)
     {
-        selectedObject.GetComponent<FactoryMotor>().AddQueueBtn(index);
+        selectedObject.GetComponent<TrainingArea>().Enqueue(index);
     }
 
     public void Btn_Link()

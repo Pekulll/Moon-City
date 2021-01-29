@@ -29,7 +29,7 @@ MonoBehaviour:
   maxLevel: 1
   levelDamage: []
   levelHealth: []
-  time: 4
+  time: 40
   place: 1
   money: 10
   food: 5

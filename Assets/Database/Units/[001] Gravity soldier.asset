@@ -37,7 +37,7 @@ MonoBehaviour:
   - 7
   - 8
   - 10
-  time: 6
+  time: 60
   place: 1
   money: 55
   food: 5

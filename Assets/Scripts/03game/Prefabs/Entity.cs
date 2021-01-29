@@ -196,19 +196,22 @@ public class Entity : MonoBehaviour
     {
         List<Unit> units = new List<Unit>();
 
-        foreach(Unit u in calledUnits)
+        if(calledUnits != null)
         {
-            if(u.unitType == typeOfUnit)
+            foreach (Unit u in calledUnits)
             {
-                u.Disengage(this);
+                if (u.unitType == typeOfUnit)
+                {
+                    u.Disengage(this);
+                }
+                else
+                {
+                    units.Add(u);
+                }
             }
-            else
-            {
-                units.Add(u);
-            }
-        }
 
-        calledUnits = units;
+            calledUnits = units;
+        }
     }
 
     public void DisengageAll()
@@ -247,8 +250,20 @@ public class Entity : MonoBehaviour
 
     #endregion
 
+    #region Enemy
+
+    public void RemoveOwnerResources(Units u)
+    {
+        owner.RemoveRessources(0, u.money, 0, 0, u.food);
+        owner.AddOutput(0, u.moneyOut, 0, 0, u.foodOut, 0);
+        owner.AddSettlers(u.place, 0);
+    }
+
+    #endregion
+
     private void OnDestroy()
     {
+        DisengageAll();
         manager.DeleteGameObjectOfTagList(gameObject);
 
         if (owner != null)

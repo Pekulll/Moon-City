@@ -1047,28 +1047,15 @@ public class MoonManager : MonoBehaviour {
                 }
 
                 if (b.isFactory) {
-                    FactoryMotor f = p.GetComponent<FactoryMotor> ();
-                    f.Init();
+                    TrainingArea t = p.GetComponent<TrainingArea> ();
+                    t.Initialize();
 
-                    if(f != null)
+                    if(t != null)
                     {
-                        SavedFactory sf = b.factory;
-
-                        if (sf.queue.Count != 0)
-                        {
-                            foreach (int u in sf.queue)
-                            {
-                                foreach (int i in f.unitsAvailable)
-                                {
-                                    if (i == u)
-                                    {
-                                        f.AddQueue(i, true);
-                                    }
-                                }
-                            }
-                        }
-
-                        f.time = sf.time;
+                        SavedTrainingArea sta = b.factory;
+                        t.queue = sta.queue;
+                        t.currentTrainingTime = sta.time;
+                        t.rallyPoint = new Vector3(sta.rallyPoint[0], sta.rallyPoint[1], sta.rallyPoint[2]);
                     }
                 }
             }
@@ -1083,7 +1070,6 @@ public class MoonManager : MonoBehaviour {
                 GameObject p = Instantiate (bld.preview, new Vector3 (pr.position[0], pr.position[1], pr.position[2]), new Quaternion(pr.rotation[0], pr.rotation[1], pr.rotation[2], pr.rotation[3])) as GameObject;
                 Preview mtr = p.GetComponent<Preview> ();
 
-                mtr.isEngaged = true;
                 mtr.id = pr.id;
 
                 mtr.health = pr.health;
@@ -1091,6 +1077,11 @@ public class MoonManager : MonoBehaviour {
 
                 mtr.side = pr.side;
                 mtr.groupID = pr.groupId;
+                mtr.isEngaged = true;
+
+                mtr.Initialize();
+                mtr.EngageUnits(UnitType.Worker);
+                mtr.CheckSave();
             }
         }
     }

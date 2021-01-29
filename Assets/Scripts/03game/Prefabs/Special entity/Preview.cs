@@ -20,10 +20,20 @@ public class Preview : Entity
     private bool greatRotation = true;
     private bool haveCollider = false;
 
+    private bool isInitialize;
+
     #region Initialization
 
     private void Start()
     {
+        Initialize();
+    }
+
+    public void Initialize()
+    {
+        if (isInitialize) return;
+        isInitialize = true;
+
         manager = GameObject.Find("Manager").GetComponent<MoonManager>();
         previewRenderer = gameObject.GetComponentsInChildren<Renderer>();
 
@@ -39,7 +49,6 @@ public class Preview : Entity
         LoadStats();
         SuperInitialization();
         UpdateEditor();
-        CheckSave();
     }
 
     private void UpdateEditor()
@@ -49,7 +58,7 @@ public class Preview : Entity
         transform.SetParent(GameObject.Find("PreviewParent").transform);
     }
 
-    private void CheckSave()
+    public void CheckSave()
     {
         if (!isEngaged) return;
 

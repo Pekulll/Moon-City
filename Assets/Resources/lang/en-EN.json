@@ -12,7 +12,7 @@
 
 
         { "key": "00_title_thanks", "translation": "Thanks for playing!" },
-        { "key": "00_desc_thanks", "translation": "Don't forget that is a <color=#FFA700>pre-alpha version</color>. So many bugs can interupt your gameplay. To improve the game, don't forget to send us your feedbacks, and your suggestions, via our social networks." },
+        { "key": "00_desc_thanks", "translation": "Don't forget that is a <color=#FFA700>pre-alpha version</color>. So many bugs can interrupt your gameplay. To improve the game, don't forget to send us your feedbacks, and your suggestions, via our social networks." },
         { "key": "00_title_loading", "translation": "Loading..." },
         { "key": "00_btn_understood", "translation": "Understood!" },
 
@@ -27,7 +27,7 @@
 
         { "key": "01_title_mod", "translation": "Choose your game style!" },
         { "key": "01_title_tutorial", "translation": "<b>Tutorial</b> :: Learn to play with a quick game." },
-        { "key": "01_title_sandbox", "translation": "<b>Sandbox</b> :: Do everythings you want, with unlimited resources." },
+        { "key": "01_title_sandbox", "translation": "<b>Sandbox</b> :: Do everything you want, with unlimited resources." },
         { "key": "01_title_conquest", "translation": "<b>Conquest</b> :: Manage your colony and destroy, or buy, the others." },
         { "key": "01_title_defend", "translation": "<b>Defend</b> :: Build your colony and protect it until the last wave." },
         { "key": "01_title_defendandconquest", "translation": "<b>Defend & conquest</b> :: Build your colony, protect it until the last wave, and attack others." },
@@ -42,7 +42,7 @@
         { "key": "01_btn_desc_normal", "translation": "Classic resources\nClassic subventions\n-50% of resources on destroy\nAttack rate 65%" },
         { "key": "01_btn_desc_hard", "translation": "Less resources\nLess subventions\n-100% of resources on destroy\nAttack rate 90%" },
         { "key": "01_btn_desc_custom", "translation": "Choose your own difficulty. Make your Moon's rules better than us!" },
-        { "key": "01_if_colonyname", "translation": "Enter the colony name... (max 20 caracters)" },
+        { "key": "01_if_colonyname", "translation": "Enter the colony name... (max 20 characters)" },
         { "key": "01_btn_start", "translation": "Start this new colony" },
         
         { "key": "01_title_resource", "translation": "Resources amount:" },
@@ -147,9 +147,9 @@
         { "key": "03_b_name_044", "translation": "Hand of power" },
 
         { "key": "03_b_desc_000", "translation": "The \"town hall\" of your colony." },
-        { "key": "03_b_desc_001", "translation": "A small habitation which improve the maximum number of colonist that you can accomodate." },
-        { "key": "03_b_desc_002", "translation": "A classic habitation which improve the maximum number of colonist that you can accomodate." },
-        { "key": "03_b_desc_003", "translation": "A large habitation which improve the maximum number of colonist that you can accomodate." },
+        { "key": "03_b_desc_001", "translation": "A small habitation which improve the maximum number of colonist that you can accommodate." },
+        { "key": "03_b_desc_002", "translation": "A classic habitation which improve the maximum number of colonist that you can accommodate." },
+        { "key": "03_b_desc_003", "translation": "A large habitation which improve the maximum number of colonist that you can accommodate." },
         { "key": "03_b_desc_004", "translation": "A small farm that allows your settlers to survive on the Moon." },
         { "key": "03_b_desc_005", "translation": "A classic farm that allows your settlers to survive on the Moon." },
         { "key": "03_b_desc_006", "translation": "A huge farm that allows your settlers to survive on the Moon." },
@@ -318,7 +318,7 @@
         { "key": "03_ui_d_btn_trade", "translation": "Trade" },
         { "key": "03_ui_d_btn_flatter", "translation": "Flatter" },
         { "key": "03_ui_d_btn_peace", "translation": "Declare Peace" },
-        { "key": "03_ui_d_btn_denounce", "translation": "Denounciate" },
+        { "key": "03_ui_d_btn_denounce", "translation": "Denunciate" },
         { "key": "03_ui_d_btn_war", "translation": "Declare War" },
         { "key": "03_ui_d_tooltip_trade", "translation": "Trade allows you to exchange the resources you have too many with those you lack. It can be very useful to trade with an ally to avoid shortages." },
         { "key": "03_ui_d_tooltip_flatter", "translation": "Flattering an enemy colony is very useful to become friends with it, and even, why not, to become allies." },
@@ -350,14 +350,14 @@
         { "key": "03_ui_t_part1_0", "translation": "The first number is the number of workers that count your colony. The second one, is the number of colonists that you have in your colony." },
         { "key": "03_ui_t_part1_1", "translation": "This is the amount of energy that you have accumulate in your colony's power grid. You have also the extra power of your colony." },
         { "key": "03_ui_t_part1_2", "translation": "This is the amount of money that you have, and the profit of your colony each hour (in million)." },
-        { "key": "03_ui_t_part1_3", "translation": "The first number is the amount of regolith in the warehouse of your colony. The second one, is the capacity of your warehouse in this ressource. And the last one, is your profit per hour.\n(amount / storage capacity + profit)\nRegolith is very usefull to build some buildings on the Moon." },
+        { "key": "03_ui_t_part1_3", "translation": "The first number is the amount of regolith in the warehouse of your colony. The second one, is the capacity of your warehouse in this resource. And the last one, is your profit per hour.\n(amount / storage capacity + profit)\nRegolith is very usefull to build some buildings on the Moon." },
         { "key": "03_ui_t_part1_4", "translation": "Same as regolith's interface but it's bioplastic.\n(amount / storage capacity + profit)\nBioplastic is a vegetal and ecological plastic. It is very useful for making transparent surfaces." },
         { "key": "03_ui_t_part1_5", "translation": "Same as the previous two, but for food.\n(amount / storage capacity + profit)\nNo need to say what the food is for." },
         { "key": "03_ui_t_part1_6", "translation": "Little indicator for the research point generated per hour. They are very useful to discover new technologies." },
         { "key": "03_ui_t_part1_7", "translation": "The count down for the next wave is here." },
         { "key": "03_ui_t_part1_8", "translation": "This is the clock. You can find the sol (14 earth day), and the hour here." },
-        { "key": "03_ui_t_part1_9", "translation": "This is the speed menu. You can slow or accelerate the game's time. That can be usefull, when you need time to think." },
-        { "key": "03_ui_t_part1_10", "translation": "This button show the notification history. It can be very usefull if you have missed a notification." },
+        { "key": "03_ui_t_part1_9", "translation": "This is the speed menu. You can slow or accelerate the game's time. That can be useful, when you need time to think." },
+        { "key": "03_ui_t_part1_10", "translation": "This button show the notification history. It can be very useful if you have missed a notification." },
         { "key": "03_ui_t_part1_11", "translation": "This is the pause menu. You can pause the game and show this menu by clicking on this button." },
 
         { "key": "03_ui_t_part2_0", "translation": "This is the build menu. By clicking on this button, you can choose a building category and build one, or many, building." },
@@ -403,9 +403,9 @@
         { "key": "03_ui_info_pgroup", "translation": "Preview group" },
         { "key": "03_ui_info_ugroup", "translation": "Unit group" },
 
-        { "key": "03_notif_peace", "translation": "Greatings! Your are now ally with {0}!" },
+        { "key": "03_notif_peace", "translation": "Greetings! Your are now ally with {0}!" },
         { "key": "03_notif_war", "translation": "Alert! You are now in war with {0}." },
-        { "key": "03_notif_declined", "translation": "Your diplomatie request has been declined!" },
+        { "key": "03_notif_declined", "translation": "Your diplomatic request has been declined!" },
         { "key": "03_notif_flatter_success", "translation": "You flattered one of your competitors. (+{0})" },
         { "key": "03_notif_flatter_fail", "translation": "This competitor isn't naive, he saw right through you. (-{0})" },
         { "key": "03_notif_flatter_null", "translation": "Your flattery didn't work. (+0)" },
@@ -425,7 +425,7 @@
 
         { "key": "03_notif_questcomplete", "translation": "New quest completed: {0}!" },
         { "key": "03_notif_daysurvived", "translation": "New day survived" },
-        { "key": "03_notif_error", "translation": "An error occured! {0}" },
+        { "key": "03_notif_error", "translation": "An error occurred! {0}" },
         { "key": "03_notif_wave", "translation": "Alert! Enemy wave incoming!" },
         { "key": "03_notif_commandexecuted", "translation": "Command executed: {0}." },
         
@@ -445,12 +445,13 @@
         { "key": "03_notif_unit_levelup", "translation": "Your {0} has level up!" },
 
         { "key": "03_fb_title", "translation": "Feedback" },
+        { "key": "03_fb_placeholder", "translation": "Write your feedback, in English or French..." },
         { "key": "03_fb_category", "translation": "Category" },
         { "key": "03_fb_category_general", "translation": "General" },
         { "key": "03_fb_category_suggestion", "translation": "Feature suggestion" },
         { "key": "03_fb_category_bug", "translation": "Bug/Issue" },
         { "key": "03_fb_submit", "translation": "Submit" },
-        { "key": "03_fb_sended", "translation": "Your feedback has been send successfuly. Thank you so much for that!" },
+        { "key": "03_fb_sended", "translation": "Your feedback has been send successfully. Thank you so much for that!" },
         { "key": "03_fb_quit", "translation": "Close" }
     ]
 }

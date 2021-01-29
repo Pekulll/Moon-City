@@ -490,7 +490,7 @@ public class SavedBuilding: SavedEntity
     public bool isEnable;
 
     public bool isFactory;
-    public SavedFactory factory;
+    public SavedTrainingArea factory;
 
     public SavedBuilding(Building building, float[] position)
     {
@@ -531,7 +531,7 @@ public class SavedBuilding: SavedEntity
         if (motor.GetComponent<FactoryMotor>() != null)
         {
             isFactory = true;
-            factory = new SavedFactory(motor.GetComponent<FactoryMotor>());
+            factory = new SavedTrainingArea(motor.GetComponent<TrainingArea>());
         }
     }
 }
@@ -628,19 +628,21 @@ public class SavedUnit: SavedEntity
 }
 
 [System.Serializable]
-public class SavedFactory
+public class SavedTrainingArea
 {
     public List<int> queue = new List<int>();
-    public float time = 0;
+    public int time = 0;
+    public float[] rallyPoint;
 
-    public SavedFactory(FactoryMotor motor)
+    public SavedTrainingArea(TrainingArea motor)
     {
-        foreach (Units u in motor.queue)
+        foreach (int u in motor.queue)
         {
-            queue.Add(u.identity);
+            queue.Add(u);
         }
 
-        time = motor.time;
+        time = motor.currentTrainingTime;
+        rallyPoint = new float[3] { motor.rallyPoint.x, motor.rallyPoint.y, motor.rallyPoint.z };
     }
 }
 

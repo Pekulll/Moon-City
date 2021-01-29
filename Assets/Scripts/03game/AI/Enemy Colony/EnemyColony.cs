@@ -46,7 +46,7 @@ public class EnemyColony : ColonyStats
     [HideInInspector] public string enemyName;
 
     private List<Unit> units;
-    private List<FactoryMotor> factories;
+    private List<TrainingArea> factories;
 
     private WaitForSeconds delay;
 
@@ -87,7 +87,7 @@ public class EnemyColony : ColonyStats
         criticalityScale = currentProfile.criticalityScale;
 
         units = new List<Unit>();
-        factories = new List<FactoryMotor>();
+        factories = new List<TrainingArea>();
 
         delay = new WaitForSeconds(1 / actionPerSeconds);
 
@@ -273,7 +273,7 @@ public class EnemyColony : ColonyStats
 
     private bool QueuesAreFull()
     {
-        foreach(FactoryMotor f in factories)
+        foreach(TrainingArea f in factories)
         {
             if (f.queue.Count < 5) return false;
         }
@@ -314,16 +314,14 @@ public class EnemyColony : ColonyStats
         {
             if (factories[i].queue.Count < emptiestNumber
                 && factories[i].queue.Count < 5
-                && factories[i].unitsAvailable.Contains(unitID))
+                && factories[i].unitID.Contains(unitID))
                 index = i;
         }
 
         if(index != -1)
         {
-            factories[index].AddQueue(unitID, false);
+            factories[index].Enqueue(unitID, false);
             pre_unit++;
-            RemoveRessources(0, unitData[unitID].money, 0, 0, unitData[unitID].food);
-            AddSettlers(unitData[unitID].place, 0);
             return true;
         }
         else

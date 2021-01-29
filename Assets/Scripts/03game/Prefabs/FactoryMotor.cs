@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Buildings))]
 public class FactoryMotor : MonoBehaviour
 {
-    private MoonManager manager;
+    /*private MoonManager manager;
     public List<Units> queue = new List<Units>();
     public List<int> unitsAvailable;
 
@@ -146,5 +146,5 @@ public class FactoryMotor : MonoBehaviour
     public void AddQueueBtn(int index)
     {
         AddQueue(unitsAvailable[index], false);
-    }
+    }*/
 }

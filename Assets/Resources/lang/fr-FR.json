@@ -446,6 +446,7 @@
         { "key": "03_notif_unit_levelup", "translation": "Votre {0} a augmenté(e) de niveau !" },
 
         { "key": "03_fb_title", "translation": "Feedback" },
+        { "key": "03_fb_placeholder", "translation": "Ecrivez votre retour, en Français, ou en Anglais..." },
         { "key": "03_fb_category", "translation": "Catégorie" },
         { "key": "03_fb_category_general", "translation": "Général" },
         { "key": "03_fb_category_suggestion", "translation": "Suggestion de fontionnalité" },
