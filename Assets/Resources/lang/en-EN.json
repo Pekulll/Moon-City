@@ -428,6 +428,7 @@
         { "key": "03_notif_error", "translation": "An error occurred! {0}" },
         { "key": "03_notif_wave", "translation": "Alert! Enemy wave incoming!" },
         { "key": "03_notif_commandexecuted", "translation": "Command executed: {0}." },
+        { "key": "03_notif_rallypoint", "translation": "Can't set a rally point here!" },
         
         { "key": "03_notif_sector_alreadyown", "translation": "You can't control this sector yet! Another colony already owns this sector." },
         { "key": "03_notif_sector_lost", "translation": "You lost a sector because your control building has been destroyed." },

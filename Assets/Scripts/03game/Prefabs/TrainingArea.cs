@@ -125,5 +125,10 @@ public class TrainingArea : MonoBehaviour
         Enqueue(unitID[localID], false);
     }
 
+    public void SetRallyPoint(Vector3 position)
+    {
+        rallyPoint = position;
+    }
+
     private bool Enemy() { return currentEntity.side != manager.side; }
 }

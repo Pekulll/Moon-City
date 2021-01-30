@@ -429,6 +429,7 @@
         { "key": "03_notif_error", "translation": "Erreur ! {0}" },
         { "key": "03_notif_wave", "translation": "Alerte ! Vague ennemie en approche !" },
         { "key": "03_notif_commandexecuted", "translation": "Commande exécutée : {0}." },
+        { "key": "03_notif_rallypoint", "translation": "Immpossible de mettre un point de ralliment ici !" },
         
         { "key": "03_notif_sector_alreadyown", "translation": "Vous ne pouvez pas prendre le contrôle de ce secteur ! Une autre colonie le possède déjà." },
         { "key": "03_notif_sector_lost", "translation": "Vous avez perdu le contrôle d'un secteur car votre bâtiment vient d'être détruit." },

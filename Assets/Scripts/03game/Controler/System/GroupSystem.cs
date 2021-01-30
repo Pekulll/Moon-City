@@ -24,9 +24,11 @@ public class GroupSystem : MonoBehaviour {
 
     private RectTransform selectArea;
     private MoonManager manager;
+    private InformationsViewer viewer;
 
     private void Start () {
         manager = GetComponent<MoonManager> ();
+        viewer = GetComponent<InformationsViewer> ();
         selectArea = GameObject.Find ("I_GroupSelectArea").GetComponent<RectTransform> ();
 
         groups = new ObjectGroup[10];
@@ -630,23 +632,56 @@ public class GroupSystem : MonoBehaviour {
         ShowGroup (group);
     }
 
-    private void CheckForActionWhenSelected () {
-        if (Input.GetMouseButtonDown (1) /* && manager.isUnit()*/ ) {
-            if (Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 1000)) {
-                if (hit.transform.gameObject.GetComponent<TagIdentifier> () != null) {
-                    if (hit.transform.GetComponent<TagIdentifier> ()._tags[0] == Tag.Unit || hit.transform.GetComponent<TagIdentifier> ()._tags[0] == Tag.Building) {
-                        manager.SendAttackOrder (hit.transform);
-                    }
-                } else {
-                    manager.UnitOrder (hit.point);
-                }
-            }
+    private void CheckForActionWhenSelected ()
+    {
+        if (Input.GetMouseButtonDown (1))
+        {
+            TryToSendAttackOrder();
+            TryToSetRallyPoint();
         }
     }
 
     private void DoubleClickUpdate () {
         if (doubleClick > 0) doubleClick -= 2.2f * Time.deltaTime;
         else if (doubleClick < 0) doubleClick = 0;
+    }
+
+    private void TryToSendAttackOrder()
+    {
+        if((selectedObject != null && selectedObject.entityType != EntityType.Preview) ||
+           (selectedObjects != null && selectedObjects.Count != 0 && selectedObjects[0].entityType != EntityType.Preview))
+        {
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000))
+            {
+                if (hit.transform.gameObject.GetComponent<TagIdentifier>() != null)
+                {
+                    manager.SendAttackOrder(hit.transform);
+                }
+                else
+                {
+                    manager.UnitOrder(hit.point);
+                }
+            }
+        }
+    }
+
+    private void TryToSetRallyPoint()
+    {
+        if ((selectedObject != null && selectedObject.entityType == EntityType.Building) ||
+           (selectedObjects != null && selectedObjects.Count != 0 && selectedObjects[0].entityType == EntityType.Building))
+        {
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000))
+            {
+                if (hit.transform.gameObject.GetComponent<TagIdentifier>() != null)
+                {
+                    manager.Notify(manager.Traduce("03_notif_rallypoint"), duration: 1f);
+                }
+                else
+                {
+                    viewer.SetRallyPoint(hit.point);
+                }
+            }
+        }
     }
 
     public void WhenEntityIsDestroyed(Entity mtr)

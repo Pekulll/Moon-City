@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class InformationsViewer : MonoBehaviour
 {
     private MoonManager manager;
+    private EffectManager effectManager;
     private RessourceData ressources;
     private ColorManager colorManager;
 
@@ -63,6 +64,7 @@ public class InformationsViewer : MonoBehaviour
     private void Assign()
     {
         manager = FindObjectOfType<MoonManager>();
+        effectManager = GetComponent<EffectManager>();
         ressources = FindObjectOfType<RessourceData>();
         colorManager = FindObjectOfType<ColorManager>();
 
@@ -1144,6 +1146,39 @@ public class InformationsViewer : MonoBehaviour
         linkBtn.SetActive(false);*/
     }
 
+    public void SetRallyPoint(Vector3 position)
+    {
+        if(entityType == EntityType.Building)
+        {
+            if(selectedObject != null && selectedObject.side == manager.side)
+            {
+                TrainingArea ta;
+                selectedObject.TryGetComponent(out ta);
+
+                if(ta != null)
+                {
+                    ta.SetRallyPoint(position);
+                    effectManager.GroundTargetEffect(position);
+                }
+            }
+            else if(currentGroup != null && currentGroup.groupSide == manager.side)
+            {
+                foreach(Entity b in currentGroup.objectsInGroup)
+                {
+                    TrainingArea ta;
+                    b.TryGetComponent(out ta);
+
+                    if (ta != null)
+                    {
+                        ta.SetRallyPoint(position);
+                    }
+                }
+
+                effectManager.GroundTargetEffect(position);
+            }
+        }
+    }
+
     #region Attack
 
     private void TurretAttack(Transform target)
@@ -1333,30 +1368,41 @@ public class InformationsViewer : MonoBehaviour
         }
     }
 
-    private void AttackUnitSolo(Transform target)
+    private void AttackUnitSolo(Transform target, Unit motor = null)
     {
-        Unit motor = selectedObject.GetComponent<Unit>();
+        if(motor == null)
+            motor = selectedObject.GetComponent<Unit>();
 
         if (motor.side != manager.side) return;
-        if (!manager.GetWarStatut(motor.side, target.GetComponent<Entity>().side)) return;
 
-        if (motor.unitType == UnitType.Military)
+        Entity e = target.GetComponent<Entity>();
+
+        if(motor.side != e.side)
         {
-            motor.AddOrder(new Order(OrderType.Entity, e: target.GetComponent<Entity>()));
+            if (manager.GetWarStatut(motor.side, e.side))
+            {
+                if (motor.unitType == UnitType.Military)
+                {
+                    motor.AddOrder(new Order(OrderType.Entity, e: e));
+                }
+            }
+        }
+        else
+        {
+            if(motor.unitType == UnitType.Worker && e.entityType != EntityType.Unit)
+            {
+                motor.AddOrder(new Order(OrderType.Entity, e: e));
+            }
         }
     }
 
     private void AttackUnitInGroup(Transform target)
     {
         if (currentGroup.objectsInGroup[0].side != manager.side) return;
-        if (!manager.GetWarStatut(currentGroup.objectsInGroup[0].side, target.GetComponent<Entity>().side)) return;
 
         foreach (Unit unit in currentGroup.objectsInGroup)
         {
-            if(unit.unitType == UnitType.Military)
-            {
-                unit.AddOrder(new Order(OrderType.Entity, e: target.GetComponent<Entity>()));
-            }
+            AttackUnitSolo(target, unit);
         }
     }
 
@@ -1371,13 +1417,13 @@ public class InformationsViewer : MonoBehaviour
             if (selectedObject != null)
             {
                 SendPlayerOrder(target);
-                //Debug.Log("[INFO:StatsViewer] Order send ! (solo)");
             }
             else if (currentGroup != null && currentGroup.objectsNumber != 0)
             {
                 SendPlayerOrderAtGroup(target);
-                //Debug.Log("[INFO:StatsViewer] Order send ! (multi)");
             }
+
+            effectManager.GroundTargetEffect(target);
         }
     }
 
