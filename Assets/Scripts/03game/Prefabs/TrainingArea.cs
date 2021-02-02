@@ -77,7 +77,7 @@ public class TrainingArea : MonoBehaviour
         }
     }
 
-    private void InitializeTraining()
+    public void InitializeTraining()
     {
         if (queue.Count == 0 || currentUnitID != -1) return;
 
@@ -122,7 +122,17 @@ public class TrainingArea : MonoBehaviour
     public void Enqueue(int localID)
     {
         if (unitID.Count <= localID) return;
-        Enqueue(unitID[localID], false);
+
+        Units u = manager.unitData[unitID[localID]];
+
+        if (manager.HaveEnoughResource(u.place, 0, u.money, 0, 0, u.food))
+        {
+            Enqueue(unitID[localID], false);
+        }
+        else
+        {
+            manager.Notify(manager.Traduce("03_notif_factory_noresources"));
+        }
     }
 
     public void SetRallyPoint(Vector3 position)

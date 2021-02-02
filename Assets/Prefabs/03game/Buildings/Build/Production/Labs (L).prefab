@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 426900070800605441}
   - component: {fileID: 6774713361699816775}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: Marker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 2072196700063057265}
   - component: {fileID: 2072196700063057264}
   - component: {fileID: 65422909962404885}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Labs (L)
   m_TagString: Destroyable
   m_Icon: {fileID: 0}
@@ -362,6 +362,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Laboratoire_L_MC
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 78fa28b9604d23e4f886022dca8ba612,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78fa28b9604d23e4f886022dca8ba612, type: 3}

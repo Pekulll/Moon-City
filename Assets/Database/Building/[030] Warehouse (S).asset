@@ -17,10 +17,14 @@ MonoBehaviour:
   name: 03_b_name_030
   description: 03_b_desc_030
   techsNeeded: 0b000000
+  maxHealth: 10
+  maxShield: 0
+  maxEnergy: 1
+  weakness: 3
   colonist: 0
   energy: -1
   money: 50
-  rigolyte: 3
+  regolith: 3
   bioPlastique: 1
   food: 0
   profit: -1
@@ -36,7 +40,7 @@ MonoBehaviour:
   preview: {fileID: 8357131975954589238, guid: 0b07a2550990ebc4dbe611d464c3e4a2, type: 3}
   building: {fileID: 4408653858258097926, guid: 67aa6b1941fd9d747a407edcd356d627,
     type: 3}
-  heightLimit: {x: -0.1, y: 0.5}
+  heightLimit: {x: -0.3, y: 0.3}
   maxProgress: 5
   experience: 2
   needSpecificCollision: 0

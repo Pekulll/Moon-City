@@ -216,9 +216,12 @@ public class Entity : MonoBehaviour
 
     public void DisengageAll()
     {
-        foreach (Unit u in calledUnits)
+        if(calledUnits != null)
         {
-            u.Disengage(this);
+            foreach (Unit u in calledUnits)
+            {
+                u.Disengage(this);
+            }
         }
     }
 
@@ -268,5 +271,9 @@ public class Entity : MonoBehaviour
 
         if (owner != null)
             owner.RemoveEntity(this);
+        else if(entityType == EntityType.Unit)
+        {
+            manager.RemoveSettlers(manager.unitData[id].place, 0);
+        }
     }
 }

@@ -160,7 +160,7 @@ public class Preview : Entity
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 manager.RemoveRessources(0, building.money, building.regolith, building.bioPlastique, building.food);
-                manager.AddSettlers(building.colonist, 0);
+                //manager.AddSettlers(building.colonist, 0);
                 manager.HideWarnText();
 
                 if (manager.side == side)
@@ -209,7 +209,7 @@ public class Preview : Entity
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, _mask))
         {
             Vector3 position = Vector3Int.CeilToInt(hit.point);
-            //position.y = manager.GetPointHeightByColliders(transform.position);
+            position.y = hit.point.y;
 
             transform.position = position;
 
@@ -249,7 +249,6 @@ public class Preview : Entity
     public void Cancel()
     {
         manager.canInteractWithUI = true;
-        manager.DeleteGameObjectOfTagList(gameObject);
         Destroy(gameObject);
     }
 
@@ -290,7 +289,7 @@ public class Preview : Entity
         colliders.Remove(other);
 
         if (colliders.Count == 0)
-            haveCollider = true;
+            haveCollider = false;
     }
 
     #endregion

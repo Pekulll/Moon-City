@@ -528,7 +528,7 @@ public class SavedBuilding: SavedEntity
         groupId = motor.groupID;
         id = motor.id;
 
-        if (motor.GetComponent<FactoryMotor>() != null)
+        if (motor.GetComponent<TrainingArea>() != null)
         {
             isFactory = true;
             factory = new SavedTrainingArea(motor.GetComponent<TrainingArea>());

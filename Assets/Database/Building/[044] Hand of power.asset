@@ -37,9 +37,10 @@ MonoBehaviour:
   rigolyteStock: 0
   bioPlasticStock: 0
   foodStock: 0
-  preview: {fileID: 0}
-  building: {fileID: 0}
-  heightLimit: {x: -0.1, y: 0.5}
+  preview: {fileID: 3305367537455802960, guid: ff525429182677d49968e47f9dc7b57f, type: 3}
+  building: {fileID: 5275583950468526273, guid: 517476dd82bbda445b02fbf92f148311,
+    type: 3}
+  heightLimit: {x: -0.3, y: 0.3}
   maxProgress: 1500
   experience: 250
   needSpecificCollision: 0

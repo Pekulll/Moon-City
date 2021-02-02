@@ -432,9 +432,9 @@ public class MoonManager : MonoBehaviour {
             Notify(Traduce("03_notif_energy_critic"), priority: 3);
         }
 
-        colonyStats.regolith = Mathf.Clamp(colonyStats.regolith, 0, colonyStats.regolithStock);
-        colonyStats.bioPlastique = Mathf.Clamp(colonyStats.bioPlastique, 0, colonyStats.bioPlasticStock);
-        colonyStats.food = Mathf.Clamp(colonyStats.food, 0, colonyStats.foodStock);
+        colonyStats.regolith = Mathf.Clamp(colonyStats.regolith, -9999, colonyStats.regolithStock);
+        colonyStats.bioPlastique = Mathf.Clamp(colonyStats.bioPlastique, -9999, colonyStats.bioPlasticStock);
+        colonyStats.food = Mathf.Clamp(colonyStats.food, -9999, colonyStats.foodStock);
 
         BuildListItem[] buildItems = FindObjectsOfType<BuildListItem> ();
 
@@ -556,12 +556,12 @@ public class MoonManager : MonoBehaviour {
     public List<int> HaveRessources (int _colonist, int _energy, int _money, float _regolith, float _bioPlastique, float _food) {
         List<int> ints = new List<int> ();
 
-        if (colonyStats.maxColonist < colonyStats.colonist + _colonist) ints.Add (0);
-        if (colonyStats.energyOutput + colonyStats.anticipatedEnergy + _energy < 0) ints.Add (1);
-        if (colonyStats.money < _money) ints.Add (2);
-        if (colonyStats.regolith < _regolith) ints.Add (3);
-        if (colonyStats.bioPlastique < _bioPlastique) ints.Add (4);
-        if (colonyStats.food < _food) ints.Add (5);
+        if (colonyStats.maxColonist < colonyStats.colonist + _colonist && _colonist != 0) ints.Add (0);
+        if (colonyStats.energyOutput + colonyStats.anticipatedEnergy + _energy < 0 && _energy < 0) ints.Add (1);
+        if (colonyStats.money < _money && _money != 0) ints.Add (2);
+        if (colonyStats.regolith < _regolith && _regolith != 0) ints.Add (3);
+        if (colonyStats.bioPlastique < _bioPlastique && _bioPlastique != 0) ints.Add (4);
+        if (colonyStats.food < _food && _food != 0) ints.Add (5);
 
         return ints;
     }
@@ -1056,6 +1056,8 @@ public class MoonManager : MonoBehaviour {
                         t.queue = sta.queue;
                         t.currentTrainingTime = sta.time;
                         t.rallyPoint = new Vector3(sta.rallyPoint[0], sta.rallyPoint[1], sta.rallyPoint[2]);
+
+                        t.InitializeTraining();
                     }
                 }
             }

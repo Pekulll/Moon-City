@@ -40,7 +40,7 @@ MonoBehaviour:
   preview: {fileID: 321025190304046336, guid: 63cfcdc664bca424f88e51922879dd31, type: 3}
   building: {fileID: 4407407403092471840, guid: a6b4d7eadd21fd94fafcb02d1488aef8,
     type: 3}
-  heightLimit: {x: -0.1, y: 0.5}
+  heightLimit: {x: -0.3, y: 0.3}
   maxProgress: 65
   experience: 8
   needSpecificCollision: 0

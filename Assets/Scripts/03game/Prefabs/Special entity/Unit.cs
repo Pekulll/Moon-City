@@ -108,6 +108,10 @@ public class Unit : Entity
 
             level = 1;
         }
+        else
+        {
+            manager.AddSettlers(u.place, 0);
+        }
 
         maxExperience = Mathf.Pow(10, level);
     }

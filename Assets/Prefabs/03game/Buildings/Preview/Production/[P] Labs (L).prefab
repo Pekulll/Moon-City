@@ -252,6 +252,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laboratoire_L_MC
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 78fa28b9604d23e4f886022dca8ba612,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78fa28b9604d23e4f886022dca8ba612, type: 3}
 --- !u!4 &6922493369397665842 stripped

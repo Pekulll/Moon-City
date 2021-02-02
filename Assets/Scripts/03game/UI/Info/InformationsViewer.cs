@@ -557,38 +557,35 @@ public class InformationsViewer : MonoBehaviour
 
     private void UpdateQueue(GameObject current, TrainingArea factory)
     {
-        if (current != selectedObject) return;
-
-        List<int> queue = factory.queue;
-
+        if (current != selectedObject.gameObject) return;
         ResetQueue();
 
-        if (factory.queue.Count == 1)
+        if (factory.queue.Count >= 1)
         {
-            queueOne.sprite = manager.unitData[queue[0]].unitIcon;
-            queueOne.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[queue[0]].name);
+            queueOne.sprite = manager.unitData[factory.queue[0]].unitIcon;
+            queueOne.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.queue[0]].name);
 
-            queueAdvencement.text = ((int)(factory.currentTrainingTime / manager.unitData[queue[0]].time * 100)).ToString("00") + "%";
+            queueAdvencement.text = ((int)(factory.currentTrainingTime / manager.unitData[factory.queue[0]].time * 100)).ToString("00") + "%";
 
-            if (factory.queue.Count == 2)
+            if (factory.queue.Count >= 2)
             {
-                queueTwo.sprite = manager.unitData[queue[1]].unitIcon;
-                queueTwo.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[queue[1]].name);
+                queueTwo.sprite = manager.unitData[factory.queue[1]].unitIcon;
+                queueTwo.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.queue[1]].name);
 
-                if (factory.queue.Count == 3)
+                if (factory.queue.Count >= 3)
                 {
-                    queueThree.sprite = manager.unitData[queue[2]].unitIcon;
-                    queueThree.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[queue[2]].name);
+                    queueThree.sprite = manager.unitData[factory.queue[2]].unitIcon;
+                    queueThree.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.queue[2]].name);
 
-                    if (factory.queue.Count == 4)
+                    if (factory.queue.Count >= 4)
                     {
-                        queueFour.sprite = manager.unitData[queue[3]].unitIcon;
-                        queueFour.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[queue[3]].name);
+                        queueFour.sprite = manager.unitData[factory.queue[3]].unitIcon;
+                        queueFour.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.queue[3]].name);
 
                         if (factory.queue.Count == 5)
                         {
-                            queueFive.sprite = manager.unitData[queue[4]].unitIcon;
-                            queueFive.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[queue[4]].name);
+                            queueFive.sprite = manager.unitData[factory.queue[4]].unitIcon;
+                            queueFive.transform.parent.GetComponent<TooltipCaller>().title = manager.Traduce(manager.unitData[factory.queue[4]].name);
                         }
                     }
                 }
@@ -730,14 +727,7 @@ public class InformationsViewer : MonoBehaviour
 
             Buildings bMtr = selectedObject.GetComponent<Buildings>();
 
-            if(/*bMtr.linkedTo.Count != 0*/true)
-            {
-                b_linked.text = manager.Traduce("yes");
-            }
-            else
-            {
-                b_linked.text = manager.Traduce("no");
-            }
+            b_linked.text = manager.Traduce("yes");
 
             TurretMotor tMtr = selectedObject.GetComponent<TurretMotor>();
 
@@ -1100,7 +1090,7 @@ public class InformationsViewer : MonoBehaviour
     {
         if (selectedObject != null && selectedObject.GetComponent<Buildings>().side == manager.side)
         {
-            Destroy(selectedObject);
+            Destroy(selectedObject.gameObject);
             HideInformation(forced:true);
         }
         else if (currentGroup != null && currentGroup.objectsInGroup.Count != 0)
@@ -1422,15 +1412,15 @@ public class InformationsViewer : MonoBehaviour
             {
                 SendPlayerOrderAtGroup(target);
             }
-
-            effectManager.GroundTargetEffect(target);
         }
     }
 
     private void SendPlayerOrder(Vector3 target)
     {
         if (selectedObject.side != manager.side) return;
+
         selectedObject.GetComponent<Unit>().AddOrder(new Order(OrderType.Position, target));
+        effectManager.GroundTargetEffect(target);
     }
 
     private void SendPlayerOrderAtGroup(Vector3 target)
@@ -1454,7 +1444,7 @@ public class InformationsViewer : MonoBehaviour
     {
         if (selectedObject != null && selectedObject.side == manager.side)
         {
-            Destroy(selectedObject);
+            Destroy(selectedObject.gameObject);
             HideInformation(forced:true);
         }
         else if (currentGroup != null && currentGroup.objectsInGroup[0].side == manager.side)

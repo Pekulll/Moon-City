@@ -157,7 +157,7 @@ MonoBehaviour:
   entityName: Default_Entity
   side: 0
   groupID: -1
-  id: 0
+  id: 17
   health: 0
   maxHealth: 0
   shield: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
   weakness: 3
   entityType: 0
   manager: {fileID: 0}
-  priority: 17
+  priority: 0
   isEngaged: 0
   previewRenderer: []
 --- !u!1001 &6295333697827266419

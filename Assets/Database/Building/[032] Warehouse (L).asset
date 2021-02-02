@@ -39,7 +39,7 @@ MonoBehaviour:
   foodStock: 100
   preview: {fileID: 3135714596430672315, guid: 41cd9e56c8c2c50458d14fd1c6e6bf90, type: 3}
   building: {fileID: 113005947000859392, guid: fec4c1cd7d7c63146b70658d8dc21280, type: 3}
-  heightLimit: {x: -0.1, y: 0.5}
+  heightLimit: {x: -0.3, y: 0.3}
   maxProgress: 20
   experience: 6
   needSpecificCollision: 0
