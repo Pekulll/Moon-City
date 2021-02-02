@@ -121,22 +121,22 @@ public class CameraMotor : MonoBehaviour
         if (Input.GetMouseButton(2) && !Input.GetKey(KeyCode.LeftControl)) return;
 
         Vector3 pos = transform.position;
-        float speedFactor = (Time.timeScale != 0) ? Time.timeScale : 1;
+        float speedFactor = (Time.timeScale != 0) ? Time.deltaTime / Time.timeScale : Time.fixedDeltaTime / 2;
 
         if (Input.GetKey(forKey) || Input.GetKey(KeyCode.UpArrow) || (Input.mousePosition.y >= Screen.height - panBorderThickness && edgeToMove))
-            pos.z += panSpeed * Time.deltaTime / speedFactor;
+            pos.z += panSpeed * speedFactor;
 
         if (Input.GetKey(backKey) || Input.GetKey(KeyCode.DownArrow) || (Input.mousePosition.y <= panBorderThickness && edgeToMove))
-            pos.z -= panSpeed * Time.deltaTime / speedFactor;
+            pos.z -= panSpeed * speedFactor;
 
         if (Input.GetKey(leftKey) || Input.GetKey(KeyCode.LeftArrow) || (Input.mousePosition.x <= panBorderThickness && edgeToMove))
-            pos.x -= panSpeed * Time.deltaTime / speedFactor;
+            pos.x -= panSpeed * speedFactor;
 
         if (Input.GetKey(rightKey) || Input.GetKey(KeyCode.RightArrow) || (Input.mousePosition.x >= Screen.width - panBorderThickness && edgeToMove))
-            pos.x += panSpeed * Time.deltaTime / speedFactor;
+            pos.x += panSpeed * speedFactor;
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");
-        if (!manager.isOverUI) pos.y -= scroll * scrollSpeed * 100f * Time.deltaTime * 1.5f / speedFactor;
+        if (!manager.isOverUI) pos.y -= scroll * scrollSpeed * 100f * 1.5f * speedFactor;
 
         pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
         pos.y = Mathf.Clamp(pos.y, heightLimit.x, heightLimit.y);

@@ -37,7 +37,7 @@ public class GroupSystem : MonoBehaviour {
     }
 
     void Update () {
-        if (Time.timeScale == 0) return;
+        //if (Time.timeScale == 0) return;
 
         DragAndSelectUpdate ();
 
@@ -54,111 +54,104 @@ public class GroupSystem : MonoBehaviour {
     #region Selection (unique and multiple)
 
     private void UniqueSelectionUpdate () {
-        if (selectedObject == null && !Input.GetKey (KeyCode.LeftShift) && !Input.GetKey (KeyCode.RightShift)) {
-            if (Input.GetMouseButtonDown (0)) {
-                if (Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 1000)) {
-                    if (hit.transform.GetComponent<TagIdentifier> () != null) {
+        if (selectedObject == null && !Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000))
+                {
+                    if (hit.transform.GetComponent<TagIdentifier>() != null)
+                    {
                         Entity e = hit.transform.GetComponent<Entity>();
                         doubleClick = 1f;
 
-                        if (e != null) {
-                            DeselectEntities ();
+                        if (e != null)
+                        {
+                            DeselectEntities();
 
                             selectedObject = e;
                             selectedObject.Marker(true);
                             objectTypeInGroup = selectedObject.entityType;
 
-                            IndividualStats (selectedObject, objectTypeInGroup);
+                            IndividualStats(selectedObject, objectTypeInGroup);
                         }
-                    } else {
-                        DeselectEntities ();
+                    }
+                    else
+                    {
+                        DeselectEntities();
                     }
                 }
             }
-        } else if (selectedObject != null && !Input.GetKey (KeyCode.LeftShift) && !Input.GetKey (KeyCode.RightShift)) //If the selectedUnit is already assigned
+        }
+        else if (selectedObject != null && !Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift)) //If the selectedUnit is already assigned
         {
-            if (Input.GetMouseButtonDown (0) && (!Input.GetKey (KeyCode.LeftShift) && !Input.GetKey (KeyCode.RightShift))) {
-                if (Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 1000)) {
-                    if (hit.transform.GetComponent<TagIdentifier> () != null) {
-                        DeselectEntities ();
-                        UnshowStats ();
+            if (Input.GetMouseButtonDown(0) && (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift)))
+            {
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000))
+                {
+                    if (hit.transform.GetComponent<TagIdentifier>() != null)
+                    {
+                        DeselectEntities();
+                        UnshowStats();
 
-                        if (doubleClick != 0 && selectedObject == hit.transform.gameObject) {
-                            List<Entity> temp = new List<Entity> (); // Entités du même type
-                            List<Entity> onlyGoOfTheSide = new List<Entity> (); // Entités du même side
+                        if (doubleClick != 0 && selectedObject.gameObject == hit.transform.gameObject)
+                        {
+                            List<Entity> onlyGoOfTheSide = new List<Entity>(); // Entités du même side/même id/même type
 
-                            if (objectTypeInGroup == EntityType.Unit)
+                            GameObject[] objects = null;
+                            if (objectTypeInGroup == EntityType.Unit) objects = manager.FindTag(Tag.Unit);
+                            else if (objectTypeInGroup == EntityType.Building) objects = manager.FindTag(Tag.Building);
+                            else if (objectTypeInGroup == EntityType.Preview) objects = manager.FindTag(Tag.Preview);
+
+                            foreach (GameObject go in objects)
                             {
-                                foreach (GameObject go in manager.FindTag(Tag.Unit))
+                                Entity e = go.GetComponent<Entity>();
+
+                                if (e.entityType == selectedObject.entityType
+                                    && e.id == selectedObject.id
+                                    && e.side == selectedObject.side)
                                 {
-                                    Entity e = go.GetComponent<Entity>();
-
-                                    if (e.entityType == selectedObject.entityType)
-                                    {
-                                        temp.Add(e);
-                                    }
-                                }
-                            }
-                            else if (objectTypeInGroup == EntityType.Building)
-                            {
-                                foreach (GameObject go in manager.FindTag(Tag.Building))
-                                {
-                                    Entity e = go.GetComponent<Entity>();
-
-                                    if (e.entityType == selectedObject.entityType)
-                                    {
-                                        temp.Add(e);
-                                    }
-                                }
-                            }
-                            else if (objectTypeInGroup == EntityType.Preview)
-                            {
-                                foreach (GameObject go in manager.FindTag(Tag.Preview))
-                                {
-                                    Entity e = go.GetComponent<Entity>();
-
-                                    if (e.entityType == selectedObject.entityType)
-                                    {
-                                        temp.Add(e);
-                                    }
-                                }
-                            }
-
-                            int baseSide = selectedObject.side;
-
-                            foreach (Entity e in temp) {
-                                if (e.side == baseSide) {
                                     onlyGoOfTheSide.Add(e);
-                                    e.Marker (true);
+                                    e.Marker(true);
                                 }
                             }
 
-                            if (onlyGoOfTheSide.Count > 1) {
+                            if (onlyGoOfTheSide.Count > 1)
+                            {
                                 selectedObject = null;
-                                selectedObjects.AddRange (onlyGoOfTheSide);
-                                CreateGroup ();
-                            } else if (onlyGoOfTheSide.Count == 1) {
-                                selectedObject = onlyGoOfTheSide[0];
-                                IndividualStats (selectedObject, objectTypeInGroup);
+                                selectedObjects.AddRange(onlyGoOfTheSide);
+                                CreateGroup();
                             }
-                        } else if (hit.transform.GetComponent<Entity>() != null) {
+                            else if (onlyGoOfTheSide.Count == 1)
+                            {
+                                selectedObject = onlyGoOfTheSide[0];
+                                IndividualStats(selectedObject, objectTypeInGroup);
+                            }
+                        }
+                        else if (hit.transform.GetComponent<Entity>() != null)
+                        {
                             selectedObject = hit.transform.GetComponent<Entity>();
                             selectedObject.Marker(true);
                             selectedObjects.Clear();
                             objectTypeInGroup = selectedObject.entityType;
-                            IndividualStats (selectedObject, objectTypeInGroup);
+                            IndividualStats(selectedObject, objectTypeInGroup);
 
                             doubleClick = 1f;
-                        } else {
-                            if (selectedObject.GetComponent<Entity>() != null) {
-                                selectedObject.GetComponent<Entity>().Marker (true);
+                        }
+                        else
+                        {
+                            if (selectedObject.GetComponent<Entity>() != null)
+                            {
+                                selectedObject.GetComponent<Entity>().Marker(true);
                             }
 
                             doubleClick = 1f;
                         }
-                    } else {
-                        DeselectEntities ();
-                        UnshowStats ();
+                    }
+                    else
+                    {
+                        DeselectEntities();
+                        UnshowStats();
                     }
                 }
             }
@@ -457,7 +450,7 @@ public class GroupSystem : MonoBehaviour {
     }
 
     private void RegisterGroup (int groupID) {
-        ObjectGroup currentGroup = NewGroup (objectTypeInGroup);
+        ObjectGroup currentGroup = NewGroup();
 
         foreach (Entity e in currentGroup.objectsInGroup)
         {
@@ -519,14 +512,14 @@ public class GroupSystem : MonoBehaviour {
     #region Group creation
 
     public void ShowGroup (ObjectGroup group) {
-        if (group.objectsNumber == 0) return;
+        if (group.objectsInGroup.Count == 0) return;
 
         group.groupSide = group.objectsInGroup[0].side;
         manager.GroupStats (group);
     }
 
     public void CreateGroup () {
-        currentGroup = NewGroup(objectTypeInGroup);
+        currentGroup = NewGroup();
 
         if (currentGroup == null) return;
 
@@ -534,7 +527,8 @@ public class GroupSystem : MonoBehaviour {
         ShowGroup (currentGroup);
     }
 
-    private ObjectGroup NewGroup (EntityType type) {
+    private ObjectGroup NewGroup()
+    {
         if (selectedObjects.Count == 0) return null;
 
         ObjectGroup group = new ObjectGroup();
@@ -545,7 +539,7 @@ public class GroupSystem : MonoBehaviour {
 
         foreach (Entity cur in selectedObjects)
         {
-            if (cur.entityType == group.groupType && group.groupType == EntityType.Unit)
+            if (cur.entityType == group.groupType)
                 group.objectsInGroup.Add(cur);
         }
 
@@ -632,18 +626,19 @@ public class GroupSystem : MonoBehaviour {
         ShowGroup (group);
     }
 
-    private void CheckForActionWhenSelected ()
+    private void DoubleClickUpdate()
+    {
+        if (doubleClick > 0) doubleClick -= 2.2f * Time.deltaTime;
+        else if (doubleClick < 0) doubleClick = 0;
+    }
+
+    private void CheckForActionWhenSelected()
     {
         if (Input.GetMouseButtonDown (1))
         {
             TryToSendAttackOrder();
             TryToSetRallyPoint();
         }
-    }
-
-    private void DoubleClickUpdate () {
-        if (doubleClick > 0) doubleClick -= 2.2f * Time.deltaTime;
-        else if (doubleClick < 0) doubleClick = 0;
     }
 
     private void TryToSendAttackOrder()

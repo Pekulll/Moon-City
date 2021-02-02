@@ -20,7 +20,7 @@ public class ShortcutManager : MonoBehaviour
         GameSpeedShortcut(); // Space, +, -
         CheckForInterfaceHiding(); // F7
         CheckForMouseHiding(); // F8
-        ResetCamera(); // r
+        ResetCamera(); // R
     }
 
     private void CheckForScreenshot()

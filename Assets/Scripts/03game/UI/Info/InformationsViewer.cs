@@ -1437,9 +1437,14 @@ public class InformationsViewer : MonoBehaviour
     {
         if (currentGroup.objectsInGroup[0].side != manager.side) return;
 
+        Vector3[] positions = Utility.GetSquareFormationPositions(currentGroup.objectsInGroup.Count, 2);
+        int positionIndex = 0;
+
         foreach (Unit unit in currentGroup.objectsInGroup)
         {
-            unit.AddOrder(new Order(OrderType.Position, target));
+            unit.AddOrder(new Order(OrderType.Position, target + positions[positionIndex]));
+            effectManager.GroundTargetEffect(target + positions[positionIndex]);
+            positionIndex++;
         }
     }
 
