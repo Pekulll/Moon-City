@@ -20,13 +20,15 @@ public class InformationsViewer : MonoBehaviour
     // For every entities
     private Text objectName;
     private Image objectIcon;
-    private float healthRatio, shieldRatio, energyRatio;
+    private float health, shield, energy;
+    private float maxHealth, maxShield, maxEnergy;
     private int side;
 
     /// Buildings
     private Button repairBtn, disableBtn;
     private GameObject linkBtn;
     private Image b_healthBar, b_shieldBar;
+    private TooltipCaller b_healthTooltip, b_shieldTooltip;
     private Text b_linked, b_damage, b_range, b_kill;
 
     /// Factory
@@ -39,10 +41,12 @@ public class InformationsViewer : MonoBehaviour
     private Text colons, money, food;
     private GameObject formationBtn, aggressivityBtn;
     private Image u_healthBar, u_shieldBar, u_energyBar;
+    private TooltipCaller u_healthTooltip, u_shieldTooltip, u_energyTooltip;
 
     /// Previews
     private GameObject cancelBtn;
     private Image progressBar;
+    private TooltipCaller progressTooltip;
 
     private Sprite baseIcon;
     private Sprite defend, searchAndDestroy, passif;
@@ -123,6 +127,15 @@ public class InformationsViewer : MonoBehaviour
         b_linked = GameObject.Find("T_Property (b_linked)").GetComponent<Text>();
         b_range = GameObject.Find("T_Property (b_range)").GetComponent<Text>();
 
+        b_healthTooltip = b_healthBar.transform.parent.GetComponent<TooltipCaller>();
+        b_shieldTooltip = b_shieldBar.transform.parent.GetComponent<TooltipCaller>();
+
+        u_healthTooltip = u_healthBar.transform.parent.GetComponent<TooltipCaller>();
+        u_shieldTooltip = u_shieldBar.transform.parent.GetComponent<TooltipCaller>();
+        u_energyTooltip = u_energyBar.transform.parent.GetComponent<TooltipCaller>();
+
+        progressTooltip = progressBar.transform.parent.GetComponent<TooltipCaller>();
+
         colons = GameObject.Find("U_ColonyTextDetail").GetComponent<Text>();
         money = GameObject.Find("U_MoneyTextDetail").GetComponent<Text>();
         food = GameObject.Find("U_FoodTextDetail").GetComponent<Text>();
@@ -169,9 +182,8 @@ public class InformationsViewer : MonoBehaviour
         currentGroup = group;
         entityType = group.groupType;
 
-        healthRatio = CalculateHealth();
-        shieldRatio = CalculateShield();
-        energyRatio = 0;                                                                                           //? NOT IMPLEMENTED FEATURE
+        CalculateHealth();
+        CalculateShield();                                                                                        //? NOT IMPLEMENTED FEATURE
         side = currentGroup.groupSide;
 
         UpdateInterface();
@@ -182,138 +194,89 @@ public class InformationsViewer : MonoBehaviour
     {
         if (group != currentGroup) return;
 
-        healthRatio = CalculateHealth();
-        shieldRatio = CalculateShield();
-        energyRatio = 0;                                                                                           //? NOT IMPLEMENTED FEATURE
+        CalculateHealth();
+        CalculateShield();                                                                                         //? NOT IMPLEMENTED FEATURE
 
         UpdateInterface();
     }
 
     #region Calculate Health / MaxHealth
 
-    private float CalculateHealth()
+    private void CalculateHealth()
     {
         if(entityType == EntityType.Building)
         {
-            return CalculateBuildingHealth();
+            CalculateBuildingHealth();
         }
         else if (entityType == EntityType.Unit)
         {
-            return CalculateUnitHealth();
+            CalculateUnitHealth();
         }
         else if (entityType == EntityType.Preview)
         {
-            return CalculatePreviewProgress();
-        }
-        else
-        {
-            return 0;
+            CalculatePreviewProgress();
         }
     }
 
-    private float CalculateBuildingHealth()
+    private void CalculateBuildingHealth()
     {
-        float health = 0;
-        float maxHealth = 0;
-
         foreach(Buildings b in currentGroup.objectsInGroup)
         {
             health += b.health;
             maxHealth += b.maxHealth;
         }
-
-        if (maxHealth != 0)
-            return health / maxHealth;
-        else
-            return 0;
     }
 
-    private float CalculateUnitHealth()
+    private void CalculateUnitHealth()
     {
-        float health = 0;
-        float maxHealth = 0;
-
         foreach (Unit u in currentGroup.objectsInGroup)
         {
             health += u.health;
             maxHealth += u.maxHealth;
         }
-
-        if (maxHealth != 0)
-            return health / maxHealth;
-        else
-            return 0;
     }
 
-    private float CalculatePreviewProgress()
+    private void CalculatePreviewProgress()
     {
-        float progress = 0;
-        float maxProgress = 0;
-
         foreach (Preview p in currentGroup.objectsInGroup)
         {
-            progress += p.health;
-            maxProgress += p.maxHealth;
+            health += p.health;
+            maxHealth += p.maxHealth;
         }
-
-        if (maxProgress != 0)
-            return progress / maxProgress;
-        else
-            return 0;
     }
 
     #endregion
 
     #region Calculate Shield / MaxShield
 
-    private float CalculateShield()
+    private void CalculateShield()
     {
         if (entityType == EntityType.Building)
         {
-            return CalculateBuildingShield();
+            CalculateBuildingShield();
         }
         else if (entityType == EntityType.Unit)
         {
-            return CalculateUnitShield();
-        }
-        else
-        {
-            return 0;
+            CalculateUnitShield();
         }
     }
 
-    private float CalculateBuildingShield()
+    private void CalculateBuildingShield()
     {
-        float shield = 0;
-        float maxShield = 0;
-
         foreach (Buildings b in currentGroup.objectsInGroup)
         {
             shield += b.shield;
             maxShield += b.maxShield;
         }
-
-        if (maxShield != 0)
-            return shield / maxShield;
-        else
-            return 0;
     }
 
-    private float CalculateUnitShield()
+    private void CalculateUnitShield()
     {
-        float shield = 0;
-        float maxShield = 0;
-
         foreach (Unit u in currentGroup.objectsInGroup)
         {
             shield += u.shield;
             maxShield += u.maxShield;
         }
-
-        if (maxShield != 0)
-            return shield / maxShield;
-        else
-            return 0;
     }
 
     #endregion
@@ -427,9 +390,8 @@ public class InformationsViewer : MonoBehaviour
         selectedObject = selected;
         entityType = selectedObject.entityType;
 
-        healthRatio = CalculateSingleHealth();
-        shieldRatio = CalculateSingleShield();
-        energyRatio = 0;                                                                                           //? NOT IMPLEMENTED FEATURE
+        CalculateSingleHealth();
+        CalculateSingleShield();
         side = selectedObject.side;
 
         linkBtn.SetActive(false);
@@ -440,23 +402,24 @@ public class InformationsViewer : MonoBehaviour
     {
         if (selected != selectedObject) return;
 
-        healthRatio = CalculateSingleHealth();
-        shieldRatio = CalculateSingleShield();
-        energyRatio = 0;                                                                                           //? NOT IMPLEMENTED FEATURE
+        CalculateSingleHealth();
+        CalculateSingleShield();                                                                                       //? NOT IMPLEMENTED FEATURE
 
         UpdateInterface();
     }
 
     #region Calculate Health and Shield
 
-    private float CalculateSingleHealth()
+    private void CalculateSingleHealth()
     {
-        return selectedObject.health / selectedObject.maxHealth;
+        health = selectedObject.health;
+        maxHealth = selectedObject.maxHealth;
     }
 
-    private float CalculateSingleShield()
+    private void CalculateSingleShield()
     {
-        return selectedObject.shield / selectedObject.maxShield;
+        shield = selectedObject.shield;
+        maxShield = selectedObject.maxShield;
     }
 
     #endregion
@@ -668,6 +631,7 @@ public class InformationsViewer : MonoBehaviour
     {
         UpdateEntity();
         UpdateBars();
+        UpdateTooltip();
         UpdateProperties();
         UpdateBackground();
         UpdateButton();
@@ -686,19 +650,39 @@ public class InformationsViewer : MonoBehaviour
     {
         if(entityType == EntityType.Unit)
         {
-            u_healthBar.fillAmount = healthRatio;
-            u_shieldBar.fillAmount = shieldRatio;
-            u_energyBar.fillAmount = energyRatio;
+            u_healthBar.fillAmount = health / maxHealth;
+            u_shieldBar.fillAmount = shield / maxShield;
+            u_energyBar.fillAmount = 0;                        //! NOT IMPLEMENTED YET
         }
         else if (entityType == EntityType.Building)
         {
-            b_healthBar.fillAmount = healthRatio;
-            b_shieldBar.fillAmount = shieldRatio;
+            b_healthBar.fillAmount = health / maxHealth;
+            b_shieldBar.fillAmount = shield / maxShield;
             ShowFactory();
         }
         else if (entityType == EntityType.Preview)
         {
-            progressBar.fillAmount = healthRatio;
+            progressBar.fillAmount = health / maxHealth;
+        }
+    }
+
+    private void UpdateTooltip()
+    {
+        if (entityType == EntityType.Unit)
+        {
+            u_healthTooltip.info = manager.Traduce("03_ui_info_health") + " " + health + "/" + maxHealth;
+            u_shieldTooltip.info = manager.Traduce("03_ui_info_shield") + " " + shield + "/" + maxShield;
+            u_energyTooltip.info = manager.Traduce("03_ui_info_battery") + " 0/0";                        //! NOT IMPLEMENTED YET
+        }
+        else if (entityType == EntityType.Building)
+        {
+            b_healthTooltip.info = manager.Traduce("03_ui_info_health") + " " + health + "/" + maxHealth;
+            b_shieldTooltip.info = manager.Traduce("03_ui_info_shield") + " " + shield + "/" + maxShield;
+            ShowFactory();
+        }
+        else if (entityType == EntityType.Preview)
+        {
+            progressTooltip.info = manager.Traduce("03_ui_info_health") + " " + health + "/" + maxHealth;
         }
     }
 
@@ -821,26 +805,26 @@ public class InformationsViewer : MonoBehaviour
 
         if(entityType == EntityType.Unit)
         {
-            if (healthRatio <= .2f) u_healthBar.color = low;
+            if (health / maxHealth <= .2f) u_healthBar.color = low;
             else u_healthBar.color = high;
 
-            if (shieldRatio <= .2f) u_shieldBar.color = low;
+            if (shield / maxShield <= .2f) u_shieldBar.color = low;
             else u_shieldBar.color = high;
 
-            if (energyRatio <= .2f) u_energyBar.color = low;
+            if (0 <= .2f) u_energyBar.color = low;                   //! NOT IMPLEMENTED YET
             else u_energyBar.color = high;
         }
         else if(entityType == EntityType.Building)
         {
-            if (healthRatio <= .2f) b_healthBar.color = low;
+            if (health / maxHealth <= .2f) b_healthBar.color = low;
             else b_healthBar.color = high;
 
-            if (shieldRatio <= .2f) b_shieldBar.color = low;
+            if (shield / maxShield <= .2f) b_shieldBar.color = low;
             else b_shieldBar.color = high;
         }
         else if(entityType == EntityType.Preview)
         {
-            if (healthRatio <= .2f) progressBar.color = low;
+            if (health / maxHealth <= .2f) progressBar.color = low;
             else progressBar.color = high;
         }
 
@@ -989,9 +973,14 @@ public class InformationsViewer : MonoBehaviour
             selectedObject = null;
             currentGroup = null;
 
-            healthRatio = 0;
-            shieldRatio = 0;
-            energyRatio = 0;
+            health = 0;
+            maxHealth = 0;
+
+            shield = 0;
+            maxShield = 0;
+
+            energy = 0;
+            maxEnergy = 0;
 
             ResetColor();
         }

@@ -64,8 +64,9 @@ public class Preview : Entity
 
         if (GetComponent<Rigidbody>() == null)
         {
-            gameObject.AddComponent<Rigidbody>();
-            GetComponent<Rigidbody>().useGravity = false;
+            Rigidbody rb = gameObject.AddComponent<Rigidbody>();
+            rb.useGravity = false;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
 
             if (side == manager.side)
             {

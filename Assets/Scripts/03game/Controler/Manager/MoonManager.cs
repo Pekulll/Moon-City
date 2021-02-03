@@ -584,7 +584,7 @@ public class MoonManager : MonoBehaviour {
 
     public void AddOutput(int _energy, int _money, float _regolith, float _bioplastic, float _food, float _research)
     {
-        Debug.Log("[INFO:MoonManager] Adding output...");
+        //Debug.Log("[INFO:MoonManager] Adding output...");
 
         if (_energy > 0) colonyStats.energyGain += Mathf.Abs(_energy);
         else colonyStats.energyLoss += Mathf.Abs(_energy);

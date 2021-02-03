@@ -118,7 +118,7 @@ public class Unit : Entity
 
     private IEnumerator Alive()
     {
-        WaitForSeconds inactive = new WaitForSeconds(5f);
+        WaitForSeconds inactive = new WaitForSeconds(3f);
         WaitForSeconds delay = new WaitForSeconds(cooldown);
         WaitForEndOfFrame wait = new WaitForEndOfFrame();
 
@@ -137,7 +137,7 @@ public class Unit : Entity
             }
             else
             {
-                if (agressivity != 0)
+                if (agressivity != 0 || haveOrder)
                 {
                     if (lastTargetsUpdate++ >= 1 / Time.deltaTime && !haveOrder && currentTarget == null)
                     {
@@ -221,7 +221,13 @@ public class Unit : Entity
 
     private void SetTarget(int index)
     {
-        if (index > targets.Count) return;
+        if (index >= targets.Count) return;
+
+        if (targets[index] == null)
+        {
+            targets.RemoveAt(index);
+            return;
+        }
 
         currentTarget = targets[index];
         currentTargetIndex = index;
@@ -270,7 +276,10 @@ public class Unit : Entity
         }
 
         if (nearest != null && (distance <= range || !inRange))
+        {
             SetTarget(nearest);
+            nearest.AddEngagedUnit(this);
+        }
     }
 
     #endregion
@@ -284,8 +293,7 @@ public class Unit : Entity
         transform.LookAt(currentTarget.transform);
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
-        if (Vector3.Distance(transform.position, currentTarget.transform.position) <= range) isInRangeOfTarget = true;
-        else isInRangeOfTarget = false;
+        isInRangeOfTarget = Vector3.Distance(transform.position, currentTarget.transform.position) <= range;
     }
 
     private void MoveToPoint(Vector3 point)
@@ -309,7 +317,6 @@ public class Unit : Entity
     private void CheckForOrder()
     {
         haveOrder = orders.Count > 0;
-
         if (haveOrder) ExecuteOrder();
     }
 
@@ -321,15 +328,19 @@ public class Unit : Entity
             return;
         }
 
-        ResetTarget();
+        if(orders[0].orderType != OrderType.Entity) ResetTarget();
 
         if (orders[0].orderType == OrderType.Position)
         {
+            ResetTarget();
             MoveToPoint(new Vector3 (orders[0].position[0], orders[0].position[1], orders[0].position[2]));
             haveOrder = true;
         }
         else if (orders[0].orderType == OrderType.Entity)
         {
+            if (!targets.Contains(orders[0].entity))
+                targets.Add(orders[0].entity);
+
             SetTarget(orders[0].entity);
             haveOrder = true;
         }

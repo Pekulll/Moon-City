@@ -192,6 +192,11 @@ public class Entity : MonoBehaviour
         }
     }
 
+    public void AddEngagedUnit(Unit unit)
+    {
+        calledUnits.Add(unit);
+    }
+
     public void DisengageUnits(UnitType typeOfUnit)
     {
         List<Unit> units = new List<Unit>();
