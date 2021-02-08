@@ -23,7 +23,7 @@ MonoBehaviour:
   weakness: 3
   colonist: 0
   energy: -4
-  money: 30
+  money: 300
   regolith: 30
   bioPlastique: 7
   food: 0

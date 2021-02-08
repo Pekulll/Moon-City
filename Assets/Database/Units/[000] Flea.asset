@@ -18,7 +18,7 @@ MonoBehaviour:
   speed: 1
   model: {fileID: 0}
   unitType: 3
-  health: 3
+  health: 5
   shield: 0
   energy: 0
   range: 8
@@ -29,9 +29,9 @@ MonoBehaviour:
   maxLevel: 0
   levelDamage: []
   levelHealth: []
-  time: 40
+  time: 70
   place: 1
-  money: 20
+  money: 30
   food: 10
   moneyOut: 0
   foodOut: 0

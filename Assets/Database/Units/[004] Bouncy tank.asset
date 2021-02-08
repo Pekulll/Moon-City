@@ -18,7 +18,7 @@ MonoBehaviour:
   speed: 1
   model: {fileID: 6721308729000295378, guid: 51196c5c6ddda2d45b725579cceac905, type: 3}
   unitType: 3
-  health: 10
+  health: 20
   shield: 30
   energy: 0
   range: 20
@@ -37,9 +37,9 @@ MonoBehaviour:
   - 13
   - 15
   - 20
-  time: 200
+  time: 300
   place: 5
-  money: 205
+  money: 1500
   food: 20
   moneyOut: 0
   foodOut: 0

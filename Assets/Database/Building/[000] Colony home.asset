@@ -23,10 +23,10 @@ MonoBehaviour:
   weakness: 3
   colonist: 0
   energy: 10
-  money: 0
-  regolith: 0
-  bioPlastique: 0
-  food: 0
+  money: 1200
+  regolith: 50
+  bioPlastique: 40
+  food: 10
   profit: 100
   maxColonist: 20
   rigolyteOutput: 0

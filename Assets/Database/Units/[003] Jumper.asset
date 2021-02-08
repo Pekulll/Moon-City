@@ -19,7 +19,7 @@ MonoBehaviour:
   model: {fileID: 3777325088253688296, guid: 9e91efc64f3bd7349a1e6db79c0c3bf6, type: 3}
   unitType: 3
   health: 15
-  shield: 0
+  shield: 10
   energy: 0
   range: 15
   cooldown: 0.7
@@ -37,9 +37,9 @@ MonoBehaviour:
   - 19
   - 20
   - 22
-  time: 110
+  time: 200
   place: 3
-  money: 75
+  money: 750
   food: 13
   moneyOut: 0
   foodOut: 0
