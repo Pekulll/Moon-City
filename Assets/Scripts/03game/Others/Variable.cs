@@ -101,38 +101,24 @@ public class EnemieUnits
     public int identityOfUnit;
 }
 
-/*[System.Serializable]
-public class Unit
-{
-    [Header("Properties")]
-    public string name = "";
-    public Sprite unitIcon;
-    public float time = 2f;
-    [Space(5)]
-    public int identity;
-    [Header("Levels")]
-    public int maxLevel;
-    public float[] levelDamage;
-    public float[] levelHealth;
-    [Header("Direct cost")]
-    public int place = 1;
-    public int money = 10;
-    public float food = 1f;
-    [Header("Indirect cost")]
-    public int moneyOut;
-    public float foodOut;
-    [Space(10)]
-    public GameObject model;
-}*/
-
 [System.Serializable]
 public class MoonColony
 {
     public string name = "DEFAULT_COLONY";
     public float[] colonyColor = new float[4];
     public int side = 1;
-    public int state = 1;
-    public int puissance = 0;
+
+    public MoonColony()
+    {
+        
+    }
+
+    public MoonColony(string name, int side)
+    {
+        this.name = name;
+        this.side = side;
+        this.colonyColor = new float[4] {0, 0, 0, 1};
+    }
 }
 
 [System.Serializable]

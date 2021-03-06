@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DiscordPresence;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class MoonManager : MonoBehaviour {
 
@@ -25,6 +26,7 @@ public class MoonManager : MonoBehaviour {
     public Building[] buildData;
     public Units[] unitData;
     public TechtreeDatabase techData;
+    [SerializeField] private GameObject enemyColonyCenter;
 
     [Header ("Other")]
     public bool isOverUI;
@@ -92,7 +94,7 @@ public class MoonManager : MonoBehaviour {
     }
 
     private void Start() {
-        data = SaveSystem.LoadSave(saveName + ".json");
+        data = SaveSystem.Load<SavedScene>(saveName + ".json");
         seed = data.configuration.seed;
         mapGenerator.PregenerateMap (seed, LoadDataAfterMapGeneration);
     }
@@ -860,9 +862,9 @@ public class MoonManager : MonoBehaviour {
         saveDone.SetActive (true);
     }
 
-    public void SaveData (string _saveName) {
+    private void SaveData (string saveName) {
         SaveSystem.Save(
-            _saveName + ".json",
+            saveName + ".json",
             new SavedScene (
                 versionCode, data.iteration + 1, colonyStats, this,
                 FindObjectsOfType<Buildings>(), FindObjectsOfType<Preview>(), FindObjectsOfType<Unit>(),
@@ -899,10 +901,10 @@ public class MoonManager : MonoBehaviour {
 
         LoadPlayer(savedPlayer);
         LoadManager(savedManager);
+        LoadStockMarket(savedMarket);
         LoadConfiguration();
 
         if (data.iteration != 0) {
-            LoadStockMarket(savedMarket);
             LoadWave(savedWaveManager);
             LoadQuest(data.killQuest, data.buildQuest);
 
@@ -970,7 +972,7 @@ public class MoonManager : MonoBehaviour {
 
     private void LoadStockMarket(SavedStockMarket savedMarket)
     {
-        tradingSystem.market = new StockMarket(savedMarket.regolithValue, savedMarket.bioplasticValue, savedMarket.foodValue);
+        tradingSystem.Initialize(new StockMarket(savedMarket.regolithValue, savedMarket.bioplasticValue, savedMarket.foodValue));
     }
 
     private void LoadConfiguration () {
@@ -1025,10 +1027,21 @@ public class MoonManager : MonoBehaviour {
         foreach (SavedBuilding b in savedBuildings) {
             Building bld = buildData[b.id];
 
-            if (bld.building != null) {
-                GameObject p = Instantiate (bld.building, new Vector3 (b.position[0], b.position[1], b.position[2]), new Quaternion (b.rotation[0], b.rotation[1], b.rotation[2], b.rotation[3])) as GameObject;
+            if (bld.building != null)
+            {
+                GameObject p;
+                
+                if(b.id == 0 && b.side != side) p = Instantiate (enemyColonyCenter, new Vector3 (b.position[0], b.position[1], b.position[2]), new Quaternion (b.rotation[0], b.rotation[1], b.rotation[2], b.rotation[3])) as GameObject;
+                else p = Instantiate (bld.building, new Vector3 (b.position[0], b.position[1], b.position[2]), new Quaternion (b.rotation[0], b.rotation[1], b.rotation[2], b.rotation[3])) as GameObject;
+                
+                if (b.side != 0 && b.id == 0)
+                {
+                    EnemyColony ec = p.GetComponent<EnemyColony>();
+                    ec.Initialize(Random.Range(0, 2));
+                    ec.colony = new MoonColony($"E{b.side}", b.side);
+                }
+                
                 Buildings mtr = p.GetComponent<Buildings> ();
-
                 mtr.id = b.id;
 
                 mtr.health = b.health;
@@ -1101,26 +1114,6 @@ public class MoonManager : MonoBehaviour {
 
     #endregion
 
-    #region Event methods
-
-    public void InstantiateEvent (int id) {
-        eventSystem.InstantiateEvent (id);
-    }
-
-    public void InstantiateEvent (string name) {
-        eventSystem.InstantiateEvent (name);
-    }
-
-    public void InstantiateEvent (Event evt) {
-        eventSystem.InstantiateEvent (evt);
-    }
-
-    public void RandomEvent () {
-        eventSystem.RandomizeEvent ();
-    }
-
-    #endregion
-
     #region Translate
 
     public string Traduce (string sentence) {
@@ -1146,50 +1139,6 @@ public class MoonManager : MonoBehaviour {
     public void UpdatePresence (string title, string detail, string largeKey, string smallKey, string largeText, string smallText) {
         if (GameObject.Find ("Presence Manager") == null || true) return;
         PresenceManager.UpdatePresence (detail: title, state: detail, largeKey: largeKey, largeText: largeText, smallKey: smallKey, smallText: smallText);
-    }
-
-    #endregion
-
-    #region Map height
-
-    public float GetPointHeight (Vector2 pos) {
-        int chunkSize = mapGenerator.chunkSize ();
-        Vector2 chunkPos = pos / chunkSize;
-
-        chunkPos.x = (int) chunkPos.x;
-        chunkPos.y = (int) chunkPos.y;
-
-        List<HeightPoint> heightData = endlessTerrain.terrainChunkDictonary[chunkPos].lodMeshes[0].meshData.heightData;
-
-        Vector2 realPosition = new Vector2 ((pos.x % 95) / -2f, (pos.y % 95) / -2f);
-        realPosition.x = Mathf.Round (realPosition.x);
-        realPosition.y = Mathf.Round (realPosition.y);
-
-        foreach (HeightPoint h in heightData) {
-            if (h.CheckPosition (realPosition)) {
-                //Debug.Log ("  [INFO:MoonManager] " + realPosition + " / " + chunkPos + " : " + h.GetHeight ());
-                return h.GetHeight ();
-            }
-        }
-
-        throw new Exception ("[ERROR] Impossible to find the height of the point " + realPosition + " on the chunk " + chunkPos);
-    }
-
-    public float GetPointHeightByColliders(Vector3 position)
-    {
-        int chunkSize = mapGenerator.chunkSize();
-
-        Vector3 chunkPosV3 = position / chunkSize;
-        chunkPosV3.x = (int)chunkPosV3.x;
-        chunkPosV3.z = (int)chunkPosV3.z;
-        Vector2 chunkPosV2 = new Vector2(chunkPosV3.x, chunkPosV3.z);
-
-        EndlessTerrain.TerrainChunk chunk = endlessTerrain.terrainChunkDictonary[chunkPosV2];
-
-        Vector3 closestPointOnCollider = chunk.meshObject.GetComponent<MeshCollider>().ClosestPointOnBounds(position);
-
-        //Debug.Log(closestPointOnCollider);
-        return closestPointOnCollider.y;
     }
 
     #endregion

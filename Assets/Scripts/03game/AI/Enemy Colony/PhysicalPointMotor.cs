@@ -16,8 +16,9 @@ public class PhysicalPointMotor : MonoBehaviour
         gameObject.name = "{Physical 3} " + go.name;
         transform.position = position;
 
-        size = go.GetComponent<BoxCollider>().size;
-        center = go.GetComponent<BoxCollider>().center;
+        BoxCollider collider = go.GetComponent<BoxCollider>();
+        size = collider.size;
+        center = collider.center;
 
         realSize = size + new Vector3(spacing, 0, spacing);
 

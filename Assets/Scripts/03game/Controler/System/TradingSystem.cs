@@ -15,21 +15,18 @@ public class TradingSystem : MonoBehaviour
     private CelestialBody currentTarget;
 
     private int amount;
-
-    private void Start()
+    
+    public void Initialize(StockMarket market)
     {
         manager = GetComponent<MoonManager>();
 
         tradeInterface = GameObject.Find("BC_Trade");
-
         amountText = GameObject.Find("T_TradingAmount").GetComponent<Text>();
         regolithValue = GameObject.Find("T_MarketValueRegolith").GetComponent<Text>();
         bioplasticValue = GameObject.Find("T_MarketValueBioplastic").GetComponent<Text>();
         foodValue = GameObject.Find("T_MarketValueFood").GetComponent<Text>();
 
-        if(market == null)
-            market = new StockMarket(10, 15, 25);
-
+        this.market = market;
         ResetInterface();
     }
 
@@ -162,12 +159,12 @@ public class TradingSystem : MonoBehaviour
 
     #region Update methods
 
-    public void UpdateRessources()
+    public void UpdateResources()
     {
         UpdateMarket();
     }
 
-    private void UpdatePlayerRessources()
+    private void UpdatePlayerResources()
     {
 
     }

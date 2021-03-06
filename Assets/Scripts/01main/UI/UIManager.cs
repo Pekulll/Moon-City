@@ -280,26 +280,7 @@ public class UIManager : MonoBehaviour
 
     private void CreateBlankSave()
     {
-        SavedManager manager = new SavedManager(0);
-
-        SavedPlayer player = new SavedPlayer(
-            0, new float[3] { 150, 90, 20 }, "Tutorial", tutoSettings
-        );
-
-        SavedUnit[] units = new SavedUnit[2]
-        {
-            new SavedUnit(constructor, new float[3] { -5, 2, -25 } ),
-            new SavedUnit(constructor, new float[3] { 5, 2, -25 } )
-        };
-
-        SavedBuilding[] buildings = new SavedBuilding[1]
-        {
-            new SavedBuilding(home, new float[3] { 0, 0, 0 })
-        };
-
-        SavedConfiguration config = new SavedConfiguration(tutoSettings);
-
-        SaveSystem.Save("Tutorial.json", new SavedScene("EMPTY", manager, player, config, buildings, units));
+        SaveSystem.Save("Tutorial.json", SaveSystem.BlankSave(tutoSettings, "Cherished Moon", constructor, home));
     }
 }
 

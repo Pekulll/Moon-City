@@ -55,7 +55,6 @@ public static class MeshGenerator
                 Vector2 percent = new Vector2((x - meshSimplificationIncrement) / (float)meshSize, (y - meshSimplificationIncrement) / (float)meshSize);
                 Vector3 vertexPosition = new Vector3(topLeftX + percent.x * meshSizeUnsimplified, height, topLeftZ - percent.y * meshSizeUnsimplified);
 
-                meshData.heightData.Add(new HeightPoint(new Vector3(topLeftX + x, height - 9.6f, topLeftZ - y)));
                 meshData.AddVertex(vertexPosition, percent, vertexIndex);
 
                 if (x < borderedSize - 1 && y < borderedSize - 1)
@@ -91,7 +90,6 @@ public class MeshData
     int borderTriangleIndex;
 
     bool useFlatShading;
-    public List<HeightPoint> heightData;
 
     public MeshData(int verticesPerLine, bool useFlatShading)
     {
@@ -99,7 +97,6 @@ public class MeshData
 
         vertices = new Vector3[verticesPerLine * verticesPerLine];
         uvs = new Vector2[verticesPerLine * verticesPerLine];
-        heightData = new List<HeightPoint>();
         triangles = new int[(verticesPerLine - 1) * (verticesPerLine - 1) * 6];
 
         borderVertices = new Vector3[verticesPerLine * 4 + 4];

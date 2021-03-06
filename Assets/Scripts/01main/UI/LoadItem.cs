@@ -36,7 +36,7 @@ public class LoadItem : MonoBehaviour
 
         UpdateColor();
 
-        SavedScene data = SaveSystem.LoadSave(save + ".json");
+        SavedScene data = SaveSystem.Load<SavedScene>(save + ".json");
 
         try { 
             Color colonyColor = new Color(data.player.playerColony.colonyColor[0], data.player.playerColony.colonyColor[1], data.player.playerColony.colonyColor[2], 1);

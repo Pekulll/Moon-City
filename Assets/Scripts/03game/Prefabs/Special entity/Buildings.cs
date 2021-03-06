@@ -28,7 +28,7 @@ public class Buildings : Entity
 
         manager = GameObject.Find("Manager").GetComponent<MoonManager>();
         resources = GameObject.Find("Manager").GetComponent<RessourceData>();
-        status = GetComponentInChildren<SpriteRenderer>();
+        status = transform.Find("Sprt").GetComponent<SpriteRenderer>();
 
         building = manager.buildData[id];
         isEnemy = side != manager.side;
@@ -163,6 +163,8 @@ public class Buildings : Entity
                 manager.ManageStorage(
                     -building.energyStorage, -building.rigolyteStock, -building.bioPlasticStock, -building.foodStock
                 );
+
+                haveOutput = false;
             }
         }
     }

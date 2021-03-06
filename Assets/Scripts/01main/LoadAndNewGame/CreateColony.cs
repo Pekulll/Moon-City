@@ -18,7 +18,7 @@ public class CreateColony : MonoBehaviour
 
     private InputField colonyName, seedInput;
 
-    private Text errorTxt, textButonLeft, textButtonRight;
+    private Text errorTxt, textButtonLeft, textButtonRight;
     private Text waveRate, enemiesCount;
 
     private Image createColony;
@@ -30,12 +30,12 @@ public class CreateColony : MonoBehaviour
 
     private GameSettings currentGameSettings;
 
-    private GameObject customDifficulty, m_Gamemodes, m_GameSettingsInterface;
+    private GameObject customDifficulty, gameSettingsInterface;
 
     private TraduceSystem traductor;
     private ColorManager colorManager;
 
-    private void Awake()
+    private void Start()
     {
         createColony = GameObject.Find("CreateColony").GetComponent<Image>();
         colorManager = FindObjectOfType<ColorManager>();
@@ -58,7 +58,7 @@ public class CreateColony : MonoBehaviour
         seedInput = GameObject.Find("IF_GameSeed").GetComponent<InputField>();
 
         errorTxt = GameObject.Find("ErrorText").GetComponent<Text>();
-        textButonLeft = GameObject.Find("Text_ButtonLeft").GetComponent<Text>();
+        textButtonLeft = GameObject.Find("Text_ButtonLeft").GetComponent<Text>();
         textButtonRight = GameObject.Find("Text_ButtonRight").GetComponent<Text>();
         waveRate = GameObject.Find("Text_WaveRate").GetComponent<Text>();
         enemiesCount = GameObject.Find("Text_Count").GetComponent<Text>();
@@ -68,10 +68,9 @@ public class CreateColony : MonoBehaviour
 
         currentGameSettings = new GameSettings();
         customDifficulty = GameObject.Find("CustomSettings");
-        m_Gamemodes = GameObject.Find("Gamemode");
-        m_GameSettingsInterface = GameObject.Find("ClassiqueSettings");
+        gameSettingsInterface = GameObject.Find("ClassicSettings");
 
-        m_GameSettingsInterface.SetActive(false);
+        gameSettingsInterface.SetActive(false);
         customDifficulty.SetActive(false);
 
         traductor = FindObjectOfType<TraduceSystem>();
@@ -88,7 +87,7 @@ public class CreateColony : MonoBehaviour
 
     public void DefendAndConquest()
     {
-        m_GameSettingsInterface.SetActive(true);
+        gameSettingsInterface.SetActive(true);
     }
 
     #endregion
@@ -130,7 +129,7 @@ public class CreateColony : MonoBehaviour
 
     public void CustomEnemyCount()
     {
-        enemiesCount.text = countSld.value + " / 10";
+        enemiesCount.text = countSld.value + " / " + countSld.maxValue;
         currentGameSettings.gameDifficulty.enemiesCount = (int)countSld.value;
     }
 
@@ -175,7 +174,7 @@ public class CreateColony : MonoBehaviour
         flagMiddle.color = colonyColor;
 
         textButtonRight.color = colonyColor;
-        textButonLeft.color = colonyColor;
+        textButtonLeft.color = colonyColor;
 
         UpdateColor();
     }
@@ -290,8 +289,17 @@ public class CreateColony : MonoBehaviour
 
     public void CreateNewColony()
     {
-        if (colonyName.text.Length < 5) { errorTxt.text = "<color=#DA0209>" + traductor.GetTraduction("This colony name is invalid! (too short)") + "</color>"; return; }
-        if (colonyName.text.Length > 20) { errorTxt.text = "<color=#DA0209>" + traductor.GetTraduction("This colony name is invalid! (too long)") + "</color>"; return; }
+        if (colonyName.text.Length < 5)
+        {
+            errorTxt.text = "<color=#DA0209>" + traductor.GetTraduction("This colony name is invalid! (too short)") + "</color>";
+            return;
+        }
+
+        if (colonyName.text.Length > 20)
+        {
+            errorTxt.text = "<color=#DA0209>" + traductor.GetTraduction("This colony name is invalid! (too long)") + "</color>";
+            return;
+        }
 
         CreateBlankSave();
         PlayerPrefs.SetString("CurrentSave", colonyName.text);
@@ -300,33 +308,15 @@ public class CreateColony : MonoBehaviour
 
     private void CreateBlankSave()
     {
-        SavedManager manager = new SavedManager(0);
-
-        SavedPlayer player = new SavedPlayer(
-            0, new float[3] { colonyColor.r, colonyColor.g, colonyColor.b }, colonyName.text, currentGameSettings
-        );
-
-        SavedUnit[] units = new SavedUnit[2]
-        {
-            new SavedUnit(constructor, new float[3] { -5, 2, -25 } ),
-            new SavedUnit(constructor, new float[3] { 5, 2, -25 } )
-        };
-
-        SavedBuilding[] buildings = new SavedBuilding[1]
-        {
-            new SavedBuilding(home, new float[3] { 0, 0, 0 })
-        };
-
-        SavedConfiguration config = new SavedConfiguration(currentGameSettings);
-
-        SaveSystem.Save(colonyName.text + ".json", new SavedScene("EMPTY", manager, player, config, buildings, units));
+        SaveSystem.Save(colonyName.text + ".json",
+            SaveSystem.BlankSave(currentGameSettings, colonyName.text, constructor, home));
     }
 
     #endregion
 
     private void OnDisable()
     {
-        m_GameSettingsInterface.SetActive(false);
+        gameSettingsInterface.SetActive(false);
         customDifficulty.SetActive(false);
     }
 }

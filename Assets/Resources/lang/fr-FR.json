@@ -45,10 +45,10 @@
         { "key": "01_if_colonyname", "translation": "Entrez le nom de votre colonie... (max 20 charactères)" },
         { "key": "01_btn_start", "translation": "Commencez cette nouvelle colonie" },
         
-        { "key": "01_title_resource", "translation": "Quantité de ressources:" },
+        { "key": "01_title_resource", "translation": "Quantité de ressources :" },
         { "key": "01_btn_title_high", "translation": "Elevé" },
         { "key": "01_btn_title_standard", "translation": "Standard" },
-        { "key": "01_btn_title_defensive", "translation": "Defensif" },
+        { "key": "01_btn_title_defensive", "translation": "Défensif" },
         { "key": "01_btn_title_low", "translation": "Bas" },
         { "key": "01_btn_desc_high", "translation": "Beaucoup de ressources\nBeaucoup de subventions\n-0% de ressources quand détruit" },
         { "key": "01_btn_desc_standard", "translation": "Ressources classiques\nSubventions classiques\n-50% de ressources quand détruit" },
@@ -57,7 +57,7 @@
         { "key": "01_title_seed", "translation": "Graine:" },
         { "key": "01_btn_randomseed", "translation": "Aléatoire" },
         { "key": "01_title_rate", "translation": "Taux d'attaque (probabilité d'attaque toute les 10 heures)" },
-        { "key": "01_title_playernumber", "translation": "Nombre d'ennemies [NOT IMPLEMENTED]" },
+        { "key": "01_title_playernumber", "translation": "Nombre d'ennemies" },
         
         { "key": "01_title_load", "translation": "Allez sur une colonie lunaire" },
         { "key": "01_title_savenameinfo", "translation": "Le nom de votre colonie est utilisé pour la sauvegarde." },

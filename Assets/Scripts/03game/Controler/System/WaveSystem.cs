@@ -121,8 +121,6 @@ public class WaveSystem : MonoBehaviour {
             }
         }
 
-        if (currentArmies.waveEvent.name != "") manager.InstantiateEvent(currentArmies.waveEvent);
-
         manager.Notify(manager.Traduce("03_notif_wave"), priority: 3);
         Debug.Log("  <b>[INFO] Enemy wave successfully spawned!</b>");
         UpdateDateNextWave();
@@ -166,8 +164,6 @@ public class WaveSystem : MonoBehaviour {
             }
         }
 
-        if (currentArmies.waveEvent.name != "") manager.InstantiateEvent(currentArmies.waveEvent);
-
         manager.Notify(manager.Traduce("03_notif_wave"), priority: 3);
         Debug.Log("  <b>[INFO] Enemy wave successfully spawned!</b>");
     }
@@ -206,8 +202,6 @@ public class WaveSystem : MonoBehaviour {
                 if (unitSpawned >= unit.numberOfUnit) break;
             }
         }
-
-        if (currentArmies.waveEvent != null && currentArmies.waveEvent.name != "") manager.InstantiateEvent(currentArmies.waveEvent);
 
         manager.Notify(manager.Traduce("03_notif_wave"), priority: 3);
         Debug.Log("  <b>[INFO] Enemy wave successfully spawned!</b>");

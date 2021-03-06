@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f46a562e-722d-4d3e-b46d-3c8c1633d766" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/lang/en-EN.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/lang/en-EN.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/lang/fr-FR.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/lang/fr-FR.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/01main/LoadAndNewGame/CreateColony.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/01main/LoadAndNewGame/CreateColony.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/AI/Enemy Colony/EnemyColony.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/AI/Enemy Colony/EnemyColony.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/MoonManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/MoonManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/CommandSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/CommandSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/TradingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/TradingSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/WaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/WaveSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Others/Variable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Others/Variable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/System/SaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/System/SaveSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scènes/01main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scènes/01main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scènes/03game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scènes/03game.unity" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/03game/AI/Enemy Colony/EnemyColony.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../Programmation/JSONSaveSystem/src/JSONSaveSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0847A0FA-F944-44CC-BAF1-958021B27F54/3d/955216e8/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/03game/System/JSONSaveSystem/Example.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/03game/System/MapGenerator/EndlessTerrain.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0847A0FA-F944-44CC-BAF1-958021B27F54/08/4d0ed72f/Random.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/MoonManager.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/AI/Enemy Colony/PhysicalPointMotor.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/System/MapGenerator/EndlessTerrain.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/System/MapGenerator/MeshGenerator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Special entity/Buildings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/01main/UI/UIManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/01main/UI/LoadItem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/System/JSONSaveSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/System/JSONSaveSystem/Example.cs" />
+      <option value="$PROJECT_DIR$/../../../Programmation/JSONSaveSystem/src/JSONSaveSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/WaveSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/CommandSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/TradingSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Entity.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/01main/LoadAndNewGame/CreateColony.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Others/Variable.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/AI/Enemy Colony/EnemyColony.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/MoonManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/System/SaveSystem.cs" />
+    </changedPaths>
+  </component>
+  <component name="ProjectId" id="1pByRYkbXmgoMnyKx6oWHIfS3Bt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../01 - Executable/00 - Moon City/00 - Windows/2021-01-18\Moon City.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="D:\Utilisateurs\Documents\Unity Games\01 - Executable\00 - Moon City\00 - Windows\2021-01-18" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f46a562e-722d-4d3e-b46d-3c8c1633d766" name="Default Changelist" comment="" />
+      <created>1614670775268</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614670775268</updated>
+      <workItem from="1614670781352" duration="177000" />
+      <workItem from="1614679362454" duration="802000" />
+      <workItem from="1614969194179" duration="5376000" />
+      <workItem from="1615051794614" duration="4339000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

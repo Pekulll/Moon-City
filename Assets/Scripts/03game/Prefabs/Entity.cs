@@ -103,10 +103,10 @@ public class Entity : MonoBehaviour
             }
 
             // remove this when the enemies should be saved
-            if (tagIdentifier._tags.Contains(Tag.Saved))
+            /*if (tagIdentifier._tags.Contains(Tag.Saved))
             {
                 tagIdentifier._tags.Remove(Tag.Saved);
-            }
+            }*/
         }
     }
 

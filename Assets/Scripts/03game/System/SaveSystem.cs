@@ -4,9 +4,17 @@ using UnityEngine;
 
 public static class SaveSystem
 {
-    public static bool Save(string filename = "FILE.json", SavedScene obj = null, string filepath = "/Saves")
+    public static bool Save<T>(string filename, T obj, string filepath = "/Saves")
     {
-        if (filename == "" || obj == null) return false;
+        if (filename == "") {
+            throw new System.Exception("Cannot save a file without a name!");
+        } else if (obj == null) {
+            throw new System.Exception("Cannot save \"null\"!");
+        } else if (!obj.GetType().IsSerializable)
+        {
+            throw new System.Exception(
+                $"Cannot serialize non-serializable object. Please add \"[System.Serializable]\" before the signature of your class {obj.GetType()}");
+        }
 
         if (!Directory.Exists(Application.persistentDataPath + filepath))
         {
@@ -20,13 +28,12 @@ public static class SaveSystem
         return true;
     }
 
-    public static SavedScene LoadSave(string filename = "FILE.json", string filepath = "/Saves")
+    public static T Load<T>(string filename, string filepath = "/Saves")
     {
         if (!Directory.Exists(Application.persistentDataPath + filepath))
         {
             Directory.CreateDirectory(Application.persistentDataPath + filepath);
-            Debug.Log("<color=#FFB100>[WARN:SaveSystem] The directory " + Application.persistentDataPath + filepath + " doesn't exist !</color>");
-            return null;
+            throw new System.Exception($"The directory {Application.persistentDataPath + filepath} doesn't exist !");
         }
 
         string path = Application.persistentDataPath + filepath + "/" + filename;
@@ -34,39 +41,13 @@ public static class SaveSystem
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            SavedScene data = JsonUtility.FromJson<SavedScene>(json);
+            T data = JsonUtility.FromJson<T>(json);
 
             return data;
         }
         else
         {
-            Debug.Log("<color=#FFB100>[WARN:SaveSystem] The file at: " + path + ", doesn't exist !</color>");
-            return null;
-        }
-    }
-
-    public static Object LoadSettings(string filename = "FILE.json", string filepath = "/Saves")
-    {
-        if (!Directory.Exists(Application.persistentDataPath + filepath))
-        {
-            Directory.CreateDirectory(Application.persistentDataPath + filepath);
-            Debug.Log("<color=#FFB100>[WARN:SaveSystem] The directory " + Application.persistentDataPath + filepath + " doesn't exist !</color>");
-            return null;
-        }
-
-        string path = Application.persistentDataPath + filepath + "/" + filename;
-
-        if (File.Exists(path))
-        {
-            string json = File.ReadAllText(path);
-            Object data = null;
-
-            return data;
-        }
-        else
-        {
-            Debug.Log("<color=#FFB100>[WARN:SaveSystem] The file at: " + path + ", doesn't exist !</color>");
-            return null;
+            throw new System.Exception($"The file at: {path}, doesn't exist !");
         }
     }
 
@@ -110,6 +91,51 @@ public static class SaveSystem
 
         return files.ToArray();
     }
+
+    public static SavedScene BlankSave(GameSettings configuration, string name, Units startingUnit, Building startingBuilding)
+    {
+        SavedManager manager = new SavedManager(0);
+
+        SavedPlayer player = new SavedPlayer(
+            0, new float[3]
+            {
+                configuration.colonyColor.r,
+                configuration.colonyColor.g,
+                configuration.colonyColor.b
+            },
+            name,
+            configuration
+        );
+
+        SavedUnit[] units = new SavedUnit[2 * (1 + configuration.gameDifficulty.enemiesCount)];
+        units[0] = new SavedUnit(startingUnit, new float[3] {-5, 2, -25}, 0);
+        units[1] = new SavedUnit(startingUnit, new float[3] {5, 2, -25}, 0);
+
+        SavedBuilding[] buildings = new SavedBuilding[1 + configuration.gameDifficulty.enemiesCount];
+        buildings[0] = new SavedBuilding(startingBuilding, new float[3] {0, 0, 0}, 0);
+        
+        Dictionary<int, float[]> startignPositions = new Dictionary<int, float[]>();
+        startignPositions.Add(1, new float[2] {-250, 250});
+        startignPositions.Add(2, new float[2] {250, 250});
+        startignPositions.Add(3, new float[2] {-250, -250});
+        startignPositions.Add(4, new float[2] {250, -250});
+        startignPositions.Add(5, new float[2] {0, 250});
+        startignPositions.Add(6, new float[2] {250, 0});
+        startignPositions.Add(7, new float[2] {0, -250});
+        startignPositions.Add(8, new float[2] {-250, 0});
+
+        for (int i = 1; i < buildings.Length; i++)
+        {
+            buildings[i] = new SavedBuilding(startingBuilding, new float[3] {startignPositions[i][0], 0, startignPositions[i][1]}, i);
+            units[i * 2] = new SavedUnit(startingUnit, new float[3] { startignPositions[i][0] + 5, 2, startignPositions[i][1] - 25 }, i );
+            units[i * 2 + 1] = new SavedUnit(startingUnit, new float[3] { startignPositions[i][0] - 5, 2, startignPositions[i][1] - 25 }, i );
+        }
+
+        SavedConfiguration config = new SavedConfiguration(configuration);
+        SavedStockMarket market = new SavedStockMarket();
+
+        return new SavedScene("EMPTY", manager, player, config, buildings, units);
+    }
 }
 
 [System.Serializable]
@@ -146,6 +172,7 @@ public class SavedScene
 
         this.buildings = buildings;
         this.units = units;
+        this.stockMarket = new SavedStockMarket();
     }
 
     //Use for save an already created game
@@ -492,12 +519,13 @@ public class SavedBuilding: SavedEntity
     public bool isFactory;
     public SavedTrainingArea factory;
 
-    public SavedBuilding(Building building, float[] position)
+    public SavedBuilding(Building building, float[] position, int side)
     {
         health = building.maxHealth;
         shield = building.maxShield;
         energy = building.maxEnergy;
 
+        this.side = side;
         id = building.identity;
 
         this.position = position;
@@ -583,12 +611,13 @@ public class SavedUnit: SavedEntity
 
     public List<Order> orders;
 
-    public SavedUnit(Units unit, float[] position)
+    public SavedUnit(Units unit, float[] position, int side)
     {
         health = unit.health;
         shield = unit.shield;
         energy = unit.energy;
 
+        this.side = side;
         id = unit.identity;
         agressivity = unit.baseAgressivity;
 

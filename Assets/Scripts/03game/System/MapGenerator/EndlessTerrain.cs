@@ -152,54 +152,46 @@ public class EndlessTerrain : MonoBehaviour
             if (!mapDataReceived) return;
 
             float viewerDistanceFromNearestEdge = Mathf.Sqrt(bounds.SqrDistance(player.position));
-            bool visible = viewerDistanceFromNearestEdge <= maxViewDst;
-            visible = true;
+            int lodIndex = 0;
 
-            if (visible)
+            for (int i = 0; i < detailsLevels.Length - 1; i++)
             {
-                int lodIndex = 0;
-
-                for (int i = 0; i < detailsLevels.Length - 1; i++)
+                if(viewerDistanceFromNearestEdge > detailsLevels[i].visibleDstThreshold)
                 {
-                    if(viewerDistanceFromNearestEdge > detailsLevels[i].visibleDstThreshold)
+                    lodIndex = i + 1;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            if(lodIndex != previousLODIndex)
+            {
+                LODMesh lodMesh = lodMeshes[lodIndex];
+
+                if (lodMesh.hasMesh)
+                {
+                    previousLODIndex = lodIndex;
+                    meshFilter.mesh = lodMesh.mesh;
+
+                    if((position.x + mapSize > realMapSize.x + mapSize || position.x - mapSize < -realMapSize.x - mapSize) || (position.y + mapSize > realMapSize.y + mapSize || position.y - mapSize < -realMapSize.y - mapSize))
                     {
-                        lodIndex = i + 1;
+                        Destroy(meshCollider);
                     }
                     else
                     {
-                        break;
+                        meshCollider.sharedMesh = lodMesh.mesh;
                     }
                 }
-
-                if(lodIndex != previousLODIndex)
+                else if(!lodMesh.hasRequestedMesh)
                 {
-                    LODMesh lodMesh = lodMeshes[lodIndex];
-
-                    if (lodMesh.hasMesh)
-                    {
-                        previousLODIndex = lodIndex;
-                        meshFilter.mesh = lodMesh.mesh;
-
-                        if((position.x + mapSize > realMapSize.x + mapSize || position.x - mapSize < -realMapSize.x - mapSize) || (position.y + mapSize > realMapSize.y + mapSize || position.y - mapSize < -realMapSize.y - mapSize))
-                        {
-                            Destroy(meshCollider);
-                            //Debug.Log("[INFO:EndlessTerrain] Chunk's " + position + " physics disabled.");
-                        }
-                        else
-                        {
-                            meshCollider.sharedMesh = lodMesh.mesh;
-                        }
-                    }
-                    else if(!lodMesh.hasRequestedMesh)
-                    {
-                        lodMesh.RequestMesh(mapData);
-                    }
+                    lodMesh.RequestMesh(mapData);
                 }
-
-                terrainChunkVisibleLastUpdate.Add(this);
             }
 
-            SetVisible(visible, false);
+            terrainChunkVisibleLastUpdate.Add(this);
+            SetVisible(true, false);
         }
 
         public void SetVisible(bool visible, bool hideChunk, bool disableChunk = false)
@@ -210,7 +202,11 @@ public class EndlessTerrain : MonoBehaviour
             }
             else if(hideChunk)
             {
-                meshObject.SetActive(visible);
+                try
+                {
+                    meshObject.SetActive(visible);
+                }
+                catch {}
             }
         }
 
@@ -257,26 +253,5 @@ public class EndlessTerrain : MonoBehaviour
     {
         public int lod;
         public float visibleDstThreshold;
-    }
-}
-
-[System.Serializable]
-public class HeightPoint
-{
-    public Vector3 m_position;
-    
-    public HeightPoint(Vector3 position)
-    {
-        m_position = position;
-    }
-
-    public float GetHeight()
-    {
-        return m_position.y;
-    }
-
-    public bool CheckPosition(Vector2 postion)
-    {
-        return postion.x == m_position.x && postion.y == m_position.z;
     }
 }

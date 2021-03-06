@@ -72,17 +72,18 @@ public class EnemyColony : ColonyStats
     {
         if (disableEnemy) return;
 
-        Initialize();
+        Initialize(Random.Range(0, 2));
         StartCoroutine(MainLoop());
     }
 
     #region Initialization
 
-    public void Initialize()
+    public void Initialize(int startegy)
     {
         if (isInitialize || disableEnemy) return;
         isInitialize = true;
 
+        this.strategy = strategy;
         currentProfile = GetProfile();
         criticalityScale = currentProfile.criticalityScale;
 
@@ -92,7 +93,6 @@ public class EnemyColony : ColonyStats
         delay = new WaitForSeconds(1 / actionPerSeconds);
 
         CreatePhysicalPointer();
-        buildNbr++; // remove that when enemy buildings will be comptabilized
     }
 
     private Profile GetProfile()
@@ -144,17 +144,17 @@ public class EnemyColony : ColonyStats
         {
             if (unitNbr / buildNbr < currentProfile.unitRatio)
             {
-                Debug.Log("[INFO:EnemyColony] Creating unit...");
+                //Debug.Log("[INFO:EnemyColony] Creating unit...");
                 return CreateUnit();
             }
             else if ((defenseNbr + 1) / buildNbr < currentProfile.defenseRatio)
             {
-                Debug.Log("[INFO:EnemyColony] Creating defense...");
+                //Debug.Log("[INFO:EnemyColony] Creating defense...");
                 return Construct(new int[3] { 34, 15, 33 });
             }
             else
             {
-                Debug.Log("[INFO:EnemyColony] Creating building...");
+                //Debug.Log("[INFO:EnemyColony] Creating building...");
                 return Construct(new int[1] { currentProfile.priority });
             }
         }
@@ -166,7 +166,7 @@ public class EnemyColony : ColonyStats
 
     #region Construction
 
-    public bool ConstructToSurvive()
+    private bool ConstructToSurvive()
     {
         List<int> resourceNeeded = ResourceNeeded();
 
@@ -241,7 +241,7 @@ public class EnemyColony : ColonyStats
                 previewNbr++;
 
                 RemoveRessources(0, current.money, current.regolith, current.bioPlastique, current.food);
-                Debug.Log("[INFO:EnemyColony] Building placed! (" + id + ")");
+                //Debug.Log("[INFO:EnemyColony] Building placed! (" + id + ")");
                 return true;
             }
             else
@@ -479,7 +479,7 @@ public class EnemyColony : ColonyStats
 
     public void AddOutput(int _energy, int _money, float _regolith, float _bioplastic, float _food, float _research)
     {
-        Debug.Log("[INFO:MoonManager] Adding output...");
+        //Debug.Log("[INFO:MoonManager] Adding output...");
 
         if (_energy > 0) energyGain += Mathf.Abs(_energy);
         else energyLoss += Mathf.Abs(_energy);
@@ -612,11 +612,12 @@ public class EnemyColony : ColonyStats
     {
         if (entity.entityType == EntityType.Building)
         {
-            AddBuilding(entity.GetComponent<Buildings>());
+            //AddBuilding(entity.GetComponent<Buildings>());
+            AddBuilding((Buildings)entity);
         }
         else if (entity.entityType == EntityType.Preview)
         {
-            AnticipateRessources(buildData[entity.GetComponent<Preview>().id].energy);
+            AnticipateRessources(buildData[entity.id].energy);
             previewNbr++;
         }
         else if (entity.entityType == EntityType.Unit)
@@ -631,11 +632,12 @@ public class EnemyColony : ColonyStats
         if (entity.entityType == EntityType.Building)
         {
             RemoveBuilding(entity.GetComponent<Buildings>());
+            RemoveBuilding((Buildings)entity);
         }
         else if (entity.entityType == EntityType.Preview)
         {
             previewNbr--;
-            RemoveAnticipateRessources(buildData[entity.GetComponent<Preview>().id].energy);
+            RemoveAnticipateRessources(buildData[entity.id].energy);
         }
         else if (entity.entityType == EntityType.Unit)
         {
