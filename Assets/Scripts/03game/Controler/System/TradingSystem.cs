@@ -84,8 +84,8 @@ public class TradingSystem : MonoBehaviour
         {
             if (manager.HaveEnoughResource(0, 0, 0, amount, 0, 0))
             {
-                manager.RemoveRessources(0, 0, amount, 0, 0);
-                manager.AddRessources(0, (int)(market.regolithValue * amount), 0, 0, 0);
+                manager.RemoveResources(0, 0, amount, 0, 0, 0);
+                manager.AddResources(0, (int)(market.regolithValue * amount), 0, 0, 0, 0);
                 market.FluctuateRegolithValue(-1f);
                 manager.colonyStats.regolithSold += amount;
             }
@@ -94,8 +94,8 @@ public class TradingSystem : MonoBehaviour
         {
             if (manager.HaveEnoughResource(0, 0, (int)(market.regolithValue * amount), 0, 0, 0))
             {
-                manager.AddRessources(0, 0, amount, 0, 0);
-                manager.RemoveRessources(0, (int)(market.regolithValue * amount), 0, 0, 0);
+                manager.AddResources(0, 0, amount, 0, 0, 0);
+                manager.RemoveResources(0, (int)(market.regolithValue * amount), 0, 0, 0, 0);
                 market.FluctuateRegolithValue(1f);
                 manager.colonyStats.regolithBought += amount;
             }
@@ -108,20 +108,20 @@ public class TradingSystem : MonoBehaviour
         {
             if (manager.HaveEnoughResource(0, 0, 0, 0, amount, 0))
             {
-                manager.RemoveRessources(0, 0, 0, amount, 0);
-                manager.AddRessources(0, (int)(market.bioplasticValue * amount), 0, 0, 0);
+                manager.RemoveResources(0, 0, 0, 0, amount, 0);
+                manager.AddResources(0, (int)(market.bioplasticValue * amount), 0, 0, 0, 0);
                 market.FluctuateBioplasticValue(-1f);
-                manager.colonyStats.bioplasticSold += amount;
+                manager.colonyStats.polymerSold += amount;
             }
         }
         else
         {
             if (manager.HaveEnoughResource(0, 0, (int)(market.bioplasticValue * amount), 0, 0, 0))
             {
-                manager.AddRessources(0, 0, 0, amount, 0);
-                manager.RemoveRessources(0, (int)(market.bioplasticValue * amount), 0, 0, 0);
+                manager.AddResources(0, 0, 0, 0, amount, 0);
+                manager.RemoveResources(0, (int)(market.bioplasticValue * amount), 0, 0, 0, 0);
                 market.FluctuateBioplasticValue(1f);
-                manager.colonyStats.bioplasticBought += amount;
+                manager.colonyStats.polymerBought += amount;
             }
         }
     }
@@ -132,8 +132,8 @@ public class TradingSystem : MonoBehaviour
         {
             if (manager.HaveEnoughResource(0, 0, 0, 0, 0, amount))
             {
-                manager.RemoveRessources(0, 0, 0, 0, amount);
-                manager.AddRessources(0, (int)(market.foodValue * amount), 0, 0, 0);
+                manager.RemoveResources(0, 0, 0, 0, 0, amount);
+                manager.AddResources(0, (int)(market.foodValue * amount), 0, 0, 0, 0);
                 market.FluctuateFoodValue(-1f);
                 manager.colonyStats.foodSold += amount;
             }
@@ -142,8 +142,8 @@ public class TradingSystem : MonoBehaviour
         {
             if(manager.HaveEnoughResource(0, 0, (int)(market.foodValue * amount), 0, 0, 0))
             {
-                manager.AddRessources(0, 0, 0, 0, amount);
-                manager.RemoveRessources(0, (int)(market.foodValue * amount), 0, 0, 0);
+                manager.AddResources(0, 0, 0, 0, 0, amount);
+                manager.RemoveResources(0, (int)(market.foodValue * amount), 0, 0, 0, 0);
                 market.FluctuateFoodValue(1f);
                 manager.colonyStats.foodBought += amount;
             }

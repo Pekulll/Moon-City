@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 716e9478dd878344cafd267eb7a51ea3, type: 3}
-  m_Name: '[016] Biofactory'
+  m_Name: '[016] Polymer factory'
   m_EditorClassIdentifier: 
   identity: 16
   icon: {fileID: 21300000, guid: 3e53c60bea6d7f240a8cbc5ccb1f8bf8, type: 3}
@@ -25,17 +25,20 @@ MonoBehaviour:
   energy: -7
   money: 90
   regolith: 27
-  bioPlastique: 0
+  metal: 0
+  polymer: 0
   food: 0
   profit: -11
   maxColonist: 0
   rigolyteOutput: 0
-  bioPlastiqueOutput: 7
+  polymerOutput: 7
+  metalOutput: 0
   foodOutput: -2
   research: 0
   energyStorage: 0
   rigolyteStock: 0
-  bioPlasticStock: 0
+  metalStock: 0
+  polymerStock: 0
   foodStock: 0
   preview: {fileID: 324386027259663310, guid: 0ce1a74f99b7b2148aa4897b25a989ab, type: 3}
   building: {fileID: 1387273332859912524, guid: 9d846de1ec97a1749ad2c966de583e3d,

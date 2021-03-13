@@ -30267,7 +30267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a13565e9534b20641947dd63370b64bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: 03_ui_top_bioplastic
+  title: 03_ui_top_polymer
   info: 03_ui_top_available
   adaptativeSize: 0
   size: {x: 130, y: 78}

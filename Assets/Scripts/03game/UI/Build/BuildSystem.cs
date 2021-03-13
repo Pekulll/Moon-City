@@ -13,7 +13,7 @@ public class BuildSystem : MonoBehaviour
 
     [SerializeField] private Building[] buildings;
 
-    private Text colDetails, enerDetails, monDetails, rigDetails, bioDetails, foodDetails;
+    private Text colDetails, enerDetails, monDetails, rigDetails, metDetails, polDetails, foodDetails;
     private Text categoryName;
     private GameObject techBuild;
 
@@ -35,7 +35,8 @@ public class BuildSystem : MonoBehaviour
         enerDetails = GameObject.Find("EnergyTextDetail").GetComponent<Text>();
         monDetails = GameObject.Find("MoneyTextDetail").GetComponent<Text>();
         rigDetails = GameObject.Find("RigolyteTextDetail").GetComponent<Text>();
-        bioDetails = GameObject.Find("BioPlastiqueTextDetail").GetComponent<Text>();
+        metDetails = GameObject.Find("MetalTextDetail").GetComponent<Text>();
+        polDetails = GameObject.Find("BioPlastiqueTextDetail").GetComponent<Text>();
         foodDetails = GameObject.Find("FoodTextDetail").GetComponent<Text>();
         categoryName = GameObject.Find("T_CategoryName").GetComponent<Text>();
 
@@ -92,7 +93,8 @@ public class BuildSystem : MonoBehaviour
             images.Add(current);
             curBuilds.Add(current.gameObject);
 
-            current.GetComponent<BuildListItem>().OnInstantiate(cur, buildingDetail, colDetails, enerDetails, monDetails, rigDetails, bioDetails, foodDetails, techBuild, this);
+            current.GetComponent<BuildListItem>().OnInstantiate(cur, buildingDetail, colDetails, enerDetails,
+                monDetails, rigDetails, metDetails,polDetails, foodDetails, techBuild, this);
 
             i++;
         }

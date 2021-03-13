@@ -180,6 +180,7 @@
               <e p="TurretMotor.cs" t="Include" />
             </e>
             <e p="System" t="Include">
+              <e p="Extensions.cs" t="Include" />
               <e p="JSONSaveSystem" t="Include">
                 <e p="Example.cs" t="Include" />
                 <e p="JSONSaveSystem.cs" t="Include" />

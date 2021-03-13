@@ -139,9 +139,9 @@ public class CommandSystem : MonoBehaviour
         }
         else if (command.StartsWith("loot"))
         {
-            manager.AddRessources(99999, 99999, 99999, 99999, 99999);
-            manager.AddOutput(999, 999, 999, 999, 999, 999);
-            manager.ManageStorage(99999, 99999, 99999, 99999);
+            manager.AddResources(99999, 99999, 99999, 99999, 99999, 99999);
+            manager.AddOutput(999, 999, 999, 999, 999, 999, 999);
+            manager.ManageStorage(99999, 99999, 99999, 99999, 99999);
 
             if (!showLog) return;
         }

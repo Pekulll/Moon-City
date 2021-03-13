@@ -475,19 +475,19 @@ public class SavedColony
         colonyName = playerColony.colony.name;
         side = playerColony.colony.side;
 
-        colonist = playerColony.colonist;
+        colonist = playerColony.workers;
         money = playerColony.money;
         energy = playerColony.energy;
         regolith = playerColony.regolith;
-        bioplastic = playerColony.bioPlastique;
+        bioplastic = playerColony.polymer;
         food = playerColony.food;
 
         regolithSold = playerColony.regolithSold;
-        bioplasticSold = playerColony.bioplasticSold;
+        bioplasticSold = playerColony.polymerSold;
         foodSold = playerColony.foodSold;
 
         regolithBought = playerColony.regolithBought;
-        bioplasticBought = playerColony.bioplasticBought;
+        bioplasticBought = playerColony.polymerBought;
         foodBought = playerColony.foodBought;
     }
 }

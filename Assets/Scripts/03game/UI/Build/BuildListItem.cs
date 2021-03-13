@@ -7,8 +7,8 @@ public class BuildListItem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
 {
     private GameObject techBuild, ressources;
 
-    private Text colonyDetails, energyDetails, moneyDetails, regolythDetails, bioplasticDetails, foodDetails, buildName;
-    private Image colonyBackground, energyBackground, moneyBackground, regolythBackground, bioplasticBackground, foodBackground;
+    private Text colonyDetails, energyDetails, moneyDetails, regolythDetails, metalDetails, polymerDetails, foodDetails, buildName;
+    private Image colonyBackground, energyBackground, moneyBackground, regolythBackground, metalBackground, polymerBackground, foodBackground;
 
     private Image iconImg;
     private Image buttonImg;
@@ -25,7 +25,7 @@ public class BuildListItem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
 
     #region Initialization
 
-    public void OnInstantiate(Building _currentBuild, GameObject ressources, Text colony, Text energy, Text money, Text regolyth, Text bioplastic, Text food, GameObject _techBuild, BuildSystem buildSystem)
+    public void OnInstantiate(Building _currentBuild, GameObject ressources, Text colony, Text energy, Text money, Text regolyth, Text metal, Text polymer, Text food, GameObject _techBuild, BuildSystem buildSystem)
     {
         currentBuild = _currentBuild;
         this.ressources = ressources;
@@ -34,7 +34,8 @@ public class BuildListItem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
         energyDetails = energy;
         moneyDetails = money;
         regolythDetails = regolyth;
-        bioplasticDetails = bioplastic;
+        metalDetails = metal;
+        polymerDetails = polymer;
         foodDetails = food;
         techBuild = _techBuild;
 
@@ -42,7 +43,8 @@ public class BuildListItem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
         energyBackground = energyDetails.transform.parent.GetComponent<Image>();
         moneyBackground = moneyDetails.transform.parent.GetComponent<Image>();
         regolythBackground = regolythDetails.transform.parent.GetComponent<Image>();
-        bioplasticBackground = bioplasticDetails.transform.parent.GetComponent<Image>();
+        metalBackground = metalDetails.transform.parent.GetComponent<Image>();
+        polymerBackground = polymerDetails.transform.parent.GetComponent<Image>();
         foodBackground = foodDetails.transform.parent.GetComponent<Image>();
 
         this.buildSystem = buildSystem;
@@ -99,12 +101,13 @@ public class BuildListItem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
 
     private void UpdateDetailTexts()
     {
-        colonyDetails.text = currentBuild.colonist + " / " + currentBuild.maxColonist;
-        energyDetails.text = currentBuild.energy + " (" + currentBuild.energyStorage + ")";
-        moneyDetails.text = currentBuild.money + " (" + currentBuild.profit + ")";
-        regolythDetails.text = currentBuild.regolith + " (" + currentBuild.rigolyteOutput + ")";
-        bioplasticDetails.text = currentBuild.bioPlastique + " (" + currentBuild.bioPlastiqueOutput + ")";
-        foodDetails.text = currentBuild.food + " (" + currentBuild.foodOutput + ")";
+        colonyDetails.text = currentBuild.colonist + " / " + currentBuild.maxColonist.SignedString();
+        energyDetails.text = currentBuild.energy + " (" + currentBuild.energyStorage.SignedString() + ")";
+        moneyDetails.text = currentBuild.money + " (" + currentBuild.profit.SignedString() + ")";
+        regolythDetails.text = currentBuild.regolith + " (" + currentBuild.rigolyteOutput.SignedString() + ")";
+        metalDetails.text = currentBuild.metal + " (" + currentBuild.metalOutput.SignedString() + ")";
+        polymerDetails.text = currentBuild.polymer + " (" + currentBuild.polymerOutput.SignedString() + ")";
+        foodDetails.text = currentBuild.food + " (" + currentBuild.foodOutput.SignedString() + ")";
     }
 
     private bool HaveTechnologies()
@@ -122,18 +125,19 @@ public class BuildListItem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
 
     private void UpdateDetails()
     {
-        List<int> ints = man.HaveRessources(currentBuild.colonist, currentBuild.energy, currentBuild.money, currentBuild.regolith, currentBuild.bioPlastique, currentBuild.food);
+        List<int> ints = man.HaveResources(currentBuild.colonist, currentBuild.energy, currentBuild.money, currentBuild.regolith, currentBuild.metal, currentBuild.polymer, currentBuild.food);
 
         if (ints.Count != 0)
         {
             bool isInteractable = true;
 
-            if (ints.Contains(0) && currentBuild.colonist != 0) { colonyBackground.color = notBuildable; isInteractable = false; }
-            if (ints.Contains(1) && currentBuild.energy != 0) { energyBackground.color = notBuildable; isInteractable = false; }
-            if (ints.Contains(2) && currentBuild.money != 0) { moneyBackground.color = notBuildable; isInteractable = false; }
-            if (ints.Contains(3) && currentBuild.regolith != 0) { regolythBackground.color = notBuildable; isInteractable = false; }
-            if (ints.Contains(4) && currentBuild.bioPlastique != 0) { bioplasticBackground.color = notBuildable; isInteractable = false; }
-            if (ints.Contains(5) && currentBuild.food != 0) { foodBackground.color = notBuildable; isInteractable = false; }
+            if (ints.Contains(0)) { colonyBackground.color = notBuildable; isInteractable = false; }
+            if (ints.Contains(1)) { energyBackground.color = notBuildable; isInteractable = false; }
+            if (ints.Contains(2)) { moneyBackground.color = notBuildable; isInteractable = false; }
+            if (ints.Contains(3)) { regolythBackground.color = notBuildable; isInteractable = false; }
+            if (ints.Contains(3)) { metalBackground.color = notBuildable; isInteractable = false; }
+            if (ints.Contains(4)) { polymerBackground.color = notBuildable; isInteractable = false; }
+            if (ints.Contains(5)) { foodBackground.color = notBuildable; isInteractable = false; }
 
             if (isInteractable) buttonImg.color = classic;
             else buttonImg.color = notBuildable;
@@ -152,7 +156,7 @@ public class BuildListItem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
         energyBackground.color = classic;
         moneyBackground.color = classic;
         regolythBackground.color = classic;
-        bioplasticBackground.color = classic;
+        polymerBackground.color = classic;
         foodBackground.color = classic;
 
         buttonImg.color = classic;

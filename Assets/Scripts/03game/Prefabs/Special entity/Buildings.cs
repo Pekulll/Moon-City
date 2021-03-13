@@ -82,7 +82,7 @@ public class Buildings : Entity
 
         if (!isEnable)
         {
-            List<int> ints = manager.HaveRessources(id);
+            List<int> ints = manager.HaveResources(id);
 
             if (ints.Contains(0))
             {
@@ -131,14 +131,15 @@ public class Buildings : Entity
             {
                 manager.AddOutput(
                     building.energy, building.profit,
-                    building.rigolyteOutput, building.bioPlastiqueOutput, building.foodOutput,
+                    building.rigolyteOutput, building.metal,
+                    building.polymerOutput, building.foodOutput,
                     building.research
                 );
 
                 manager.AddSettlers(building.colonist, building.maxColonist);
 
                 manager.ManageStorage(
-                    building.energyStorage, building.rigolyteStock, building.bioPlasticStock, building.foodStock
+                    building.energyStorage, building.rigolyteStock, building.metalStock, building.polymerStock, building.foodStock
                 );
 
                 haveOutput = true;
@@ -154,14 +155,15 @@ public class Buildings : Entity
             {
                 manager.RemoveOutput(
                     building.energy, building.profit,
-                    building.rigolyteOutput, building.bioPlastiqueOutput, building.foodOutput,
+                    building.rigolyteOutput, building.metal,
+                    building.polymerOutput, building.foodOutput,
                     building.research
                 );
 
                 manager.RemoveSettlers(building.colonist, building.maxColonist);
 
                 manager.ManageStorage(
-                    -building.energyStorage, -building.rigolyteStock, -building.bioPlasticStock, -building.foodStock
+                    -building.energyStorage, -building.rigolyteStock, -building.metalStock, -building.polymerStock, -building.foodStock
                 );
 
                 haveOutput = false;
@@ -185,8 +187,8 @@ public class Buildings : Entity
         {
             float percentage = 0.5f;
 
-            manager.AddRessources(0, (int)(building.money * percentage), (int)(building.regolith * percentage), (int)(building.bioPlastique * percentage), (int)(building.food * percentage));
-            manager.RemoveSettlers(building.colonist, 0);
+            manager.AddResources(0, (int)(building.money * percentage), (int)(building.regolith * percentage), (int)(building.metal * percentage), (int)(building.polymer * percentage), (int)(building.food * percentage));
+            manager.RemoveSettlers(building.colonist, building.maxColonist);
         }
     }
 

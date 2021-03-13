@@ -23,19 +23,26 @@ public class Building : ScriptableObject
     public int colonist;
     public int energy;
     public int money;
-    [FormerlySerializedAs("rigolyte")] public float regolith;
-    public float bioPlastique;
+    public float regolith;
+    public float metal;
+    public float polymer;
     public float food;
 
     [Header("Output")]
     public int profit;
     public int maxColonist;
-    public float rigolyteOutput, bioPlastiqueOutput, foodOutput, research;
+    public float rigolyteOutput;
+    [FormerlySerializedAs("bioPlastiqueOutput")] public float polymerOutput;
+    public float metalOutput;
+    public float foodOutput;
+    public float research;
 
     [Header("Storage")]
     public int energyStorage;
     public float rigolyteStock;
-    public float bioPlasticStock, foodStock;
+    public float metalStock;
+    [FormerlySerializedAs("bioPlasticStock")] public float polymerStock;
+    public float foodStock;
 
     [Header("GameObjects")]
     public GameObject preview;

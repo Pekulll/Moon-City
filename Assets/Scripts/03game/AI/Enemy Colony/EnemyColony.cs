@@ -240,7 +240,7 @@ public class EnemyColony : ColonyStats
                 influenceRadius++;
                 previewNbr++;
 
-                RemoveRessources(0, current.money, current.regolith, current.bioPlastique, current.food);
+                RemoveRessources(0, current.money, current.regolith, current.polymer, current.food);
                 //Debug.Log("[INFO:EnemyColony] Building placed! (" + id + ")");
                 return true;
             }
@@ -438,11 +438,11 @@ public class EnemyColony : ColonyStats
     {
         List<int> resourceNeeded = new List<int>();
 
-        if (maxColonist - (colonist + pre_colonist) <= 0) resourceNeeded.Add(0);
+        if (maxColonist - (workers + pre_colonist) <= 0) resourceNeeded.Add(0);
         if (energyOutput + anticipatedEnergy <= 0) resourceNeeded.Add(1);
         if (profit + pre_profit <= 0) resourceNeeded.Add(2);
         if (regolithOutput + pre_regolith <= 0) resourceNeeded.Add(3);
-        if (bioPlastiqueOutput + pre_bioplastic <= 0) resourceNeeded.Add(4);
+        if (polymerOutput + pre_bioplastic <= 0) resourceNeeded.Add(4);
         if (foodOutput + pre_food <= 0) resourceNeeded.Add(5);
 
         return resourceNeeded;
@@ -452,11 +452,11 @@ public class EnemyColony : ColonyStats
     {
         List<int> resourceNeeded = new List<int>();
 
-        if (colonist + pre_colonist + b.colonist > maxColonist && b.colonist > 0) resourceNeeded.Add(0);
+        if (workers + pre_colonist + b.colonist > maxColonist && b.colonist > 0) resourceNeeded.Add(0);
         if (energyOutput + anticipatedEnergy + b.energy < 0 && b.energy < 0) resourceNeeded.Add(1);
         if (money < b.money && b.money > 0) resourceNeeded.Add(2);
         if (regolith < b.regolith && b.regolith > 0) resourceNeeded.Add(3);
-        if (bioPlastique < b.bioPlastique && b.bioPlastique > 0) resourceNeeded.Add(4);
+        if (polymer < b.polymer && b.polymer > 0) resourceNeeded.Add(4);
         if (food < b.food && b.food > 0) resourceNeeded.Add(5);
 
         return resourceNeeded;
@@ -466,7 +466,7 @@ public class EnemyColony : ColonyStats
     {
         List<int> resourceNeeded = new List<int>();
 
-        if (colonist + pre_colonist + u.place > maxColonist && u.place > 0) resourceNeeded.Add(0);
+        if (workers + pre_colonist + u.place > maxColonist && u.place > 0) resourceNeeded.Add(0);
         if (profit + pre_profit < u.money && u.money > 0) resourceNeeded.Add(2);
         if (foodOutput + pre_food < u.food && u.food > 0) resourceNeeded.Add(5);
 
@@ -490,8 +490,8 @@ public class EnemyColony : ColonyStats
         if (_regolith > 0) regolithGain += Mathf.Abs(_regolith);
         else regolithLoss += Mathf.Abs(_regolith);
 
-        if (_bioplastic > 0) bioPlastiqueGain += Mathf.Abs(_bioplastic);
-        else bioPlastiqueLoss += Mathf.Abs(_bioplastic);
+        if (_bioplastic > 0) polymerGain += Mathf.Abs(_bioplastic);
+        else polymerLoss += Mathf.Abs(_bioplastic);
 
         if (_food > 0) foodGain += Mathf.Abs(_food);
         else foodLoss += Mathf.Abs(_food);
@@ -511,8 +511,8 @@ public class EnemyColony : ColonyStats
         if (_regolith > 0) regolithGain -= Mathf.Abs(_regolith);
         else regolithLoss -= Mathf.Abs(_regolith);
 
-        if (_bioplastic > 0) bioPlastiqueGain -= Mathf.Abs(_bioplastic);
-        else bioPlastiqueLoss -= Mathf.Abs(_bioplastic);
+        if (_bioplastic > 0) polymerGain -= Mathf.Abs(_bioplastic);
+        else polymerLoss -= Mathf.Abs(_bioplastic);
 
         if (_food > 0) foodGain -= Mathf.Abs(_food);
         else foodLoss -= Mathf.Abs(_food);
@@ -530,7 +530,7 @@ public class EnemyColony : ColonyStats
         energy += _energy;
         money += _money;
         regolith += _regolith;
-        bioPlastique += _bioplastic;
+        polymer += _bioplastic;
         food += _food;
     }
 
@@ -539,19 +539,19 @@ public class EnemyColony : ColonyStats
         energy -= _energy;
         money -= _money;
         regolith -= _regolith;
-        bioPlastique -= _bioplastic;
+        polymer -= _bioplastic;
         food -= _food;
     }
 
     public void AddSettlers(int _workers, int _colonist)
     {
-        colonist += _workers;
+        workers += _workers;
         maxColonist += _colonist;
     }
 
     public void RemoveSettlers(int _workers, int _colonist)
     {
-        colonist -= _workers;
+        workers -= _workers;
         maxColonist -= _colonist;
     }
 
@@ -559,7 +559,7 @@ public class EnemyColony : ColonyStats
     {
         energyStorage += _energy;
         regolithStock += _regolith;
-        bioPlasticStock += _bioplastic;
+        polymerStock += _bioplastic;
         foodStock += _food;
     }
 
@@ -588,19 +588,19 @@ public class EnemyColony : ColonyStats
         {
             money += profit;
             regolith += regolithOutput;
-            bioPlastique += bioPlastiqueOutput;
+            polymer += polymerOutput;
             food += foodOutput;
         }
         else
         {
             money -= moneyLoss;
             regolith -= regolithLoss;
-            bioPlastique -= bioPlastiqueLoss;
+            polymer -= polymerLoss;
             food -= foodLoss;
         }
 
         regolith = Mathf.Clamp(regolith, 0, regolithStock);
-        bioPlastique = Mathf.Clamp(bioPlastique, 0, bioPlasticStock);
+        polymer = Mathf.Clamp(polymer, 0, polymerStock);
         food = Mathf.Clamp(food, 0, foodStock);
     }
 
@@ -647,16 +647,16 @@ public class EnemyColony : ColonyStats
 
     private void AddBuilding(Buildings b)
     {
-        AddOutput(b.building.energy, b.building.profit, b.building.rigolyteOutput, b.building.bioPlastiqueOutput, b.building.foodOutput, b.building.research);
-        ManageStorage(b.building.energyStorage, b.building.rigolyteStock, b.building.bioPlasticStock, b.building.foodStock);
+        AddOutput(b.building.energy, b.building.profit, b.building.rigolyteOutput, b.building.polymerOutput, b.building.foodOutput, b.building.research);
+        ManageStorage(b.building.energyStorage, b.building.rigolyteStock, b.building.polymerStock, b.building.foodStock);
         AddSettlers(b.building.colonist, b.building.maxColonist);
         buildNbr++;
     }
 
     private void RemoveBuilding(Buildings b)
     {
-        RemoveOutput(b.building.energy, b.building.profit, b.building.rigolyteOutput, b.building.bioPlastiqueOutput, b.building.foodOutput, b.building.research);
-        ManageStorage(-b.building.energyStorage, -b.building.rigolyteStock, -b.building.bioPlasticStock, -b.building.foodStock);
+        RemoveOutput(b.building.energy, b.building.profit, b.building.rigolyteOutput, b.building.polymerOutput, b.building.foodOutput, b.building.research);
+        ManageStorage(-b.building.energyStorage, -b.building.rigolyteStock, -b.building.polymerStock, -b.building.foodStock);
         RemoveSettlers(b.building.colonist, b.building.maxColonist);
         buildNbr--;
     }

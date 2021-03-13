@@ -2,18 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f46a562e-722d-4d3e-b46d-3c8c1633d766" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Moon-City/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Moon-City/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Moon-City/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Moon-City/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[000] Colony home.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[000] Colony home.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[009] Excavator (M).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[009] Excavator (M).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[010] Excavator (L).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[010] Excavator (L).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[016] Biofactory.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[016] Biofactory.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/03game/Interface/C_Interface.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/03game/Interface/C_Interface.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/lang/en-EN.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/lang/en-EN.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/lang/fr-FR.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/lang/fr-FR.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/01main/LoadAndNewGame/CreateColony.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/01main/LoadAndNewGame/CreateColony.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/AI/Enemy Colony/EnemyColony.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/AI/Enemy Colony/EnemyColony.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/EndgameChecker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/EndgameChecker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/MoonManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/MoonManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/CommandSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/CommandSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/TradingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/TradingSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/WaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/WaveSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Others/Variable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Others/Variable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Player/ColonyStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Player/ColonyStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Special entity/Buildings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Special entity/Buildings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Special entity/Preview.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Special entity/Preview.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/TrainingArea.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/TrainingArea.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/System/SaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/System/SaveSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scènes/01main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scènes/01main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/UI/Build/BuildListItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/UI/Build/BuildListItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/UI/Build/BuildSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/UI/Build/BuildSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Database/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Database/Building.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scènes/03game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scènes/03game.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +41,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0847A0FA-F944-44CC-BAF1-958021B27F54/3d/955216e8/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/03game/System/JSONSaveSystem/Example.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/03game/System/MapGenerator/EndlessTerrain.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/03game/System/Extensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0847A0FA-F944-44CC-BAF1-958021B27F54/08/4d0ed72f/Random.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/MoonManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -38,21 +50,28 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/AI/Enemy Colony/PhysicalPointMotor.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/System/MapGenerator/EndlessTerrain.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/System/MapGenerator/MeshGenerator.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Special entity/Buildings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/01main/UI/UIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/01main/UI/LoadItem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/System/JSONSaveSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/System/JSONSaveSystem/Example.cs" />
       <option value="$PROJECT_DIR$/../../../Programmation/JSONSaveSystem/src/JSONSaveSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/WaveSystem.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/CommandSystem.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/TradingSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Entity.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/01main/LoadAndNewGame/CreateColony.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/Others/Variable.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/AI/Enemy Colony/EnemyColony.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/MoonManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/System/SaveSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Database/Building.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Player/ColonyStats.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/TradingSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/CommandSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Special entity/Preview.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Special entity/Buildings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/TrainingArea.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/UI/Build/BuildListItem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/UI/Build/BuildSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/System/Extensions.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/MoonManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1pByRYkbXmgoMnyKx6oWHIfS3Bt" />
@@ -61,6 +80,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -107,6 +127,7 @@
       <workItem from="1614679362454" duration="802000" />
       <workItem from="1614969194179" duration="5376000" />
       <workItem from="1615051794614" duration="4339000" />
+      <workItem from="1615665498798" duration="4896000" />
     </task>
     <servers />
   </component>
@@ -115,7 +136,37 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/MoonManager.cs</url>
+          <line>286</line>
+          <properties documentPath="D:\Utilisateurs\Documents\Unity Games\08 - Projets Unity\Moon-City\Assets\Scripts\03game\Controler\Manager\MoonManager.cs" initialLine="303" containingFunctionPresentation="method 'CheckTimeAction'">
+            <startOffsets>
+              <option value="11343" />
+            </startOffsets>
+            <endOffsets>
+              <option value="11344" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

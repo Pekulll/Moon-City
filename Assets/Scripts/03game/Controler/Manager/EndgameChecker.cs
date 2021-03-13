@@ -241,11 +241,11 @@ public class EndgameChecker : MonoBehaviour
         calculatedScore[3] = researchSystem.techUnlock.Count * 10;
 
         calculatedScore[4] = (Mathf.Abs(manager.colonyStats.regolithBought - manager.colonyStats.regolithSold)
-            + Mathf.Abs(manager.colonyStats.bioplasticBought - manager.colonyStats.bioplasticSold)
+            + Mathf.Abs(manager.colonyStats.polymerBought - manager.colonyStats.polymerSold)
             + Mathf.Abs(manager.colonyStats.foodBought - manager.colonyStats.foodSold)) * 10;
 
         calculatedScore[5] = (int)(manager.colonyStats.money
-            + (manager.colonyStats.regolith + manager.colonyStats.bioPlastique) * 2 
+            + (manager.colonyStats.regolith + manager.colonyStats.polymer) * 2 
             + manager.colonyStats.food * 3);
 
         for(int i = 1; i < calculatedScore.Length; i++)

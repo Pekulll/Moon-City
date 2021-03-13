@@ -70,7 +70,7 @@ public class Preview : Entity
 
             if (side == manager.side)
             {
-                manager.AnticipateRessources(building.energy);
+                manager.AnticipateResources(building.energy);
             }
         }
 
@@ -138,7 +138,7 @@ public class Preview : Entity
             return;
         }
 
-        List<int> ints = manager.HaveRessources(id);
+        List<int> ints = manager.HaveResources(id);
 
         if (ints.Count != 0)
         {
@@ -160,8 +160,7 @@ public class Preview : Entity
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                manager.RemoveRessources(0, building.money, building.regolith, building.bioPlastique, building.food);
-                //manager.AddSettlers(building.colonist, 0);
+                manager.RemoveResources(0, building.money, building.regolith, building.metal, building.polymer, building.food);
                 manager.HideWarnText();
 
                 if (manager.side == side)
@@ -171,7 +170,7 @@ public class Preview : Entity
 
                 if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
                 {
-                    if (manager.HaveEnoughResource(building.colonist, building.energy, building.money, building.regolith, building.bioPlastique, building.food))
+                    if (manager.HaveEnoughResource(building.colonist, building.energy, building.money, building.regolith, building.polymer, building.food))
                     {
                         Instantiate(building.preview, transform.position, transform.rotation);
                         manager.canInteractWithUI = false;
@@ -242,7 +241,7 @@ public class Preview : Entity
 
             if (side == manager.side)
             {
-                manager.AnticipateRessources(building.energy);
+                manager.AnticipateResources(building.energy);
             }
         }
     }

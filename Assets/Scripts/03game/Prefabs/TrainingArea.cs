@@ -102,8 +102,8 @@ public class TrainingArea : MonoBehaviour
             {
                 Units u = manager.unitData[id];
 
-                manager.RemoveRessources(0, u.money, 0, 0, u.food);
-                manager.AddOutput(0, u.moneyOut, 0, 0, u.foodOut, 0);
+                manager.RemoveResources(0, u.money, 0, 0, 0, u.food);
+                manager.AddOutput(0, u.moneyOut, 0, 0, 0, u.foodOut, 0);
                 manager.AddSettlers(u.place, 0);
             }
             else if (!isOnLoad)
