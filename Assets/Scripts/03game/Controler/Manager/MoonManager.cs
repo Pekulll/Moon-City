@@ -51,7 +51,7 @@ public class MoonManager : MonoBehaviour {
     private InterfaceManager interfaceManager;
     private ColorManager colorManager;
     private CommandSystem commandSystem;
-    private RessourceData ressources;
+    private RessourceData resources;
     private EndlessTerrain endlessTerrain;
     private GroupSystem groupSystem;
     private QuestManager questManager;
@@ -84,6 +84,7 @@ public class MoonManager : MonoBehaviour {
     private Animator popup;
     private Text outMoney;
     private Text outRegolith;
+    private Text outMetal;
     private Text outPolymer;
     private Text outFood;
 
@@ -112,7 +113,6 @@ public class MoonManager : MonoBehaviour {
             "Current side : " + side + "\t\t\t<size=15><i>(Ctrl + H to view more)</i></size>";
 
         ManageUIStats ();
-        //CheckShortcut();
     }
 
     #region Main methods
@@ -135,7 +135,7 @@ public class MoonManager : MonoBehaviour {
         interfaceManager = GetComponent<InterfaceManager> ();
         playerAudio = GameObject.Find ("Player").GetComponent<AudioSource> ();
         commandSystem = GetComponent<CommandSystem> ();
-        ressources = GetComponent<RessourceData> ();
+        resources = GetComponent<RessourceData> ();
         viewer = GetComponent<InformationsViewer> ();
         endlessTerrain = GetComponent<EndlessTerrain> ();
         groupSystem = GetComponent<GroupSystem> ();
@@ -163,6 +163,7 @@ public class MoonManager : MonoBehaviour {
         popup = GameObject.Find("E_Output").GetComponent<Animator>();
         outMoney = GameObject.Find("T_OutMoney").GetComponent<Text>();
         outRegolith = GameObject.Find("T_OutRegolith").GetComponent<Text>();
+        outMetal = GameObject.Find("T_OutMetal").GetComponent<Text>();
         outPolymer = GameObject.Find("T_OutBioplastic").GetComponent<Text>();
         outFood = GameObject.Find("T_OutFood").GetComponent<Text>();
 
@@ -192,7 +193,7 @@ public class MoonManager : MonoBehaviour {
 
     private void ManageUIStats () {
         colonyText.text = colonyStats.workers + " / " + colonyStats.maxColonist;
-        energyText.text = colonyStats.energy + " / " + colonyStats.energyStorage + "\n<size=12>+" + colonyStats.energyOutput.SignedString() + "</size>";
+        energyText.text = colonyStats.energy + " / " + colonyStats.energyStorage + "\n<size=12>" + colonyStats.energyOutput.SignedString() + "</size>";
 
         UpdateStatsColor();
 
@@ -200,10 +201,10 @@ public class MoonManager : MonoBehaviour {
         {
             energyText.color = colorManager.text;
             moneyText.text = colonyStats.money + " M€\n<size=12>" + colonyStats.profit.SignedString() + "</size>";
-            regolithText.text = colonyStats.regolith.ToString ("0.0") + " / " + colonyStats.regolithStock.ToString ("000") + "\n<size=12>+" + colonyStats.regolithOutput.SignedString("0.0") + "</size>";
-            metalText.text = colonyStats.metal.ToString ("0.0") + " / " + colonyStats.metalStock.ToString ("000") + "\n<size=12>+" + colonyStats.metalOutput.SignedString("0.0") + "</size>";
-            polymerText.text = colonyStats.polymer.ToString ("0.0") + " / " + colonyStats.polymerStock.ToString ("000") + "\n<size=12>+" + colonyStats.polymerOutput.SignedString("0.0") + "</size>";
-            foodText.text = colonyStats.food.ToString ("0.0") + " / " + colonyStats.foodStock.ToString ("000") + "\n<size=12>+" + colonyStats.foodOutput.SignedString("0.0") + "</size>";
+            regolithText.text = colonyStats.regolith.ToString ("0.0") + " / " + colonyStats.regolithStock.ToString ("000") + "\n<size=12>" + colonyStats.regolithOutput.SignedString("0.0") + "</size>";
+            metalText.text = colonyStats.metal.ToString ("0.0") + " / " + colonyStats.metalStock.ToString ("000") + "\n<size=12>" + colonyStats.metalOutput.SignedString("0.0") + "</size>";
+            polymerText.text = colonyStats.polymer.ToString ("0.0") + " / " + colonyStats.polymerStock.ToString ("000") + "\n<size=12>" + colonyStats.polymerOutput.SignedString("0.0") + "</size>";
+            foodText.text = colonyStats.food.ToString ("0.0") + " / " + colonyStats.foodStock.ToString ("000") + "\n<size=12>" + colonyStats.foodOutput.SignedString("0.0") + "</size>";
         }
         else
         {
@@ -268,7 +269,8 @@ public class MoonManager : MonoBehaviour {
         hoursText.text = string.Format ("{0:000}:{1:00}", Mathf.Floor (seconds / 60), seconds % 60);
     }
 
-    private IEnumerator HoursMotor () {
+    private IEnumerator HoursMotor ()
+    {
         while (true) {
             yield return timeScale;
             seconds++;
@@ -276,7 +278,7 @@ public class MoonManager : MonoBehaviour {
             CheckTimeAction ();
             CheckEvent ();
 
-            hoursText.text = string.Format ("{0:000}:{1:00}", Mathf.Floor (seconds / 60), seconds % 60);
+            hoursText.text = string.Format ("{0:000}:{1:00}", seconds / 60, seconds % 60);
 
             if (loadingScreen.activeSelf) {
                 loadingScreen.SetActive (false);
@@ -367,7 +369,8 @@ public class MoonManager : MonoBehaviour {
         }
     }
 
-    private void ActionEveryOneHourEnemy () {
+    private void ActionEveryOneHourEnemy ()
+    {
         GameObject[] gos = FindTags (new Tag[2] { Tag.Enemy, Tag.Core });
 
         foreach (GameObject cur in gos)
@@ -376,8 +379,14 @@ public class MoonManager : MonoBehaviour {
         }
     }
 
-    private void ActionEveryTwoHoursEnemy () {
+    private void ActionEveryTwoHoursEnemy ()
+    {
+        GameObject[] gos = FindTags (new Tag[2] { Tag.Enemy, Tag.Core });
 
+        foreach (GameObject cur in gos)
+        {
+            cur.GetComponent<EnemyColony>().CheckCritical();
+        }
     }
 
     private void ActionEveryThreeHoursEnemy () {
@@ -432,6 +441,12 @@ public class MoonManager : MonoBehaviour {
         } else if (colonyStats.regolith <= 5) {
             Notify(Traduce("03_notif_regolith_low"), priority: 2);
         }
+        
+        if (colonyStats.metal < -20) {
+            Notify(Traduce("03_notif_metal_critic"), priority: 3);
+        } else if (colonyStats.metal <= 5) {
+            Notify(Traduce("03_notif_metal_low"), priority: 2);
+        }
 
         if (colonyStats.polymer < -20) {
             Notify(Traduce("03_notif_polymer_critic"), priority: 3);
@@ -455,6 +470,7 @@ public class MoonManager : MonoBehaviour {
     private IEnumerator ShowPopup () {
         outMoney.text = colonyStats.profit.SignedString();
         outRegolith.text = colonyStats.regolithOutput.SignedString();
+        outMetal.text = colonyStats.metalOutput.SignedString();
         outPolymer.text = colonyStats.polymerOutput.SignedString();
         outFood.text = colonyStats.foodOutput.SignedString();
 
@@ -466,23 +482,28 @@ public class MoonManager : MonoBehaviour {
     private bool CheckResources () {
         int criticalRessources = 0;
 
-        if (colonyStats.food == 0 && colonyStats.foodOutput <= 0) {
-            Notify(Traduce("03_notif_food_critic"), priority: 2);
+        if (colonyStats.food <= 0 && colonyStats.foodOutput <= 0) {
+            Notify(Traduce("03_notif_food_critic"), priority: 3);
             criticalRessources++;
         }
 
-        if (colonyStats.money == 0 && colonyStats.profit <= 0) {
-            Notify(Traduce("03_notif_money_critic"), priority: 2);
+        if (colonyStats.money <= 0 && colonyStats.profit <= 0) {
+            Notify(Traduce("03_notif_money_critic"), priority: 3);
             criticalRessources++;
         }
 
-        if (colonyStats.regolith == 0 && colonyStats.regolithOutput <= 0) {
-            Notify(Traduce("03_notif_regolith_critic"), priority: 2);
+        if (colonyStats.regolith <= 0 && colonyStats.regolithOutput <= 0) {
+            Notify(Traduce("03_notif_regolith_critic"), priority: 3);
+            criticalRessources++;
+        }
+        
+        if (colonyStats.metal <= 0 && colonyStats.metalOutput <= 0) {
+            Notify(Traduce("03_notif_metal_critic"), priority: 3);
             criticalRessources++;
         }
 
-        if (colonyStats.polymer == 0 && colonyStats.polymerOutput <= 0) {
-            Notify(Traduce("03_notif_polymer_critic"), priority: 2);
+        if (colonyStats.polymer <= 0 && colonyStats.polymerOutput <= 0) {
+            Notify(Traduce("03_notif_polymer_critic"), priority: 3);
             criticalRessources++;
         }
 
@@ -513,9 +534,9 @@ public class MoonManager : MonoBehaviour {
 
     #region Ressources methods
 
-    public bool HaveEnoughResource (int colonist, int energy, int money, float regolith, float polymer, float food)
+    public bool HaveEnoughResource (int colonist, int energy, int money, float regolith, float metal, float polymer, float food)
     {
-        return colonyStats.HaveEnoughResource(colonist, energy, money, regolith, polymer, food);
+        return colonyStats.HaveEnoughResource(colonist, energy, money, regolith, metal, polymer, food);
     }
 
     public List<int> HaveResources (int colonist, int energy, int money, float regolith, float metal, float polymer, float food)
@@ -543,7 +564,7 @@ public class MoonManager : MonoBehaviour {
 
     #endregion
 
-    #region Add / remove ressources, workers and storage
+    #region Add / remove resources, workers and storage
 
     public void AddResources(int energy, int money, float regolith, float metal, float polymer, float food)
     {
@@ -845,14 +866,17 @@ public class MoonManager : MonoBehaviour {
         colonyStats.energy = savedPlayer.playerColony.energy;
         colonyStats.money = savedPlayer.playerColony.money;
         colonyStats.regolith = savedPlayer.playerColony.regolith;
-        colonyStats.polymer = savedPlayer.playerColony.bioplastic;
+        colonyStats.metal = savedPlayer.playerColony.metal;
+        colonyStats.polymer = savedPlayer.playerColony.polymer;
         colonyStats.food = savedPlayer.playerColony.food;
 
         colonyStats.regolithSold = savedPlayer.playerColony.regolithSold;
-        colonyStats.polymerSold = savedPlayer.playerColony.bioplasticSold;
+        colonyStats.metalSold = savedPlayer.playerColony.metalSold;
+        colonyStats.polymerSold = savedPlayer.playerColony.polymerSold;
         colonyStats.foodSold = savedPlayer.playerColony.foodSold;
         colonyStats.regolithBought = savedPlayer.playerColony.regolithBought;
-        colonyStats.polymerBought = savedPlayer.playerColony.bioplasticBought;
+        colonyStats.metalBought = savedPlayer.playerColony.metalBought;
+        colonyStats.polymerBought = savedPlayer.playerColony.polymerBought;
         colonyStats.foodBought = savedPlayer.playerColony.foodBought;
 
         Transform player = GameObject.Find ("Player").transform;
@@ -869,7 +893,7 @@ public class MoonManager : MonoBehaviour {
 
     private void LoadStockMarket(SavedStockMarket savedMarket)
     {
-        tradingSystem.Initialize(new StockMarket(savedMarket.regolithValue, savedMarket.bioplasticValue, savedMarket.foodValue));
+        tradingSystem.Initialize(new StockMarket(savedMarket.regolithValue, savedMarket.metalValue, savedMarket.polymerValue, savedMarket.foodValue));
     }
 
     private void LoadConfiguration () {
@@ -1173,7 +1197,7 @@ public class MoonManager : MonoBehaviour {
     }
 
     public void PlayPreviewSound () {
-        try { playerAudio.PlayOneShot(ressources.previewSound); } catch { }
+        try { playerAudio.PlayOneShot(resources.previewSound); } catch { }
     }
 
     #endregion

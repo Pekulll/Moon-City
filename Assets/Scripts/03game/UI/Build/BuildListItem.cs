@@ -156,6 +156,7 @@ public class BuildListItem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
         energyBackground.color = classic;
         moneyBackground.color = classic;
         regolythBackground.color = classic;
+        metalBackground.color = classic;
         polymerBackground.color = classic;
         foodBackground.color = classic;
 

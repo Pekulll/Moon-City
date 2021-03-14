@@ -1082,7 +1082,7 @@ public class InformationsViewer : MonoBehaviour
             Destroy(selectedObject.gameObject);
             HideInformation(forced:true);
         }
-        else if (currentGroup != null && currentGroup.objectsInGroup.Count != 0)
+        else if (currentGroup != null && currentGroup.objectsInGroup.Count != 0 && currentGroup.groupSide == manager.side)
         {
             foreach (Buildings bh in currentGroup.objectsInGroup)
             {
@@ -1110,7 +1110,7 @@ public class InformationsViewer : MonoBehaviour
 
         foreach (Vector3 pos in positions)
         {
-            GameObject go = Instantiate(ressources.tunelPrefab);
+            GameObject go = Instantiate(resources.tunelPrefab);
             go.transform.position = pos;
             go.transform.SetParent(startBuilding.transform);
 

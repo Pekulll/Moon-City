@@ -262,8 +262,8 @@ public class Entity : MonoBehaviour
 
     public void RemoveOwnerResources(Units u)
     {
-        owner.RemoveRessources(0, u.money, 0, 0, u.food);
-        owner.AddOutput(0, u.moneyOut, 0, 0, u.foodOut, 0);
+        owner.RemoveResources(0, u.money, 0, 0, 0, u.food);
+        owner.AddOutput(0, u.moneyOut, 0, 0, 0, u.foodOut, 0);
         owner.AddSettlers(u.place, 0);
     }
 

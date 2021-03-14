@@ -2,13 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f46a562e-722d-4d3e-b46d-3c8c1633d766" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Moon-City/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Moon-City/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Moon-City/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Moon-City/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[000] Colony home.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[000] Colony home.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[001] Appart (S).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[001] Appart (S).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[002] Appart (M).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[002] Appart (M).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[003] Appart (L).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[003] Appart (L).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[004] Farm (S).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[004] Farm (S).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[005] Farm (M).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[005] Farm (M).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[006] Farm (L).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[006] Farm (L).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[007] Barracks.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[007] Barracks.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[008] Military factory.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[008] Military factory.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[009] Excavator (M).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[009] Excavator (M).asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[010] Excavator (L).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[010] Excavator (L).asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[016] Biofactory.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[016] Biofactory.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[011] Trading center (M).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[011] Trading center (M).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[012] Solar panel (S).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[012] Solar panel (S).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[013] Solar panel (M).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[013] Solar panel (M).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[014] Solar panel (L).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[014] Solar panel (L).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[015] Sentry turret.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[015] Sentry turret.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[016] Polymer factory.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[016] Polymer factory.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[017] Wall.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[017] Wall.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[018] Trading center (L).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[018] Trading center (L).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[019] Launch pad (S).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[019] Launch pad (S).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[020] Launch pad (M).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[020] Launch pad (M).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[021] Launch pad (L).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[021] Launch pad (L).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[028] Nuclear reactor (L).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[028] Nuclear reactor (L).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[029] Nuclear reactor (XL).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[029] Nuclear reactor (XL).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[030] Warehouse (S).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[030] Warehouse (S).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[031] Warehouse (M).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[031] Warehouse (M).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[032] Warehouse (L).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[032] Warehouse (L).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[033] Guard tower.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[033] Guard tower.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[034] High-security quarter.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[034] High-security quarter.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[035] Police station.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[035] Police station.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[036] Hospital.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[036] Hospital.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[037] Lab (S).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[037] Lab (S).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[038] Lab (M).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[038] Lab (M).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[039] Lab (L).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[039] Lab (L).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[040] Accumulator (S).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[040] Accumulator (S).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[041] Accumulator (M).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[041] Accumulator (M).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[042] Accumulator (L).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[042] Accumulator (L).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[043] Spaceport.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[043] Spaceport.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Database/Building/[044] Hand of power.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Database/Building/[044] Hand of power.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/01main/MainMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/01main/MainMenu.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/03game/IA/EnemyColonyCenter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/03game/IA/EnemyColonyCenter.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/03game/Interface/C_Interface.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/03game/Interface/C_Interface.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/lang/en-EN.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/lang/en-EN.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/lang/fr-FR.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/lang/fr-FR.json" afterDir="false" />
@@ -17,14 +51,18 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/MoonManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/MoonManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/CommandSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/CommandSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/TradingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/TradingSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Others/Variable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Others/Variable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Player/CameraMotor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Player/CameraMotor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Player/ColonyStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Player/ColonyStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Entity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Special entity/Buildings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Special entity/Buildings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Special entity/Preview.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Special entity/Preview.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/TrainingArea.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/TrainingArea.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/System/Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/System/Extensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/System/SaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/System/SaveSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/UI/Build/BuildListItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/UI/Build/BuildListItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/UI/Build/BuildSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/UI/Build/BuildSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Database/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Database/Building.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/UI/Info/InformationsViewer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/UI/Info/InformationsViewer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scènes/01main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scènes/01main.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scènes/03game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scènes/03game.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,22 +94,25 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/System/JSONSaveSystem/Example.cs" />
       <option value="$PROJECT_DIR$/../../../Programmation/JSONSaveSystem/src/JSONSaveSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/WaveSystem.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Entity.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/01main/LoadAndNewGame/CreateColony.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Others/Variable.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/03game/AI/Enemy Colony/EnemyColony.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/03game/System/SaveSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Database/Building.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Player/ColonyStats.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/TradingSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/CommandSystem.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Special entity/Preview.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Special entity/Buildings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/TrainingArea.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/03game/UI/Build/BuildListItem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/UI/Build/BuildSystem.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/03game/System/Extensions.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Others/Variable.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/UI/Info/InformationsViewer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Player/ColonyStats.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Special entity/Preview.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/TrainingArea.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/System/SaveSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/TradingSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/EndgameChecker.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Special entity/Buildings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Entity.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/AI/Enemy Colony/EnemyColony.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/MoonManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/System/Extensions.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Player/CameraMotor.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/UI/Build/BuildListItem.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1pByRYkbXmgoMnyKx6oWHIfS3Bt" />
@@ -128,6 +169,7 @@
       <workItem from="1614969194179" duration="5376000" />
       <workItem from="1615051794614" duration="4339000" />
       <workItem from="1615665498798" duration="4896000" />
+      <workItem from="1615725701941" duration="10367000" />
     </task>
     <servers />
   </component>
@@ -146,27 +188,9 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/MoonManager.cs</url>
-          <line>286</line>
-          <properties documentPath="D:\Utilisateurs\Documents\Unity Games\08 - Projets Unity\Moon-City\Assets\Scripts\03game\Controler\Manager\MoonManager.cs" initialLine="303" containingFunctionPresentation="method 'CheckTimeAction'">
-            <startOffsets>
-              <option value="11343" />
-            </startOffsets>
-            <endOffsets>
-              <option value="11344" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

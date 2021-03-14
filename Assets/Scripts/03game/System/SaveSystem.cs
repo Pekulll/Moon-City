@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using System;
+using System.Collections;
+using UnityEngine.Serialization;
 
 public static class SaveSystem
 {
@@ -171,6 +174,7 @@ public class SavedScene
         this.configuration = configuration;
 
         this.buildings = buildings;
+        Array.Sort(this.buildings, new BuildingComparator());
         this.units = units;
         this.stockMarket = new SavedStockMarket();
     }
@@ -210,6 +214,8 @@ public class SavedScene
             {
                 this.buildings[i] = new SavedBuilding(temp[i]);
             }
+            
+            Array.Sort(this.buildings, new BuildingComparator());
         }
 
         if (previews.Length != 0)
@@ -356,20 +362,23 @@ public class SavedWaveManager
 public class SavedStockMarket
 {
     public float regolithValue;
-    public float bioplasticValue;
+    public float metalValue;
+    public float polymerValue;
     public float foodValue;
 
     public SavedStockMarket()
     {
         regolithValue = 10;
-        bioplasticValue = 15;
+        metalValue = 15;
+        polymerValue = 15;
         foodValue = 25;
     }
 
     public SavedStockMarket(StockMarket sm)
     {
         regolithValue = sm.regolithValue;
-        bioplasticValue = sm.bioplasticValue;
+        metalValue = sm.metalValue;
+        polymerValue = sm.polymerValue;
         foodValue = sm.foodValue;
     }
 }
@@ -439,15 +448,18 @@ public class SavedColony
     public int money;
     public int energy;
     public float regolith;
-    public float bioplastic;
+    public float metal;
+    public float polymer;
     public float food;
 
     public int regolithSold;
-    public int bioplasticSold;
+    public int metalSold;
+    public int polymerSold;
     public int foodSold;
 
     public int regolithBought;
-    public int bioplasticBought;
+    public int metalBought;
+    public int polymerBought;
     public int foodBought;
 
     public SavedColony(int side, float[] colonyColor, string colonyName, GameSettings settings)
@@ -460,8 +472,9 @@ public class SavedColony
         colonist = settings.gameDifficulty.colonist;
         money = settings.gameDifficulty.money;
         energy = settings.gameDifficulty.energy;
-        regolith = settings.gameDifficulty.rigolyte;
-        bioplastic = settings.gameDifficulty.bioPlastique;
+        regolith = settings.gameDifficulty.regolith;
+        metal = settings.gameDifficulty.metal;
+        polymer = settings.gameDifficulty.polymer;
         food = settings.gameDifficulty.food;
     }
 
@@ -479,15 +492,18 @@ public class SavedColony
         money = playerColony.money;
         energy = playerColony.energy;
         regolith = playerColony.regolith;
-        bioplastic = playerColony.polymer;
+        metal = playerColony.metal;
+        polymer = playerColony.polymer;
         food = playerColony.food;
 
         regolithSold = playerColony.regolithSold;
-        bioplasticSold = playerColony.polymerSold;
+        metalSold = playerColony.metalSold;
+        polymerSold = playerColony.polymerSold;
         foodSold = playerColony.foodSold;
 
         regolithBought = playerColony.regolithBought;
-        bioplasticBought = playerColony.polymerBought;
+        metalBought = playerColony.metalBought;
+        polymerBought = playerColony.polymerBought;
         foodBought = playerColony.foodBought;
     }
 }
@@ -672,6 +688,24 @@ public class SavedTrainingArea
 
         time = motor.currentTrainingTime;
         rallyPoint = new float[3] { motor.rallyPoint.x, motor.rallyPoint.y, motor.rallyPoint.z };
+    }
+}
+
+#endregion
+
+#region Comparator
+
+class BuildingComparator : IComparer
+{
+    public int Compare(object x, object y)
+    {
+        if (x == y) return 0;
+        else if (x == null) return -1;
+        else if (y == null) return 1;
+        else if (((SavedBuilding) x).id < ((SavedBuilding) y).id) return -1;
+        else if (((SavedBuilding) x).id > ((SavedBuilding) y).id) return 1;
+        else if (((SavedBuilding) x).id == ((SavedBuilding) y).id) return 0;
+        else return 0;
     }
 }
 

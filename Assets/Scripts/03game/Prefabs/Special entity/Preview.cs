@@ -170,7 +170,7 @@ public class Preview : Entity
 
                 if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
                 {
-                    if (manager.HaveEnoughResource(building.colonist, building.energy, building.money, building.regolith, building.polymer, building.food))
+                    if (manager.HaveEnoughResource(building.colonist, building.energy, building.money, building.regolith, building.metal, building.polymer, building.food))
                     {
                         Instantiate(building.preview, transform.position, transform.rotation);
                         manager.canInteractWithUI = false;

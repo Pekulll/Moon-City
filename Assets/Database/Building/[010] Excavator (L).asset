@@ -25,8 +25,8 @@ MonoBehaviour:
   energy: -16
   money: 275
   regolith: 0
-  metal: 0
-  polymer: 0
+  metal: 10
+  polymer: 25
   food: 0
   profit: -13
   maxColonist: 0

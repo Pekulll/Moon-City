@@ -159,7 +159,7 @@ public class CommandSystem : MonoBehaviour
         {
             manager.Notify("Command helper\nType /event create -c\\-s\\-r <index> to create an event.");
             manager.Notify("Type /help <index> to get help.\nType /killall to kill every colonies.");
-            manager.Notify("Type /loot to get ressources.\nType /notif <index> to create a notification.");
+            manager.Notify("Type /loot to get resources.\nType /notif <index> to create a notification.");
             manager.Notify("Type /summon -b\\-p\\-u <identity> to spawn an entity.\nType /time <speed> to change the time.");
             manager.Notify("Type /debug to view debug.\nType /wave <index> to spawn an enemy wave.");
         }

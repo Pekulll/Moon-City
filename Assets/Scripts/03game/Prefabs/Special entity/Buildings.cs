@@ -131,7 +131,7 @@ public class Buildings : Entity
             {
                 manager.AddOutput(
                     building.energy, building.profit,
-                    building.rigolyteOutput, building.metal,
+                    building.rigolyteOutput, building.metalOutput,
                     building.polymerOutput, building.foodOutput,
                     building.research
                 );
@@ -155,7 +155,7 @@ public class Buildings : Entity
             {
                 manager.RemoveOutput(
                     building.energy, building.profit,
-                    building.rigolyteOutput, building.metal,
+                    building.rigolyteOutput, building.metalOutput,
                     building.polymerOutput, building.foodOutput,
                     building.research
                 );

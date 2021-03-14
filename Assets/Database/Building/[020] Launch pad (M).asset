@@ -25,17 +25,20 @@ MonoBehaviour:
   energy: -3
   money: 200
   regolith: 20
-  bioPlastique: 4
+  metal: 35
+  polymer: 8
   food: 0
   profit: 0
   maxColonist: 0
   rigolyteOutput: -2
-  bioPlastiqueOutput: 0
+  polymerOutput: 0
+  metalOutput: 0
   foodOutput: 0
   research: 0
   energyStorage: 0
   rigolyteStock: 0
-  bioPlasticStock: 0
+  metalStock: 0
+  polymerStock: 0
   foodStock: 0
   preview: {fileID: 6092133119949230525, guid: 8bac6e0134946464b9cf2278073cf49a, type: 3}
   building: {fileID: 2444760552937227055, guid: 131890042f226534d88492768d4f7aa0,

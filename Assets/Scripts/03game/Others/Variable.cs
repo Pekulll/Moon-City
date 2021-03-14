@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 public class GroupedAttack
@@ -250,7 +251,11 @@ public class GameKey
 public class Difficulty
 {
     public string name;
-    public int colonist, maxColonist, rigolyte, food, bioPlastique, energy, money;
+    public int colonist;
+    [FormerlySerializedAs("rigolyte")] public int regolith;
+    public int metal, food;
+    [FormerlySerializedAs("bioPlastique")] public int polymer;
+    public int energy, money;
     public int enemyWaveRate;
     public int enemiesCount;
     public int destroyedCost;

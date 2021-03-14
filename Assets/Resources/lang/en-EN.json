@@ -286,6 +286,7 @@
         { "key": "03_ui_top_energy", "translation": "Energy" },
         { "key": "03_ui_top_money", "translation": "Money <i>+ Profits ($)</i>" },
         { "key": "03_ui_top_regolith", "translation": "Regolith" },
+        { "key": "03_ui_top_metal", "translation": "Métal" },
         { "key": "03_ui_top_polymer", "translation": "Polymer" },
         { "key": "03_ui_top_food", "translation": "Food" },
         { "key": "03_ui_top_water", "translation": "Water" },
@@ -420,6 +421,8 @@
         { "key": "03_notif_money_critic", "translation": "Alert! Critical founds." },
         { "key": "03_notif_regolith_low", "translation": "Warning! Low regolith." },
         { "key": "03_notif_regolith_critic", "translation": "Alert! Critical regolith." },
+        { "key": "03_notif_metal_low", "translation": "Warning! Low metal." },
+        { "key": "03_notif_metal_critic", "translation": "Alert! Critical metal." },
         { "key": "03_notif_polymer_low", "translation": "Warning! Low polymer." },
         { "key": "03_notif_polymer_critic", "translation": "Alert! Critical polymer." },
 

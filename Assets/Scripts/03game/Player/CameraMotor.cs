@@ -21,6 +21,7 @@ public class CameraMotor : MonoBehaviour
     [SerializeField] private string rotateRight = "e";
 
     private MoonManager manager;
+    private Camera camera;
 
     private Vector3 dragStartPosition;
     private Vector3 currentDragPosition;
@@ -30,6 +31,7 @@ public class CameraMotor : MonoBehaviour
     private void Start()
     {
         manager = FindObjectOfType<MoonManager>();
+        camera = GetComponentInChildren<Camera>();
 
         forKey = PlayerPrefs.GetString("MoveForward");
         backKey = PlayerPrefs.GetString("MoveBackward");
@@ -54,11 +56,11 @@ public class CameraMotor : MonoBehaviour
     {
         if (!canMove) return;
 
-        MouseInput();
-        KeyboardInput();
+        RotateCamera();
+        MoveCamera();
     }
 
-    private void MouseInput()
+    private void RotateCamera()
     {
         if (!Input.GetKey(KeyCode.LeftControl))
         {
@@ -66,7 +68,7 @@ public class CameraMotor : MonoBehaviour
             {
                 Plane plane = new Plane(Vector3.up, Vector3.zero);
 
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
                 float entry;
 
@@ -79,7 +81,7 @@ public class CameraMotor : MonoBehaviour
             if (Input.GetMouseButton(2))
             {
                 Plane plane = new Plane(Vector3.up, Vector3.zero);
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Ray ray = camera.ScreenPointToRay(Input.mousePosition);
                 Vector3 pos;
 
                 float entry;
@@ -114,26 +116,69 @@ public class CameraMotor : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
         }
+
+        if (Input.anyKey)
+        {
+            int rotationSpeed = 0;
+            
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                rotationSpeed = 1;
+            }
+            else if (Input.GetKey(KeyCode.RightArrow))
+            {
+                rotationSpeed = -1;
+            }
+
+            if (rotationSpeed != 0)
+            {
+                Plane plane = new Plane(Vector3.up, Vector3.zero);
+                Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+                float entry;
+                Vector3 rotateAroundPosition = new Vector3();
+
+                if (plane.Raycast(ray, out entry))
+                {
+                    rotateAroundPosition = ray.GetPoint(entry);
+                }
+
+                transform.RotateAround(rotateAroundPosition, Vector3.up, rotationSpeed * Time.deltaTime * panSpeed);
+            }
+        }
     }
 
-    private void KeyboardInput()
+    private void MoveCamera()
     {
         if (Input.GetMouseButton(2) && !Input.GetKey(KeyCode.LeftControl)) return;
 
         Vector3 pos = transform.position;
         float speedFactor = (Time.timeScale != 0) ? Time.deltaTime / Time.timeScale : Time.fixedDeltaTime / 2;
 
-        if (Input.GetKey(forKey) || Input.GetKey(KeyCode.UpArrow) || (Input.mousePosition.y >= Screen.height - panBorderThickness && edgeToMove))
+        /*if (Input.GetKey(forKey)|| (Input.mousePosition.y >= Screen.height - panBorderThickness && edgeToMove))
             pos.z += panSpeed * speedFactor;
 
-        if (Input.GetKey(backKey) || Input.GetKey(KeyCode.DownArrow) || (Input.mousePosition.y <= panBorderThickness && edgeToMove))
+        if (Input.GetKey(backKey) || (Input.mousePosition.y <= panBorderThickness && edgeToMove))
             pos.z -= panSpeed * speedFactor;
 
-        if (Input.GetKey(leftKey) || Input.GetKey(KeyCode.LeftArrow) || (Input.mousePosition.x <= panBorderThickness && edgeToMove))
+        if (Input.GetKey(leftKey) || (Input.mousePosition.x <= panBorderThickness && edgeToMove))
             pos.x -= panSpeed * speedFactor;
 
-        if (Input.GetKey(rightKey) || Input.GetKey(KeyCode.RightArrow) || (Input.mousePosition.x >= Screen.width - panBorderThickness && edgeToMove))
-            pos.x += panSpeed * speedFactor;
+        if (Input.GetKey(rightKey) || (Input.mousePosition.x >= Screen.width - panBorderThickness && edgeToMove))
+            pos.x += panSpeed * speedFactor;*/
+        
+        if (Input.GetKey(forKey)|| (Input.mousePosition.y >= Screen.height - panBorderThickness && edgeToMove))
+            transform.Translate(Vector3.forward * panSpeed * speedFactor);
+
+        if (Input.GetKey(backKey) || (Input.mousePosition.y <= panBorderThickness && edgeToMove))
+            transform.Translate(Vector3.back * panSpeed * speedFactor);
+
+        if (Input.GetKey(leftKey) || (Input.mousePosition.x <= panBorderThickness && edgeToMove))
+            transform.Translate(Vector3.left * panSpeed * speedFactor);
+
+        if (Input.GetKey(rightKey) || (Input.mousePosition.x >= Screen.width - panBorderThickness && edgeToMove))
+            transform.Translate(Vector3.right * panSpeed * speedFactor);
+
+        pos = transform.position;
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (!manager.isOverUI) pos.y -= scroll * scrollSpeed * 100f * 1.5f * speedFactor;

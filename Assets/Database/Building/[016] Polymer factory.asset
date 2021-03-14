@@ -25,7 +25,7 @@ MonoBehaviour:
   energy: -7
   money: 90
   regolith: 27
-  metal: 0
+  metal: 2
   polymer: 0
   food: 0
   profit: -11

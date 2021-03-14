@@ -192,39 +192,46 @@ MonoBehaviour:
     - 0
     - 0
     side: 1
-  colonist: 0
+  workers: 0
   maxColonist: 0
   energy: 0
   anticipatedEnergy: 0
   money: 100
   regolith: 50
-  bioPlastique: 40
+  metal: 10
+  polymer: 0
   food: 20
   energyStorage: 0
   regolithStock: 0
-  bioPlasticStock: 0
+  metalStock: 0
+  polymerStock: 0
   foodStock: 0
   profit: 0
   energyOutput: 0
   regolithOutput: 0
-  bioPlastiqueOutput: 0
+  metalOutput: 0
+  polymerOutput: 0
   foodOutput: 0
   research: 0
   moneyLoss: 0
   energyLoss: 0
   regolithLoss: 0
-  bioPlastiqueLoss: 0
+  metalLoss: 0
+  polymerLoss: 0
   foodLoss: 0
   moneyGain: 0
   energyGain: 0
   regolithGain: 0
-  bioPlastiqueGain: 0
+  metalGain: 0
+  polymerGain: 0
   foodGain: 0
   regolithSold: 0
-  bioplasticSold: 0
+  metalSold: 0
+  polymerSold: 0
   foodSold: 0
   regolithBought: 0
-  bioplasticBought: 0
+  metalBought: 0
+  polymerBought: 0
   foodBought: 0
   disableEnemy: 0
   currentAction: 0

@@ -270,7 +270,6 @@
         { "key": "03_ui_s_tooltip_nbr", "translation": "Nbre. de bâtiments" },
         { "key": "03_ui_s_tooltip_pos", "translation": "Positions locales" },
         
-        
         { "key": "03_ui_q_title", "translation": "Détails De Quêtes" },
         { "key": "03_ui_q_name", "translation": "Nom : " },
         { "key": "03_ui_q_type", "translation": "Type : " },
@@ -287,6 +286,7 @@
         { "key": "03_ui_top_energy", "translation": "Energie" },
         { "key": "03_ui_top_money", "translation": "Argent <i>+ Profits (€)</i>" },
         { "key": "03_ui_top_regolith", "translation": "Régolithe" },
+        { "key": "03_ui_top_metal", "translation": "Métal" },
         { "key": "03_ui_top_polymer", "translation": "Polymère" },
         { "key": "03_ui_top_food", "translation": "Nourriture" },
         { "key": "03_ui_top_water", "translation": "Eau" },
@@ -421,6 +421,8 @@
         { "key": "03_notif_money_critic", "translation": "Alerte ! Argent critique." },
         { "key": "03_notif_regolith_low", "translation": "Attention ! Régolithe bas." },
         { "key": "03_notif_regolith_critic", "translation": "Alerte ! Régolithe critique." },
+        { "key": "03_notif_metal_low", "translation": "Attention ! Métal bas." },
+        { "key": "03_notif_metal_critic", "translation": "Alerte ! Métal critique." },
         { "key": "03_notif_polymer_low", "translation": "Attention ! Polymère bas." },
         { "key": "03_notif_polymer_critic", "translation": "Alerte ! Polymère critique." },
 
@@ -439,7 +441,7 @@
         { "key": "03_notif_research_techneeded", "translation": "Vous devez d'abord rechercher : {0}!" },
         
         { "key": "03_notif_factory_queuefull", "translation": "La queue est pleine !" },
-        { "key": "03_notif_factory_noresources", "translation": "Vous n'avez pas assez de ressources!" },
+        { "key": "03_notif_factory_noresources", "translation": "Vous n'avez pas assez de ressources !" },
 
         { "key": "03_notif_building_activation_noworker", "translation": "Pas assez de colons pour faire ça !" },
         { "key": "03_notif_building_activation_noenergy", "translation": "Pas assez d'énergie pour faire ça !" },

@@ -4436,7 +4436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.08627451, g: 0.08627451, b: 0.08627451, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -16664,10 +16664,10 @@ MonoBehaviour:
   difficulties:
   - name: Easy
     colonist: 0
-    maxColonist: 20
-    rigolyte: 100
+    regolith: 100
+    metal: 40
     food: 20
-    bioPlastique: 75
+    polymer: 75
     energy: 40
     money: 1000
     enemyWaveRate: 40
@@ -16675,33 +16675,33 @@ MonoBehaviour:
     destroyedCost: 0
   - name: Normal
     colonist: 0
-    maxColonist: 12
-    rigolyte: 70
+    regolith: 70
+    metal: 20
     food: 10
-    bioPlastique: 50
+    polymer: 50
     energy: 30
     money: 500
     enemyWaveRate: 65
-    enemiesCount: 2
+    enemiesCount: 4
     destroyedCost: 50
   - name: Hard
     colonist: 0
-    maxColonist: 5
-    rigolyte: 50
+    regolith: 50
+    metal: 5
     food: 0
-    bioPlastique: 20
+    polymer: 20
     energy: 10
     money: 200
     enemyWaveRate: 90
-    enemiesCount: 3
+    enemiesCount: 6
     destroyedCost: 100
   customs:
   - name: High
     colonist: 0
-    maxColonist: 20
-    rigolyte: 100
+    regolith: 100
+    metal: 40
     food: 20
-    bioPlastique: 75
+    polymer: 75
     energy: 40
     money: 1000
     enemyWaveRate: 0
@@ -16709,10 +16709,10 @@ MonoBehaviour:
     destroyedCost: 0
   - name: Standard
     colonist: 0
-    maxColonist: 12
-    rigolyte: 70
+    regolith: 70
+    metal: 20
     food: 10
-    bioPlastique: 50
+    polymer: 50
     energy: 30
     money: 500
     enemyWaveRate: 0
@@ -16720,10 +16720,10 @@ MonoBehaviour:
     destroyedCost: 50
   - name: Defensive
     colonist: 0
-    maxColonist: 5
-    rigolyte: 50
+    regolith: 50
+    metal: 5
     food: 0
-    bioPlastique: 20
+    polymer: 20
     energy: 10
     money: 200
     enemyWaveRate: 0
@@ -16731,12 +16731,12 @@ MonoBehaviour:
     destroyedCost: 100
   - name: Low
     colonist: 0
-    maxColonist: 5
-    rigolyte: 0
+    regolith: 20
+    metal: 0
     food: 0
-    bioPlastique: 0
+    polymer: 0
     energy: 10
-    money: 1000
+    money: 1500
     enemyWaveRate: 0
     enemiesCount: 0
     destroyedCost: 125
@@ -21004,10 +21004,10 @@ MonoBehaviour:
     gameDifficulty:
       name: 
       colonist: 0
-      maxColonist: 30
-      rigolyte: 100
+      regolith: 100
+      metal: 0
       food: 50
-      bioPlastique: 100
+      polymer: 100
       energy: 50
       money: 2000
       enemyWaveRate: 0

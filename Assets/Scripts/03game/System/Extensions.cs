@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class Extensions
 {
-    public static string SignedString(this float value, string format = "0")
+    public static string SignedString(this float value, string format = "0.0")
     {
         return (value >= 0) ? $"+{value.ToString(format)}" : value.ToString(format);
     }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class TradingSystem : MonoBehaviour
@@ -8,6 +9,7 @@ public class TradingSystem : MonoBehaviour
     private GameObject tradeInterface;
     private Text amountText;
     private Text regolithValue;
+    private Text metalValue;
     private Text bioplasticValue;
     private Text foodValue;
 
@@ -23,6 +25,7 @@ public class TradingSystem : MonoBehaviour
         tradeInterface = GameObject.Find("BC_Trade");
         amountText = GameObject.Find("T_TradingAmount").GetComponent<Text>();
         regolithValue = GameObject.Find("T_MarketValueRegolith").GetComponent<Text>();
+        metalValue = GameObject.Find("T_MarketValueMetal").GetComponent<Text>();
         bioplasticValue = GameObject.Find("T_MarketValueBioplastic").GetComponent<Text>();
         foodValue = GameObject.Find("T_MarketValueFood").GetComponent<Text>();
 
@@ -67,9 +70,10 @@ public class TradingSystem : MonoBehaviour
             amount = 10;
         }
 
-        amountText.text = amount.ToString("0");
+        amountText.text = amount.ToString();
         regolithValue.text = (amount * market.regolithValue).ToString("00.0") + manager.Traduce("currency");
-        bioplasticValue.text = (amount * market.bioplasticValue).ToString("00.0") + manager.Traduce("currency");
+        metalValue.text = (amount * market.metalValue).ToString("00.0") + manager.Traduce("currency");
+        bioplasticValue.text = (amount * market.polymerValue).ToString("00.0") + manager.Traduce("currency");
         foodValue.text = (amount * market.foodValue).ToString("00.0") + manager.Traduce("currency");
     }
 
@@ -82,72 +86,112 @@ public class TradingSystem : MonoBehaviour
     {
         if (sell)
         {
-            if (manager.HaveEnoughResource(0, 0, 0, amount, 0, 0))
+            if (manager.HaveEnoughResource(0, 0, 0, amount, 0, 0, 0))
             {
                 manager.RemoveResources(0, 0, amount, 0, 0, 0);
                 manager.AddResources(0, (int)(market.regolithValue * amount), 0, 0, 0, 0);
                 market.FluctuateRegolithValue(-1f);
                 manager.colonyStats.regolithSold += amount;
+                return;
             }
         }
         else
         {
-            if (manager.HaveEnoughResource(0, 0, (int)(market.regolithValue * amount), 0, 0, 0))
+            if (manager.HaveEnoughResource(0, 0, (int)(market.regolithValue * amount), 0, 0, 0, 0))
             {
                 manager.AddResources(0, 0, amount, 0, 0, 0);
                 manager.RemoveResources(0, (int)(market.regolithValue * amount), 0, 0, 0, 0);
                 market.FluctuateRegolithValue(1f);
                 manager.colonyStats.regolithBought += amount;
+                return;
             }
         }
+        
+        manager.Notify(manager.Traduce("03_notif_factory_noresources"), priority: 2);
+    }
+    
+    public void Btn_Metal(bool sell)
+    {
+        if (sell)
+        {
+            if (manager.HaveEnoughResource(0, 0, 0, 0, amount, 0, 0))
+            {
+                manager.RemoveResources(0, 0, 0, amount, 0, 0);
+                manager.AddResources(0, (int)(market.metalValue * amount), 0, 0, 0, 0);
+                market.FluctuateMetalValue(-1f);
+                manager.colonyStats.metalSold += amount;
+                return;
+            }
+        }
+        else
+        {
+            if (manager.HaveEnoughResource(0, 0, (int)(market.metalValue * amount), 0, 0, 0, 0))
+            {
+                manager.AddResources(0, 0, 0, amount, 0, 0);
+                manager.RemoveResources(0, (int)(market.metalValue * amount), 0, 0, 0, 0);
+                market.FluctuateMetalValue(1f);
+                manager.colonyStats.metalBought += amount;
+                return;
+            }
+        }
+        
+        manager.Notify(manager.Traduce("03_notif_factory_noresources"), priority: 2);
     }
 
     public void Btn_Bioplastic(bool sell)
     {
         if (sell)
         {
-            if (manager.HaveEnoughResource(0, 0, 0, 0, amount, 0))
+            if (manager.HaveEnoughResource(0, 0, 0, 0, 0, amount, 0))
             {
                 manager.RemoveResources(0, 0, 0, 0, amount, 0);
-                manager.AddResources(0, (int)(market.bioplasticValue * amount), 0, 0, 0, 0);
-                market.FluctuateBioplasticValue(-1f);
+                manager.AddResources(0, (int)(market.polymerValue * amount), 0, 0, 0, 0);
+                market.FluctuatePolymerValue(-1f);
                 manager.colonyStats.polymerSold += amount;
+                return;
             }
         }
         else
         {
-            if (manager.HaveEnoughResource(0, 0, (int)(market.bioplasticValue * amount), 0, 0, 0))
+            if (manager.HaveEnoughResource(0, 0, (int)(market.polymerValue * amount), 0, 0, 0, 0))
             {
                 manager.AddResources(0, 0, 0, 0, amount, 0);
-                manager.RemoveResources(0, (int)(market.bioplasticValue * amount), 0, 0, 0, 0);
-                market.FluctuateBioplasticValue(1f);
+                manager.RemoveResources(0, (int)(market.polymerValue * amount), 0, 0, 0, 0);
+                market.FluctuatePolymerValue(1f);
                 manager.colonyStats.polymerBought += amount;
+                return;
             }
         }
+
+        manager.Notify(manager.Traduce("03_notif_factory_noresources"), priority: 2);
     }
 
     public void Btn_Food(bool sell)
     {
         if (sell)
         {
-            if (manager.HaveEnoughResource(0, 0, 0, 0, 0, amount))
+            if (manager.HaveEnoughResource(0, 0, 0, 0, 0, 0, amount))
             {
                 manager.RemoveResources(0, 0, 0, 0, 0, amount);
                 manager.AddResources(0, (int)(market.foodValue * amount), 0, 0, 0, 0);
                 market.FluctuateFoodValue(-1f);
                 manager.colonyStats.foodSold += amount;
+                return;
             }
         }
         else
         {
-            if(manager.HaveEnoughResource(0, 0, (int)(market.foodValue * amount), 0, 0, 0))
+            if(manager.HaveEnoughResource(0, 0, (int)(market.foodValue * amount), 0, 0, 0, 0))
             {
                 manager.AddResources(0, 0, 0, 0, 0, amount);
                 manager.RemoveResources(0, (int)(market.foodValue * amount), 0, 0, 0, 0);
                 market.FluctuateFoodValue(1f);
                 manager.colonyStats.foodBought += amount;
+                return;
             }
         }
+        
+        manager.Notify(manager.Traduce("03_notif_factory_noresources"), priority: 2);
     }
 
     public void UpdateStockMarket()
@@ -184,20 +228,23 @@ public enum CelestialBody { Venus, Earth, Moon, Ceres, Mars, Europe, Titan }
 public class StockMarket
 {
     public float regolithValue;
-    public float bioplasticValue;
+    public float metalValue;
+    public float polymerValue;
     public float foodValue;
 
-    public StockMarket(float rValue, float bValue, float fValue)
+    public StockMarket(float rValue, float mValue, float pValue, float fValue)
     {
         regolithValue = rValue;
-        bioplasticValue = bValue;
+        metalValue = mValue;
+        polymerValue = pValue;
         foodValue = fValue;
     }
 
     public void Fluctuate(float factor)
     {
         regolithValue += Random.Range(-100, 101) * factor / 100;
-        bioplasticValue += Random.Range(-100, 101) * factor / 100;
+        metalValue += Random.Range(-100, 101) * factor / 100;
+        polymerValue += Random.Range(-100, 101) * factor / 100;
         foodValue += Random.Range(-100, 101) * factor / 100;
     }
 
@@ -205,10 +252,15 @@ public class StockMarket
     {
         regolithValue += Random.Range(0, 101) * factor / 100;
     }
-
-    public void FluctuateBioplasticValue(float factor)
+    
+    public void FluctuateMetalValue(float factor)
     {
-        bioplasticValue += Random.Range(0, 101) * factor / 100;
+        metalValue += Random.Range(0, 101) * factor / 100;
+    }
+
+    public void FluctuatePolymerValue(float factor)
+    {
+        polymerValue += Random.Range(0, 101) * factor / 100;
     }
 
     public void FluctuateFoodValue(float factor)

@@ -125,7 +125,7 @@ public class TrainingArea : MonoBehaviour
 
         Units u = manager.unitData[unitID[localID]];
 
-        if (manager.HaveEnoughResource(u.place, 0, u.money, 0, 0, u.food))
+        if (manager.HaveEnoughResource(u.place, 0, u.money, 0, 0, 0, u.food))
         {
             Enqueue(unitID[localID], false);
         }

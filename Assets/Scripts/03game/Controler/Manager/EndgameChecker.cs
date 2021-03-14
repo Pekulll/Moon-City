@@ -205,7 +205,7 @@ public class EndgameChecker : MonoBehaviour
                 + calculatedScore[4].ToString() + "\n"
                 + calculatedScore[5].ToString();
         else
-            score.text = "<size=25><b> </b>0</size>\n0\n0\n0\n0\n0";
+            score.text = "<size=25><b> </b>Cheating</size>\n0\n0\n0\n0\n0";
 
         scorePanel.SetActive(true);
     }
@@ -241,11 +241,12 @@ public class EndgameChecker : MonoBehaviour
         calculatedScore[3] = researchSystem.techUnlock.Count * 10;
 
         calculatedScore[4] = (Mathf.Abs(manager.colonyStats.regolithBought - manager.colonyStats.regolithSold)
-            + Mathf.Abs(manager.colonyStats.polymerBought - manager.colonyStats.polymerSold)
+            + Mathf.Abs(manager.colonyStats.metalBought - manager.colonyStats.metalSold) * 2
+            + Mathf.Abs(manager.colonyStats.polymerBought - manager.colonyStats.polymerSold) * 2
             + Mathf.Abs(manager.colonyStats.foodBought - manager.colonyStats.foodSold)) * 10;
 
-        calculatedScore[5] = (int)(manager.colonyStats.money
-            + (manager.colonyStats.regolith + manager.colonyStats.polymer) * 2 
+        calculatedScore[5] = (int)(manager.colonyStats.money + manager.colonyStats.regolith * 1.5f
+            + (manager.colonyStats.metal + manager.colonyStats.polymer) * 2 
             + manager.colonyStats.food * 3);
 
         for(int i = 1; i < calculatedScore.Length; i++)

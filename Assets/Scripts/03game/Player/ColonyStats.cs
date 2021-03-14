@@ -110,11 +110,12 @@ public class ColonyStats : MonoBehaviour
     
     #region Output and checkers
     
-    public bool HaveEnoughResource (int colonist, int energy, int money, float regolith, float polymer, float food) {
+    public bool HaveEnoughResource (int colonist, int energy, int money, float regolith, float metal, float polymer, float food) {
         if (this.maxColonist < this.workers + colonist) return false;
         if (this.energy + this.anticipatedEnergy < energy) return false;
         if (this.money < money) return false;
         if (this.regolith < regolith) return false;
+        if (this.metal < metal) return false;
         if (this.polymer < polymer) return false;
         if (this.food < food) return false;
 
@@ -202,7 +203,7 @@ public class ColonyStats : MonoBehaviour
 
     #endregion
 
-    #region Add / remove ressources, workers and storage
+    #region Add / remove resources, workers and storage
 
     public void AddResources(int energy, int money, float regolith, float metal, float polymer, float food)
     {
