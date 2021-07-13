@@ -15,10 +15,10 @@ public class LoadItem : MonoBehaviour
     private Text colonist;
     private Text research;
 
-    private UIManager manager;
+    private SaveDisplay manager;
     private ColorManager colorManager;
 
-    public void Init(UIManager manager)
+    public void Init(SaveDisplay manager)
     {
         this.manager = manager;
         colorManager = FindObjectOfType<ColorManager>();

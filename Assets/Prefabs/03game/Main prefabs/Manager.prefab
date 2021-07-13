@@ -33,6 +33,8 @@ GameObject:
   - component: {fileID: 3851377817461460716}
   - component: {fileID: 2600112611015483759}
   - component: {fileID: 4648628857260772368}
+  - component: {fileID: 1706547809}
+  - component: {fileID: 1706547810}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -133,6 +135,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 20cc20f6a019814428f2af8fca4620bf, type: 2}
   - {fileID: 11400000, guid: 4d639125ad9098f4e99ab1b4161e10f1, type: 2}
   techData: {fileID: 11400000, guid: 641ea9f92651eb145b8878bd125afe45, type: 2}
+  enemyColonyCenter: {fileID: 4421531594287588543, guid: 7dca606f58837be47a7ae88a84b7076b,
+    type: 3}
   isOverUI: 0
   notificationHistory: 
   seed: 0
@@ -157,17 +161,21 @@ MonoBehaviour:
         money: 0
         energy: 0
         regolith: 0
-        bioplastic: 0
+        metal: 0
+        polymer: 0
         food: 0
         regolithSold: 0
-        bioplasticSold: 0
+        metalSold: 0
+        polymerSold: 0
         foodSold: 0
         regolithBought: 0
-        bioplasticBought: 0
+        metalBought: 0
+        polymerBought: 0
         foodBought: 0
     stockMarket:
       regolithValue: 10
-      bioplasticValue: 15
+      metalValue: 15
+      polymerValue: 15
       foodValue: 25
     diplomacy:
       status: []
@@ -929,7 +937,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   market:
     regolithValue: 0
-    bioplasticValue: 0
+    metalValue: 0
+    polymerValue: 0
     foodValue: 0
 --- !u!114 &4648628857260772368
 MonoBehaviour:
@@ -945,3 +954,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: {x: 5, y: 4}
   border: 2
+--- !u!114 &1706547809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02775f83f47e7904c8ac50b0adf4f117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1706547810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960983210021245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b670f006bb5a46a439bc6d5a4917f30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundTargetEffect: {fileID: 9105685940631965762, guid: 704be84851d523c4bb052979669981ff,
+    type: 3}

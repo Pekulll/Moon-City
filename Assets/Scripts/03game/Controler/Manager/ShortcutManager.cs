@@ -16,16 +16,16 @@ public class ShortcutManager : MonoBehaviour
 
     void Update()
     {
-        CheckForScreenshot(); // F6
+        CheckForScreenshot(); // F1
         GameSpeedShortcut(); // Space, +, -
-        CheckForInterfaceHiding(); // F7
-        CheckForMouseHiding(); // F8
+        CheckForInterfaceHiding(); // F2
+        CheckForMouseHiding(); // F4
         ResetCamera(); // R
     }
 
     private void CheckForScreenshot()
     {
-        if (Input.GetKeyDown(KeyCode.F6))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
             DateTime dateTime = DateTime.Now;
             string date = dateTime.Day + "-" + dateTime.Month + "-" + dateTime.Year + "_";
@@ -54,7 +54,7 @@ public class ShortcutManager : MonoBehaviour
 
     private void CheckForInterfaceHiding()
     {
-        if (Input.GetKeyDown(KeyCode.F7))
+        if (Input.GetKeyDown(KeyCode.F2))
         {
             wholeInterface.SetActive(!wholeInterface.activeSelf);
         }
@@ -62,7 +62,7 @@ public class ShortcutManager : MonoBehaviour
 
     private void CheckForMouseHiding()
     {
-        if (Input.GetKeyDown(KeyCode.F8))
+        if (Input.GetKeyDown(KeyCode.F4))
         {
             Cursor.visible = !Cursor.visible;
         }

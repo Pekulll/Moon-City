@@ -35,7 +35,7 @@ public class CreateColony : MonoBehaviour
     private TraduceSystem traductor;
     private ColorManager colorManager;
 
-    private void Start()
+    private void Awake()
     {
         createColony = GameObject.Find("CreateColony").GetComponent<Image>();
         colorManager = FindObjectOfType<ColorManager>();

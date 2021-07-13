@@ -132,7 +132,6 @@ public class Unit : Entity
 
             if (haveOrder && orders.Count > 0 && orders[0].orderType == OrderType.Position)
             {
-                ExecuteOrder();
                 yield return wait;
             }
             else
@@ -243,6 +242,9 @@ public class Unit : Entity
     {
         ResetTarget();
         targets.Remove(entity);
+
+        if (haveOrder && orders.Count > 0 && orders[0].orderType == OrderType.Entity)
+            orders.RemoveAt(0);
     }
 
     private void ResetTarget()
@@ -332,7 +334,6 @@ public class Unit : Entity
 
         if (orders[0].orderType == OrderType.Position)
         {
-            ResetTarget();
             MoveToPoint(new Vector3 (orders[0].position[0], orders[0].position[1], orders[0].position[2]));
             haveOrder = true;
         }

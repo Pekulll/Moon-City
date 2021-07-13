@@ -1416,7 +1416,7 @@ public class InformationsViewer : MonoBehaviour
     {
         if (currentGroup.objectsInGroup[0].side != manager.side) return;
 
-        Vector3[] positions = Utility.GetSquareFormationPositions(currentGroup.objectsInGroup.Count, 2);
+        Vector3[] positions = Utility.GetFormationPositions(((Unit)currentGroup.objectsInGroup[0]).formation, currentGroup.objectsInGroup.Count, 2);
         int positionIndex = 0;
 
         foreach (Unit unit in currentGroup.objectsInGroup)

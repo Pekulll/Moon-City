@@ -34,6 +34,7 @@ public class FeedbackSender : MonoBehaviour
         toggleFeatureSelected = GameObject.Find("TG_Suggestion").GetComponent<Toggle>();
         toggleIssueSelected = GameObject.Find("TG_Bug").GetComponent<Toggle>();
 
+        textCharCount.text = textFeedback.text.Length + "/" + textFeedback.characterLimit;
         textFeedback.onValueChanged.AddListener(delegate (string text)
         {
             textCharCount.text = text.Length + "/" + textFeedback.characterLimit;
@@ -79,7 +80,6 @@ public class FeedbackSender : MonoBehaviour
     private void Update()
     {
         if (!Input.GetKeyDown(KeyCode.F3)) return;
-
         Panel();
     }
 
