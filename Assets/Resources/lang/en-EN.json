@@ -99,6 +99,8 @@
         { "key": "01_title_ays", "translation": "Are you sure you want to take out this colony? This action <b>cannot be undone</b>." },
         { "key": "01_title_confirmation", "translation": "Your colony was indeed removed from the lunar surface." },
 
+        { "key": "01_key_to_bind", "translation": "Key to bind: " },
+        { "key": "01_key_assign_to", "translation": "<b>{0}</b>    assign to    <b>{1}</b>   (default: {2})" },
 
         { "key": "03_b_name_000", "translation": "Colony home" },
         { "key": "03_b_name_001", "translation": "Appart (S)" },

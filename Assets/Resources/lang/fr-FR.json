@@ -99,6 +99,8 @@
         { "key": "01_title_ays", "translation": "Êtes-vous sûr de vouloir supprimer cette colonie ? Cette action <b>est irréversible</b>." },
         { "key": "01_title_confirmation", "translation": "Votre colonie a bien été supprimé de la surface luanire." },
 
+        { "key": "01_key_to_bind", "translation": "Touche à lier : " },
+        { "key": "01_key_assign_to", "translation": "<b>{0}</b>    assigner à    <b>{1}</b>   (defaut : {2})" },
 
         { "key": "03_b_name_000", "translation": "Centre de colonie" },
         { "key": "03_b_name_001", "translation": "Appart (S)" },

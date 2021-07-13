@@ -20,23 +20,8 @@ public class GameplaySettings : MonoBehaviour
         languageTxt = GameObject.Find("LanguageText").GetComponent<Text>();
         ribBtn = GameObject.Find("Btn_SwitchRIB");
 
-        if (!PlayerPrefs.HasKey("LanguageId"))
-        {
-            m_languageId = 0;
-        }
-        else
-        {
-            m_languageId = PlayerPrefs.GetInt("LanguageId");
-        }
-
-        if (!PlayerPrefs.HasKey("RunInBackground"))
-        {
-            PlayerPrefs.SetString("RunInBackground", "false");
-        }
-        else
-        {
-            runInBackground = bool.Parse(PlayerPrefs.GetString("RunInBackground"));
-        }
+        m_languageId = SettingsData.instance.settings.languageID;
+        runInBackground = SettingsData.instance.settings.runInBackground;
 
         UpdateRIBColor();
         ChangeLanguage(m_languageId);
@@ -46,10 +31,14 @@ public class GameplaySettings : MonoBehaviour
     {
         m_languageId = langId;
 
-        if (m_languageId == 0) { translate.Traduce("en-EN"); PlayerPrefs.SetInt("LanguageId", 0); }
-        else if (m_languageId == 1) { translate.Traduce("fr-FR"); PlayerPrefs.SetInt("LanguageId", 1); }
-        else if (m_languageId == 2) { translate.Traduce("es-ES"); PlayerPrefs.SetInt("LanguageId", 2); }
-        else if (m_languageId == 3) { translate.Traduce("de-DE"); PlayerPrefs.SetInt("LanguageId", 3); }
+        if (m_languageId == 0) { translate.Traduce("en-EN"); }
+        else if (m_languageId == 1) { translate.Traduce("fr-FR"); }
+        else if (m_languageId == 2) { translate.Traduce("es-ES"); }
+        else if (m_languageId == 3) { translate.Traduce("de-DE"); }
+
+        translate.Traduce(GetLanguageCode(m_languageId));
+        SettingsData.instance.settings.languageID = m_languageId;
+        SettingsData.instance.SaveSettings();
     }
 
     public string GetLanguageCode(int id)
@@ -65,7 +54,8 @@ public class GameplaySettings : MonoBehaviour
     public void RunInBackground()
     {
         runInBackground = !runInBackground;
-        PlayerPrefs.SetString("RunInBackground", runInBackground.ToString());
+        SettingsData.instance.settings.runInBackground = runInBackground;
+        SettingsData.instance.SaveSettings();
         Application.runInBackground = runInBackground;
         UpdateRIBColor();
     }

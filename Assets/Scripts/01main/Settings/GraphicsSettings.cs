@@ -28,41 +28,14 @@ public class GraphicsSettings : MonoBehaviour
         vsyncButton = GameObject.Find("Btn_Vsync");
         fullscreenButton = GameObject.Find("Btn_Fullscreen");
 
-        if(!PlayerPrefs.HasKey("Graphics"))
-        {
-            ChangeQualityLevel(2);
-            PlayerPrefs.SetInt("Graphics", 2);
-        }
-        else
-        {
-            ChangeQualityLevel(PlayerPrefs.GetInt("Graphics"));
-        }
-
-        if(!PlayerPrefs.HasKey("VSync"))
-        {
-            PlayerPrefs.SetString("VSync", "true");
-            vsync = true;
-            QualitySettings.vSyncCount = 1;
-        }
-        else
-        {
-            vsync = bool.Parse(PlayerPrefs.GetString("VSync"));
-            if (vsync) QualitySettings.vSyncCount = 1;
-            else QualitySettings.vSyncCount = 0;
-        }
-
+        ChangeQualityLevel(SettingsData.instance.settings.graphicsID);
+        vsync = SettingsData.instance.settings.vsync > 0;
+        QualitySettings.vSyncCount = SettingsData.instance.settings.vsync;
+        
+        Application.targetFrameRate = SettingsData.instance.settings.targetFrameRate;
         UpdateVSyncButton();
 
-        if (!PlayerPrefs.HasKey("Fullscreen"))
-        {
-            PlayerPrefs.SetString("Fullscreen", "true");
-            fullScreen = true;
-        }
-        else
-        {
-            fullScreen = bool.Parse(PlayerPrefs.GetString("Fullscreen"));
-        }
-
+        fullScreen = SettingsData.instance.settings.fullScreen;
         Screen.fullScreen = fullScreen;
         UpdateFullscreenButton();
     }
@@ -70,7 +43,8 @@ public class GraphicsSettings : MonoBehaviour
     public void ChangeQualityLevel(int graphicsID)
     {
         QualitySettings.SetQualityLevel(graphicsID);
-        PlayerPrefs.SetInt("Graphics", graphicsID);
+        SettingsData.instance.settings.graphicsID = graphicsID;
+        SettingsData.instance.SaveSettings();
 
         for(int i = 0; i < graphics.Length; i++)
         {
@@ -92,25 +66,16 @@ public class GraphicsSettings : MonoBehaviour
         graphics[5].GetComponentInChildren<Outline>().effectColor = colorManager.importantColor;
         graphics[5].GetComponentInChildren<Text>().color = colorManager.importantColor;
         graphics[5].GetComponent<Button>().interactable = false;
-        
     }
 
     public void ChangeVSyncStatue()
     {
         vsync = !vsync;
-        PlayerPrefs.SetString("VSync", vsync.ToString());
-
-        if (vsync)
-        {
-            QualitySettings.vSyncCount = 1;
-        }
-        else
-        {
-            QualitySettings.vSyncCount = 0;
-        }
+        SettingsData.instance.settings.vsync = (vsync) ? 1 : 0;
+        SettingsData.instance.SaveSettings();
+        QualitySettings.vSyncCount = (vsync) ? 1 : 0;
 
         UpdateVSyncButton();
-
     }
 
     private void UpdateVSyncButton()
@@ -132,8 +97,10 @@ public class GraphicsSettings : MonoBehaviour
     public void ChangeFullscreen()
     {
         fullScreen = !fullScreen;
-        PlayerPrefs.SetString("Fullscreen", fullScreen.ToString());
         Screen.fullScreen = fullScreen;
+        
+        SettingsData.instance.settings.fullScreen = fullScreen;
+        SettingsData.instance.SaveSettings();
 
         if (fullScreen)
         {
