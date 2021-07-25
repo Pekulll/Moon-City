@@ -89,6 +89,8 @@
         { "key": "01_lang_deutsh", "translation": "Deutsch" },
 
         { "key": "01_title_runinback", "translation": "Run in background" },
+        { "key": "01_title_showfps", "translation": "Show FPS" },
+        { "key": "01_title_showmemory", "translation": "Show used memory" },
         { "key": "01_btn_deletedata", "translation": "Delete all game's saved and configurations." },
 
         { "key": "01_title_ays", "translation": "Are you sure you want to take out this colony? This action <b>cannot be undone</b>." },

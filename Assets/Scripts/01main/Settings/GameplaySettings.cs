@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class GameplaySettings : MonoBehaviour
 {
     private GameObject ribBtn;
+    private GameObject fpsBtn;
+    private GameObject memoryBtn;
 
     private TraduceSystem translate;
     private ColorManager colorManager;
@@ -16,11 +18,15 @@ public class GameplaySettings : MonoBehaviour
         translate = GameObject.Find("Traductor").GetComponent<TraduceSystem>();
         colorManager = FindObjectOfType<ColorManager>();
         ribBtn = GameObject.Find("Btn_SwitchRIB");
+        fpsBtn = GameObject.Find("Btn_ShowFPS");
+        memoryBtn = GameObject.Find("Btn_ShowMemory");
 
         languageID = SettingsData.instance.settings.languageID;
         runInBackground = SettingsData.instance.settings.runInBackground;
 
         UpdateRIBColor();
+        UpdateFPSColor();
+        UpdateMemoryColor();
         ChangeLanguage(languageID);
     }
 
@@ -70,6 +76,52 @@ public class GameplaySettings : MonoBehaviour
             ribBtn.GetComponent<Outline>().effectColor = colorManager.unavailable;
             ribBtn.GetComponentInChildren<Text>().color = colorManager.unavailable;
             ribBtn.GetComponentInChildren<Text>().text = "Off";
+        }
+    }
+
+    public void ShowFPS()
+    {
+        SettingsData.instance.settings.showFPS = !SettingsData.instance.settings.showFPS;
+        UpdateFPSColor();
+        SettingsData.instance.SaveSettings();
+    }
+    
+    private void UpdateFPSColor()
+    {
+        if (SettingsData.instance.settings.showFPS)
+        {
+            fpsBtn.GetComponent<Outline>().effectColor = colorManager.finished;
+            fpsBtn.GetComponentInChildren<Text>().color = colorManager.finished;
+            fpsBtn.GetComponentInChildren<Text>().text = "On";
+        }
+        else
+        {
+            fpsBtn.GetComponent<Outline>().effectColor = colorManager.unavailable;
+            fpsBtn.GetComponentInChildren<Text>().color = colorManager.unavailable;
+            fpsBtn.GetComponentInChildren<Text>().text = "Off";
+        }
+    }
+
+    public void ShowMemory()
+    {
+        SettingsData.instance.settings.showMemoryUsage = !SettingsData.instance.settings.showMemoryUsage;
+        UpdateMemoryColor();
+        SettingsData.instance.SaveSettings();
+    }
+    
+    private void UpdateMemoryColor()
+    {
+        if (SettingsData.instance.settings.showMemoryUsage)
+        {
+            memoryBtn.GetComponent<Outline>().effectColor = colorManager.finished;
+            memoryBtn.GetComponentInChildren<Text>().color = colorManager.finished;
+            memoryBtn.GetComponentInChildren<Text>().text = "On";
+        }
+        else
+        {
+            memoryBtn.GetComponent<Outline>().effectColor = colorManager.unavailable;
+            memoryBtn.GetComponentInChildren<Text>().color = colorManager.unavailable;
+            memoryBtn.GetComponentInChildren<Text>().text = "Off";
         }
     }
 

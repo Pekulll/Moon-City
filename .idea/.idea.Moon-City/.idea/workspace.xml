@@ -3,24 +3,31 @@
   <component name="ChangeListManager">
     <list default="true" id="f46a562e-722d-4d3e-b46d-3c8c1633d766" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Moon-City/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Moon-City/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/01main/Btn_KeyBinder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/01main/Btn_KeyBinder.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/01main/MainMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/01main/MainMenu.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/03game/Interface V3/PauseMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/03game/Interface V3/PauseMenu.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PersistentScripts.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PersistentScripts.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/lang/en-EN.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/lang/en-EN.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/lang/fr-FR.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/lang/fr-FR.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/01main/Settings/GameplaySettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/01main/Settings/GameplaySettings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/01main/Settings/KeyBindSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/01main/Settings/KeyBindSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/01main/UI/LoadItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/01main/UI/LoadItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/01main/UI/SaveDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/01main/UI/SaveDisplay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/EffectManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/EffectManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/ShortcutManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/ShortcutManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/FeedbackSender.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/FeedbackSender.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Others/Variable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Others/Variable.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Player/CameraMotor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Player/CameraMotor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/System/Utility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/System/Utility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/UI/Info/InformationsViewer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/UI/Info/InformationsViewer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SettingsData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scènes/01main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scènes/01main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/UI/ResumeMotor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/UI/ResumeMotor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Persistent/SettingsData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Persistent/SettingsData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scènes/00loading.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scènes/00loading.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scènes/02tutoLoading.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scènes/02tutoLoading.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scènes/03game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scènes/03game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scènes/03gameold.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scènes/03gameold/LightingData.asset.remap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scènes/03gameold/LightingData.asset.remap.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scènes/03gameold/OcclusionCullingData.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scènes/03gameold/OcclusionCullingData.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scènes/03tuto.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scènes/03tuto.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scènes/No_Build.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scènes/No_Build.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scènes/No_Build/Prototyping.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scènes/No_Build/Prototyping.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scènes/No_Build/Pub.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scènes/No_Build/Pub.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +43,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/028E4D71-153D-4ED5-AC6B-EE0DFC08AA3B/52/9bcf9eb4/KeyCode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/03game/System/MapGenerator/EndlessTerrain.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0847A0FA-F944-44CC-BAF1-958021B27F54/3d/955216e8/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/03game/AI/Enemy Colony/EnemyColony.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../Programmation/JSONSaveSystem/src/JSONSaveSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/028E4D71-153D-4ED5-AC6B-EE0DFC08AA3B/d3/5b1fe34e/Color.cs" root0="SKIP_HIGHLIGHTING" />
@@ -46,6 +54,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Persistent/Version.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/VersionTextUpdater.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0847A0FA-F944-44CC-BAF1-958021B27F54/08/4d0ed72f/Random.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Persistent/StatsMonitor.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -76,9 +85,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/01main/UI/TabPanel.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Special entity/Unit.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/01main/Settings/GraphicsSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/01main/Settings/GameplaySettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/01main/Settings/KeyBindSystem.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Player/CameraMotor.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/FeedbackSender.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/ShortcutManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SettingsData.cs" />
@@ -91,6 +97,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/EffectManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/System/Utility.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/03game/UI/Info/InformationsViewer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/01main/Settings/KeyBindSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/UI/ResumeMotor.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Persistent/SettingsData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/01main/Settings/GameplaySettings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/03game/Player/CameraMotor.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Persistent/StatsMonitor.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1pByRYkbXmgoMnyKx6oWHIfS3Bt" />
@@ -156,6 +168,7 @@
       <workItem from="1626251666477" duration="3674000" />
       <workItem from="1626616480448" duration="3171000" />
       <workItem from="1627145886567" duration="5477000" />
+      <workItem from="1627204111360" duration="3701000" />
     </task>
     <servers />
   </component>

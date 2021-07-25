@@ -7,15 +7,18 @@ public class ResumeMotor : MonoBehaviour
     private MoonManager manager;
     private GameObject pauseMenu;
     private GameObject saveDone;
+    private GameObject settings;
 
     void Start()
     {
         manager = GameObject.Find("Manager").GetComponent<MoonManager>();
         pauseMenu = GameObject.Find("PauseMenu");
         saveDone = GameObject.Find("B_GameSaved");
+        settings = GameObject.Find("SettingsUI");
 
         saveDone.SetActive(false);
         pauseMenu.SetActive(false);
+        settings.SetActive(false);
     }
 
     private void Update()
@@ -32,6 +35,7 @@ public class ResumeMotor : MonoBehaviour
         {
             manager.PauseGame(true);
             manager.HideInterface();
+            settings.SetActive(false);
             pauseMenu.SetActive(true);
         }
         catch (Exception e)
@@ -54,7 +58,7 @@ public class ResumeMotor : MonoBehaviour
 
     public void Settings()
     {
-        Resume();
+        settings.SetActive(!settings.activeSelf);
     }
 
     public void QuitToMenu()

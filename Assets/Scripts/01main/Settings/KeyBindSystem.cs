@@ -52,10 +52,13 @@ public class KeyBindSystem : MonoBehaviour
 
     public void Btn_BindKey(int _keyIndex)
     {
+        Debug.Log("1");
         keyIndex = _keyIndex;
         infoTxt.text = trad.GetTraduction("01_key_to_bind") + trad.GetTraduction(SettingsData.instance.settings.playerInputs[keyIndex].inputLabel);
         bindUI.SetActive(true);
+        Debug.Log("2");
         StartCoroutine(BindKey());
+        Debug.Log("3");
     }
 
     public void Btn_CancelBind()
@@ -69,13 +72,15 @@ public class KeyBindSystem : MonoBehaviour
 
     private IEnumerator BindKey()
     {
+        Debug.Log("4");
         float delay = .2f;
         
         timeTxt.text = string.Format(trad.GetTraduction("01_key_wait"), delay.ToString("0.0"));
 
         while (delay > 0)
         {
-            yield return new WaitForSeconds(0.1f);
+            Debug.Log("5");
+            yield return new WaitForSecondsRealtime(0.1f);
             delay -= 0.1f;
             
             if(delay > 0) timeTxt.text = string.Format(trad.GetTraduction("01_key_wait"), delay.ToString("0.0"));
@@ -83,6 +88,7 @@ public class KeyBindSystem : MonoBehaviour
         }
 
         captureKey = true;
+        Debug.Log("6");
     }
 
     private void Update()

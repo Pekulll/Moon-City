@@ -78,6 +78,8 @@ public class SettingsData : MonoBehaviour
         [Header("Gameplay")]
         public int languageID;
         public bool runInBackground;
+        public bool showFPS;
+        public bool showMemoryUsage;
 
         [Header("Hotkeys")]
         public PlayerInput[] playerInputs;
@@ -95,6 +97,8 @@ public class SettingsData : MonoBehaviour
             
             languageID = 0;
             runInBackground = false;
+            showFPS = false;
+            showMemoryUsage = false;
             
             playerInputs = new PlayerInput[]
             {

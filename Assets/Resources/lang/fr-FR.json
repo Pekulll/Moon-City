@@ -13,8 +13,8 @@
 
         { "key": "00_title_thanks", "translation": "Merci de jouer !" },
         { "key": "00_desc_thanks", "translation": "N'oubliez pas qu'il s'agit d'une <color=#FFA700>version pré-alpha</color>. Des bugs peuvent donc interrompre votre gameplay. Pour nous aider à améliorer le jeu, n'oubliez pas de nos faire vos retours et de rapportez tout les bugs rencontrés, via nos réseaux sociaux." },
-        { "key": "00_title_loading", "translation": "Loading..." },
-        { "key": "00_btn_understood", "translation": "Understood!" },
+        { "key": "00_title_loading", "translation": "Chargement..." },
+        { "key": "00_btn_understood", "translation": "Compris !" },
 
 
         { "key": "01_btn_new", "translation": "Nouvelle colonie" },
@@ -89,6 +89,8 @@
         { "key": "01_lang_deutsh", "translation": "Deutsch" },
 
         { "key": "01_title_runinback", "translation": "Fonctionne en arrière-plan" },
+        { "key": "01_title_showfps", "translation": "Afficher les FPS" },
+        { "key": "01_title_showmemory", "translation": "Afficher la mémoire utilisée" },
         { "key": "01_btn_deletedata", "translation": "Supprimez toutes les données du jeu (sauvegarde et options)" },
 
         { "key": "01_title_ays", "translation": "Êtes-vous sûr de vouloir supprimer cette colonie ? Cette action <b>est irréversible</b>." },

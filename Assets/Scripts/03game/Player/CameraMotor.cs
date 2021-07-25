@@ -12,12 +12,6 @@ public class CameraMotor : MonoBehaviour
     [SerializeField] private bool canMove = true;
     [SerializeField] private bool edgeToMove = true;
 
-    [Header("KeyCode")]
-    [SerializeField] private string forKey = "w";
-    [SerializeField] private string backKey = "s";
-    [SerializeField] private string leftKey = "a";
-    [SerializeField] private string rightKey = "d";
-
     private MoonManager manager;
     private Camera camera;
 
@@ -30,11 +24,6 @@ public class CameraMotor : MonoBehaviour
     {
         manager = FindObjectOfType<MoonManager>();
         camera = GetComponentInChildren<Camera>();
-
-        forKey = SettingsData.instance.settings.playerInputs[0].inputName;
-        backKey = SettingsData.instance.settings.playerInputs[1].inputName;
-        leftKey = SettingsData.instance.settings.playerInputs[2].inputName;
-        rightKey = SettingsData.instance.settings.playerInputs[3].inputName;
 
 #if UNITY_EDITOR
         edgeToMove = false;
@@ -144,18 +133,18 @@ public class CameraMotor : MonoBehaviour
     {
         if (Input.GetMouseButton(2) && !Input.GetKey(KeyCode.LeftControl)) return;
 
-        float speedFactor = (Time.timeScale != 0) ? Time.deltaTime / Time.timeScale : Time.fixedDeltaTime / 2;
+        float speedFactor = Time.unscaledDeltaTime;
         
-        if (Input.GetKey(forKey)|| (Input.mousePosition.y >= Screen.height - panBorderThickness && edgeToMove))
+        if (Input.GetKey(SettingsData.instance.settings.playerInputs[0].inputName)|| (Input.mousePosition.y >= Screen.height - panBorderThickness && edgeToMove))
             transform.Translate(Vector3.forward * panSpeed * speedFactor);
 
-        if (Input.GetKey(backKey) || (Input.mousePosition.y <= panBorderThickness && edgeToMove))
+        if (Input.GetKey(SettingsData.instance.settings.playerInputs[1].inputName) || (Input.mousePosition.y <= panBorderThickness && edgeToMove))
             transform.Translate(Vector3.back * panSpeed * speedFactor);
 
-        if (Input.GetKey(leftKey) || (Input.mousePosition.x <= panBorderThickness && edgeToMove))
+        if (Input.GetKey(SettingsData.instance.settings.playerInputs[2].inputName) || (Input.mousePosition.x <= panBorderThickness && edgeToMove))
             transform.Translate(Vector3.left * panSpeed * speedFactor);
 
-        if (Input.GetKey(rightKey) || (Input.mousePosition.x >= Screen.width - panBorderThickness && edgeToMove))
+        if (Input.GetKey(SettingsData.instance.settings.playerInputs[3].inputName) || (Input.mousePosition.x >= Screen.width - panBorderThickness && edgeToMove))
             transform.Translate(Vector3.right * panSpeed * speedFactor);
 
         Vector3 pos = transform.position;
