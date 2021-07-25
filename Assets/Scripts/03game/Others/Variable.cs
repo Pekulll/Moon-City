@@ -252,9 +252,9 @@ public class Difficulty
 {
     public string name;
     public int colonist;
-    [FormerlySerializedAs("rigolyte")] public int regolith;
+    public int regolith;
     public int metal, food;
-    [FormerlySerializedAs("bioPlastique")] public int polymer;
+    public int polymer;
     public int energy, money;
     public int enemyWaveRate;
     public int enemiesCount;

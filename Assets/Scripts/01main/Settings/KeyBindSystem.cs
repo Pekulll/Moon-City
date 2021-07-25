@@ -70,14 +70,16 @@ public class KeyBindSystem : MonoBehaviour
     private IEnumerator BindKey()
     {
         float delay = .2f;
-        timeTxt.text = trad.GetTraduction("Wait") + " " + delay.ToString("0.0") + " seconds...";
+        
+        timeTxt.text = string.Format(trad.GetTraduction("01_key_wait"), delay.ToString("0.0"));
 
         while (delay > 0)
         {
             yield return new WaitForSeconds(0.1f);
             delay -= 0.1f;
-            if(delay > 0) timeTxt.text = trad.GetTraduction("Wait") + " " + delay.ToString("0.0") + " "  + trad.GetTraduction("seconds") + "...";
-            else timeTxt.text = trad.GetTraduction("Wait") + " 0.0 " + trad.GetTraduction("second") + "...";
+            
+            if(delay > 0) timeTxt.text = string.Format(trad.GetTraduction("01_key_wait"), delay.ToString("0.0"));
+            else timeTxt.text = trad.GetTraduction("01_key_press");
         }
 
         captureKey = true;

@@ -25,7 +25,7 @@ public class ShortcutManager : MonoBehaviour
 
     private void CheckForScreenshot()
     {
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(SettingsData.instance.settings.playerInputs[8].inputName))
         {
             DateTime dateTime = DateTime.Now;
             string date = dateTime.Day + "-" + dateTime.Month + "-" + dateTime.Year + "_";
@@ -38,7 +38,7 @@ public class ShortcutManager : MonoBehaviour
 
     private void GameSpeedShortcut()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(SettingsData.instance.settings.playerInputs[12].inputName))
         {
             speedManager.Pause();
         }
@@ -54,7 +54,7 @@ public class ShortcutManager : MonoBehaviour
 
     private void CheckForInterfaceHiding()
     {
-        if (Input.GetKeyDown(KeyCode.F2))
+        if (Input.GetKeyDown(SettingsData.instance.settings.playerInputs[9].inputName))
         {
             wholeInterface.SetActive(!wholeInterface.activeSelf);
         }
@@ -62,7 +62,7 @@ public class ShortcutManager : MonoBehaviour
 
     private void CheckForMouseHiding()
     {
-        if (Input.GetKeyDown(KeyCode.F4))
+        if (Input.GetKeyDown(SettingsData.instance.settings.playerInputs[11].inputName))
         {
             Cursor.visible = !Cursor.visible;
         }
@@ -70,7 +70,7 @@ public class ShortcutManager : MonoBehaviour
 
     private void ResetCamera()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(SettingsData.instance.settings.playerInputs[6].inputName))
         {
             player.GetComponent<CameraMotor>().ResetCamera();
         }

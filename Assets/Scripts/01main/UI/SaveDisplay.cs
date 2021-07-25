@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class SaveDisplay : MonoBehaviour
 {
+    [Header("Save display")]
     [SerializeField] private string[] saves;
     [SerializeField] private Image loadButton;
     

@@ -26,11 +26,11 @@
         { "key": "01_title_new", "translation": "Nouvelle colonie lunaire" },
 
         { "key": "01_title_mod", "translation": "Choisissez votre style de jeu !" },
-        { "key": "01_title_tutorial", "translation": "<b>Tutoriel</b> :: Apprenez à jouer avec une partie rapide." },
-        { "key": "01_title_sandbox", "translation": "<b>Sandbox</b> :: Faites ce que vous voulez avec des ressources illimitées." },
-        { "key": "01_title_conquest", "translation": "<b>Conquête</b> :: Gérer et destruisez, ou achetez les autres colonies." },
-        { "key": "01_title_defend", "translation": "<b>Défendre</b> :: Construisez votre colonie et défendez la jusqu'à la dernière vague." },
-        { "key": "01_title_defendandconquest", "translation": "<b>Défendre & conquérir</b> :: Construisez votre colonie, protégez-la, et attaquez les autres." },
+        { "key": "01_title_tutorial", "translation": "<b>Tutoriel</b> • Apprenez à jouer avec une partie rapide." },
+        { "key": "01_title_sandbox", "translation": "<b>Sandbox</b> • Faites ce que vous voulez avec des ressources illimitées." },
+        { "key": "01_title_conquest", "translation": "<b>Conquête</b> • Gérer et destruisez, ou achetez les autres colonies." },
+        { "key": "01_title_defend", "translation": "<b>Défendre</b> • Construisez votre colonie et défendez la jusqu'à la dernière vague." },
+        { "key": "01_title_defendandconquest", "translation": "<b>Défendre & conquérir</b> • Construisez votre colonie, protégez-la, et attaquez les autres." },
         { "key": "01_warning_mod", "translation": "Tous les modes affiché en rouge sont en cours de développement." },
         
         { "key": "01_title_colony", "translation": "Le nom de votre colonie est utilisé pour la sauvegarde." },
@@ -90,17 +90,15 @@
 
         { "key": "01_title_runinback", "translation": "Fonctionne en arrière-plan" },
         { "key": "01_btn_deletedata", "translation": "Supprimez toutes les données du jeu (sauvegarde et options)" },
-        
-        { "key": "01_title_wait", "translation": "Attendez " },
-        { "key": "01_title_second", "translation": " secondes..." },
-        { "key": "01_title_keybindto", "translation": "Touche liée à : " },
-        { "key": "01_title_presskey", "translation": "Appuyez sur une touche..." },
 
         { "key": "01_title_ays", "translation": "Êtes-vous sûr de vouloir supprimer cette colonie ? Cette action <b>est irréversible</b>." },
         { "key": "01_title_confirmation", "translation": "Votre colonie a bien été supprimé de la surface luanire." },
 
         { "key": "01_key_to_bind", "translation": "Touche à lier : " },
         { "key": "01_key_assign_to", "translation": "<b>{0}</b>    assigner à    <b>{1}</b>   (defaut : {2})" },
+        { "key": "01_key_wait", "translation": "Attendez {0} seconde..." },
+        { "key": "01_key_press", "translation": "Appuyez sur une touche..." },
+
 
         { "key": "03_b_name_000", "translation": "Centre de colonie" },
         { "key": "03_b_name_001", "translation": "Appart (S)" },

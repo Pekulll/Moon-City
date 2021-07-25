@@ -1137,7 +1137,7 @@ public class InformationsViewer : MonoBehaviour
                 if(ta != null)
                 {
                     ta.SetRallyPoint(position);
-                    effectManager.GroundTargetEffect(position);
+                    effectManager.GroundTargetEffect(position, new Color(0, 1, 0));
                 }
             }
             else if(currentGroup != null && currentGroup.groupSide == manager.side)
@@ -1153,7 +1153,7 @@ public class InformationsViewer : MonoBehaviour
                     }
                 }
 
-                effectManager.GroundTargetEffect(position);
+                effectManager.GroundTargetEffect(position, new Color(0, 1, 0));
             }
         }
     }
@@ -1409,7 +1409,7 @@ public class InformationsViewer : MonoBehaviour
         if (selectedObject.side != manager.side) return;
 
         selectedObject.GetComponent<Unit>().AddOrder(new Order(OrderType.Position, target));
-        effectManager.GroundTargetEffect(target);
+        effectManager.GroundTargetEffect(target, new Color(0, 1, 0));
     }
 
     private void SendPlayerOrderAtGroup(Vector3 target)
@@ -1417,12 +1417,14 @@ public class InformationsViewer : MonoBehaviour
         if (currentGroup.objectsInGroup[0].side != manager.side) return;
 
         Vector3[] positions = Utility.GetFormationPositions(((Unit)currentGroup.objectsInGroup[0]).formation, currentGroup.objectsInGroup.Count, 2);
+        /*positions = Utility.RotatePosition(positions,
+            Utility.GetAngle(currentGroup.objectsInGroup[0].transform.position, target, currentGroup.objectsInGroup[0].transform.forward, effectManager));*/
         int positionIndex = 0;
 
         foreach (Unit unit in currentGroup.objectsInGroup)
         {
             unit.AddOrder(new Order(OrderType.Position, target + positions[positionIndex]));
-            effectManager.GroundTargetEffect(target + positions[positionIndex]);
+            effectManager.GroundTargetEffect(target + positions[positionIndex], new Color(0, 1, 0));
             positionIndex++;
         }
     }

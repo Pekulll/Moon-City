@@ -17,8 +17,6 @@ public class CameraMotor : MonoBehaviour
     [SerializeField] private string backKey = "s";
     [SerializeField] private string leftKey = "a";
     [SerializeField] private string rightKey = "d";
-    [SerializeField] private string rotateLeft = "a";
-    [SerializeField] private string rotateRight = "e";
 
     private MoonManager manager;
     private Camera camera;
@@ -33,15 +31,10 @@ public class CameraMotor : MonoBehaviour
         manager = FindObjectOfType<MoonManager>();
         camera = GetComponentInChildren<Camera>();
 
-        forKey = PlayerPrefs.GetString("MoveForward");
-        backKey = PlayerPrefs.GetString("MoveBackward");
-        leftKey = PlayerPrefs.GetString("StrafeLeft");
-        rightKey = PlayerPrefs.GetString("StrafeRight");
-
-        if (!PlayerPrefs.HasKey("MoveForward")) { forKey = "w"; }
-        if (!PlayerPrefs.HasKey("MoveBackward")) { forKey = "s"; }
-        if (!PlayerPrefs.HasKey("StrafeLeft")) { forKey = "a"; }
-        if (!PlayerPrefs.HasKey("StrafeRight")) { forKey = "d"; }
+        forKey = SettingsData.instance.settings.playerInputs[0].inputName;
+        backKey = SettingsData.instance.settings.playerInputs[1].inputName;
+        leftKey = SettingsData.instance.settings.playerInputs[2].inputName;
+        rightKey = SettingsData.instance.settings.playerInputs[3].inputName;
 
 #if UNITY_EDITOR
         edgeToMove = false;
@@ -151,20 +144,7 @@ public class CameraMotor : MonoBehaviour
     {
         if (Input.GetMouseButton(2) && !Input.GetKey(KeyCode.LeftControl)) return;
 
-        Vector3 pos = transform.position;
         float speedFactor = (Time.timeScale != 0) ? Time.deltaTime / Time.timeScale : Time.fixedDeltaTime / 2;
-
-        /*if (Input.GetKey(forKey)|| (Input.mousePosition.y >= Screen.height - panBorderThickness && edgeToMove))
-            pos.z += panSpeed * speedFactor;
-
-        if (Input.GetKey(backKey) || (Input.mousePosition.y <= panBorderThickness && edgeToMove))
-            pos.z -= panSpeed * speedFactor;
-
-        if (Input.GetKey(leftKey) || (Input.mousePosition.x <= panBorderThickness && edgeToMove))
-            pos.x -= panSpeed * speedFactor;
-
-        if (Input.GetKey(rightKey) || (Input.mousePosition.x >= Screen.width - panBorderThickness && edgeToMove))
-            pos.x += panSpeed * speedFactor;*/
         
         if (Input.GetKey(forKey)|| (Input.mousePosition.y >= Screen.height - panBorderThickness && edgeToMove))
             transform.Translate(Vector3.forward * panSpeed * speedFactor);
@@ -178,7 +158,7 @@ public class CameraMotor : MonoBehaviour
         if (Input.GetKey(rightKey) || (Input.mousePosition.x >= Screen.width - panBorderThickness && edgeToMove))
             transform.Translate(Vector3.right * panSpeed * speedFactor);
 
-        pos = transform.position;
+        Vector3 pos = transform.position;
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (!manager.isOverUI) pos.y -= scroll * scrollSpeed * 100f * 1.5f * speedFactor;

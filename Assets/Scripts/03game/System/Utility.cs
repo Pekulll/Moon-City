@@ -59,8 +59,6 @@ public class Utility
     
     private static Vector3[] GetTriangleFormationPositions(int objectCount, int space)
     {
-        //throw new System.NotImplementedException();
-
         int lineLength = 1;
         int unitPlaced = 0;
         
@@ -81,5 +79,49 @@ public class Utility
         }
 
         return positions;
+    }
+
+    public static Vector3[] RotatePosition(Vector3[] positions, float angle)
+    {
+        Debug.Log("<color=#00d9ff>" + angle + " radians</color>");
+        
+        if (angle < 0)
+        {
+            Debug.LogError("Angle can't be negative!");
+            return positions;
+        }
+
+        if (angle > 0)
+        {
+            for (int i = 0; i < positions.Length; i++)
+            {
+                float radius = Mathf.Sqrt(Mathf.Pow(positions[i].x, 2) + Mathf.Pow(positions[i].z, 2));
+                
+                positions[i] = new Vector3(
+                    Mathf.Cos(angle) * positions[i].x - Mathf.Sin(angle) * positions[i].z,
+                    positions[i].y,
+                    -Mathf.Sin(angle) * positions[i].x + Mathf.Cos(angle) * positions[i].z
+                );
+            }
+        }
+        
+        return positions;
+    }
+
+    public static float GetAngle(Vector3 from, Vector3 to, Vector3 axis, EffectManager manager)
+    {
+        Vector3 vector = to - from;
+
+        float length = Mathf.Sqrt(Mathf.Pow(vector.x, 2) + Mathf.Pow(vector.z, 2));
+        float axisLength = Mathf.Sqrt(Mathf.Pow(axis.x, 2) + Mathf.Pow(axis.z, 2));
+        
+        float cos = (vector.x * axis.x + vector.z * axis.z) / (length * axisLength);
+        
+        manager.GroundTargetEffect(to, Color.red);
+        manager.GroundTargetEffect(from, Color.magenta);
+        manager.GroundTargetEffect(from + axis, Color.yellow);
+        
+        Debug.Log("<color=#00d9ff>" + axis + " // " + length + " meters // " + cos + "</color>");
+        return Mathf.Acos(cos);
     }
 }

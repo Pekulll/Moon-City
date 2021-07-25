@@ -37,29 +37,65 @@ public class SettingsData : MonoBehaviour
             Debug.LogError(e.Message);
         }
 
+        Settings basicSettings = new Settings();
+
+        if (settings.playerInputs.Length < basicSettings.playerInputs.Length)
+        {
+            PlayerInput[] newInputs = new PlayerInput[basicSettings.playerInputs.Length];
+                
+            for (int i = 0; i < newInputs.Length; i++)
+            {
+                if (i < settings.playerInputs.Length)
+                {
+                    newInputs[i] = settings.playerInputs[i];
+                }
+                else
+                {
+                    newInputs[i] = basicSettings.playerInputs[i];
+                }
+            }
+
+            settings.playerInputs = newInputs;
+        }
+        
         return settings;
     }
 
     [Serializable]
     public class Settings
     {
-        public int languageID;
-        public bool runInBackground;
+        [Header("Graphics")]
         public int graphicsID;
         public int vsync;
         public int targetFrameRate;
         public bool fullScreen;
+
+        [Header("Sound")]
+        public int musicVolume;
+        public int uiEffectVolume;
+        public int fxEffectVolume;
+        
+        [Header("Gameplay")]
+        public int languageID;
+        public bool runInBackground;
+
+        [Header("Hotkeys")]
         public PlayerInput[] playerInputs;
 
         public Settings()
         {
-            languageID = 0;
-            runInBackground = false;
             graphicsID = 3;
             vsync = 1;
             targetFrameRate = 60;
             fullScreen = true;
 
+            musicVolume = 100;
+            uiEffectVolume = 100;
+            fxEffectVolume = 100;
+            
+            languageID = 0;
+            runInBackground = false;
+            
             playerInputs = new PlayerInput[]
             {
                 new PlayerInput("move_forward", "w", "w"),
@@ -73,7 +109,8 @@ public class SettingsData : MonoBehaviour
                 new PlayerInput("take_screenshot", "f1", "f1"),
                 new PlayerInput("hide_hud", "f2", "f2"),
                 new PlayerInput("feedback", "f3", "f3"),
-                new PlayerInput("hide_mouse_cursor", "f4", "f4")
+                new PlayerInput("hide_mouse_cursor", "f4", "f4"),
+                new PlayerInput("speed_pause", "space", "space")
             };
         }
     }

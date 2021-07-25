@@ -79,7 +79,7 @@ public class FeedbackSender : MonoBehaviour
 
     private void Update()
     {
-        if (!Input.GetKeyDown(KeyCode.F3)) return;
+        if (!Input.GetKeyDown(SettingsData.instance.settings.playerInputs[10].inputName)) return;
         Panel();
     }
 

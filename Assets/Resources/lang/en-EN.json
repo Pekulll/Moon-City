@@ -26,11 +26,11 @@
         { "key": "01_title_new", "translation": "New colony on the Moon" },
 
         { "key": "01_title_mod", "translation": "Choose your game style!" },
-        { "key": "01_title_tutorial", "translation": "<b>Tutorial</b> :: Learn to play with a quick game." },
-        { "key": "01_title_sandbox", "translation": "<b>Sandbox</b> :: Do everything you want, with unlimited resources." },
-        { "key": "01_title_conquest", "translation": "<b>Conquest</b> :: Manage your colony and destroy, or buy, the others." },
-        { "key": "01_title_defend", "translation": "<b>Defend</b> :: Build your colony and protect it until the last wave." },
-        { "key": "01_title_defendandconquest", "translation": "<b>Defend & conquest</b> :: Build your colony, protect it until the last wave, and attack others." },
+        { "key": "01_title_tutorial", "translation": "<b>Tutorial</b> • Learn to play with a quick game." },
+        { "key": "01_title_sandbox", "translation": "<b>Sandbox</b> • Do everything you want, with unlimited resources." },
+        { "key": "01_title_conquest", "translation": "<b>Conquest</b> • Manage your colony and destroy, or buy, the others." },
+        { "key": "01_title_defend", "translation": "<b>Defend</b> • Build your colony and protect it until the last wave." },
+        { "key": "01_title_defendandconquest", "translation": "<b>Defend & conquest</b> • Build your colony, protect it until the last wave, and attack others." },
         { "key": "01_warning_mod", "translation": "All the modes displayed in red are under development." },
         
         { "key": "01_title_colony", "translation": "The colony's name is used to save your game." },
@@ -90,17 +90,15 @@
 
         { "key": "01_title_runinback", "translation": "Run in background" },
         { "key": "01_btn_deletedata", "translation": "Delete all game's saved and configurations." },
-        
-        { "key": "01_title_wait", "translation": "Wait " },
-        { "key": "01_title_second", "translation": " seconds..." },
-        { "key": "01_title_keybindto", "translation": "Key bind to: " },
-        { "key": "01_title_presskey", "translation": "Press a key..." },
 
         { "key": "01_title_ays", "translation": "Are you sure you want to take out this colony? This action <b>cannot be undone</b>." },
         { "key": "01_title_confirmation", "translation": "Your colony was indeed removed from the lunar surface." },
 
         { "key": "01_key_to_bind", "translation": "Key to bind: " },
         { "key": "01_key_assign_to", "translation": "<b>{0}</b>    assign to    <b>{1}</b>   (default: {2})" },
+        { "key": "01_key_wait", "translation": "Wait {0} second..." },
+        { "key": "01_key_press", "translation": "Press a key..." },
+
 
         { "key": "03_b_name_000", "translation": "Colony home" },
         { "key": "03_b_name_001", "translation": "Appart (S)" },

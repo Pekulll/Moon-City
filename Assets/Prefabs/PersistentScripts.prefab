@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3327485063310842043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3327485063310842045}
+  - component: {fileID: 3327485063310842042}
+  - component: {fileID: 5912345787356679279}
+  m_Layer: 0
+  m_Name: PersistentScripts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3327485063310842045
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3327485063310842043}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3327485063310842042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3327485063310842043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e1817211d1a48947a434cc012337ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    graphicsID: 3
+    vsync: 1
+    targetFrameRate: 60
+    fullScreen: 1
+    musicVolume: 0
+    uiEffectVolume: 0
+    fxEffectVolume: 0
+    languageID: 0
+    runInBackground: 0
+    playerInputs:
+    - inputLabel: move_forward
+      inputName: w
+      inputDefault: w
+    - inputLabel: move_backward
+      inputName: s
+      inputDefault: s
+    - inputLabel: strafe_left
+      inputName: a
+      inputDefault: a
+    - inputLabel: strafe_right
+      inputName: d
+      inputDefault: d
+    - inputLabel: rotate_left
+      inputName: q
+      inputDefault: q
+    - inputLabel: rotate_right
+      inputName: e
+      inputDefault: e
+    - inputLabel: reset_camera
+      inputName: r
+      inputDefault: r
+    - inputLabel: rotate_preview
+      inputName: tab
+      inputDefault: tab
+    - inputLabel: take_screenshot
+      inputName: f1
+      inputDefault: f1
+    - inputLabel: hide_hud
+      inputName: f2
+      inputDefault: f2
+    - inputLabel: feedback
+      inputName: f3
+      inputDefault: f3
+    - inputLabel: hide_mouse_cursor
+      inputName: f4
+      inputDefault: f4
+--- !u!114 &5912345787356679279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3327485063310842043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee2e8d4d09754dd469f2729b3ea110ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
