@@ -1,128 +1,168 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class DiplomacySystem : MonoBehaviour
 {
     [Header("Icons")]
-    [SerializeField] private Sprite m_war;
-    [SerializeField] private Sprite m_neutral;
-    [SerializeField] private Sprite m_ally;
+    [FormerlySerializedAs("m_war")] [SerializeField] private Sprite war;
+    [FormerlySerializedAs("m_neutral")] [SerializeField] private Sprite neutral;
+    [FormerlySerializedAs("m_ally")] [SerializeField] private Sprite ally;
+    
+    [Header("Interface")]
+    [SerializeField] private GameObject button;
 
-    public DiplomacyState[] m_diplomacyStates;
+    [FormerlySerializedAs("m_diplomacyStates")] public DiplomacyState[] diplomacyStates;
 
-    private Text m_diploColonyName, m_reputationText;
+    private Text diploColonyName, reputationText;
 
-    private Button m_peaceBtn, m_warBtn;
-    private Image m_diploSatut;
+    private Button peaceBtn, warBtn;
+    private Image diploSatut;
 
-    private GameObject m_diploInfo;
+    private GameObject diploInfo;
 
-    private MoonColony m_currentColony;
-    private ColonyStats m_currentStats;
-    private MoonManager m_manager;
+    private MoonColony currentColony;
+    private MoonManager manager;
+
+    private RectTransform content;
 
     private bool haveSave;
     private bool isAlreadyInitialized;
+
+    private ColonyStats[] colonies;
 
     #region Initialisation
 
     private void Start()
     {
-        AssignAll();
         Initialize();
-        Btn_HideDiplomacy();
     }
 
     public void Initialize(bool isOnSave = false)
     {
         if (!isAlreadyInitialized)
         {
+            AssignAll();
             isAlreadyInitialized = true;
             haveSave = isOnSave;
             GenerateDiplomacy();
+            CreateButtons();
+            Btn_HideDiplomacy();
         }
     }
 
     private void AssignAll()
     {
-        m_manager = GameObject.Find("Manager").GetComponent<MoonManager>();
+        manager = GameObject.Find("Manager").GetComponent<MoonManager>();
 
-        m_diploInfo = GameObject.Find("BC_Diplomacy");
+        diploInfo = GameObject.Find("BC_Diplomacy");
 
-        m_diploColonyName = GameObject.Find("T_ColonyName").GetComponent<Text>();
-        m_reputationText = GameObject.Find("T_Reputation").GetComponent<Text>();
+        diploColonyName = GameObject.Find("T_ColonyName").GetComponent<Text>();
+        reputationText = GameObject.Find("T_Reputation").GetComponent<Text>();
 
-        m_diploSatut = GameObject.Find("I_DiploStatut").GetComponent<Image>();
+        diploSatut = GameObject.Find("I_DiploStatut").GetComponent<Image>();
 
-        m_peaceBtn = GameObject.Find("Btn_Peace").GetComponent<Button>();
-        m_warBtn = GameObject.Find("Btn_War").GetComponent<Button>();
+        peaceBtn = GameObject.Find("Btn_Peace").GetComponent<Button>();
+        warBtn = GameObject.Find("Btn_War").GetComponent<Button>();
+
+        content = GameObject.Find("E_Diplomacy").GetComponent<RectTransform>();
+        colonies = FindObjectsOfType<ColonyStats>();
     }
 
     #endregion
 
     #region UI managment
 
+    private void CreateButtons()
+    {
+        for (int i = 0; i < colonies.Length; i++)
+        {
+            if (colonies[i].colony.side == manager.side)
+                continue;
+            
+            GameObject but = Instantiate(button, content);
+            Outline outline = but.GetComponent<Outline>();
+            Image icon = but.transform.Find("Image").GetComponent<Image>();
+            Button b = but.GetComponent<Button>();
+            
+            outline.effectColor = new Color(colonies[i].colony.colonyColor[0], colonies[i].colony.colonyColor[1], colonies[i].colony.colonyColor[2], 1);
+            icon.sprite = neutral;
+
+            int temp = i;
+            b.onClick.AddListener(delegate { Btn_OpenDiplomacyInfo(colonies[temp].colony.side); });
+        }
+    }
+    
     public void Btn_HideDiplomacy()
     {
-        m_diploInfo.SetActive(false);
-        m_currentColony = null;
-        m_currentStats = null;
+        diploInfo.SetActive(false);
+        currentColony = null;
     }
 
-    public void Btn_OpenDiplomacyInfo(GameObject currentGo)
+    public void Btn_OpenDiplomacyInfo(int side)
     {
-        bool isActive = m_diploInfo.activeSelf;
-        ColonyStats cur = currentGo.GetComponent<ColonyStats>();
-        MoonColony current = cur.colony;
+        bool isActive = diploInfo.activeSelf;
+        MoonColony current = GetColony(side);
 
-        if (isActive && current == m_currentColony)
+        if (isActive && current == currentColony)
         {
-            m_diploInfo.SetActive(false);
-            m_currentColony = null;
-            m_currentStats = null;
-            m_diploColonyName.text = "DIPLOMATIE_COLONY_NAME";
+            diploInfo.SetActive(false);
+            currentColony = null;
+            diploColonyName.text = "DIPLOMATIE_COLONY_NAME";
         }
         else
         {
-            m_currentColony = current;
-            m_currentStats = cur;
-            m_diploColonyName.text = current.name;
+            currentColony = current;
+            diploColonyName.text = current.name;
 
-            Vector2Int reputations = GetDiplomacyReputation(m_manager.side, m_currentColony.side);
-            m_reputationText.text = (reputations.x + reputations.y).ToString();
-            m_reputationText.transform.parent.gameObject.GetComponent<TooltipCaller>().info = m_manager.Traduce("Act:") + " " + reputations.x + "\n" + m_manager.Traduce("Trading:") + " " + reputations.y;
-            m_reputationText.transform.parent.gameObject.GetComponent<TooltipCaller>().title = m_manager.Traduce("Reputation");
+            Vector2Int reputations = GetDiplomacyReputation(manager.side, currentColony.side);
+            reputationText.text = (reputations.x + reputations.y).ToString();
+            
+            TooltipCaller tooltip = reputationText.transform.parent.gameObject.GetComponent<TooltipCaller>();
+            tooltip.info = manager.Traduce("Act:") + " " + reputations.x + "\n" + manager.Traduce("Trading:") + " " + reputations.y;
+            tooltip.title = manager.Traduce("Reputation");
 
             UpdateButton();
-            m_diploInfo.SetActive(true);
+            diploInfo.SetActive(true);
         }
+    }
+
+    private MoonColony GetColony(int side)
+    {
+        foreach (ColonyStats c in colonies)
+        {
+            if (c.colony.side == side)
+                return c.colony;
+        }
+
+        return null;
     }
 
     public void Btn_DeclareWar()
     {
-        ChangeDiplomacyState(m_manager.side, m_currentColony.side, 2);
-        ChangeDiplomacyReputation(m_manager.side, m_currentColony.side, 0, -50);
-        m_manager.Notify(string.Format(m_manager.Traduce("03_notif_war"), m_currentColony.name), priority: 3);
+        ChangeDiplomacyState(manager.side, currentColony.side, 2);
+        ChangeDiplomacyReputation(manager.side, currentColony.side, 0, -50);
+        manager.Notify(string.Format(manager.Traduce("03_notif_war"), currentColony.name), priority: 3);
         UpdateInterface();
     }
 
     public void Btn_DeclarePeace()
     {
-        if (GetDiplomacyState(m_manager.side, m_currentColony.side) == 0) return;
+        if (GetDiplomacyState(manager.side, currentColony.side) == 0) return;
 
-        Vector2Int reputations = GetDiplomacyReputation(m_manager.side, m_currentColony.side);
+        Vector2Int reputations = GetDiplomacyReputation(manager.side, currentColony.side);
         int reputation = reputations.x + reputations.y;
 
         if(reputation >= 50 && reputations.x >= 25)
         {
-            ChangeDiplomacyState(m_manager.side, m_currentColony.side, 0);
-            ChangeDiplomacyReputation(m_manager.side, m_currentColony.side, 0, 50);
-            m_manager.Notify(string.Format(m_manager.Traduce("03_notif_peace"), m_currentColony.name), priority: 1);
+            ChangeDiplomacyState(manager.side, currentColony.side, 0);
+            ChangeDiplomacyReputation(manager.side, currentColony.side, 0, 50);
+            manager.Notify(string.Format(manager.Traduce("03_notif_peace"), currentColony.name), priority: 1);
         }
         else
         {
-            ChangeDiplomacyReputation(m_manager.side, m_currentColony.side, 0, UnityEngine.Random.Range(-3, -1));
-            m_manager.Notify(m_manager.Traduce("03_notif_declined"));
+            ChangeDiplomacyReputation(manager.side, currentColony.side, 0, UnityEngine.Random.Range(-3, -1));
+            manager.Notify(manager.Traduce("03_notif_declined"));
         }
 
         UpdateInterface();
@@ -131,58 +171,58 @@ public class DiplomacySystem : MonoBehaviour
     public void Btn_Denounce()
     {
         int change = UnityEngine.Random.Range(1, 4);
-        ChangeDiplomacyReputation(m_manager.side, m_currentColony.side, 0, -change);
-        m_manager.Notify(string.Format(m_manager.Traduce("03_notif_denounce"), change), priority: 2);
+        ChangeDiplomacyReputation(manager.side, currentColony.side, 0, -change);
+        manager.Notify(string.Format(manager.Traduce("03_notif_denounce"), change), priority: 2);
     }
 
     public void Btn_Flatter()
     {
-        int reputation = GetDiplomacyReputation(m_manager.side, m_currentColony.side).x;
+        int reputation = GetDiplomacyReputation(manager.side, currentColony.side).x;
 
         if (reputation < 15)
         {
             if(Random.Range(0, 16) > reputation)
             {
                 int change = Random.Range(0, 4);
-                ChangeDiplomacyReputation(m_manager.side, m_currentColony.side, 0, change);
-                m_manager.Notify(string.Format(m_manager.Traduce("03_notif_flatter_success"), change), priority: 1);
+                ChangeDiplomacyReputation(manager.side, currentColony.side, 0, change);
+                manager.Notify(string.Format(manager.Traduce("03_notif_flatter_success"), change), priority: 1);
             }
             else
             {
                 int change = Random.Range(0, 4);
-                ChangeDiplomacyReputation(m_manager.side, m_currentColony.side, 0, -change);
-                m_manager.Notify(string.Format(m_manager.Traduce("03_notif_flatter_fail"), change), priority: 2);
+                ChangeDiplomacyReputation(manager.side, currentColony.side, 0, -change);
+                manager.Notify(string.Format(manager.Traduce("03_notif_flatter_fail"), change), priority: 2);
             }
         }
         else
         {
-            m_manager.Notify(string.Format(m_manager.Traduce("03_notif_flatter_fail")));
+            manager.Notify(string.Format(manager.Traduce("03_notif_flatter_fail")));
         }
     }
 
     private void UpdateButton()
     {
-        m_peaceBtn.interactable = true;
-        m_warBtn.interactable = true;
+        peaceBtn.interactable = true;
+        warBtn.interactable = true;
 
-        int diplo = GetDiplomacyState(m_manager.colonyStats.colony.side, m_currentColony.side);
-        if (diplo == 2) { m_warBtn.interactable = false; }
+        int diplo = GetDiplomacyState(manager.colonyStats.colony.side, currentColony.side);
+        if (diplo == 2) { warBtn.interactable = false; }
 
-        Vector2Int reputations = GetDiplomacyReputation(m_manager.side, m_currentColony.side);
-        m_reputationText.text = (reputations.x + reputations.y).ToString();
-        m_reputationText.transform.parent.gameObject.GetComponent<TooltipCaller>().info = m_manager.Traduce("Act:") + " " + reputations.x + "\n" + m_manager.Traduce("Trading:") + " " + reputations.y;
-        m_reputationText.transform.parent.gameObject.GetComponent<TooltipCaller>().title = m_manager.Traduce("Reputation");
+        Vector2Int reputations = GetDiplomacyReputation(manager.side, currentColony.side);
+        reputationText.text = (reputations.x + reputations.y).ToString();
+        reputationText.transform.parent.gameObject.GetComponent<TooltipCaller>().info = manager.Traduce("Act:") + " " + reputations.x + "\n" + manager.Traduce("Trading:") + " " + reputations.y;
+        reputationText.transform.parent.gameObject.GetComponent<TooltipCaller>().title = manager.Traduce("Reputation");
 
         UpdateIcon();
     }
 
     private void UpdateIcon()
     {
-        int diplo = GetDiplomacyState(m_manager.colonyStats.colony.side, m_currentColony.side);
+        int diplo = GetDiplomacyState(manager.colonyStats.colony.side, currentColony.side);
 
-        if (diplo == 0) m_diploSatut.sprite = m_ally;
-        else if (diplo == 1)m_diploSatut.sprite = m_neutral;
-        else if (diplo == 2) m_diploSatut.sprite = m_war;
+        if (diplo == 0) diploSatut.sprite = ally;
+        else if (diplo == 1)diploSatut.sprite = neutral;
+        else if (diplo == 2) diploSatut.sprite = war;
     }
 
     private void UpdateInterface()
@@ -193,10 +233,10 @@ public class DiplomacySystem : MonoBehaviour
 
     private void UpdateReputation()
     {
-        Vector2Int reputations = GetDiplomacyReputation(m_manager.side, m_currentColony.side);
-        m_reputationText.text = (reputations.x + reputations.y).ToString();
-        m_reputationText.transform.parent.gameObject.GetComponent<TooltipCaller>().info = m_manager.Traduce("Act:") + " " + reputations.x + "\n" + m_manager.Traduce("Trading:") + " " + reputations.y;
-        m_reputationText.transform.parent.gameObject.GetComponent<TooltipCaller>().title = m_manager.Traduce("Reputation");
+        Vector2Int reputations = GetDiplomacyReputation(manager.side, currentColony.side);
+        reputationText.text = (reputations.x + reputations.y).ToString();
+        reputationText.transform.parent.gameObject.GetComponent<TooltipCaller>().info = manager.Traduce("Act:") + " " + reputations.x + "\n" + manager.Traduce("Trading:") + " " + reputations.y;
+        reputationText.transform.parent.gameObject.GetComponent<TooltipCaller>().title = manager.Traduce("Reputation");
     }
 
     #endregion
@@ -214,8 +254,7 @@ public class DiplomacySystem : MonoBehaviour
     {
         if (!haveSave)
         {
-            ColonyStats[] colonies = FindObjectsOfType<ColonyStats>();
-            m_diplomacyStates = new DiplomacyState[colonies.Length + 1];
+            diplomacyStates = new DiplomacyState[colonies.Length + 1];
 
             for(int i = 0; i < colonies.Length; i++)
             {
@@ -231,18 +270,17 @@ public class DiplomacySystem : MonoBehaviour
                     }
                 }
 
-                diplomacies[colonies.Length - 1] = new DiplomacyColony(999, 2, -999, -999);
-
-                m_diplomacyStates[i] = new DiplomacyState(colonies[i].colony.side, diplomacies);
+                diplomacies[colonies.Length - 1] = new DiplomacyColony(999, 2, -99999, -99999);
+                diplomacyStates[i] = new DiplomacyState(colonies[i].colony.side, diplomacies);
             }
 
             DiplomacyColony[] waveColony = new DiplomacyColony[colonies.Length];
 
             for(int i = 0; i < waveColony.Length; i++)
             {
-                if(colonies[i].colony.side == m_manager.side)
+                if(colonies[i].colony.side == manager.side)
                 {
-                    waveColony[i] = new DiplomacyColony(colonies[i].colony.side, 2, -999, -999);
+                    waveColony[i] = new DiplomacyColony(colonies[i].colony.side, 2, -99999, -99999);
                 }
                 else
                 {
@@ -250,7 +288,7 @@ public class DiplomacySystem : MonoBehaviour
                 }
             }
 
-            m_diplomacyStates[m_diplomacyStates.Length - 1] = new DiplomacyState(999, waveColony);
+            diplomacyStates[diplomacyStates.Length - 1] = new DiplomacyState(999, waveColony);
 
             Debug.Log("[INFO:DiplomacySystem] Generation of the diplomacy done.");
         }
@@ -262,15 +300,15 @@ public class DiplomacySystem : MonoBehaviour
 
     private Vector2Int GetDiplomacyReputation(int povSide = 0, int side = 1)
     {
-        foreach (DiplomacyState d in m_diplomacyStates)
+        foreach (DiplomacyState d in diplomacyStates)
         {
-            if (d.m_povSide == povSide)
+            if (d.povSide == povSide)
             {
-                foreach (DiplomacyColony dc in d.m_states)
+                foreach (DiplomacyColony dc in d.states)
                 {
-                    if (dc.m_side == side)
+                    if (dc.side == side)
                     {
-                        return new Vector2Int(dc.m_actReputation, dc.m_commercialReputation);
+                        return new Vector2Int(dc.actReputation, dc.commercialReputation);
                     }
                 }
             }
@@ -284,29 +322,29 @@ public class DiplomacySystem : MonoBehaviour
     {
         if (rep == 0)
         {
-            foreach (DiplomacyState d in m_diplomacyStates)
+            foreach (DiplomacyState d in diplomacyStates)
             {
-                if (d.m_povSide == povSide)
+                if (d.povSide == povSide)
                 {
-                    foreach (DiplomacyColony dc in d.m_states)
+                    foreach (DiplomacyColony dc in d.states)
                     {
-                        if (dc.m_side == side)
+                        if (dc.side == side)
                         {
-                            dc.m_actReputation = Mathf.Clamp(dc.m_actReputation + change, -50, 50);
+                            dc.actReputation = Mathf.Clamp(dc.actReputation + change, -50, 50);
                         }
                     }
                 }
             }
 
-            foreach (DiplomacyState d in m_diplomacyStates)
+            foreach (DiplomacyState d in diplomacyStates)
             {
-                if (d.m_povSide == side)
+                if (d.povSide == side)
                 {
-                    foreach (DiplomacyColony dc in d.m_states)
+                    foreach (DiplomacyColony dc in d.states)
                     {
-                        if (dc.m_side == povSide)
+                        if (dc.side == povSide)
                         {
-                            dc.m_actReputation = Mathf.Clamp(dc.m_actReputation + change, -50, 50);
+                            dc.actReputation = Mathf.Clamp(dc.actReputation + change, -50, 50);
                         }
                     }
                 }
@@ -314,29 +352,29 @@ public class DiplomacySystem : MonoBehaviour
         }
         else if (rep == 1)
         {
-            foreach (DiplomacyState d in m_diplomacyStates)
+            foreach (DiplomacyState d in diplomacyStates)
             {
-                if (d.m_povSide == povSide)
+                if (d.povSide == povSide)
                 {
-                    foreach (DiplomacyColony dc in d.m_states)
+                    foreach (DiplomacyColony dc in d.states)
                     {
-                        if (dc.m_side == side)
+                        if (dc.side == side)
                         {
-                            dc.m_commercialReputation = Mathf.Clamp(dc.m_commercialReputation + change, -50, 50);
+                            dc.commercialReputation = Mathf.Clamp(dc.commercialReputation + change, -50, 50);
                         }
                     }
                 }
             }
 
-            foreach (DiplomacyState d in m_diplomacyStates)
+            foreach (DiplomacyState d in diplomacyStates)
             {
-                if (d.m_povSide == side)
+                if (d.povSide == side)
                 {
-                    foreach (DiplomacyColony dc in d.m_states)
+                    foreach (DiplomacyColony dc in d.states)
                     {
-                        if (dc.m_side == povSide)
+                        if (dc.side == povSide)
                         {
-                            dc.m_commercialReputation = Mathf.Clamp(dc.m_commercialReputation + change, -50, 50);
+                            dc.commercialReputation = Mathf.Clamp(dc.commercialReputation + change, -50, 50);
                         }
                     }
                 }
@@ -348,15 +386,15 @@ public class DiplomacySystem : MonoBehaviour
 
     private int GetDiplomacyState(int povSide = 0, int side = 1)
     {
-        foreach(DiplomacyState d in m_diplomacyStates)
+        foreach(DiplomacyState d in diplomacyStates)
         {
-            if(d.m_povSide == povSide)
+            if(d.povSide == povSide)
             {
-                foreach(DiplomacyColony dc in d.m_states)
+                foreach(DiplomacyColony dc in d.states)
                 {
-                    if(dc.m_side == side)
+                    if(dc.side == side)
                     {
-                        return dc.m_state;
+                        return dc.state;
                     }
                 }
             }
@@ -370,15 +408,15 @@ public class DiplomacySystem : MonoBehaviour
     {
         int s = 1;
 
-        foreach (DiplomacyState d in m_diplomacyStates)
+        foreach (DiplomacyState d in diplomacyStates)
         {
-            if (d.m_povSide == povSide)
+            if (d.povSide == povSide)
             {
-                foreach (DiplomacyColony dc in d.m_states)
+                foreach (DiplomacyColony dc in d.states)
                 {
-                    if (dc.m_side == side)
+                    if (dc.side == side)
                     {
-                        s = dc.m_state;
+                        s = dc.state;
                         //Debug.Log("POVSide=" + povSide + " / side=" + side + " :: s=" + s);
                     }
                 }
@@ -391,30 +429,30 @@ public class DiplomacySystem : MonoBehaviour
 
     private void ChangeDiplomacyState(int povSide = 0, int side = 1, int state = 1)
     {
-        foreach (DiplomacyState d in m_diplomacyStates)
+        foreach (DiplomacyState d in diplomacyStates)
         {
-            if (d.m_povSide == povSide)
+            if (d.povSide == povSide)
             {
-                foreach (DiplomacyColony dc in d.m_states)
+                foreach (DiplomacyColony dc in d.states)
                 {
-                    if (dc.m_side == side)
+                    if (dc.side == side)
                     {
-                        dc.m_state = state;
+                        dc.state = state;
                         Debug.Log("[INFO:DiplomacySystem] Diplomacy state has been changed. [" + povSide + ", " + side + ", " + state + "]");
                     }
                 }
             }
         }
 
-        foreach (DiplomacyState d in m_diplomacyStates)
+        foreach (DiplomacyState d in diplomacyStates)
         {
-            if (d.m_povSide == side)
+            if (d.povSide == side)
             {
-                foreach (DiplomacyColony dc in d.m_states)
+                foreach (DiplomacyColony dc in d.states)
                 {
-                    if (dc.m_side == povSide)
+                    if (dc.side == povSide)
                     {
-                        dc.m_state = state;
+                        dc.state = state;
                         Debug.Log("[INFO:DiplomacySystem] Diplomacy state has been changed. [" + side + ", " + povSide + ", " + state + "]");
                         return;
                     }
@@ -433,30 +471,30 @@ public class DiplomacySystem : MonoBehaviour
 [System.Serializable]
 public class DiplomacyState
 {
-    public int m_povSide;
-    public DiplomacyColony[] m_states;
+    [FormerlySerializedAs("m_povSide")] public int povSide;
+    [FormerlySerializedAs("m_states")] public DiplomacyColony[] states;
 
     public DiplomacyState(int povSide, DiplomacyColony[] states)
     {
-        m_povSide = povSide;
-        m_states = states;
+        this.povSide = povSide;
+        this.states = states;
     }
 }
 
 [System.Serializable]
 public class DiplomacyColony
 {
-    public int m_side;
-    public int m_state;
-    public int m_commercialReputation; // allant de -50 à +50
-    public int m_actReputation; // allant de -50 à +50
+    [FormerlySerializedAs("m_side")] public int side;
+    [FormerlySerializedAs("m_state")] public int state;
+    [FormerlySerializedAs("m_commercialReputation")] public int commercialReputation; // from -50 to +50
+    [FormerlySerializedAs("m_actReputation")] public int actReputation; // from -50 to +50
 
     public DiplomacyColony(int side, int state, int commercialReputation, int actReputation)
     {
-        m_side = side;
-        m_state = state;
-        m_commercialReputation = commercialReputation;
-        m_actReputation = actReputation;
+        this.side = side;
+        this.state = state;
+        this.commercialReputation = commercialReputation;
+        this.actReputation = actReputation;
     }
 }
 

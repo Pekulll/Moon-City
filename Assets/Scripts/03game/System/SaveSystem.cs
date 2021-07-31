@@ -292,7 +292,7 @@ public class SavedDiplomacy
 
     public SavedDiplomacy(DiplomacySystem motor)
     {
-        status = motor.m_diplomacyStates;
+        status = motor.diplomacyStates;
     }
 }
 

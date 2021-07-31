@@ -753,10 +753,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3105839f5ac5848907a5ec10bdb5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_war: {fileID: 21300000, guid: 9535c79244fa21248a916ab255a46696, type: 3}
-  m_neutral: {fileID: 21300000, guid: e3113593c74ee8046bdd9dcd5d5437c2, type: 3}
-  m_ally: {fileID: 21300000, guid: dc4d42b83583b5340b5c938a08f111cc, type: 3}
-  m_diplomacyStates: []
+  war: {fileID: 21300000, guid: 9535c79244fa21248a916ab255a46696, type: 3}
+  neutral: {fileID: 21300000, guid: e3113593c74ee8046bdd9dcd5d5437c2, type: 3}
+  ally: {fileID: 21300000, guid: dc4d42b83583b5340b5c938a08f111cc, type: 3}
+  button: {fileID: 2285262444365694454, guid: c8effd0e10aaebd4998072f50927178e, type: 3}
+  diplomacyStates: []
 --- !u!114 &7337736802218917224
 MonoBehaviour:
   m_ObjectHideFlags: 0

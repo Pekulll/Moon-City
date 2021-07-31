@@ -11,6 +11,7 @@ public class TraduceSystem : MonoBehaviour
 
     private void Awake()
     {
+        allText = FindObjectsOfType<Text>();
         Traduce();
     }
 
@@ -35,7 +36,6 @@ public class TraduceSystem : MonoBehaviour
         }
 
         LoadLanguageFile(languageName);
-        allText = FindObjectsOfType<Text>();
 
         if (allText.Length != 0)
         {
@@ -54,7 +54,7 @@ public class TraduceSystem : MonoBehaviour
             foreach (Text txt in allText)
             {
                 string traduction = GetKey(txt.text);
-                txt.text = traduction;
+                try { txt.text = traduction; } catch {}
             }
         }
 
@@ -67,7 +67,7 @@ public class TraduceSystem : MonoBehaviour
             foreach (Text txt in allText)
             {
                 string traduction = GetTraduction(txt.text);
-                txt.text = traduction;
+                try { txt.text = traduction; } catch {}
             }
         }
     }

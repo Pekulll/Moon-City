@@ -822,15 +822,6 @@ public class MoonManager : MonoBehaviour {
         LoadStockMarket(savedMarket);
         LoadConfiguration();
 
-        if (data.iteration != 0) {
-            LoadWave(savedWaveManager);
-            LoadQuest(data.killQuest, data.buildQuest);
-
-            try { LoadDiplomacy(savedDiplomacy); } catch (Exception e) { Debug.Log ("<color=#CD7F00>[WARN:MoonManager] Can't load diplomacy!</color> " + e.Message); }
-            try { LoadResearch(savedResearch); } catch (Exception e) { Debug.Log ("<color=#CD7F00>[WARN:MoonManager] Can't load technologies!</color> " + e.Message); }
-            try { LoadNotification(savedNotif); } catch (Exception e) { Debug.Log ("<color=#CD7F00>[WARN:MoonManager] Can't load notifications!</color> " + e.Message); }
-        }
-
         try { waveSystem.UpdateDateNextWave(); }
         catch (Exception e)
         {
@@ -839,6 +830,15 @@ public class MoonManager : MonoBehaviour {
         }
 
         LoadEntities(savedUnits, savedBuildings, savedPreviews);
+        
+        if (data.iteration != 0) {
+            LoadWave(savedWaveManager);
+            LoadQuest(data.killQuest, data.buildQuest);
+            
+            try { LoadDiplomacy(savedDiplomacy); } catch (Exception e) { Debug.Log ("<color=#CD7F00>[WARN:MoonManager] Can't load diplomacy!</color> " + e.Message); }
+            try { LoadResearch(savedResearch); } catch (Exception e) { Debug.Log ("<color=#CD7F00>[WARN:MoonManager] Can't load technologies!</color> " + e.Message); }
+            try { LoadNotification(savedNotif); } catch (Exception e) { Debug.Log ("<color=#CD7F00>[WARN:MoonManager] Can't load notifications!</color> " + e.Message); }
+        }
     }
 
     private void LoadNotification (SavedNotificationQueue savedNotif) {
@@ -904,9 +904,10 @@ public class MoonManager : MonoBehaviour {
         waveSystem.currentWaveIndex = savedWaveManager.currentWaveIndex;
     }
 
-    private void LoadDiplomacy (SavedDiplomacy savedDiplomacy) {
-        diplomacySystem.Initialize (true);
-        diplomacySystem.m_diplomacyStates = savedDiplomacy.status;
+    private void LoadDiplomacy (SavedDiplomacy savedDiplomacy)
+    {
+        diplomacySystem.diplomacyStates = savedDiplomacy.status;
+        diplomacySystem.Initialize(true);
     }
 
     private void LoadEntities (SavedUnit[] savedUnits, SavedBuilding[] savedBuildings, SavedPreview[] savedPreviews) {
