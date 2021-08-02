@@ -31880,7 +31880,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Done
+  m_Text: 01_btn_done
 --- !u!1 &5012396757681716032
 GameObject:
   m_ObjectHideFlags: 0

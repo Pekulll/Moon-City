@@ -13,4 +13,28 @@ public static class Extensions
     {
         return (value >= 0) ? $"+{value.ToString(format)}" : value.ToString(format);
     }
+
+    public static string Join<T>(this string value, List<T> iterable)
+    {
+        string result = "";
+
+        foreach (T t in iterable)
+        {
+            result += t + value;
+        }
+
+        return result;
+    }
+    
+    public static string Join<T>(this string value, T[] iterable)
+    {
+        string result = "";
+
+        foreach (T t in iterable)
+        {
+            result += t + value;
+        }
+
+        return result;
+    }
 }

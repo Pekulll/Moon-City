@@ -105,6 +105,7 @@ public class MoonManager : MonoBehaviour {
         ManageUIStats ();
         ManageUITime ();
         StartCoroutine (HoursMotor ());
+        StartCoroutine(AutomaticSave());
     }
 
     private void Update () {
@@ -771,20 +772,33 @@ public class MoonManager : MonoBehaviour {
 
     #region Save and load methods
 
+    private IEnumerator AutomaticSave()
+    {
+        WaitForSecondsRealtime wait = new WaitForSecondsRealtime(5 * 60);
+
+        while (true)
+        {
+            yield return wait;
+            Save();
+            notif.Notify(translate.GetTraduction("03_autosave"), 5);
+        }
+    }
+    
     #region Save section
 
-    public void Save () {
+    public void Save (bool auto = false)
+    {
+        float previousTimeScale = Time.timeScale;
         Time.timeScale = 0;
-        saveDone.SetActive (false);
-        SaveData (saveName);
-        saveDone.SetActive (true);
+        SaveData (saveName, auto);
+        Time.timeScale = previousTimeScale;
     }
 
-    private void SaveData (string saveName) {
+    private void SaveData (string saveName, bool auto = false) {
         SaveSystem.Save(
             saveName + ".json",
             new SavedScene (
-                versionCode, data.iteration + 1, colonyStats, this,
+                versionCode, data.iteration + 1, auto, colonyStats, this,
                 FindObjectsOfType<Buildings>(), FindObjectsOfType<Preview>(), FindObjectsOfType<Unit>(),
                 questManager, data.configuration
            )
@@ -1182,7 +1196,7 @@ public class MoonManager : MonoBehaviour {
     }
 
     private void OnApplicationQuit () {
-        Save ();
+        Save (true);
     }
 
     public void TeleportPlayer (Vector3 position) {

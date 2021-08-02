@@ -100,7 +100,7 @@ public class Preview : Entity
 
         SetPosition();
 
-        if (Input.GetKey(KeyCode.Tab))
+        if (Input.GetKey(SettingsData.instance.settings.playerInputs[7].inputName))
         {
             transform.Rotate(Vector3.up * 10f * Time.deltaTime);
         }
@@ -248,6 +248,7 @@ public class Preview : Entity
 
     public void Cancel()
     {
+        manager.HideWarnText();
         manager.canInteractWithUI = true;
         Destroy(gameObject);
     }

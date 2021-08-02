@@ -41,7 +41,7 @@ public class KeyBindSystem : MonoBehaviour
         {
             GameObject go = Instantiate(keyButton, content) as GameObject;
             go.GetComponentInChildren<Text>().text = string.Format(trad.GetTraduction("01_key_assign_to"),
-                key.inputLabel, key.inputName.ToUpper(), key.inputDefault.ToUpper());
+                trad.GetTraduction("01_settings_key_" + key.inputLabel), key.inputName.ToUpper(), key.inputDefault.ToUpper());
                 
             int temp = i;
             go.GetComponent<Button>().onClick.AddListener(delegate { Btn_BindKey(temp); });

@@ -194,12 +194,12 @@ MonoBehaviour:
     side: 1
   workers: 0
   maxColonist: 0
-  energy: 0
+  energy: 40
   anticipatedEnergy: 0
-  money: 100
-  regolith: 50
-  metal: 10
-  polymer: 0
+  money: 1000
+  regolith: 100
+  metal: 40
+  polymer: 75
   food: 20
   energyStorage: 0
   regolithStock: 0

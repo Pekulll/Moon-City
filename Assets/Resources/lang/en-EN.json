@@ -9,10 +9,12 @@
         { "key": "cancel", "translation": "Cancel" },
         { "key": "ok", "translation": "OK" },
         { "key": "currency", "translation": "$" },
+        { "key": "manual", "translation": "Manual" },
+        { "key": "auto", "translation": "Automatic" },
 
 
         { "key": "00_title_thanks", "translation": "Thanks for playing!" },
-        { "key": "00_desc_thanks", "translation": "Don't forget that is a <color=#FFA700>pre-alpha version</color>. So many bugs can interrupt your gameplay. To improve the game, don't forget to send us your feedbacks, and your suggestions, via our social networks." },
+        { "key": "00_desc_thanks", "translation": "Don't forget that is a <color=#FFA700>pre-alpha version</color>. So many bugs can interrupt your gameplay. To improve the game, don't forget to send us your feedbacks, and your suggestions by pressing F3." },
         { "key": "00_title_loading", "translation": "Loading..." },
         { "key": "00_btn_understood", "translation": "Understood!" },
 
@@ -38,6 +40,7 @@
         { "key": "01_btn_title_normal", "translation": "Normal" },
         { "key": "01_btn_title_hard", "translation": "Hard" },
         { "key": "01_btn_title_custom", "translation": "Custom" },
+        { "key": "01_btn_done", "translation": "Done" },
         { "key": "01_btn_desc_easy", "translation": "More resources\nMore subventions\n-0% of resources on destroy\nAttack rate 40%" },
         { "key": "01_btn_desc_normal", "translation": "Classic resources\nClassic subventions\n-50% of resources on destroy\nAttack rate 65%" },
         { "key": "01_btn_desc_hard", "translation": "Less resources\nLess subventions\n-100% of resources on destroy\nAttack rate 90%" },
@@ -101,6 +104,22 @@
         { "key": "01_key_wait", "translation": "Wait {0} second..." },
         { "key": "01_key_press", "translation": "Press a key..." },
 
+        { "key": "01_settings_key_move_forward", "translation": "Move Forward" },
+        { "key": "01_settings_key_move_backward", "translation": "Move Backward" },
+        { "key": "01_settings_key_strafe_left", "translation": "Strafe Left" },
+        { "key": "01_settings_key_strafe_right", "translation": "Strafe Right" },
+        { "key": "01_settings_key_rotate_left", "translation": "Rotate Left" },
+        { "key": "01_settings_key_rotate_right", "translation": "Rotate Right" },
+        { "key": "01_settings_key_reset_camera", "translation": "Reset Camera" },
+        { "key": "01_settings_key_rotate_preview", "translation": "Rotate Preview" },
+        { "key": "01_settings_key_take_screenshot", "translation": "Take Screenshot" },
+        { "key": "01_settings_key_hide_hud", "translation": "Hide HUD" },
+        { "key": "01_settings_key_feedback", "translation": "Send Feedback" },
+        { "key": "01_settings_key_hide_mouse_cursor", "translation": "Hide Mouse Cursor" },
+        { "key": "01_settings_key_speed_pause", "translation": "Pause" },
+
+
+        { "key": "03_autosave", "translation": "Automatic save done!" },
 
         { "key": "03_b_name_000", "translation": "Colony home" },
         { "key": "03_b_name_001", "translation": "Appart (S)" },

@@ -63,7 +63,6 @@ public class ResumeMotor : MonoBehaviour
 
     public void QuitToMenu()
     {
-        Save();
         manager.PauseGame(false, true);
         SceneManager.LoadScene("00loading");
     }

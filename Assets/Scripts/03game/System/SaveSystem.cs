@@ -146,6 +146,7 @@ public class SavedScene
 {
     public string versionCode;
     public int iteration = 0;
+    public string saveType = "manual";
 
     public SavedManager manager;
     public SavedPlayer player;
@@ -168,6 +169,7 @@ public class SavedScene
     public SavedScene(string versionCode, SavedManager manager, SavedPlayer player, SavedConfiguration configuration, SavedBuilding[] buildings, SavedUnit[] units)
     {
         this.versionCode = versionCode;
+        this.saveType = "auto";
 
         this.manager = manager;
         this.player = player;
@@ -180,10 +182,11 @@ public class SavedScene
     }
 
     //Use for save an already created game
-    public SavedScene(string versionCode, int iteration, ColonyStats playerColony, MoonManager manager, Buildings[] buildings, Preview[] previews, Unit[] units, QuestManager questManager, SavedConfiguration config)
+    public SavedScene(string versionCode, int iteration, bool auto, ColonyStats playerColony, MoonManager manager, Buildings[] buildings, Preview[] previews, Unit[] units, QuestManager questManager, SavedConfiguration config)
     {
         this.versionCode = versionCode;
         this.iteration = iteration;
+        this.saveType = (auto) ? "auto" : "manual";
 
         this.manager = new SavedManager(manager);
         this.player = new SavedPlayer(playerColony);

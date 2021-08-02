@@ -40,6 +40,7 @@ public class SaveDisplay : MonoBehaviour
             Destroy(item);
         }
 
+        SearchSave();
         float count = saves.Length;
 
         if (count == 0) { SearchSave(); count = saves.Length; if (count == 0) return; }
@@ -77,6 +78,7 @@ public class SaveDisplay : MonoBehaviour
     public void Btn_Yes()
     {
         SaveSystem.Delete(temp_save + ".json");
+        ReorderSaveButton();
         aysUI.SetActive(false);
         confirmation.SetActive(true);
     }

@@ -26,6 +26,11 @@ public class EnemyColony : ColonyStats
     private Profile currentProfile;
     private float criticalityScale = 1f;
 
+    [Header("- Research")]
+    public Vector3 currentTech = new Vector3(-1, -1, -1);
+    public float techProgress;
+    public List<int> techsUnlocked = new List<int>();
+    
     [Header("- Statistics")]
     public int previewNbr;
     public int buildNbr;
@@ -39,10 +44,6 @@ public class EnemyColony : ColonyStats
     [SerializeField] private TechtreeDatabase techData;
     [SerializeField] private GameObject physicalPrefab;
 
-    [HideInInspector] public List<int> techsUnlocked = new List<int>();
-    public Vector3 currentTech = new Vector3(-1, -1, -1);
-    [HideInInspector] public float techProgress;
-
     [HideInInspector] public string enemyName;
 
     private List<Unit> units;
@@ -50,7 +51,8 @@ public class EnemyColony : ColonyStats
 
     private WaitForSeconds delay;
 
-    private MoonManager manager;
+    //private MoonManager manager;
+    private TradingSystem trade;
 
     private int errorPropagation;
 
@@ -84,6 +86,8 @@ public class EnemyColony : ColonyStats
         if (isInitialize || disableEnemy) return;
         isInitialize = true;
 
+        trade = GameObject.Find("Manager").GetComponent<TradingSystem>();
+        
         this.strategy = strategy;
         currentProfile = GetProfile();
         criticalityScale = currentProfile.criticalityScale;
@@ -100,12 +104,12 @@ public class EnemyColony : ColonyStats
     {
         foreach(Profile p in profiles)
         {
-            if(p.type == strategy)
+            if(/*p.type == strategy*/p.type == StrategyType.Passive)
             {
                 return p;
             }
         }
-
+        
         throw new System.Exception("Profile for strategy \'" + strategy + "\' doesn't exists!");
     }
 
@@ -143,14 +147,14 @@ public class EnemyColony : ColonyStats
     {
         if (!ConstructToSurvive())
         {
-            if (unitNbr / buildNbr < currentProfile.unitRatio)
+            if (unitNbr / buildNbr < currentProfile.unitRatio && buildNbr > 10)
             {
                 //Debug.Log("[INFO:EnemyColony] Creating unit...");
                 return CreateUnit();
             }
-            else if ((defenseNbr + 1) / buildNbr < currentProfile.defenseRatio)
+            else if ((defenseNbr + 1) / buildNbr < currentProfile.defenseRatio && buildNbr > 20)
             {
-                //Debug.Log("[INFO:EnemyColony] Creating defense...");
+                Debug.Log("[INFO:EnemyColony] Creating defense...");
                 return Construct(new int[3] { 34, 15, 33 });
             }
             else
@@ -189,37 +193,47 @@ public class EnemyColony : ColonyStats
         if (previewNbr >= maxPreviews || buildNbr + previewNbr >= maxBuilding) return false;
 
         errorPropagation++;
+        string reason = "Propagation";
 
         if(errorPropagation <= maxSubAction)
         {
-            for (int i = ids.Length - 1; i >= 0; i--)
+            for (int i = 0; i < ids.Length; i++)
             {
-                List<int> resourceNeeded = ResourceNeeded(buildData[ids[i]]);
-
-                if (resourceNeeded.Count == 0)
+                if (OwnTechs(buildData[ids[i]]))
                 {
-                    if (OwnTechs(buildData[ids[i]]))
+                    List<int> resourceNeeded = ResourceNeeded(buildData[ids[i]]);
+
+                    if (resourceNeeded.Count == 0)
                     {
                         return Construct(ids[i]);
                     }
-                    else if(!Research(buildData[ids[i]]))
+                    else if(i == ids.Length - 1)
                     {
-                        continue;
+                        if (errorPropagation == maxSubAction)
+                            return BuyResources(resourceNeeded);
+
+                        string missing = "Resources missing: " + ", ".Join(resourceNeeded)
+                            + ". To build: " + ", ".Join(ids);
+                        Debug.Log("[INFO:EnemyColony] " + missing);
+                        
+                        if (resourceNeeded.Contains(0)) return Construct(new int[3] { 3, 2, 1 }); // Money (appart)
+                        if (resourceNeeded.Contains(1)) return Construct(new int[2] { 29, 28 }); // Energy (nuclear reactor)
+                        if (resourceNeeded.Contains(2)) return Construct(new int[3] { 3, 2, 1 }); // Colonist (appart)
+                        if (resourceNeeded.Contains(3)) return Construct(new int[2] { 10, 9 }); // Regolith (excavator)
+                        if (resourceNeeded.Contains(4)) return Construct(new int[1] { 16 }); // Polymer (biofactory)
+                        if (resourceNeeded.Contains(5)) return Construct(new int[3] { 6, 5, 4 }); // Food (farm)
                     }
                 }
-                else
+                else if(!Research(buildData[ids[i]]))
                 {
-                    if (resourceNeeded.Contains(0)) return Construct(new int[3] { 3, 2, 1 }); // Money (appart)
-                    if (resourceNeeded.Contains(1)) return Construct(new int[2] { 29, 28 }); // Energy (nuclear reactor)
-                    if (resourceNeeded.Contains(2)) return Construct(new int[3] { 3, 2, 1 }); // Colonist (appart)
-                    if (resourceNeeded.Contains(3)) return Construct(new int[2] { 10, 9 }); // Regolith (excavator)
-                    if (resourceNeeded.Contains(4)) return Construct(new int[1] { 16 }); // Bioplastic (biofactory)
-                    if (resourceNeeded.Contains(5)) return Construct(new int[3] { 6, 5, 4 }); // Food (farm)
+                    // TODO: Research the missing tech if possible
+                    reason = "Missing tech";
+                    continue;
                 }
             }
         }
 
-        Debug.Log("[WARN:EnemyColony] Can't find anything to build!");
+        Debug.Log("[WARN:EnemyColony] Can't find anything to build! " + reason);
         return false;
     }
 
@@ -364,7 +378,7 @@ public class EnemyColony : ColonyStats
             || currentTech == new Vector3(-2, -2, -2))
             return;
 
-        techProgress += research;
+        techProgress += research * 100; // WARN: Need to remove the *100 for release
 
         if(techProgress >= techData.techTrees[(int)currentTech.x].technologies[(int)currentTech.y].cost)
         {
@@ -404,8 +418,10 @@ public class EnemyColony : ColonyStats
     {
         if (currentTech == new Vector3(-1, -1, -1))
         {
-            currentTech = GetTechById(techID);
-            int[] neededTech = techData.techTrees[(int)currentTech.x].technologies[(int)currentTech.y].neededTech;
+            Vector3 targetedTech = GetTechById(techID);
+
+            if (targetedTech.x < 0) return false;
+            int[] neededTech = techData.techTrees[(int)targetedTech.x].technologies[(int)targetedTech.y].neededTech;
 
             if (neededTech.Length != 0)
             {
@@ -421,7 +437,8 @@ public class EnemyColony : ColonyStats
             if (currentTech == new Vector3(-1, -1, -1))
                 currentTech = new Vector3(-2, -2, -2);
 
-            Debug.Log("[INFO:EnemyColony] Search: " + currentTech);
+            currentTech = targetedTech;
+            //Debug.Log("[INFO:EnemyColony] Search: " + currentTech);
             return true;
         }
 
@@ -494,11 +511,56 @@ public class EnemyColony : ColonyStats
     public void Output()
     {
         this.GainOutput();
+        Progress();
     }
 
     public void CheckCritical()
     {
         
+    }
+
+    private bool BuyResources(List<int> resourceNeeded)
+    {
+        // Money
+        if (resourceNeeded.Contains(0))
+        {
+            Debug.Log("[INFO:EnemyColony] Money can't be buy...");
+            return false;
+        }
+
+        bool hasBuy = false;
+        
+        // Regolith (excavator)
+        if (resourceNeeded.Contains(3))
+        {
+            RemoveResources(0, (int)(trade.market.regolithValue * 10), 0, 0, 0, 0);
+            AddResources(0, 0, 10, 0, 0, 0);
+            trade.market.FluctuateRegolithValue(1f);
+            Debug.Log("[INFO:EnemyColony] Regolith has been bought.");
+            hasBuy = true;
+        }
+        
+        // Polymer (biofactory)
+        if (resourceNeeded.Contains(4))
+        {
+            RemoveResources(0, (int)(trade.market.polymerValue * 10), 0, 0, 0, 0);
+            AddResources(0, 0, 0, 0, 10, 0);
+            trade.market.FluctuatePolymerValue(1f);
+            Debug.Log("[INFO:EnemyColony] Polymer has been bought.");
+            hasBuy = true;
+        }
+        
+        // Food (farm)
+        if (resourceNeeded.Contains(5))
+        {
+            RemoveResources(0, (int)(trade.market.foodValue * 10), 0, 0, 0, 0);
+            AddResources(0, 0, 0, 0, 0, 10);
+            trade.market.FluctuateFoodValue(1f);
+            Debug.Log("[INFO:EnemyColony] Food has been bought.");
+            hasBuy = true;
+        }
+        
+        return hasBuy;
     }
     
     #endregion
@@ -532,7 +594,7 @@ public class EnemyColony : ColonyStats
         }
         else if (entity.entityType == EntityType.Preview)
         {
-            previewNbr--;
+            previewNbr -= 2;
             RemoveAnticipateRessources(buildData[entity.id].energy);
         }
         else if (entity.entityType == EntityType.Unit)

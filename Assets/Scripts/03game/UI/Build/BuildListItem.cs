@@ -138,10 +138,9 @@ public class BuildListItem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
             if (ints.Contains(3)) { metalBackground.color = notBuildable; isInteractable = false; }
             if (ints.Contains(4)) { polymerBackground.color = notBuildable; isInteractable = false; }
             if (ints.Contains(5)) { foodBackground.color = notBuildable; isInteractable = false; }
+            if (ints.Contains(6)) { metalBackground.color = notBuildable; isInteractable = false; }
 
-            if (isInteractable) buttonImg.color = classic;
-            else buttonImg.color = notBuildable;
-
+            buttonImg.color = (isInteractable) ? classic : notBuildable;
             canBuild = isInteractable;
         }
         else
@@ -169,8 +168,6 @@ public class BuildListItem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        if (!canBuild) return;
-        
         CreatePreview();
     }
 

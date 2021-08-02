@@ -47,7 +47,7 @@ public class LoadItem : MonoBehaviour
         }
 
         saveName.text = save;
-        saveType.text = Traduce("Manual") + " <size=13>(v" + data.versionCode + ")</size>";
+        saveType.text = Traduce(data.saveType) + " <size=13>(v" + data.versionCode + ")</size>";
 
         clock.text = "Sol " + data.manager.day.ToString("000") + Traduce(" at ") + (data.manager.time / 60).ToString("000") + ":" + (data.manager.time % 60).ToString("00");
         colonist.text = data.player.playerColony.colonist + " " + Traduce("worker(s)");

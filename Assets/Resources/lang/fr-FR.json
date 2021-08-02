@@ -9,10 +9,12 @@
         { "key": "cancel", "translation": "Annuler" },
         { "key": "ok", "translation": "OK" },
         { "key": "currency", "translation": "€" },
+        { "key": "manual", "translation": "Manuel" },
+        { "key": "auto", "translation": "Automatique" },
 
 
         { "key": "00_title_thanks", "translation": "Merci de jouer !" },
-        { "key": "00_desc_thanks", "translation": "N'oubliez pas qu'il s'agit d'une <color=#FFA700>version pré-alpha</color>. Des bugs peuvent donc interrompre votre gameplay. Pour nous aider à améliorer le jeu, n'oubliez pas de nos faire vos retours et de rapportez tout les bugs rencontrés, via nos réseaux sociaux." },
+        { "key": "00_desc_thanks", "translation": "N'oubliez pas qu'il s'agit d'une <color=#FFA700>version pré-alpha</color>. Des bugs peuvent donc interrompre votre gameplay. Pour nous aider à améliorer le jeu, n'oubliez pas de nos faire vos retours et de rapportez tout les bugs rencontrés en pressant la touche F3." },
         { "key": "00_title_loading", "translation": "Chargement..." },
         { "key": "00_btn_understood", "translation": "Compris !" },
 
@@ -38,6 +40,7 @@
         { "key": "01_btn_title_normal", "translation": "Normal" },
         { "key": "01_btn_title_hard", "translation": "Difficile" },
         { "key": "01_btn_title_custom", "translation": "Personalisé" },
+        { "key": "01_btn_done", "translation": "Validé" },
         { "key": "01_btn_desc_easy", "translation": "Plus de ressources\nPlus de subventions\n-0% de ressources quand détruit\nTaux d'attaque : 40%" },
         { "key": "01_btn_desc_normal", "translation": "Resources classiques\nSubventions classiques\n-50% de ressources quand détruit\nTaux d'attaque : 65%" },
         { "key": "01_btn_desc_hard", "translation": "Moins de resources\nMoins de subventions\n-100% de ressources quand détruit\nTaux d'attaque : 90%" },
@@ -101,6 +104,22 @@
         { "key": "01_key_wait", "translation": "Attendez {0} seconde..." },
         { "key": "01_key_press", "translation": "Appuyez sur une touche..." },
 
+        { "key": "01_settings_key_move_forward", "translation": "Avancer" },
+        { "key": "01_settings_key_move_backward", "translation": "Reculer" },
+        { "key": "01_settings_key_strafe_left", "translation": "Aller à Gauche" },
+        { "key": "01_settings_key_strafe_right", "translation": "Aller à Droite" },
+        { "key": "01_settings_key_rotate_left", "translation": "Tourner à Gauche" },
+        { "key": "01_settings_key_rotate_right", "translation": "Tourner à Droite" },
+        { "key": "01_settings_key_reset_camera", "translation": "Caméra par Défaut" },
+        { "key": "01_settings_key_rotate_preview", "translation": "Tourner Preview" },
+        { "key": "01_settings_key_take_screenshot", "translation": "Prendre Capture d'Écran" },
+        { "key": "01_settings_key_hide_hud", "translation": "Masquer Interface" },
+        { "key": "01_settings_key_feedback", "translation": "Envoyer Retour" },
+        { "key": "01_settings_key_hide_mouse_cursor", "translation": "Masquer Curseur" },
+        { "key": "01_settings_key_speed_pause", "translation": "Pause" },
+
+
+        { "key": "03_autosave", "translation": "Sauvegarde automatique effectuée !" },
 
         { "key": "03_b_name_000", "translation": "Centre de colonie" },
         { "key": "03_b_name_001", "translation": "Appart (S)" },
