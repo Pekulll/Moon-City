@@ -1386,7 +1386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.08627451, g: 0.08627451, b: 0.08627451, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -15164,7 +15164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.08627451, g: 0.08627451, b: 0.08627451, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -20353,8 +20353,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 63.799942, y: 0}
-  m_SizeDelta: {x: -217.80002, y: 0}
+  m_AnchoredPosition: {x: 51.1, y: 0}
+  m_SizeDelta: {x: -192.40237, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &801783492
 MonoBehaviour:
@@ -21934,7 +21934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.08627451, g: 0.08627451, b: 0.08627451, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -22257,6 +22257,7 @@ GameObject:
   - component: {fileID: 864274432}
   - component: {fileID: 864274431}
   - component: {fileID: 864274430}
+  - component: {fileID: 864274433}
   m_Layer: 5
   m_Name: BC_EntityIcon
   m_TagString: Color/Background
@@ -22313,7 +22314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.08627451, g: 0.08627451, b: 0.08627451, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -22336,6 +22337,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864274428}
   m_CullTransparentMesh: 0
+--- !u!114 &864274433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864274428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13565e9534b20641947dd63370b64bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: 
+  info: 
+  adaptativeSize: 1
+  size: {x: 200, y: 125}
+  offset: {x: 10, y: -10}
 --- !u!1 &865811570
 GameObject:
   m_ObjectHideFlags: 0
@@ -27035,7 +27053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.08627451, g: 0.08627451, b: 0.08627451, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -32259,7 +32277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.08627451, g: 0.08627451, b: 0.08627451, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -33703,8 +33721,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 63.799942, y: 0}
-  m_SizeDelta: {x: -217.80002, y: 0}
+  m_AnchoredPosition: {x: 51.1, y: 0}
+  m_SizeDelta: {x: -192.40237, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1416348692
 MonoBehaviour:
@@ -35241,8 +35259,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 63.8, y: 0}
-  m_SizeDelta: {x: -217.80002, y: 0}
+  m_AnchoredPosition: {x: 51.1, y: 0}
+  m_SizeDelta: {x: -192.40237, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1480927143
 MonoBehaviour:
@@ -37606,7 +37624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.08627451, g: 0.08627451, b: 0.08627451, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -42937,7 +42955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.08627451, g: 0.08627451, b: 0.08627451, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -43072,7 +43090,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 759.8763}
+  m_AnchoredPosition: {x: 0, y: 759.8762}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1918656580
@@ -46926,8 +46944,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 63.799942, y: 0}
-  m_SizeDelta: {x: -217.80002, y: 0}
+  m_AnchoredPosition: {x: 51.1, y: 0}
+  m_SizeDelta: {x: -192.40237, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2050915801
 MonoBehaviour:
@@ -47219,6 +47237,56 @@ PrefabInstance:
       propertyPath: spawns.Array.data[0]
       value: 
       objectReference: {fileID: 1287545497}
+    - target: {fileID: 4715017641621545862, guid: 2473d2736fc594a4aa3b3bae3ce88600,
+        type: 3}
+      propertyPath: groupsUI.Array.data[0]
+      value: 
+      objectReference: {fileID: 1711076750}
+    - target: {fileID: 4715017641621545862, guid: 2473d2736fc594a4aa3b3bae3ce88600,
+        type: 3}
+      propertyPath: groupsUI.Array.data[1]
+      value: 
+      objectReference: {fileID: 840580045}
+    - target: {fileID: 4715017641621545862, guid: 2473d2736fc594a4aa3b3bae3ce88600,
+        type: 3}
+      propertyPath: groupsUI.Array.data[2]
+      value: 
+      objectReference: {fileID: 1682777452}
+    - target: {fileID: 4715017641621545862, guid: 2473d2736fc594a4aa3b3bae3ce88600,
+        type: 3}
+      propertyPath: groupsUI.Array.data[3]
+      value: 
+      objectReference: {fileID: 1637223862}
+    - target: {fileID: 4715017641621545862, guid: 2473d2736fc594a4aa3b3bae3ce88600,
+        type: 3}
+      propertyPath: groupsUI.Array.data[4]
+      value: 
+      objectReference: {fileID: 1287253787}
+    - target: {fileID: 4715017641621545862, guid: 2473d2736fc594a4aa3b3bae3ce88600,
+        type: 3}
+      propertyPath: groupsUI.Array.data[5]
+      value: 
+      objectReference: {fileID: 1509431418}
+    - target: {fileID: 4715017641621545862, guid: 2473d2736fc594a4aa3b3bae3ce88600,
+        type: 3}
+      propertyPath: groupsUI.Array.data[6]
+      value: 
+      objectReference: {fileID: 1402189713}
+    - target: {fileID: 4715017641621545862, guid: 2473d2736fc594a4aa3b3bae3ce88600,
+        type: 3}
+      propertyPath: groupsUI.Array.data[7]
+      value: 
+      objectReference: {fileID: 1872963642}
+    - target: {fileID: 4715017641621545862, guid: 2473d2736fc594a4aa3b3bae3ce88600,
+        type: 3}
+      propertyPath: groupsUI.Array.data[8]
+      value: 
+      objectReference: {fileID: 181168894}
+    - target: {fileID: 4715017641621545862, guid: 2473d2736fc594a4aa3b3bae3ce88600,
+        type: 3}
+      propertyPath: groupsUI.Array.data[9]
+      value: 
+      objectReference: {fileID: 140055956}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2473d2736fc594a4aa3b3bae3ce88600, type: 3}
 --- !u!114 &2060853094 stripped
@@ -50085,6 +50153,7 @@ MonoBehaviour:
   weakness: 3
   entityType: 0
   manager: {fileID: 0}
+  description: 
   damageAmount: 1
   cooldown: 1
   level: 0

@@ -45,10 +45,21 @@ public class Preview : Entity
         colliders = new List<Collider>();
         entityType = EntityType.Preview;
 
+        InitializeCollider();
         UpdateRenderer(incorrect);
         LoadStats();
         SuperInitialization();
         UpdateEditor();
+    }
+
+    private void InitializeCollider()
+    {
+        Collider col = GetComponent<Collider>();
+
+        if (col == null)
+            col = gameObject.AddComponent<Collider>();
+
+        col.isTrigger = true;
     }
 
     private void UpdateEditor()
@@ -83,6 +94,7 @@ public class Preview : Entity
 
         maxHealth = b.maxHealth;
         weakness = DamageType.Physic;
+        description = b.description;
     }
 
     #endregion
@@ -100,38 +112,38 @@ public class Preview : Entity
 
         SetPosition();
 
-        if (Input.GetKey(SettingsData.instance.settings.playerInputs[7].inputName))
+        if (Input.GetKey(SettingsData.instance.settings.playerInputs[7].inputName)) // Rotation
         {
             transform.Rotate(Vector3.up * 10f * Time.deltaTime);
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1)) // Cancel
         {
             Cancel();
         }
 
-        if (haveCollider)
+        if (haveCollider) // Collider check
         {
             UpdateRenderer(incorrect);
             manager.ChangeWarnText("03_ui_top_preview_0");
             return;
         }
 
-        if (!manager.OwnSector(transform.position, side) && !building.canControlSector)
+        if (!manager.OwnSector(transform.position, side) && !building.canControlSector) // Sector checks
         {
             UpdateRenderer(incorrect);
             manager.ChangeWarnText("03_ui_top_preview_1");
             return;
         }
 
-        if (!greatRotation)
+        if (!greatRotation) // Rotation checks
         {
             UpdateRenderer(incorrect);
             manager.ChangeWarnText("03_ui_top_preview_2");
             return;
         }
 
-        if (transform.position.y < building.heightLimit.x || transform.position.y > building.heightLimit.y)
+        if (transform.position.y < building.heightLimit.x || transform.position.y > building.heightLimit.y) // Height checks
         {
             UpdateRenderer(incorrect);
             manager.ChangeWarnText("03_ui_top_preview_3");
@@ -140,7 +152,7 @@ public class Preview : Entity
 
         List<int> ints = manager.HaveResources(id);
 
-        if (ints.Count != 0)
+        if (ints.Count != 0) // Resources checks
         {
             bool isBuildable = false;
 
@@ -161,7 +173,6 @@ public class Preview : Entity
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 manager.RemoveResources(0, building.money, building.regolith, building.metal, building.polymer, building.food);
-                manager.HideWarnText();
 
                 if (manager.side == side)
                     manager.canInteractWithUI = true;

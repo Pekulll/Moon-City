@@ -59,6 +59,8 @@ public class Buildings : Entity
         maxEnergy = b.maxEnergy;
         weakness = b.weakness;
 
+        description = b.description;
+
         if (onSave) return;
 
         health = b.maxHealth;

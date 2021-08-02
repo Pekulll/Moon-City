@@ -114,6 +114,7 @@ public class Unit : Entity
         }
 
         maxExperience = Mathf.Pow(10, level);
+        description = u.description;
     }
 
     private IEnumerator Alive()

@@ -8,6 +8,7 @@ public class Units : ScriptableObject
     [Header("Properties")]
     public Sprite unitIcon;
     public string name = "New unit";
+    public string description = "-";
     public float speed = 5f;
     public GameObject model;
     public UnitType unitType = UnitType.Military;

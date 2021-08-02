@@ -644,6 +644,7 @@ public class InformationsViewer : MonoBehaviour
     {
         objectName.text = GetTitle();
         objectIcon.sprite = GetSprite();
+        objectIcon.transform.parent.GetComponent<TooltipCaller>().info = GetDescription();
     }
 
     private void UpdateBars()
@@ -796,6 +797,20 @@ public class InformationsViewer : MonoBehaviour
         {
             return null;
         }
+    }
+    
+    private string GetDescription()
+    {
+        if (currentGroup != null && currentGroup.objectsNumber != 0)
+        {
+            return manager.Traduce("03_tooltip_group");
+        }
+        else if (selectedObject != null)
+        {
+            return manager.Traduce(selectedObject.description);
+        }
+
+        return "-";
     }
 
     private void AssignColor()

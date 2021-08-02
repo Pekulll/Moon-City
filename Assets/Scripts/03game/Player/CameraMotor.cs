@@ -9,7 +9,7 @@ public class CameraMotor : MonoBehaviour
     [SerializeField] private Vector2 panLimit;
     [SerializeField] private Vector2 heightLimit;
     [Space(5)]
-    [SerializeField] private bool canMove = true;
+    public bool canMove = true;
     [SerializeField] private bool edgeToMove = true;
 
     private MoonManager manager;

@@ -477,6 +477,8 @@
         { "key": "03_fb_category_bug", "translation": "Bug/Issue" },
         { "key": "03_fb_submit", "translation": "Submit" },
         { "key": "03_fb_sended", "translation": "Your feedback has been send successfully. Thank you so much for that!" },
-        { "key": "03_fb_quit", "translation": "Close" }
+        { "key": "03_fb_quit", "translation": "Close" },
+
+        { "key": "03_tooltip_group", "translation": "A group of entities that will execute the same orders." }
     ]
 }

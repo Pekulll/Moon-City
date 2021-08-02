@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class BuildListItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    private GameObject techBuild, ressources;
+    private GameObject techBuild, resources;
 
     private Text colonyDetails, energyDetails, moneyDetails, regolythDetails, metalDetails, polymerDetails, foodDetails, buildName;
     private Image colonyBackground, energyBackground, moneyBackground, regolythBackground, metalBackground, polymerBackground, foodBackground;
@@ -21,14 +21,15 @@ public class BuildListItem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
 
     private bool canBuild;
 
+    private ColorManager colorManager;
     private Color classic, notBuildable, haventTech;
 
     #region Initialization
 
-    public void OnInstantiate(Building _currentBuild, GameObject ressources, Text colony, Text energy, Text money, Text regolyth, Text metal, Text polymer, Text food, GameObject _techBuild, BuildSystem buildSystem)
+    public void OnInstantiate(Building _currentBuild, GameObject resources, Text colony, Text energy, Text money, Text regolyth, Text metal, Text polymer, Text food, GameObject _techBuild, BuildSystem buildSystem)
     {
         currentBuild = _currentBuild;
-        this.ressources = ressources;
+        this.resources = resources;
 
         colonyDetails = colony;
         energyDetails = energy;
@@ -58,17 +59,17 @@ public class BuildListItem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
         man = FindObjectOfType<MoonManager>();
         researchSystem = FindObjectOfType<ResearchSystem>();
 
-        ColorManager cm = FindObjectOfType<ColorManager>();
-        classic = cm.forground;
-        notBuildable = cm.importantColor;
-        haventTech = cm.veryImportantColor;
+        colorManager = FindObjectOfType<ColorManager>();
+        classic = colorManager.forground;
+        notBuildable = colorManager.importantColor;
+        haventTech = colorManager.veryImportantColor;
 
         iconImg = gameObject.transform.Find("I_Icon").GetComponent<Image>();
         buttonImg = GetComponent<Image>();
         buildName = gameObject.transform.Find("T_Name").GetComponent<Text>();
 
-        iconImg.color = cm.icon;
-        buildName.color = cm.text;
+        iconImg.color = colorManager.icon;
+        buildName.color = colorManager.text;
 
         TooltipCaller ttc = GetComponent<TooltipCaller>();
         ttc.info = man.Traduce(currentBuild.description);
@@ -83,7 +84,6 @@ public class BuildListItem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
         iconImg.sprite = currentBuild.icon;
         buildName.text = man.Traduce(currentBuild.name);
 
-        UpdateDetailTexts();
         ResetUI();
         
         if (!HaveTechnologies())
@@ -95,6 +95,7 @@ public class BuildListItem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
         else
         {
             UpdateDetails();
+            UpdateDetailTexts();
             techBuild.SetActive(false);
         }
     }
@@ -102,12 +103,36 @@ public class BuildListItem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     private void UpdateDetailTexts()
     {
         colonyDetails.text = currentBuild.colonist + " / " + currentBuild.maxColonist.SignedString();
-        energyDetails.text = currentBuild.energy + " (" + currentBuild.energyStorage.SignedString() + ")";
+        energyDetails.text = currentBuild.energy.SignedString() + " [" + currentBuild.energyStorage + "]";
         moneyDetails.text = currentBuild.money + " (" + currentBuild.profit.SignedString() + ")";
         regolythDetails.text = currentBuild.regolith + " (" + currentBuild.rigolyteOutput.SignedString() + ")";
         metalDetails.text = currentBuild.metal + " (" + currentBuild.metalOutput.SignedString() + ")";
         polymerDetails.text = currentBuild.polymer + " (" + currentBuild.polymerOutput.SignedString() + ")";
         foodDetails.text = currentBuild.food + " (" + currentBuild.foodOutput.SignedString() + ")";
+
+        if (currentBuild.energy < 0 && energyBackground.color != notBuildable) energyDetails.color = colorManager.importantColor;
+        else if (currentBuild.energy > 0 && energyBackground.color != notBuildable) energyDetails.color = colorManager.finished;
+        else energyDetails.color = colorManager.text;
+        
+        if (currentBuild.profit < 0 && moneyBackground.color != notBuildable) moneyDetails.color = colorManager.importantColor;
+        else if (currentBuild.profit > 0 && moneyBackground.color != notBuildable) moneyDetails.color = colorManager.finished;
+        else moneyDetails.color = colorManager.text;
+        
+        if (currentBuild.rigolyteOutput < 0 && regolythBackground.color != notBuildable) regolythDetails.color = colorManager.importantColor;
+        else if (currentBuild.rigolyteOutput > 0 && regolythBackground.color != notBuildable) regolythDetails.color = colorManager.finished;
+        else regolythDetails.color = colorManager.text;
+        
+        if (currentBuild.metalOutput < 0 && metalBackground.color != notBuildable) metalDetails.color = colorManager.importantColor;
+        else if (currentBuild.metalOutput > 0 && metalBackground.color != notBuildable) metalDetails.color = colorManager.finished;
+        else metalDetails.color = colorManager.text;
+        
+        if (currentBuild.polymerOutput < 0 && polymerBackground.color != notBuildable) polymerDetails.color = colorManager.importantColor;
+        else if (currentBuild.polymerOutput > 0 && polymerBackground.color != notBuildable) polymerDetails.color = colorManager.finished;
+        else polymerDetails.color = colorManager.text;
+        
+        if (currentBuild.foodOutput < 0 && foodBackground.color != notBuildable) foodDetails.color = colorManager.importantColor;
+        else if (currentBuild.foodOutput > 0 && foodBackground.color != notBuildable) foodDetails.color = colorManager.finished;
+        else foodDetails.color = colorManager.text;
     }
 
     private bool HaveTechnologies()
@@ -174,13 +199,13 @@ public class BuildListItem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
         UpdateUI();
-        ressources.SetActive(true);
+        resources.SetActive(true);
     }
 
     public void OnPointerExit(PointerEventData pointerEventData)
     {
         if(techBuild.activeSelf)
-            ressources.SetActive(false);
+            resources.SetActive(false);
 
         techBuild.SetActive(false);
     }
@@ -204,12 +229,9 @@ public class BuildListItem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
                 man.DeleteGameObjectOfTagList(buildSystem.currentPreview.gameObject);
                 Destroy(buildSystem.currentPreview.gameObject);
             }
-
-            buildSystem.currentPreview = current;
         }
-        else
-        {
-            buildSystem.currentPreview = current;
-        }
+        
+        current.side = man.side;
+        buildSystem.currentPreview = current;
     }
 }

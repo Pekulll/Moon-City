@@ -144,6 +144,7 @@ MonoBehaviour:
   data:
     versionCode: 
     iteration: 0
+    saveType: 
     manager:
       day: 0
       time: 0

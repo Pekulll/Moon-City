@@ -19,10 +19,12 @@ public class FeedbackSender : MonoBehaviour
     private const string issueGFormEntryID = "entry.807771510";
 
     private SpeedManager speedManager;
+    private CameraMotor motor;
 
     void Start()
     {
         speedManager = GameObject.Find("Manager").GetComponent<SpeedManager>();
+        motor = GameObject.Find("Player").GetComponent<CameraMotor>();
 
         feedbackPanel = GameObject.Find("BC_Feedback");
         feedbackPanelCompleteCover = GameObject.Find("I_FeedbackCover");
@@ -51,8 +53,16 @@ public class FeedbackSender : MonoBehaviour
         bool isActive = !feedbackPanel.activeSelf;
         feedbackPanel.SetActive(isActive);
 
-        if (isActive) speedManager.ChangeSpeed(0);
-        else speedManager.ChangeSpeed(1);
+        if (isActive)
+        {
+            speedManager.ChangeSpeed(0);
+            motor.canMove = false;
+        }
+        else
+        {
+            speedManager.ChangeSpeed(1);
+            motor.canMove = true;
+        }
 
         textFeedback.text = "";
     }

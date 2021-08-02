@@ -24,6 +24,8 @@ public class Entity : MonoBehaviour
 
     [HideInInspector] public MoonManager manager;
 
+    [HideInInspector] public string description;
+
     private List<Unit> calledUnits;
 
     private GameObject marker;
@@ -115,7 +117,15 @@ public class Entity : MonoBehaviour
         if (side == manager.side) return;
 
         owner = GetOwner();
-        owner.AddEntity(this);
+
+        if (owner != null)
+        {
+            owner.AddEntity(this);
+            return;
+        }
+        
+        manager.DeleteGameObjectOfTagList(gameObject);
+        Destroy(gameObject);
     }
 
     private EnemyColony GetOwner()
@@ -132,7 +142,8 @@ public class Entity : MonoBehaviour
             }
         }
 
-        throw new System.Exception("Can't find the appropriate enemy for: " + side);
+        Debug.LogError("[ERROR:EnemyMotor] Can't find the appropriate enemy for: " + side);
+        return null;
     }
 
     #endregion

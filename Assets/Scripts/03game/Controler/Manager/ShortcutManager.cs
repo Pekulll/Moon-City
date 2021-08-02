@@ -38,7 +38,8 @@ public class ShortcutManager : MonoBehaviour
 
     private void GameSpeedShortcut()
     {
-        if (Input.GetKeyDown(SettingsData.instance.settings.playerInputs[12].inputName))
+        if (Input.GetKeyDown(SettingsData.instance.settings.playerInputs[12].inputName)
+            || Input.GetKeyDown(KeyCode.Pause))
         {
             speedManager.Pause();
         }
