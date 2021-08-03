@@ -37,7 +37,7 @@ public class InformationsViewer : MonoBehaviour
     private Text queueAdvencement;
 
     /// Units
-    private Text u_kill, u_level, u_damage, u_xp;
+    private Text u_kill, u_level, u_damage, u_xp, u_range;
     private Text colons, money, food;
     private GameObject formationBtn, aggressivityBtn;
     private Image u_healthBar, u_shieldBar, u_energyBar;
@@ -121,6 +121,7 @@ public class InformationsViewer : MonoBehaviour
         u_damage = GameObject.Find("T_Property (u_damage)").GetComponent<Text>();
         u_level = GameObject.Find("T_Property (u_level)").GetComponent<Text>();
         u_xp = GameObject.Find("T_Property (u_xp)").GetComponent<Text>();
+        u_range = GameObject.Find("T_Property (u_range)").GetComponent<Text>();
 
         b_kill = GameObject.Find("T_Property (b_kill)").GetComponent<Text>();
         b_damage = GameObject.Find("T_Property (b_damage)").GetComponent<Text>();
@@ -183,7 +184,7 @@ public class InformationsViewer : MonoBehaviour
         entityType = group.groupType;
 
         CalculateHealth();
-        CalculateShield();                                                                                        //? NOT IMPLEMENTED FEATURE
+        CalculateShield();
         side = currentGroup.groupSide;
 
         UpdateInterface();
@@ -195,7 +196,7 @@ public class InformationsViewer : MonoBehaviour
         if (group != currentGroup) return;
 
         CalculateHealth();
-        CalculateShield();                                                                                         //? NOT IMPLEMENTED FEATURE
+        CalculateShield();
 
         UpdateInterface();
     }
@@ -702,16 +703,14 @@ public class InformationsViewer : MonoBehaviour
             Unit uMtr = selectedObject.GetComponent<Unit>();
 
             u_level.text = uMtr.level.ToString("00");
-            u_xp.text = ((int)(uMtr.experience / uMtr.maxExperience * 100)).ToString("000") + "%";
-            u_damage.text = ((int)(uMtr.damageAmount / uMtr.cooldown)).ToString("0.0");
+            u_xp.text = (uMtr.experience / uMtr.maxExperience * 100).ToString("000") + "%";
+            u_damage.text = (uMtr.damageAmount / uMtr.cooldown).ToString("0.0");
             u_kill.text = uMtr.killCount.ToString("00");
+            u_range.text = uMtr.range.ToString("0");
         }
         else if(entityType == EntityType.Building)
         {
             ShowProperties_Building();
-
-            Buildings bMtr = selectedObject.GetComponent<Buildings>();
-
             b_linked.text = manager.Traduce("yes");
 
             TurretMotor tMtr = selectedObject.GetComponent<TurretMotor>();
@@ -720,7 +719,7 @@ public class InformationsViewer : MonoBehaviour
             {
                 b_range.text = tMtr.range.ToString("00");
                 b_damage.text = (tMtr.damage / tMtr.cooldown).ToString("0.0");
-                b_kill.text = "???";
+                b_kill.text = tMtr.kill.ToString("00");
             }
             else
             {
@@ -735,6 +734,7 @@ public class InformationsViewer : MonoBehaviour
         u_damage.transform.parent.gameObject.SetActive(false);
         u_level.transform.parent.gameObject.SetActive(false);
         u_xp.transform.parent.gameObject.SetActive(false);
+        u_range.transform.parent.gameObject.SetActive(false);
 
         b_linked.transform.parent.gameObject.SetActive(false);
         b_kill.transform.parent.gameObject.SetActive(false);
@@ -748,6 +748,7 @@ public class InformationsViewer : MonoBehaviour
         u_damage.transform.parent.gameObject.SetActive(true);
         u_level.transform.parent.gameObject.SetActive(true);
         u_xp.transform.parent.gameObject.SetActive(true);
+        u_range.transform.parent.gameObject.SetActive(true);
     }
 
     private void ShowProperties_Building()
@@ -981,7 +982,7 @@ public class InformationsViewer : MonoBehaviour
 
     public void HideInformation(GameObject cur = null, ObjectGroup group = null, bool forced = false)
     {
-        if((cur == selectedObject && selectedObject != null) || (group == currentGroup && currentGroup != null) || forced)
+        if((selectedObject != null && cur == selectedObject.gameObject) || (group == currentGroup && currentGroup != null) || forced)
         {
             informationUI.SetActive(false);
 

@@ -122,9 +122,9 @@
         { "key": "03_autosave", "translation": "Sauvegarde automatique effectuée !" },
 
         { "key": "03_b_name_000", "translation": "Centre de colonie" },
-        { "key": "03_b_name_001", "translation": "Appart (S)" },
-        { "key": "03_b_name_002", "translation": "Appart (M)" },
-        { "key": "03_b_name_003", "translation": "Appart (L)" },
+        { "key": "03_b_name_001", "translation": "Résidence (S)" },
+        { "key": "03_b_name_002", "translation": "Résidence (M)" },
+        { "key": "03_b_name_003", "translation": "Résidence (L)" },
         { "key": "03_b_name_004", "translation": "Ferme (S)" },
         { "key": "03_b_name_005", "translation": "Ferme (M)" },
         { "key": "03_b_name_006", "translation": "Ferme (L)" },

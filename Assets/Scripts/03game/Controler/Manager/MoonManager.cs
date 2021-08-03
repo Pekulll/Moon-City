@@ -18,8 +18,6 @@ public class MoonManager : MonoBehaviour {
     public Color colonyColor = new Color(0, 0, 0.9f, 1);
     [HideInInspector] public bool canPaused = true, isPaused = false, canInteractWithUI = true;
 
-    [Header("Save properties")]
-    [SerializeField] private string versionCode;
     [HideInInspector] public string saveName;
 
     [Header("Database")]
@@ -109,7 +107,7 @@ public class MoonManager : MonoBehaviour {
     }
 
     private void Update () {
-        debugInfo.text = "<b>Game version : " + versionCode + "       Save loaded : " + saveName + "</b>\n" +
+        debugInfo.text = "<b>Game version : " + Version.versionCode + "       Save loaded : " + saveName + "</b>\n" +
             "Player pos : " + colonyStats.transform.position + "    <i>(Mouse pos : " + Input.mousePosition + ")</i>\n" +
             "Current side : " + side + "\t\t\t<size=15><i>(Ctrl + H to view more)</i></size>";
 
@@ -169,7 +167,7 @@ public class MoonManager : MonoBehaviour {
         outFood = GameObject.Find("T_OutFood").GetComponent<Text>();
 
         //Others
-        UpdatePresence (colonyStats.colony.name, "Sol " + day + " :: " + (seconds / 60) + " o'clock", "moon", "", versionCode, "");
+        UpdatePresence (colonyStats.colony.name, "Sol " + day + " :: " + (seconds / 60) + " o'clock", "moon", "", Version.versionCode, "");
         debugInfo = GameObject.Find ("DebugInfo").GetComponent<Text> ();
         gamePaused = GameObject.Find ("B_GamePaused");
         timeScale = new WaitForSeconds (0.4f);
@@ -798,7 +796,7 @@ public class MoonManager : MonoBehaviour {
         SaveSystem.Save(
             saveName + ".json",
             new SavedScene (
-                versionCode, data.iteration + 1, auto, colonyStats, this,
+                Version.versionCode, data.iteration + 1, auto, colonyStats, this,
                 FindObjectsOfType<Buildings>(), FindObjectsOfType<Preview>(), FindObjectsOfType<Unit>(),
                 questManager, data.configuration
            )

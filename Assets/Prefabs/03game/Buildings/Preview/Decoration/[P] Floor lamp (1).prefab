@@ -155,9 +155,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: Default_Entity
-  side: 25
+  side: 0
   groupID: -1
-  id: 0
+  id: 25
   health: 0
   maxHealth: 0
   shield: 0
@@ -167,6 +167,7 @@ MonoBehaviour:
   weakness: 3
   entityType: 0
   manager: {fileID: 0}
+  description: 
   priority: 0
   isEngaged: 0
   previewRenderer: []

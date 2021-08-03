@@ -7,7 +7,7 @@ public class Unit : Entity
     [Header("Specifics")]
     public float damageAmount = 1f;
     public float cooldown = 1f;
-    private float range = 10f;
+    public float range = 10f;
     private DamageType damageType = DamageType.Physic;
 
     private float speed;

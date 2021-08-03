@@ -9,6 +9,7 @@ public class TurretMotor : MonoBehaviour
     public float damage;
     public float cooldown;
     public float range;
+    public int kill;
     [SerializeField] private bool perceShield;
     [SerializeField] private DamageType type;
 

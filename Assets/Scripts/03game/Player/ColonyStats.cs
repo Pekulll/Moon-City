@@ -213,6 +213,7 @@ public class ColonyStats : MonoBehaviour
         this.metal += metal;
         this.polymer += polymer;
         this.food += food;
+        VerifyStock();
     }
 
     public void RemoveResources(int energy, int money, float regolith, float metal, float polymer, float food)

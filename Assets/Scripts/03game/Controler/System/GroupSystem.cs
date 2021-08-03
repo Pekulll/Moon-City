@@ -665,6 +665,9 @@ public class GroupSystem : MonoBehaviour {
         if ((selectedObject != null && selectedObject.entityType == EntityType.Building) ||
            (selectedObjects != null && selectedObjects.Count != 0 && selectedObjects[0].entityType == EntityType.Building))
         {
+            if (selectedObject != null && selectedObject.GetComponent<TrainingArea>() == null) return;
+            else if (selectedObjects != null && selectedObjects.Count > 0 && selectedObjects[0].GetComponent<TrainingArea>() == null) return;
+            
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000))
             {
                 if (hit.transform.gameObject.GetComponent<TagIdentifier>() != null)

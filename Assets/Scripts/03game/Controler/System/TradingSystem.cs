@@ -251,20 +251,32 @@ public class StockMarket
     public void FluctuateRegolithValue(float factor)
     {
         regolithValue += Random.Range(0, 101) * factor / 100;
+        RestrictMarket();
     }
     
     public void FluctuateMetalValue(float factor)
     {
         metalValue += Random.Range(0, 101) * factor / 100;
+        RestrictMarket();
     }
 
     public void FluctuatePolymerValue(float factor)
     {
         polymerValue += Random.Range(0, 101) * factor / 100;
+        RestrictMarket();
     }
 
     public void FluctuateFoodValue(float factor)
     {
         foodValue += Random.Range(0, 101) * factor / 100;
+        RestrictMarket();
+    }
+
+    public void RestrictMarket()
+    {
+        regolithValue = Mathf.Clamp(regolithValue, 10, 900);
+        metalValue = Mathf.Clamp(metalValue, 20, 1300);
+        polymerValue = Mathf.Clamp(polymerValue, 20, 1300);
+        foodValue = Mathf.Clamp(foodValue, 25, 1800);
     }
 }

@@ -7,6 +7,7 @@ public class SpeedManager : MonoBehaviour
     private Image pause, normal, fast, veryFast;
 
     private float currentSpeed;
+    private float previousSpeed;
 
     private void Start()
     {
@@ -51,10 +52,11 @@ public class SpeedManager : MonoBehaviour
     {
         if(currentSpeed == 0)
         {
-            currentSpeed = 1;
+            currentSpeed = previousSpeed;
         }
         else
         {
+            previousSpeed = currentSpeed;
             currentSpeed = 0;
         }
 
