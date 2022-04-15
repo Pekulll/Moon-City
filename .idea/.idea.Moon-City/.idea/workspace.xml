@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f46a562e-722d-4d3e-b46d-3c8c1633d766" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Moon-City/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Moon-City/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/03game/Buildings/Preview/Decoration/[P] Floor lamp (1).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/03game/Buildings/Preview/Decoration/[P] Floor lamp (1).prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/03game/Buildings/Preview/Decoration/[P] Floor lamp (2).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/03game/Buildings/Preview/Decoration/[P] Floor lamp (2).prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/03game/Buildings/Preview/Decoration/[P] Floor lamp (3).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/03game/Buildings/Preview/Decoration/[P] Floor lamp (3).prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/03game/Buildings/Preview/Decoration/[P] Pub panel (1).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/03game/Buildings/Preview/Decoration/[P] Pub panel (1).prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/03game/Buildings/Preview/Decoration/[P] Pub panel (2).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/03game/Buildings/Preview/Decoration/[P] Pub panel (2).prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/03game/Buildings/Preview/Decoration/[P] Pub panel (3).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/03game/Buildings/Preview/Decoration/[P] Pub panel (3).prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/lang/en-EN.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/lang/en-EN.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/lang/fr-FR.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/lang/fr-FR.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/MoonManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/MoonManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/SpeedManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/Manager/SpeedManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/GroupSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/GroupSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/TradingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Controler/System/TradingSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Player/ColonyStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Player/ColonyStats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Special entity/Unit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/Special entity/Unit.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/TurretMotor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/Prefabs/TurretMotor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/03game/UI/Info/InformationsViewer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/03game/UI/Info/InformationsViewer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Persistent/Version.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Persistent/Version.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scènes/03game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scènes/03game.unity" afterDir="false" />
-    </list>
+    <list default="true" id="f46a562e-722d-4d3e-b46d-3c8c1633d766" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -172,7 +152,7 @@
       <workItem from="1627743000096" duration="5796000" />
       <workItem from="1627807301632" duration="11339000" />
       <workItem from="1627883972031" duration="4795000" />
-      <workItem from="1627988688022" duration="4688000" />
+      <workItem from="1627988688022" duration="5086000" />
     </task>
     <servers />
   </component>
